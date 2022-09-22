@@ -1,6 +1,5 @@
 .categories_filter{
     display: flex;
-    padding-bottom: 16px;
     overflow:auto;
 }
 
