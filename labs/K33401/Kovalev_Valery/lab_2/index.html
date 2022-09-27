@@ -28,9 +28,9 @@
                     <li><a href="./index.html" class="nav-link px-2 link-secondary">iMG</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                </form>
+                <div class="col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3" placeholder="Search..." aria-label="Search">
+                </div>
 
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,19 +43,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="categories_filter my-3">
-                <button type="button" class="btn btn-dark">Architecture</button>
-                <button type="button" class="btn btn-dark">Nature</button>
-                <button type="button" class="btn btn-dark">Cars</button>
-                <button type="button" class="btn btn-dark">Fashion</button>
-                <button type="button" class="btn btn-dark">People</button>
-                <button type="button" class="btn btn-dark">Animals</button>
-                <button type="button" class="btn btn-dark">Arts & Culture</button>
-                <button type="button" class="btn btn-dark">Food & Drinks</button>
-                <button type="button" class="btn btn-dark">Street Photography</button>
-            </div>
+            <div class="categories_filter my-3"></div>
         </div>
     </header>
+    <div class="myModal"></div>
     <section id="album"></section>
     <footer>
         <div class="container">
@@ -70,5 +61,5 @@
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script type="module" src="./scripts/app.js"></script>
+<script type="module" src="./scripts/main.js"></script>
 </html>
