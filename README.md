@@ -38,7 +38,8 @@
 
 Презентация: https://docs.google.com/presentation/d/12XGe0u1SJu7PkGuYCl_V_sIpYhhs3iZ2OYAdd07Or3o/edit?usp=sharing  
 Текстовая лекция: https://blog.kantegory.me/frontend-css-basics  
-Видео-лекция: https://youtu.be/EZhU1VidGVY
+Видео-лекция: https://youtu.be/EZhU1VidGVY  
+Видео по селекторам с примерами: https://www.youtube.com/watch?v=onoRgoj0Xus
 
 ### Язык CSS: расположение элементов (с применением CSS Grid и CSS Flexbox)
 
@@ -95,7 +96,7 @@ https://cssgridgarden.com/#ru
 
 - Календарь ближайших мероприятий
 
-- Промо-страница для организаторов мероприятия
+- Страница мероприятия
 
 - Личный кабинет пользователя со списком мероприятий, на которые он записывался
 
