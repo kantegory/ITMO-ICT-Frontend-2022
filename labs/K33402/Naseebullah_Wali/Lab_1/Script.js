@@ -6,7 +6,7 @@ $(document).ready(function (){
     // let BookList = document.getElementsByClassName('book-list');
     let ApiUrl= 'https://www.googleapis.com/books/v1/volumes?q=';
     let SearchData;
-    let item,author,publisher, bookImg,title,bookIsbn, pages;
+    let item,author,publisher, bookImg,title,bookIsbn, pages,bookIsbn2;
     let OutputList = document.getElementById('list-output');
     let placeholder = "Img/empty_book.jpg";
 
@@ -46,12 +46,17 @@ $(document).ready(function (){
     });
     function displayResult(res){
         for(let i=0 ; i< res.items.length; i+=2){
+
+            // console.log(bookIsbn)
             item = res.items[i];
             title = item.volumeInfo.title;
             author = item.volumeInfo.authors;
             publisher = item.volumeInfo.publisher;
-            bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier;
-            bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : placeholder ;
+            if (item.volumeInfo.industryIdentifiers && item.volumeInfo.industryIdentifiers[1] ){
+                bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier;
+            }
+            // bookIsbn = item.volumeInfo.industryIdentifiers[0].identifier;
+            bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : placeholder ;
             pages = item.volumeInfo.pageCount;
 
 
@@ -59,8 +64,12 @@ $(document).ready(function (){
             title2 = item2.volumeInfo.title;
             author2 = item2.volumeInfo.authors;
             publisher2 = item2.volumeInfo.publisher;
-            bookIsbn2 = item2.volumeInfo.industryIdentifiers[1].identifier;
-            bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.thumbnail : placeholder ;
+
+            if (item2.volumeInfo.industryIdentifiers && item2.volumeInfo.industryIdentifiers[1] ){
+                bookIsbn2 = item2.volumeInfo.industryIdentifiers[1].identifier;
+            }
+            // bookIsbn2 = item2.volumeInfo.industryIdentifiers[0].identifier;
+            bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.smallThumbnail : placeholder ;
             pages2 = item2.volumeInfo.pageCount;
 
             OutputList.innerHTML += '<div class="row mt-4">' +
@@ -77,7 +86,7 @@ $(document).ready(function (){
        <div class="card" style="">
          <div class="row">
            <div class="col-md-4">
-             <img src="${bookImg}" class="card-img" alt="...">
+             <img src="${bookImg}" class="card-img-top" alt="...">
            </div>
            <div class="col-md-6">
              <div class="card-body">
