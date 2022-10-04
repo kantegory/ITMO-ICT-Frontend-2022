@@ -7,10 +7,10 @@ export const unsplashApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl:"https://api.unsplash.com/"}),
     endpoints: (build) => ({
         getRandomPhotos: build.query({
-            query: (count) => `photos/random?count=${count ? count : 30}&client_id=${api_key}`,
+            query: (params) => `photos/random?count=${params.count ? params.count : 30}&orientation=${params.orientation ? params.orientation : ""}&client_id=${api_key}`,
         }),
         getPhotoByRequest: build.query({
-            query:(query,count) => `search/photos?query=${query}&client_id=${api_key}&per_page=${count ? count : 30}`
+            query:(params) => `search/photos?query=${params.query}&client_id=${api_key}&per_page=${params.count ? params.count : 30}`
         })
     })
 })

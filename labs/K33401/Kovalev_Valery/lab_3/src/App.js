@@ -1,24 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import ApiService from "./API/ApiService";
-import {useEffect} from "react";
-import {useGetPhotoByRequestQuery, useGetRandomPhotosQuery} from "./redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Slider from "./components/Slider";
+import Album from "./components/Album";
+import Header from "./components/Header";
 
 function App() {
-    const randomPhotos = useGetRandomPhotosQuery(10);
-    // const query_photos = useGetPhotoByRequestQuery(30, "cars")
-
-    if(!randomPhotos.isLoading){
-        console.log(randomPhotos.data)
-    } else {
-        console.log(randomPhotos.data)
-    }
-
-
-
   return (
     <div className="App">
-
+        <Header/>
+        <Slider/>
+        <Album/>
     </div>
   );
 }
