@@ -2,7 +2,7 @@ import {fetchHandler} from "./utils.js";
 
 export class ApiService{
     constructor() {
-        this.api_key = "RcTUFytOS2YUHSqsgEg3oL62hOFbB3Vq6I_qHi8qFls"
+        this.api_key = "Q3OLOCjOYmegcGywURXERTwFx9Xy3oHh63ZCX4DdCL4"
         this.base_url = "https://api.unsplash.com"
     }
 
