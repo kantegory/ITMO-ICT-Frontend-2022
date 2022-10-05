@@ -16,6 +16,14 @@ export const likes = () => {
     }
 }
 
+export const handleLike = (photo) => {
+    let data = likes()
+    if(!data.find(e => e.id === photo.id)){
+        data.push(photo)
+        localStorage.setItem('likes', JSON.stringify(data))
+    }
+}
+
 export const removeLike = (photo) => {
     localStorage.setItem('likes', JSON.stringify((likes().filter(e => e.id !== photo.id))))
     clearAlbum()
@@ -38,13 +46,6 @@ export const queryFilter = async (filter) => {
     renderAlbum(photos, likeButton)
 }
 
-export const handleLike = (photo) => {
-    let data = likes()
-    if(!data.find(e => e.id === photo.id)){
-        data.push(photo)
-        localStorage.setItem('likes', JSON.stringify(data))
-    }
-}
 
 export const renderFilters = () => {
     const filters = ["Architecture", "Nature", "Cars", "Fashion", "People", "Animals", "Arts & Culture", "Food & Drinks", "Street Photography"]
@@ -136,17 +137,12 @@ export const renderAlbum = (photos, actionButton) => {
     photos.forEach(e=>{
         let author_link = e.user.links.html;
         let author_username = e.user.username;
-        let unsplash_link = e.links.html;
-        let img_link = e.links.download;
         let preview_link = e.urls.regular;
-        let id = e.id;
 
         const col = document.createElement('div')
         col.className = "col"
         const card = document.createElement('div')
         card.className = "card shadow-sm"
-        // const photo = document.createElement('a')
-        // photo.href = img_link
         const photo_img = document.createElement('img')
         photo_img.src = preview_link
         photo_img.alt = "photo"
@@ -154,7 +150,6 @@ export const renderAlbum = (photos, actionButton) => {
         photo_img.addEventListener("click", ()=>{
             viewPhotoModal(e)
         })
-        // photo.appendChild(photo_img)
 
         const card_body = document.createElement('div')
         card_body.className = "card-body"
@@ -173,9 +168,6 @@ export const renderAlbum = (photos, actionButton) => {
         inner_card_body.appendChild(actionButton(e))
         inner_card_body.appendChild(author_link_btn)
 
-
-
-        // card.appendChild(photo)
         card.appendChild(photo_img)
         card.appendChild(card_body)
         col.appendChild(card)
