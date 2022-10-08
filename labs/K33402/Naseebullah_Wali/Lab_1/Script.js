@@ -49,9 +49,10 @@ $(document).ready(function (){
 
             // console.log(bookIsbn)
             item = res.items[i];
-            title = item.volumeInfo.title;
+            title = item.volumeInfo.title === undefined ? "AuthorName is not avaiable" : item.volumeInfo.title;
             author = item.volumeInfo.authors;
             publisher = item.volumeInfo.publisher;
+
             if (item.volumeInfo.industryIdentifiers && item.volumeInfo.industryIdentifiers[1] ){
                 bookIsbn = item.volumeInfo.industryIdentifiers[1].identifier;
             }
@@ -71,6 +72,27 @@ $(document).ready(function (){
             // bookIsbn2 = item2.volumeInfo.industryIdentifiers[0].identifier;
             bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.smallThumbnail : placeholder ;
             pages2 = item2.volumeInfo.pageCount;
+
+            let arr = [publisher,publisher2,author,author2,pages,pages2];
+            for(let i=0; i< arr.length; i++){
+                if(arr[i]===undefined){
+                    arr[i] = "Not avaiable"
+                }
+
+            }
+            publisher = arr[0];
+            publisher2 = arr[1];
+            author = arr[2];
+            author2= arr[3];
+            pages= arr[4];
+            pages2= arr[5];
+
+            // if(publisher=== undefined ) {
+            //     publisher = "Publisher is not avaiable"
+            // }
+            // if (author === undefined ){
+            //     author = "Author is not avaiable";
+            // }
 
             OutputList.innerHTML += '<div class="row mt-4">' +
                 formatOutput(bookImg,title,author,publisher,bookIsbn,pages)+
