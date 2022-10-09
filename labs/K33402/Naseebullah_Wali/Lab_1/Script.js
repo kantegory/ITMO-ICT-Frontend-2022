@@ -49,7 +49,7 @@ $(document).ready(function (){
 
             // console.log(bookIsbn)
             item = res.items[i];
-            title = item.volumeInfo.title === undefined ? "AuthorName is not avaiable" : item.volumeInfo.title;
+            title = item.volumeInfo.title;
             author = item.volumeInfo.authors;
             publisher = item.volumeInfo.publisher;
 
@@ -117,6 +117,7 @@ $(document).ready(function (){
                <p class="card-text">Publisher: ${publisher}</p>
                <p class="card-text">Pages: ${pages}</p>
                <a href="${viewUrl}" class="btn btn-secondary w-10">Read Now</a>
+               <a href="BookDetailPage.html" class="btn btn-secondary w-10">Description</a>
              </div>
            </div>
          </div>
