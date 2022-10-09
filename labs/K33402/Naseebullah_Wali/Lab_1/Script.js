@@ -1,6 +1,6 @@
 
-
-$(document).ready(function (){
+document.addEventListener("DOMContentLoaded", function(event) {
+// $(document).ready(function (){
     let Search = document.getElementById('search-button');
     let InputData =  document.getElementById('search-box');
     // let BookList = document.getElementsByClassName('book-list');
@@ -10,8 +10,8 @@ $(document).ready(function (){
     let OutputList = document.getElementById('list-output');
     let placeholder = "Img/empty_book.jpg";
 
-
-    $(Search).click(function check(){
+    Search.addEventListener("click", function check(){
+    // $(Search).click(function check(){
         // InputData.style.backgroundColor='red';
         OutputList.innerHTML= '';
         SearchData= $(InputData).val();
@@ -20,11 +20,12 @@ $(document).ready(function (){
             alert("Nothing inserted")
             displayError();
         }else{
-            $.ajax({
-                url: ApiUrl + SearchData,
-                dataType: "json",
-                success: function (response){
-                    // console.table(response)
+            fetch(ApiUrl+SearchData)
+                .then((response) => response.json())
+                .then(function (response){
+                    console.log(response)
+
+
                     if(response.totalItems === 0){
                         alert("No Result From Api! .... try agian ");
                     }else{
@@ -32,12 +33,25 @@ $(document).ready(function (){
                         $(".book-list").css("visibility", "visible");
                         displayResult(response)
                     }
-                },
-                error: function (){
-                    alert("Something Wrong in Ajax")
-
-                }
-            });
+                } );
+            // $.ajax({
+            //     url: ApiUrl + SearchData,
+            //     dataType: "json",
+            //     success: function (response){
+            //         // console.table(response)
+            //         if(response.totalItems === 0){
+            //             alert("No Result From Api! .... try agian ");
+            //         }else{
+            //             $("#title").animate({'margin-top': '5px'}, 1000)   //search box animation
+            //             $(".book-list").css("visibility", "visible");
+            //             displayResult(response)
+            //         }
+            //     },
+            //     error: function (){
+            //         alert("Something Wrong in Ajax")
+            //
+            //     }
+            // });
         }
         $(Search).val("")  //cleaning Search box
 
