@@ -61,12 +61,14 @@ https://cssgridgarden.com/#ru
 Видео-лекция: https://www.youtube.com/watch?v=xtC6l5-q4yU
 
 ### Язык CSS: адаптивность под разные виды устройств
-### Работа с UI-фреймворком Bootstrap
+
+Пример: https://github.com/kantegory/mentoring/tree/master/17_adaptive_example
+
+### Работа с UI-фреймворком Bootstrap + адаптивность
 
 Видео-лекция: https://www.youtube.com/watch?v=J1bMExplCAw&t=757s
 
-### Язык программирования JS: основы языка, основы работы с DOM, обработка пользовательский событий
-### Язык программирования JS: работа с DOM-хранилищами
+### Язык программирования JS: основы языка, основы работы с DOM, обработка пользовательских событий, DOM-хранилища
 
 Видео-лекция: https://www.youtube.com/watch?v=qo8RUL1_pF8
 
