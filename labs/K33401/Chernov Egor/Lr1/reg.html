@@ -9,9 +9,12 @@
   <link rel="stylesheet" href="styles_reg.css">
 </head>
 <body>
-  <header class="header">
+  <header class="navbar navbar-expand-sm navbar-dark bd-navbar sticky-top header">
+    <nav class="container-xxl flex-wrap flex-sm-nowrap justify-content-center" aria-label="Main navigation">
+      <span class="navbar-brand title--span mywhite--text"><a class="headr--link" href="file:///C:/Users/krish/%D0%A3%D1%87%D0%B5%D0%B1%D0%B0/5%20%D1%81%D0%B5%D0%BC%D0%B5%D1%81%D1%82%D1%80/Frontend-dev/ITMO-ICT-Frontend-2022/labs/K33401/Chernov%20Egor/Lr1/index.html">Coins</a></span>
+    </nav>
   </header>
-  <main class="main">
+  <main class="main p-4">
     <form action="index.html" method="post" class="main__form">
       <section class="mb-3">
         <label for="firstName" class="form-label">First name</label>
@@ -42,7 +45,36 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </main>
-  <footer class="footer">
+  <footer class="footer pt-4">
+    <section class="col-md-8 mx-auto text-center">
+      <h6 class="fw-semibold mywhite--text">Website creator <a href="https://t.me/chernovec" class="footer--link1">Egor Chernov</a></h6>
+      <p class="mywhite--text footer--text">Site under development. At the moment, only a site template was created. Stack of technologies that I used:</p>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://getbootstrap.com/">
+          <img class="d-block mb-2" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Bootstrap</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://canvasjs.com/">
+          <img class="d-block mb-2" src="./res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">CanvasJS</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://axios-http.com/ru/">
+          <img class="d-block mb-2" src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Axios</span>
+        </a>
+      </div>
+    </section>
+    <section class="text-center mt-4 py-4 footer__nav">
+      <h6 class="fw-semibold mywhite--text">Used API</h6>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get coins</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get specific coin</span>
+        </a>
+      </div>
+    </section>
   </footer>
 </body>
 </html>

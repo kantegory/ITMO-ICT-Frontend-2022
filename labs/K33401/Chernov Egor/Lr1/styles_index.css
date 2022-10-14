@@ -1,5 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
-
 html, body {
     background: #FFF7E9;
   }
@@ -44,10 +42,6 @@ html, body {
   .percent--down--color {
     background: #E60C0C;
     color:#FFF7E9;
-  }
-
-  .item--list {
-    color: #FFF7E9;
   }
 
   .footer {

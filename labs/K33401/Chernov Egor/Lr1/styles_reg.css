@@ -1,12 +1,62 @@
+html, body {
+    background: #FFF7E9;
+}
+
+.header {
+    background: #FF731D;
+}
+    
+.headr--link{
+    color: #FFF7E9;
+    text-decoration: none;
+}
+
+
+.headr--link:hover {
+color: #FFF7E9;
+}
+
+.mywhite--text {
+    color:#FFF7E9;
+}
+
 .main {
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    margin-top: 5rem;
 }
 
 .main__form {
     width: 60%;
-    margin-bottom: 1rem;
+}
+
+.footer {
+    background: #5F9DF7;
+}
+
+.footer__nav {
+background: #1746A2;
+}
+
+.footer--link1{
+color: #1746A2;
+text-decoration: none;
+}
+
+.footer--link2{
+color: #5F9DF7;
+text-decoration: none;
+}
+
+.footer--link1:hover {
+color: #FFF7E9;
+}
+
+.footer--link2:hover {
+color: #FFF7E9;
+}
+
+.footer--text {
+font-size: 12px;
 }
