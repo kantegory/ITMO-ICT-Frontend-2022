@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Лабораторная работа №1 - ITMO-ICT-WEB-DEVELOPMENT</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 \u21161";
+        var mkdocs_page_input_path = "lr_1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ITMO-ICT-WEB-DEVELOPMENT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Начальная</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Лабораторная работа №1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#5-">Вариант 5 - сайт бренда одежды</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ITMO-ICT-WEB-DEVELOPMENT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Лабораторная работа №1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="no1">Лабораторная работа №1<a class="headerlink" href="#no1" title="Permanent link">&para;</a></h2>
+<h3 id="5-">Вариант 5 - сайт бренда одежды<a class="headerlink" href="#5-" title="Permanent link">&para;</a></h3>
+<p>Главная страница сайта</p>
+<ul>
+<li><code>main.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+&lt;title&gt;Bohemin&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+        &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+    &lt;h1 class=&quot;title-h1&quot;&gt;BOHEMIN&lt;/h1&gt;
+    &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+        &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top: 20px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;search.html&quot; target=&quot;_blank&quot;&gt;SEARCH&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- реализация ряда с картинкой --&gt;
+    &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;img src=&quot;images/item01.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;main&quot;&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+        &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                &lt;p&gt;LOCATION&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+            &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Страница, на которой представлены категории одежды, всего их три</p>
+<ul>
+<li><code>bohemin_collection.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Bohemin Collection&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;BOHEMIN COLLECTION&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top: 20px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;search.html&quot; target=&quot;_blank&quot;&gt;SEARCH&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- карточки с каталогом одежды --&gt;
+        &lt;div class=&quot;row row-cols-1 row-cols-md-2 row-cols-lg-3&quot;&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for main page/photo_2022-10-08_00-46-11.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;dresses.html&quot; target=&quot;_blank&quot;&gt;Dresses&lt;/a&gt;&lt;/h5&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for main page/photo_2022-10-08_00-46-26.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;skirt&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;skirts.html&quot; target=&quot;_blank&quot;&gt;Skirts&lt;/a&gt;&lt;/h5&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for main page/photo_2022-10-08_00-46-35 — копия.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;shirt&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;shirts.html&quot; target=&quot;_blank&quot;&gt;Shirts&lt;/a&gt;&lt;/h5&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>На этой страничку осущевляется вход</p>
+<ul>
+<li><code>sign_in.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;SIGN IN/REGISTRATION&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;SIGN IN/REGISTRATION&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- Typical sign in / login form with additional register buttons --&gt;
+        &lt;form&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;!-- Email input --&gt;
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form1Example1&quot;&gt;EMAIL ADDRESS&lt;/label&gt;
+              &lt;input type=&quot;email&quot; id=&quot;form1Example1&quot; class=&quot;form-control&quot; placeholder=&quot;name@example.com&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form2Example2&quot;&gt;PASSWORD&lt;/label&gt;
+              &lt;input type=&quot;password&quot; id=&quot;form2Example2&quot; class=&quot;form-control&quot; placeholder=&quot;password&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Checkbox --&gt;
+            &lt;div class=&quot;form-outline mb-2&quot;&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; value=&quot;&quot; id=&quot;form3Example3&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;form3Example3&quot;&gt;&lt;p&gt;Remember me&lt;/p&gt;&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- Submit button --&gt;
+            &lt;div class=&quot;justify-content&quot;&gt;
+              &lt;a href=&quot;profile.html&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;w-100 btn btn-dark btn-sm mb-5&quot;&gt;SIGN IN&lt;/button&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;!-- Register buttons --&gt;
+            &lt;div class=&quot;text-center mb-5&quot;&gt;
+              &lt;p&gt;Not a member? &lt;a class=&quot;nav-link active text-dark&quot; href=&quot;register.html&quot;&gt;&lt;u&gt;Register&lt;/u&gt;&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Здесь пользователь может зарегистрироваться</p>
+<ul>
+<li><code>register.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Registration&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;REGISTRATION&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin: top 20px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:20px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- Typical sign up form with additional buttons --&gt;
+        &lt;form&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+                &lt;label for=&quot;exampleInputName1&quot;&gt;NAME&lt;/label&gt;
+                &lt;input type=&quot;name&quot; class=&quot;form-control&quot; id=&quot;exampleInputName1&quot; placeholder=&quot;Your Name&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+                &lt;label for=&quot;exampleInputEmail1&quot;&gt;EMAIL ADDRESS&lt;/label&gt;
+                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;exampleInputEmail1&quot; placeholder=&quot;Enter Email&quot; required&gt;
+            &lt;/div&gt;  
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+                &lt;label for=&quot;exampleInputPassword1&quot;&gt;PASSWORD&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleInputPassword1&quot; placeholder=&quot;Password&quot; required&gt;
+            &lt;/div&gt; 
+            &lt;div class=&quot;form-outline mb-4&quot;&gt;
+                &lt;label for=&quot;exampleInputRepeatPassword1&quot;&gt;REPEAT PASSWORD&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleInputRepeatPassword1&quot; placeholder=&quot;Repeat your password&quot; required&gt;
+            &lt;/div&gt; 
+            &lt;div class=&quot;form-outline mb-2&quot;&gt;
+              &lt;div class=&quot;form-check&quot;&gt;
+                &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; value=&quot;&quot; id=&quot;form2Example31&quot; checked&gt;
+                &lt;label class=&quot;form-check-label&quot; for=&quot;form2Example31&quot;&gt;&lt;p&gt;I agree to the processing of personal data&lt;/p&gt;&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;justify-content&quot;&gt;
+              &lt;a href=&quot;profile.html&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;w-100 btn btn-dark btn-sm mb-5&quot;&gt;&lt;small&gt;REGISTER&lt;/small&gt;&lt;/button&gt;&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Личный кабинет пользователя</p>
+<ul>
+<li><code>profile.html</code> </li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Profile&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;MY ACCOUNT&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;form&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;text-start&quot;&gt;
+              &lt;h6&gt;&lt;b&gt;MY INFORMATION&lt;/b&gt;&lt;/h6&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group mt-4 mb-3&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form1Name1&quot;&gt;FIRST NAME&lt;/label&gt;
+              &lt;input type=&quot;text&quot; id=&quot;form1Name1&quot; class=&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-outline mb-3&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form2Name2&quot;&gt;LAST NAME&lt;/label&gt;
+              &lt;input type=&quot;text&quot; id=&quot;form2Name2&quot; class=&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-outline&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form3Birth&quot;&gt;DATE OF BIRTH (MM/DD/YYYY)&lt;/label&gt;
+              &lt;input type=&quot;text&quot; id=&quot;form3Birth&quot; class=&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;justify-content&quot;&gt;
+              &lt;button class=&quot;w-100 btn btn-dark btn-sm mt-3 mb-5&quot; type=&quot;button&quot;&gt;&lt;small&gt;SAVE&lt;/small&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;h6&gt;&lt;b&gt;ACCOUNT INFORMATION&lt;/b&gt;&lt;/h6&gt;
+            &lt;div class=&quot;form-outline mt-2 mb-5&quot;&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form4Email&quot;&gt;EMAIL&lt;/label&gt;
+              &lt;input type=&quot;text&quot; id=&quot;form4Email&quot; class=&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+            &lt;h6&gt;&lt;b&gt;MESSAGE&lt;/b&gt;&lt;/h6&gt;
+            &lt;div class=&quot;form-outline mt-2 mb-3&quot;&gt;
+              &lt;textarea class=&quot;form-control&quot; id=&quot;form5Mess&quot; rows=&quot;4&quot;&gt;&lt;/textarea&gt;
+              &lt;label class=&quot;form-label&quot; for=&quot;form5Mess&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;justify-content&quot;&gt;
+              &lt;button class=&quot;w-100 btn btn-dark btn-sm mb-5&quot; type=&quot;button&quot;&gt;&lt;small&gt;SEND&lt;/small&gt;&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Далее будет представлена галерия одежды отдельно под </p>
+<ul>
+<li><code>dresses.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Bohemin Dresses&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;/DRESSES/&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;skirts.html&quot;&gt;/SKIRTS/&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;shirts.html&quot;&gt;/SHIRTS/&lt;/a&gt;&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top: 20px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;search.html&quot; target=&quot;_blank&quot;&gt;SEARCH&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- карточки с каталогом одежды --&gt;
+        &lt;div class=&quot;row row-cols-1 row-cols-md-2 row-cols-lg-2 g-5&quot;&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-16.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;grey silk dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Silk Maxi Dress with Long Flared Sleeves&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;1270 AED&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-13.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;milk dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Maxi Sleeveless Milk Dress&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;890 AED&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-28.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;perple dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Purple Dress&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;1300 AED&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-34 — копия.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;blue dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Midnight Blue Knitted Fabric Dress&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;1500 AED&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-14.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;maxi grey dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Grey Sillk Dress&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;1450 AED&lt;/p&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with dresses/photo_2022-10-08_00-46-37 — копия.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;Sleeveless dress&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Sleeveless Dress&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;760 AED&lt;/p&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>skirts.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Bohemin Skirts&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;/SKIRTS/&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;dresses.html&quot;&gt;/DRESSES/&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;shirts.html&quot;&gt;/SHIRTS/&lt;/a&gt;&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top: 20px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;search.html&quot; target=&quot;_blank&quot;&gt;SEARCH&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- карточки с каталогом одежды --&gt;
+        &lt;div class=&quot;row row-cols-1 row-cols-md-2 row-cols-lg-2 g-5&quot;&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card mb-3&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with skirts/photo_2022-10-08_00-46-30 — копия.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;skirt 1&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Midi Skirt with Fringe&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;600 AED&lt;/p&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with skirts/photo_2022-10-08_00-46-23.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;skirt 2&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Wrap Midi Skirt&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;550 AED&lt;/p&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>shirts.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;Bohemin Shirts&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;bohemin_collection.html&quot; target=&quot;_blank&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;/SHIRTS/&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;dresses.html&quot;&gt;/DRESSES/&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;skirts.html&quot;&gt;/SKIRTS/&lt;/a&gt;&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top: 20px;&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;search.html&quot; target=&quot;_blank&quot;&gt;SEARCH&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;!-- карточки с каталогом одежды --&gt;
+        &lt;div class=&quot;row row-cols-1 row-cols-md-2 row-cols-lg-2 g-5&quot;&gt;
+          &lt;div class=&quot;col&quot;&gt;
+            &lt;div class=&quot;card mb-3&quot;&gt;
+              &lt;img src=&quot;images/prof/images for page with shirts/photo_2022-10-08_00-46-35 — копия.jpg&quot; class=&quot;card-img-top&quot; alt=&quot;shoulder shirt&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;h5 class=&quot;title-h6 text-center&quot;&gt;Accent Shoulder Shirt&lt;/h5&gt;
+                &lt;p class=&quot;title-carddes card-text text-center&quot;&gt;540 AED&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>На этой странице пользователь сможет отфильтровать одежду по определенную коллекцию, а также доступна возможность поиска определенного товара</p>
+<ul>
+<li><code>search.html</code></li>
+</ul>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;title&gt;SEARCH&lt;/title&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Navbar для маленького экрана --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-sm&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;main.html&quot;&gt;&lt;/a&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse&quot; id=&quot;navbarNav&quot;&gt;
+          &lt;ul class=&quot;navbar-nav&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;sign_in.html&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;a class=&quot;nav-link&quot; href=&quot;search.html&quot;&gt;SEARCH&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class=&quot;container-lg my-3&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;h1 class=&quot;title-h1&quot;&gt;&lt;a class=&quot;nav-link text-dark&quot; href=&quot;main.html&quot;&gt;BOHEMIN&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;col-lg-4 my-5&quot;&gt;
+        &lt;p&gt;SEARCH&lt;/p&gt;
+        &lt;!-- Прячем колонку с навигацией для маленького экрана --&gt;
+        &lt;div class=&quot;row d-none d-sm-block&quot;&gt;
+        &lt;!-- Наваигация --&gt;
+          &lt;ul class=&quot;nav flex-column&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;p style=&quot;margin-top:75px; margin-bottom: 30px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;bohemin_collection.html&quot;&gt;BOHEMIN COLLECTION&lt;/a&gt;&lt;/p&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+              &lt;p style=&quot;margin-top:20px;&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; aria-current=&quot;page&quot; href=&quot;sign_in.html&quot; target=&quot;_blank&quot;&gt;SIGN IN/REGISTER&lt;/a&gt;&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;col-lg-8 my-5&quot;&gt;
+        &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+          &lt;div class=&quot;col-lg-4&quot;&gt;
+            &lt;select class=&quot;form-select form-select-sm&quot; aria-label=&quot;.form-select-sm example&quot;&gt;
+              &lt;option selected&gt;COLLECTIONS&lt;/option&gt;
+              &lt;option value=&quot;1&quot;&gt;DESERT&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;CITY&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-4&quot;&gt;
+            &lt;!-- поле поиска --&gt;
+            &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input type=&quot;search&quot; class=&quot;form-control rounded&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot; aria-describedby=&quot;search-addon&quot; /&gt;
+                &lt;button type=&quot;button&quot;&gt;search&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- футер --&gt;
+    &lt;div class=&quot;container-lg my-3&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-4&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-8&quot;&gt;
+          &lt;div class=&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 col-lg-6 offset-md-0&quot;&gt;
+                    &lt;p&gt;LOCATION&lt;/p&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-sm-6 col-md-6 offset-md-0&quot;&gt;
+                    &lt;p class=&quot;text-start&quot;&gt;Dubai UAE&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;p-2 title-h6&quot;&gt;
+              &lt;p class=&quot;text-end&quot;&gt;CONTACT US&lt;/p&gt;
+              &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=&quot;&gt;Instagram&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-sm-6 col-md-5 offset-md-1&quot;&gt;
+                  &lt;p class=&quot;text-end&quot;&gt;&lt;a class=&quot;nav-link active text-dark&quot; href=&quot;https://wa.me/message/KTMI7SHLNZUJK1&quot;&gt;WhatsApp&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Подключены кастомные шрифты и назначены размеры для определенных заголовков</p>
+<ul>
+<li><code>style.css</code></li>
+</ul>
+<pre><code class="language-css">@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&amp;family=Roboto&amp;display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&amp;display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+
+
+}
+.title-h1{
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+}
+.title-h6{
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+
+}
+.title-carddes{
+    font-family: 'Lora', serif;
+    font-size: 11px;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Начальная"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
