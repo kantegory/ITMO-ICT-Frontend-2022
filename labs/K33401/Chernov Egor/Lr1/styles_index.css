@@ -1,88 +1,30 @@
+@import "~bootstrap/scss/bootstrap";
+
 html, body {
-    margin: 0;
-    padding: 0;
+    background: #FFF7E9;
   }
   
-  .nav {
-    background: #85a5ff;
-    padding: 1rem 1.25rem;
+  .color--link {
+    color:#FFF7E9;
   }
-  
-  .nav__list {
-    display: flex;
-    justify-content: space-between;
+
+  .header {
+    background: #FF731D;
   }
-  
-  .list--unstyled {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+  .header__section {
+    background: #FF731D;
   }
-  
-  .nav__list a,
-  .menu__list a {
-    font-size: 1rem;
-    color: #fff;
-    text-decoration: none;
+
+  .item--list {
+    color: #FFF7E9;
   }
-  
-  .main {
-    display: flex;
+
+  .footer {
+    background: #5F9DF7;
   }
-  
-  .menu-wrapper {
-    min-width: 320px;
-    background: #3564e6;
-    margin-right: 1rem;
-    min-height: 100vh;
-  }
-  
-  .menu {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu__list {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 1.25rem;
-  }
-  
-  .menu__list a {
-    font-size: 2rem;
-  }
-  
-  .container {
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .container .announce {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .announce--full {
-    -webkit-line-clamp: unset !important;
-  }
-  
-  h1 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: calc(100vw - 2rem);
-  }
-  
-  @media screen and (max-width: 810px) {
-    .menu-wrapper {
-      max-width: 230px;
-      min-width: 230px;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .menu-wrapper {
-      display: none;
-    }
+
+  .footer__nav {
+    background: #1746A2;
+    padding: 0.5rem 1.25rem;
   }

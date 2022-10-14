@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coins</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles_reg.css">
+</head>
+<body>
+  <header class="header">
+  </header>
+  <main class="main">
+    <form action="index.html" method="post" class="main__form">
+      <section class="mb-3">
+        <label for="firstName" class="form-label">First name</label>
+        <input type="text" class="form-control" id="firstName">
+      </section>
+      <section class="mb-3">
+        <label for="secondName" class="form-label">Second name</label>
+        <input type="text" class="form-control" id="secondName">
+      </section>
+      <section class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" aria-describedby="ageHelp">
+        <span id="ageHelp" class="form-text">The required age for trading is 18 years old.</span>
+      </section>
+      <section class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+      </section>
+      <section class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password">
+      </section>
+      <section class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox">
+        <label class="form-check-label" for="checkbox">Check me out</label>
+      </section>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </main>
+  <footer class="footer">
+  </footer>
+</body>
+</html>

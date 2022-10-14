@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.main__form {
+    width: 60%;
+    margin-bottom: 1rem;
+}
