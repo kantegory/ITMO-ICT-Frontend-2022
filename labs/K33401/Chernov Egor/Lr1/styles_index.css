@@ -3,8 +3,8 @@
 html, body {
     background: #FFF7E9;
   }
-  
-  .color--link {
+
+  .mywhite--text {
     color:#FFF7E9;
   }
 
@@ -14,6 +14,36 @@ html, body {
 
   .header__section {
     background: #FF731D;
+  }
+
+  .filter--color {
+    background: #5F9DF7;
+  }
+
+  .filter--color:hover {
+    background: #1746A2;
+  }
+
+  .filter--color:active { 
+    background: #1746A2;
+  }
+
+  .filter--color:focus { 
+    background: #1746A2;
+  }
+
+  .main--text-color {
+    color:#000;
+  }
+
+  .percent--up--color {
+    background: #009966;
+    color:#FFF7E9;
+  }
+
+  .percent--down--color {
+    background: #E60C0C;
+    color:#FFF7E9;
   }
 
   .item--list {
@@ -26,5 +56,26 @@ html, body {
 
   .footer__nav {
     background: #1746A2;
-    padding: 0.5rem 1.25rem;
+  }
+
+  .footer--link1{
+    color: #1746A2;
+    text-decoration: none;
+  }
+
+  .footer--link2{
+    color: #5F9DF7;
+    text-decoration: none;
+  }
+
+  .footer--link1:hover {
+    color: #FFF7E9;
+  }
+
+  .footer--link2:hover {
+    color: #FFF7E9;
+  }
+
+  .footer--text {
+    font-size: 12px;
   }
