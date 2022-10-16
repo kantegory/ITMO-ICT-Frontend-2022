@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my_portfolio.css">
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="src/Coinbase-logo-1.svg"
+                                                            alt="coinbase logo">
+            </a>
+        </li>
+        <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
+        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+    </ul>
+</header>
+<section class="container">
+    <div class="dataTable-wrapper d-flex justify-content-center">
+        <table class="table align-middle border-light mt-5 w-75">
+            <thead>
+            <tr class="head-row border-light fw-normal">
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Итого</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="align-middle alert border-light" role="alert">
+                <td class="d-flex align-items-center">
+                    <img class="pic rounded-circle"
+                         src="src/bitcoin-svgrepo-com.svg"
+                         style="width: 30px; height: 30px"
+                         alt="">
+                    <div class="ms-2">
+                        <p class="m-0 fw-bold">Bitcoin</p>
+                        <p class="m-0 text-muted">BTC</p>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-0 price">RUB 1,218,035.77</p>
+                </td>
+                <td>
+                    <label>
+                        <input class="input amount" type="text" placeholder="0" value="2">
+                    </label>
+                </td>
+                <td>
+                    <div class="fw-normal mb-0 result">
+                        RUB 2,436,071.54
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none">
+                        Продать
+                    </button>
+                </td>
+            </tr>
+            <tr class="align-middle alert border-light" role="alert">
+                <td class="d-flex align-items-center ">
+                    <img class="pic rounded-circle"
+                         src="src/eth-svgrepo-com.svg"
+                         style="width: 30px; height: 30px"
+                         alt="">
+                    <div class="ms-2">
+                        <p class="m-0 fw-bold">Ethereum</p>
+                        <p class="m-0 text-muted">ETH</p>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-0 price">RUB 72,489.48</p>
+                </td>
+                <td>
+                    <label>
+                        <input class="input amount" type="text" placeholder="0" value="0.323">
+                    </label>
+                </td>
+                <td>
+                    <div class="fw-normal mb-0 result">
+                        RUB 23,414.10
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none">
+                        Продать
+                    </button>
+                </td>
+            </tr>
+            <tr class="align-middle border-light" role="alert">
+                <td class="d-flex align-items-center">
+                    <img class="pic rounded-circle"
+                         src="src/doge-svgrepo-com.svg"
+                         style="width: 30px; height: 30px"
+                         alt="">
+                    <div class="ms-2">
+                        <p class="m-0 fw-bold">Dogecoin</p>
+                        <p class="m-0 text-muted">DOGE</p>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-0 price">RUB 3.34</p>
+                </td>
+                <td>
+                    <label>
+                        <input class="input amount" type="text" placeholder="0" value="12313">
+                    </label>
+                </td>
+                <td>
+                    <div class="fw-normal mb-0 result">
+                        RUB 41,125.42
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none">
+                        Продать
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>
