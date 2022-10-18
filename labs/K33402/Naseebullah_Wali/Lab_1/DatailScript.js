@@ -2,10 +2,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let urlapi= 'https://www.googleapis.com/books/v1/volumes?q='
     let author,title,publisher,bookIsdn,imglink, page,language,description;
     let output = document.getElementById('Output-js')
-    let inputdata= $("#search-box").val;
+    let params = new URLSearchParams(document.location.search);
+    let titleparamsa = params.get("id");
+    // console.log(titleparamsa)
+    // console.log(window.location.search);
+    // let SearchData =  document.querySelector('#search-box');
+    // let  InputData= SearchData.value;
+    // let inputdata= $("#search-box").val;
 
 
-    fetch(urlapi+inputdata)
+    fetch(urlapi+titleparamsa)
         .then((response) => response.json())
         .then(function (data){
             console.log(data)
@@ -32,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if(arr2[j]===undefined){
                 arr2[j] = "Not avaiable"
             }
-
         }
         publisher = arr2[0];
         language = arr2[1];

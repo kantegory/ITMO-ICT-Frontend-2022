@@ -6,4 +6,5 @@ h1,h2{
 }
 .book-list{
     visibility: hidden;
+    color: black;
 }

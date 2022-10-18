@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 </head>
-<body style="background-color: #A5C9CA">
+<body style="background-image: url('Img/back.svg'); color: whitesmoke">
 
 <!--nav bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,7 +29,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About me</a>
+                    <a class="nav-link" href="#footer">About me</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">Log In</a>
@@ -96,13 +96,13 @@
         </section>
 <!--section of showing API result-->
         <section class="book-list mt-5">
-                <h2 class="text-center">Search Results</h2>
+                <h2 class="text-center text-white">Search Results</h2>
                 <div id="list-output">
                     <div class="row"></div>
                 </div>
         </section>
 <!--footer section with information about me, API and some links-->
-        <footer class="container-fluid text-light text-center p-1 mt-3" style="background-color: #343A40">
+        <footer id="footer" class="container-fluid text-light text-center p-1 mt-3" style="background-color: #343A40">
             <div class="row">
 
                     <div class="col-sm-4">
@@ -135,6 +135,7 @@
 
 
         <script src="Script.js"  ></script>
+        <script src="DatailScript.js"></script>
 
 
 </body>
