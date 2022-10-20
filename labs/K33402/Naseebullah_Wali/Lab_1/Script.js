@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let InputData =  document.querySelector('#search-box');
     let ApiUrl= 'https://www.googleapis.com/books/v1/volumes?q=';
     let SearchData;
-    let item,author,publisher, bookImg,title,bookIsbn, pages,bookIsbn2,ida;
+    let item,author,publisher, bookImg,title,bookIsbn, pages,bookIsbn2,ida,item2,author2,publisher2,bookImg2,title2,pages2;
     let OutputList = document.getElementById('list-output');
     let placeholder = "Img/empty_book.jpg";
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 .then((response) => response.json())
                 .then(function (response){
                     console.log(response)
-                    if(response.totalItems === 0){
+                    if(response.total === 0){
                         alert("No Result From Api! .... try again ");
                     }else{
                         $("#title").animate({'margin-top': '5px'}, 1000)   //search box animation
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function formatOutput(bookImg, title, author, publisher,bookIsbn,pages,ida) {
         // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
         let viewUrl = 'book.html?isbn='+bookIsbn; //constructing link for bookviewer
-        let deatil = 'BookDetailPage.html?id='+ida;
+        let Info = 'BookDetailPage.html?id='+ida;
         let htmlCard = `<div class="col-6">
        <div class="card" style="">
          <div class="row">
@@ -99,11 +99,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
              <div class="card-body">
                <h5 class="card-title">${title}</h5>
                <p class="card-text">Author: ${author}</p>
-               <p class="card-text">ID: ${ida}</p>
+<!--               <p class="card-text">ID: ${ida}</p>-->
                <p class="card-text">Publisher: ${publisher}</p>
                <p class="card-text">Pages: ${pages}</p>
                <a href="${viewUrl}" class="btn btn-secondary w-10">Read Now</a>
-               <a target="_blank" href="${deatil}" class="btn btn-secondary w-10">Description</a>
+               <a target="_blank" href="${Info}" class="btn btn-secondary w-10">Description</a>
              </div>
            </div>
          </div>
@@ -114,8 +114,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function displayError() {
         alert("search term can not be empty!")
     }
-    // let params = new URLSearchParams(document.location.search);
-    // let titleparams = params.get("title");
-    // console.log(titleparams)
+
 })
 

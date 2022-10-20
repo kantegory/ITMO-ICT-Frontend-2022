@@ -1,17 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    let urlapi= 'https://www.googleapis.com/books/v1/volumes?q='
-    let author,title,publisher,bookIsdn,imglink, page,language,description;
+    let Url_api= 'https://www.googleapis.com/books/v1/volumes?q='
+    let author,title,publisher,bookIsbn,Img_link, page,language,description;
     let output = document.getElementById('Output-js')
     let params = new URLSearchParams(document.location.search);
-    let titleparamsa = params.get("id");
-    // console.log(titleparamsa)
-    // console.log(window.location.search);
-    // let SearchData =  document.querySelector('#search-box');
-    // let  InputData= SearchData.value;
-    // let inputdata= $("#search-box").val;
+    let UrlID = params.get("id");
 
 
-    fetch(urlapi+titleparamsa)
+
+    fetch(Url_api+UrlID)
         .then((response) => response.json())
         .then(function (data){
             console.log(data)
@@ -19,21 +15,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } );
     function display_data(data){
         for (let i=0; i <data.items.length; i++){
-            item1 = data.items[i];
-            title = item1.volumeInfo.title;
-            author = item1.volumeInfo.authors;
-            publisher = item1.volumeInfo.publisher;
-            imglink = (item1.volumeInfo.imageLinks) ? item1.volumeInfo.imageLinks.smallThumbnail : "NOt Aviable";
-            page = item1.volumeInfo.pageCount;
-            language = item1.volumeInfo.language;
-            description = item1.volumeInfo.description;
-            if (item1.volumeInfo.industryIdentifiers && item1.volumeInfo.industryIdentifiers[1] ){
-                bookIsbn = item1.volumeInfo.industryIdentifiers[1].identifier;
+            let Item = data.items[i].volumeInfo;
+            title = Item.title;
+            author = Item.authors;
+            publisher = Item.publisher;
+            Img_link = (Item.imageLinks) ? Item.imageLinks.smallThumbnail : "NOt Aviable";
+            page = Item.pageCount;
+            language = Item.language;
+            description = Item.description;
+            if (Item.industryIdentifiers && Item.industryIdentifiers[1] ){
+                bookIsbn = Item.industryIdentifiers[1].identifier;
             }
             // console.log(title,author,publisher,page,language,description);
 
         }
-        let arr2 = [publisher,language,author,description,bookIsdn];
+        let arr2 = [publisher,language,author,description,bookIsbn];
         for(let j=0; j< arr2.length; j++){
             if(arr2[j]===undefined){
                 arr2[j] = "Not avaiable"
@@ -43,20 +39,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
         language = arr2[1];
         author = arr2[2];
         description= arr2[3];
-        bookIsdn= arr2[4];
+        bookIsbn= arr2[4];
         output.innerHTML += '<div class= "row">' +
-            card_design(title,author,publisher,imglink,page,language,description,bookIsdn) + '<hr>' +
+            card_design(title,author,publisher,Img_link,page,language,description,bookIsbn) + '<hr>' +
             '</div>';
     }
 
 
 
-    function card_design(title,author,publisher,imglink,page,language,description,bookIsbn){
-        let viewUrl = 'book.html?isbn='+bookIsbn; //constructing link for bookviewer
+    function card_design(title,author,publisher,Img_link,page,language,description,bookIsbn){
+        let viewUrl = 'book.html?isbn='+bookIsbn; //constructing link for book viewer
         let tempalate=  `<section class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 ">
-                        <img src="${imglink}" alt="Not found" class="img-fluid img-thumbnail ml-5" width="70%" height="auto">
+                        <img src="${Img_link}" alt="Not found" class="img-fluid img-thumbnail ml-5" width="70%" height="auto">
                     </div>
                     <div class="col-md-8">
             <p>
