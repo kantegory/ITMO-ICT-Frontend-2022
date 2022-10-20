@@ -18,8 +18,15 @@
 - Личный кабинет пользователя со списком мероприятий, на которые он записывался
 
 
-####Вход
-* `log_in.html`
+###Вход
+* `log_in.html`  
+
+*Скрин*   
+
+![login](./screenshots/login.png)  
+
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -146,10 +153,18 @@
 	</footer>
 </body>
 </html>
-```
+```  
 
-####Регистрация
-* `sign_up.html`
+
+###Регистрация
+* `sign_up.html`  
+
+*Скрин*   
+
+![signup](./screenshots/signup.png)  
+  
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -275,9 +290,17 @@
 </body>
 </html>
 ```
+  
+  
+###Поиск мероприятия (Главная)
+* `index.html`  
 
-####Поиск мероприятия (Главная)
-* `index.html`
+*Скрин*    
+
+![mainpage](./screenshots/main.png)  
+
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -526,10 +549,18 @@
 	</footer>
 </body>
 </html>
-```
+```  
 
-####Календарь ближайших мероприятий
-* `calendar.html`
+
+###Календарь ближайших мероприятий
+* `calendar.html`  
+
+*Скрин*   
+
+![calendar](./screenshots/calendar.png)  
+
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -626,9 +657,17 @@
 </body>
 </html>
 ```
+  
+  
+###Страница мероприятия
+* `event.html`  
 
-####Страница мероприятия
-* `event.html`
+*Скрин*   
+
+![event](./screenshots/event.png)  
+
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -786,9 +825,17 @@
 </body>
 </html>
 ```
+  
+  
+###Личный кабинет
+* `profile.html`  
 
-####Личный кабинет
-* `profile.html`
+*Скрин*   
+
+![profile](./screenshots/profile.png)  
+
+*Код*  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -939,5 +986,7 @@
 	</footer>
 </body>
 </html>
-```
+```  
 
+###Вывод
+В ходе лабораторной работы реализована вёрстка сайта для поиска профессиональных мероприятий средствами HTML, CSS и Bootstrap. Оказалось, Bootstrap прост в использовании и удобен, так как предлагает достаточное количество шаблонов и готовых решений.
