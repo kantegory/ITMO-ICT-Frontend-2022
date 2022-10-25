@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/chart.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="src/Coinbase-logo-1.svg"
+                                                            alt="coinbase logo">
+            </a>
+        </li>
+        <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Графики</a></li>
+        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+    </ul>
+</header>
+<div class="container w-100 pt-4">
+    <div class="wrapper">
+        <canvas class="firstChart mb-5"></canvas>
+        <canvas class="secondChart mb-5"></canvas>
+    </div>
+</div>
+</body>
+<script>
+    let ctx = document.querySelector(".firstChart");
+    let ctx2 = document.querySelector(".secondChart")
+    let bitcoinPrice = 1195166.73
+    let ethereumPrice = 80783.75
+    let endDate = new Date()
+    endDate.setDate(endDate.getDate())
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+        "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let timeSet = []
+    let bitcoinSet = []
+    let ethereumSet = []
+    for (let i = 0; i < 50; i++) {
+        bitcoinSet[i] = ((Math.random() * Math.pow(10, 5)) + bitcoinPrice).toFixed(2)
+        ethereumSet[i] = ((Math.random() * Math.pow(10, 3)) + ethereumPrice).toFixed(2)
+        endDate.setDate(endDate.getDate() - 1).toString()
+        timeSet.push(`${endDate.getDate()} ${months[endDate.getMonth()]}`)
+    }
+    timeSet.reverse()
+    let firstChart = new Chart(ctx, {
+        type: "line",
+        options: {
+            responsive: true,
+        },
+        data: {
+            labels: timeSet,
+            datasets: [
+                {
+                    label: 'Bitcoin',
+                    data: bitcoinSet,
+                    backgroundColor: "rgba(0, 0, 0, 0)",
+                    borderColor: "rgba(249, 105, 14, 1)",
+                    tension: 0,
+                },
+            ],
+        },
+    });
+    let secondChart = new Chart(ctx2, {
+        type: "line",
+        options: {
+            responsive: true,
+        },
+        data: {
+            labels: timeSet,
+            datasets: [
+                {
+                    label: 'Ethereum',
+                    data: ethereumSet,
+                    backgroundColor: "rgba(0, 0, 0, 0)",
+                    borderColor: "rgba(45, 85, 255, 1)",
+                    tension: 0,
+                },
+            ],
+        },
+    });
+</script>
+</html>
