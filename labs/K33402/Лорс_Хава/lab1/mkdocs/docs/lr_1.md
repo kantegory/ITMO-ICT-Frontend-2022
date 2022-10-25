@@ -1,11 +1,12 @@
 ## Лабораторная работа №1
 
-### Вариант 5 - сайт бренда одежды
+### Вариант 5 
+Сайт бренда одежды
 
 Главная страница сайта
 
 * `main.html`
-![main](docs\screens\main.PNG)
+![main](.\screens\main.PNG)
 ```html
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -249,6 +250,7 @@
 
 
 На этой страничку осущевляется вход
+
 * `sign_in.html`
 ![sign_in](/screens/sign_in.png)
 ```html 
@@ -382,8 +384,11 @@
 
 
 Здесь пользователь может зарегистрироваться
+
 ![sign_up](/screens/sign_up.png)
+
 * `register.html`
+
 ```html
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -518,6 +523,8 @@
 
 
 Личный кабинет пользователя
+
+![profile](/screens/profile.png)
 
 * `profile.html` 
 ```html
@@ -655,7 +662,9 @@
 ```
 
 Далее будет представлена галерия одежды отдельно под категории
+
 ![dress](/screens/dress.png)
+
 * `dresses.html`
 ```html
 <!DOCTYPE html>
@@ -822,6 +831,7 @@
 
 
 ![skirts](/screens/skirts.png)
+
 * `skirts.html`
 
 ```html
@@ -953,6 +963,7 @@
 
 
 ![shirts](/screens/shirts.png)
+
 * `shirts.html`
 ```html
 <!DOCTYPE html>
@@ -1071,8 +1082,10 @@
 ```
 
 
-На этой странице пользователь сможет отфильтровать одежду по определенную коллекцию, а также доступна возможность поиска определенного товара
+На этой странице пользователь сможет отфильтровать одежду под определенную коллекцию, а также доступна возможность поиска определенного товара
+
 ![search](/screens/search.png)
+
 * `search.html`
 ```html
 <!DOCTYPE html>
@@ -1219,6 +1232,9 @@ body{
     font-size: 11px;
 }
 ```
+
+### Вывод
+В ходе лабораторной работы были получены практические навыки вёрстки сайта средствами HTML, CSS и Bootstrap.
     
     
     
