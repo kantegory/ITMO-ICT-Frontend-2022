@@ -1,0 +1,33 @@
+body {
+    min-height:100vh;
+    display: flex;
+    flex-direction: column
+}
+
+header {
+    order: 1;
+}
+
+main {
+    order: 2;
+    flex-grow: 1;
+}
+
+footer {
+    order: 3;
+    width: 100%;
+    border-top: solid 1px lightgray;
+}
+
+footer p {
+    margin: 0;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+}
