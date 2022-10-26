@@ -1,0 +1,29 @@
+.colors {
+	color: #fff !important;
+}
+
+.nav.navbar-nav a:hover {
+color:#fff;
+}
+
+.custom-colored-h1
+{
+	color:#1f4e60 !important;
+}
+
+.form-select-sm {
+	border-color:#1f4e60 !important;
+	color:#1f4e60 !important;
+}
+
+.btn-info {
+	border-color:#fcc149 !important
+}
+
+.card-img-top {
+	width: 100%;
+}
+
+.img{
+	width: 70%
+}
