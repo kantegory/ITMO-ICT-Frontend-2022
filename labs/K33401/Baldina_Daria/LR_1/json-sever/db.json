@@ -1,0 +1,12 @@
+{
+  "workers": [
+    {
+      "id": 1,
+      "last_name": "Зима",
+      "first_name": "Кристина",
+      "middle_name": "Андреевна",
+      "departure": "Маркетинг"
+    }
+  ],
+  "users": [] 
+}
