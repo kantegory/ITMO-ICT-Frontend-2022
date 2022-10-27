@@ -35,7 +35,7 @@
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="form3Example1" class="form-control" id="last_name" name="last_name">
+                          <input type="text" id="form3Example1" class="form-control" id="lastname" name="lastname">
                           <label class="form-label" for="form3Example1">Фамилия</label>
                         </div>
                       </div>
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="form3Example4" class="form-control" id="paswd" name="paswd">
+                      <input type="password" id="form3Example4" class="form-control" id="password" name="password">
                       <label class="form-label" for="form3Example4">Пароль</label>
                     </div>
                   <div class="form-outline col-lg-12"> 
@@ -86,25 +86,14 @@
           }
           console.log('admin data',  infoAdmin)
 
-          const response = await fetch('http://localhost:3000/users', {
+          const response = await fetch('http://localhost:3000/signup', {
             method: "POST",
             body: JSON.stringify(infoAdmin),
             headers: {
               'Content-Type': 'application/json',
           }
         })
-        const responseJson = await response.json()
-
-        console.log(responseJson)
-
-        const {accessToken, user } = responseJson
-
-        localStorage.accessToken = accessToken
-        localStorage.user = JSON.stringify(user)
-
-        // window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
-
-        // window.location.reload()
+        window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
       }
       
       </script>
