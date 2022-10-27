@@ -53,13 +53,6 @@
           </div>
       </section>
       <script>
-        // function auth(){
-        //   if (localStorage.accessToken){
-        //     window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/manage.html"
-        //   }
-        // }
-      
-
         function checkAuth(response) {
             if (response == 'Incorrect password' || response == 'Password is too short') {
                 let div = document.createElement('div')
@@ -108,32 +101,6 @@
 
               checkAuth(responseJson)
             }
-          // document.addEventListener('DOMContentLoaded', () => { checkAuth()} )
-
-
-      // const parsedData = JSON.parse(JSON.stringify(responseJson))
-
-      // const checkEmail = []
-
-      // for (i = 0; i < Object.keys(parsedData).length; i++ ){
-      //   checkEmail.push(parsedData[i].email)
-      //   if (loginData.email == parsedData[i].email){
-      //     if (loginData.paswd == parsedData[i].paswd){
-      //         window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/manage.html"
-      //     } else {
-      //       let div = document.createElement('div')
-      //       div.className = "alert alert-danger"
-      //       div.innerHTML = "<strong>Пароль неверный</strong>"
-      //       document.body.append(div)
-      //     } 
-      //   }
-      // }
-      // if (!(loginData.email in checkEmail)) {     
-      //       let div = document.createElement('div')
-      //       div.className = "alert alert-danger"
-      //       div.innerHTML = "<strong>Логин и пароль неверные</strong>"
-      //       document.body.append(div) 
-      //     }
       </script>
 </body>
 </html>
