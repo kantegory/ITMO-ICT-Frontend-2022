@@ -26,3 +26,7 @@
   background: var(--bs-light);
   border-radius: 25px;
 }
+
+.author img {
+    max-height: 45px;
+}
