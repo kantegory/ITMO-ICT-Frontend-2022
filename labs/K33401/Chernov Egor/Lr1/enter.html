@@ -16,28 +16,55 @@
   </header>
   <main class="main p-4">
     <section class="main__form">
-      <form action="account.html" method="post">
+      <form onsubmit="login(event)">
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" autocomplete="off">
           <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="checkbox">
-          <label class="form-check-label" for="checkbox">Check me out</label>
+          <input type="password" class="form-control" id="password" name="password" autocomplete="off">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <script>
+        async function login(event) {
+          event.preventDefault()
+
+          const inputs = Array.from(event.target.querySelectorAll('input'))
+
+          const loginData = {}
+
+          for (const input of inputs) {
+            loginData[input.name] = input.value
+          }
+
+          console.log('login data', loginData)
+
+          const response = await fetch('http://localhost:3000/login', {
+            method: "POST",
+            body: JSON.stringify(loginData),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const responseJson = await response.json()
+
+          const { accessToken, user } = responseJson
+
+          console.log('response', responseJson)
+
+        }
+      </script>
       <form action="reg.html" method="get" class="mt-3">
         <label for="buttonReg" class="form-label">Don't have an account?</label><br>
         <input type="submit" class="btn btn-primary" id="buttonReg" value="Join to Coins">
       </form>
     </section>
   </main>
+
   <footer class="footer pt-4">
     <section class="col-md-8 mx-auto text-center">
       <h6 class="fw-semibold mywhite--text">Website creator <a href="https://t.me/chernovec" class="footer--link1">Egor Chernov</a></h6>

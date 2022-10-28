@@ -529,21 +529,27 @@
     <script type="text/javascript">
       const apiUrl = 'https://api.coingecko.com/api/v3'
       console.log("Start loading")
+      var data
 
-      // const response = this.axios
-      //   .get(`${apiUrl}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h`)
-      //   .then(res => {
-      //     console.log(res.data[0].id); // Результат ответа от сервера
-      //     const btc = document.getElementById("hehe").innerHTML = res.data[0].id
-      //   });
+      const response = this.axios
+        .get(`${apiUrl}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h`)
+        .then(res => {
+          console.log(res.data[0].id); // Результат ответа от сервера
+          data = res.data;
+        });
 
-      // const myData = [
-      //       { label: "apple",  y: 10  },
-      //       { label: "orange", y: 15  },
-      //       { label: "banana", y: 25  },
-      //       { label: "mango",  y: 30  },
-      //       { label: "grape",  y: 28  }
-      //     ]
+      // function getCoinsChartData() {
+      //   for (var j = 0; j < length(data); i++)
+      //   let coinChartData = []
+      //   let iter = 1
+      //   for (const i in data[0].sparkline_in_7d.price) {
+      //     coinChartData.push({label: `${iter}h`, y: i})
+      //     ++iter
+      //   }
+      //   return coinChartData;
+      // }
+
+      // const myData = 
 
       const myData = [
             [{ label: "1h",  y: 23  },
