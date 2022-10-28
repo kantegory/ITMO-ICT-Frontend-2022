@@ -77,6 +77,44 @@
         </table>
     </div>
 
+    <div class=" modal fade" id="edit_workers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Изменить сотрудника</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <article class="card-body">
+                        <form onsubmit="update_goods(event)">
+
+                            <label>Артикул </label>
+                            <input type="text" class="form-control" placeholder="" name="articul" id="articul" value="">
+
+                            <label>Наименование </label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="name"
+                                value="">
+
+                            <label>Тип</label>
+                            <input required type="text" class="form-control" name="type" id="type" value="">
+
+                            <label>Количество</label>
+                            <input required type="number" class="form-control" placeholder="" name="count" id="count"
+                                value="">
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="" class="btn btn-primary">Сохранить изменения</button>
+                            </div>
+
+                        </form>
+                    </article> <!-- card-body end .// -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script>
 
          function findType() {
@@ -115,17 +153,76 @@
             }
         }
 
-        function get_field_table({ articul, name, type, count }) {
+        async function fill_forms(obj) {
+
+            var link = "http://localhost:3000/goods_monitor/" + obj.id
+
+            window.needed_id = obj.id
+
+            const response = await fetch(link, {
+                method: "GET"
+            })
+
+            const responseJson = await response.json()
+
+            document.getElementById('articul').value = responseJson.articul
+            document.getElementById('name').value = responseJson.name
+            document.getElementById('type').value = responseJson.type
+            document.getElementById('count').value = responseJson.count
+
+
+        }
+
+        async function delete_row(obj) {
+
+            var link = 'http://localhost:3000/goods_monitor/' + obj.id
+
+            if (confirm("Вы уверены, что хотите удалить этот товар?\nЭта операция не восстановима.")) {
+                const response = await fetch(link, {
+                    method: "DELETE"
+                })
+            };
+
+
+        }
+
+        async function update_goods(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const up_data = {}
+
+            for (const input of inputs) {
+                up_data[input.name] = input.value
+            }
+
+            console.log('update data', up_data)
+
+            var link = 'http://localhost:3000/goods_monitor/' + needed_id
+
+            const response = await fetch(link, {
+                method: "PUT",
+                body: JSON.stringify(up_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+
+        function get_field_table({ id, articul, name, type, count }) {
             return `
             <tr>
                 <th scope="row">${articul}</th>
                 <td>${name}</td>
                 <td>${type}</td>
                 <td>${count}</td>
-                <td class="d-flex justify-content-start gap-2">
-                    <button type="button" class="btn btn-warning">Редактировать</button>
-                    <button type="button" class="btn btn-danger">Удалить</button>
-                </td>
+                <td class="d-flex justify-content-start gap-${id}">
+                    <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
+                        onclick="fill_forms(this)">Редактировать</button>
+                    <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
+            </td>
             </tr>
 
             `

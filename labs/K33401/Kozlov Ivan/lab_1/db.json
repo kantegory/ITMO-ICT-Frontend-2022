@@ -19,18 +19,18 @@
   ],
   "goods_monitor": [
     {
-      "articul": "1",
-      "name": "Кроссы",
-      "type": "спорт",
-      "count": "23",
-      "id": 1
-    },
-    {
       "articul": "2",
       "name": "Кофта",
       "type": "Одежда",
       "count": "100",
       "id": 2
+    },
+    {
+      "articul": "1",
+      "name": "Зонтик",
+      "type": "Аксессуары ",
+      "count": "200",
+      "id": 3
     }
   ],
   "users": [
