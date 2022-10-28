@@ -53,30 +53,38 @@
             <div class="col-md-6">
                 <div class="card">
                     <header class="card-header">
-                        <h4 class="card-title mt-2">Добавить товар</h4>
+                        <h4 class="card-title mt-2">Добавить сотрудника </h4>
                     </header>
                     <article class="card-body">
-                        <form onsubmit="add_goods(event)">
+                        <form onsubmit="add_workers(event)">
 
-                            <label>Артикул </label>
-                            <input required type="text" class="form-control" placeholder="" name="articul" id="articul">
-
-                            <label>Наименование </label>
+                            <label>Имя </label>
                             <input required type="text" class="form-control" placeholder="" name="name" id="name">
 
-                            <label>Тип</label>
-                            <input required type="text" class="form-control" placeholder="" name="type" id="type">
+                            <label>Фамилия </label>
+                            <input required type="text" class="form-control" placeholder="" name="last_name" id="last_name">
 
-                            <label>Количество</label>
-                            <input required type="number" class="form-control" placeholder="" name="count" id="count">
+                            <label>Телефон</label>
+                            <input required type="text" class="form-control" name="phone" id="phone"
+                                placeholder="+7 (900) 123-45-67"
+                                pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}">
+
+                            <label>Email</label>
+                            <input required type="email" class="form-control" placeholder="" name="email" id="email">
+
+                            <label>Должность</label>
+                            <input required type="text" class="form-control" placeholder="" name="position" id="position">
+
 
                             <div class="form-group d-flex flex-column justify-content-start">
                                 <br>
                                 <button type="" class="btn btn-primary">
-                                    Регистрация
+                                    Создать
                                 </button>
 
                             </div> <!-- form-group// -->
+
+
 
                         </form>
                     </article> <!-- card-body end .// -->
@@ -92,22 +100,22 @@
     <script>
         // эта функция сработает при нажатии на кнопку
 
-        async function add_goods(event) {
+        async function add_workers(event) {
             event.preventDefault()
 
             const inputs = Array.from(event.target.querySelectorAll('input'))
 
-            const goods_data = {}
+            const workers_data = {}
 
             for (const input of inputs) {
-                goods_data[input.name] = input.value
+                workers_data[input.name] = input.value
             }
 
-            console.log('login data', goods_data)
+            console.log('login data', workers_data)
 
-            const response = await fetch('http://localhost:3000/goods_monitor', {
+            const response = await fetch('http://localhost:3000/workers', {
                 method: "POST",
-                body: JSON.stringify(goods_data),
+                body: JSON.stringify(workers_data),
                 headers: {
                     'Content-Type': 'application/json'
                 }

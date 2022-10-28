@@ -1,12 +1,12 @@
 {
   "workers": [
     {
-      "id": 1,
-      "name": "Mark",
-      "last_name": "Otto",
-      "phone": "+7999999999",
-      "email": "exaple@ex.com",
-      "position": "2"
+      "name": "Василий",
+      "last_name": "Петров",
+      "phone": "+79836921983",
+      "email": "ex@ec.ru",
+      "position": "1",
+      "id": 1
     }
   ],
   "goods_monitor": [
