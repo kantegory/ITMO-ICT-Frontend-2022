@@ -106,13 +106,15 @@
                             <label>Должность</label>
                             <input required type="text" class="form-control" name="position" id="position" value="">
 
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="" class="btn btn-primary">Сохранить изменения</button>
+                            </div>
+
                         </form>
                     </article> <!-- card-body end .// -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -144,21 +146,45 @@
 
             var link = "http://localhost:3000/workers/" + obj.id
 
-            console.log('LINK@', link)
+            window.needed_id = obj.id
 
             const response = await fetch(link, {
                 method: "GET"
             })
+
             const responseJson = await response.json()
-
-            console.log('RESP@', responseJson)
-
 
             document.getElementById('name').value = responseJson.name
             document.getElementById('last_name').value = responseJson.last_name
             document.getElementById('email').value = responseJson.email
             document.getElementById('phone').value = responseJson.phone
             document.getElementById('position').value = responseJson.position
+
+
+        }
+
+        async function update_worker(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const up_data = {}
+
+            for (const input of inputs) {
+                up_data[input.name] = input.value
+            }
+
+            console.log('update data', up_data)
+
+            var link = 'http://localhost:3000/workers/' + needed_id
+
+            const response = await fetch(link, {
+                method: "PUT",
+                body: JSON.stringify(up_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
 
         }
 
