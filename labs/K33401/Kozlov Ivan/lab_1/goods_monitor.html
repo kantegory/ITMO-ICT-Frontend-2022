@@ -48,56 +48,111 @@
         </div>
     </nav>
 
-    <div class="d-flex justify-content-end ">
-        <button type="button" class="btn-dark p-2 flex-grow-1">Добавить товар</button>
-    </div>
+    <a href="add_goods.html">
+        <div class="d-flex justify-content-end ">
+            <button type="button" class="btn-dark p-2 flex-grow-1">
+                Добавить товар
+            </button>
+        </div>
+    </a>
 
-    <div class="table-responsive">
+
+    <div class="table-responsive" id="myTable">
         <table class="table table-hover table-bordered " style="color: rgb(0, 0, 0)">
             <thead>
                 <tr>
                     <th scope="col">Артикул</th>
-                    <th scope="col">Наименование</th>
-                    <th scope="col">Тип</th>
+                    <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по наимнованию"
+                            id="myInput" onkeyup="findName()"> Наименование</th>
+                    <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по типу"
+                            id="myInput_2" onkeyup="findType()"> Тип </th>
                     <th scope="col">Количество</th>
                     <th scope="col">Действия</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Obj1</td>
-                    <td>1</td>
-                    <td>32</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Obj2</td>
-                    <td>10</td>
-                    <td>423</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Obj3</td>
-                    <td>5</td>
-                    <td>12</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
+
+            <tbody id="my_table_rows">
+
             </tbody>
         </table>
     </div>
 
+    <script>
+
+         function findType() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput_2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function findName() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function get_field_table({ articul, name, type, count }) {
+            return `
+            <tr>
+                <th scope="row">${articul}</th>
+                <td>${name}</td>
+                <td>${type}</td>
+                <td>${count}</td>
+                <td class="d-flex justify-content-start gap-2">
+                    <button type="button" class="btn btn-warning">Редактировать</button>
+                    <button type="button" class="btn btn-danger">Удалить</button>
+                </td>
+            </tr>
+
+            `
+        }
+
+        async function load_table() {
+            const response = await fetch("http://localhost:3000/goods_monitor", {
+                method: "GET"
+            })
+            const responseJson = await response.json()
+
+
+            console.log('response', responseJson)
+            console.log('response99', responseJson[0].name)
+
+            for (const row of responseJson) {
+                console.log('response*1', row)
+                document.querySelector("#my_table_rows").innerHTML += get_field_table(row)
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            load_table();
+        })
+
+
+    </script>
 
 </body>
 

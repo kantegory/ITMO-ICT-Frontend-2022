@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -52,60 +54,82 @@
         <button type="button" class="btn-dark p-2 flex-grow-1">Добавить сотрудника</button>
     </div>
 
-    <div class="table-responsive">
 
-        <table class="table table-hover table-bordered" style="color: rgb(0, 0, 0)">
-            <thead>
-                <tr>
-                    <th scope="col">№</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Фамилия</th>
-                    <th scope="col">Телефон</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Должность</th>
-                    <th scope="col">Действия</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>+7999999999</td>
-                    <td>exaple@ex.com</td>
-                    <td>2</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>+7999999999</td>
-                    <td>exaple@ex.com</td>
-                    <td>3</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>+7999999999</td>
-                    <td>exaple@ex.com</td>
-                    <td>1</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="table table-hover table-bordered" style="color: rgb(0, 0, 0)" id="myTable">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Телефон</th>
+                <th scope="col">Email</th>
+                <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по должности"
+                        id="myInput" onkeyup="findPosition()">
+                    </div> Должность</th>
+                <th scope="col">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>+7999999999</td>
+                <td>exaple@ex.com</td>
+                <td>2</td>
+                <td class="d-flex justify-content-start gap-2">
+                    <button type="button" class="btn btn-warning">Редактировать</button>
+                    <button type="button" class="btn btn-danger">Удалить</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>+7999999999</td>
+                <td>exaple@ex.com</td>
+                <td>3</td>
+                <td class="d-flex justify-content-start gap-2">
+                    <button type="button" class="btn btn-warning">Редактировать</button>
+                    <button type="button" class="btn btn-danger">Удалить</button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>+7999999999</td>
+                <td>exaple@ex.com</td>
+                <td>1</td>
+                <td class="d-flex justify-content-start gap-2">
+                    <button type="button" class="btn btn-warning">Редактировать</button>
+                    <button type="button" class="btn btn-danger">Удалить</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     </div>
+
+    <script>
+        function findPosition() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[4];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>

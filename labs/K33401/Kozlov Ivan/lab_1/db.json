@@ -1,0 +1,45 @@
+{
+  "workers": [
+    {
+      "id": 1,
+      "name": "Mark",
+      "last_name": "Otto",
+      "phone": "+7999999999",
+      "email": "exaple@ex.com",
+      "position": "2"
+    }
+  ],
+  "goods_monitor": [
+    {
+      "articul": "1",
+      "name": "Кроссы",
+      "type": "спорт",
+      "count": "23",
+      "id": 1
+    },
+    {
+      "articul": "2",
+      "name": "Кофта",
+      "type": "Одежда",
+      "count": "100",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "lbvfzx@gmail.com",
+      "password": "$2a$10$5lrwXVBOIlybZZrw1hsgCezvs5mqSCAsbF1HxfwSCw0ihU74zAFxW",
+      "name": "Ivan",
+      "last_name": "Kozlov",
+      "id": 1
+    },
+    {
+      "email": "sdad@Edasdsa.ru",
+      "password": "$2a$10$L733BzG2DVEXK996l/iMG.2JA1Mtkn/L8/pmPO.IoTZoIf.n8/A.y",
+      "name": "sadasdsa",
+      "last_name": "sadasd",
+      "id": 2
+    }
+  ],
+  "login": []
+}
