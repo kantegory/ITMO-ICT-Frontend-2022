@@ -7,6 +7,14 @@
       "email": "ex@ec.ru",
       "position": "1",
       "id": 1
+    },
+    {
+      "name": "Алексей",
+      "last_name": "Полунаев",
+      "phone": "+79328472333",
+      "email": "ret@w.ru",
+      "position": "4",
+      "id": 2
     }
   ],
   "goods_monitor": [
