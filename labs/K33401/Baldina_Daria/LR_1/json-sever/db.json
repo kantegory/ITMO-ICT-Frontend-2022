@@ -21,5 +21,33 @@
       "name": "Олег",
       "id": 3
     }
-  ]
-}
+  ], 
+
+  "workers": [
+    {
+    "id": 1,
+    "last_name": "Зима",
+    "name" : "Кристина",
+    "middle_name" : "Олеговна",
+    "departure_name" : "Продажи",
+    "userId": 1
+  },
+  {
+    "id": 2,
+    "last_name": "Мальков",
+    "name" : "Игорь",
+    "middle_name" : "Сергеевич",
+    "departure_name" : "Тех.отдел",
+    "userId": 1
+  },
+  {
+    "id": 3,
+    "last_name": "Климова",
+    "name" : "Анастасия",
+    "middle_name" : "Викторовна",
+    "departure_name" : "Управление",
+    "userId": 3
+  }
+    ]
+
+  }
