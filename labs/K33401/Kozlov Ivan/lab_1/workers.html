@@ -131,7 +131,7 @@
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[4];
+                td = tr[i].getElementsByTagName("td")[3];
                 if (td) {
                     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
@@ -159,6 +159,19 @@
             document.getElementById('email').value = responseJson.email
             document.getElementById('phone').value = responseJson.phone
             document.getElementById('position').value = responseJson.position
+
+
+        }
+
+        async function delete_row(obj) {
+
+            var link = 'http://localhost:3000/workers/' + obj.id
+
+            if (confirm("Вы уверены, что хотите удалить данного сотрудника?\nЭта операция не восстановима.")) {
+                const response = await fetch(link, {
+                    method: "DELETE"
+                })
+            };
 
 
         }
@@ -200,7 +213,7 @@
                 <td class="d-flex justify-content-start gap-${id}">
                         <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
                             onclick="fill_forms(this)">Редактировать</button>
-                        <button type=" button" class="btn btn-danger">Удалить</button>
+                        <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
                 </td>
             </tr>
 

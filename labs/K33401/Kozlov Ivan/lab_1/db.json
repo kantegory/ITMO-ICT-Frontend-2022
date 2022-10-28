@@ -1,19 +1,19 @@
 {
   "workers": [
     {
-      "name": "Василий",
-      "last_name": "Петров",
-      "phone": "+79836921983",
-      "email": "ex@ec.ru",
-      "position": "1",
+      "name": "resfs",
+      "last_name": "dsfdsfds",
+      "phone": "+79888888888",
+      "email": "dsfsdfds@ddsfds.rtu",
+      "position": "4",
       "id": 1
     },
     {
-      "name": "Алексей",
-      "last_name": "Полунаев",
-      "phone": "+79328472333",
-      "email": "ret@w.ru",
-      "position": "4",
+      "name": "dfsds",
+      "last_name": "dsfsdfds",
+      "phone": "+79993333333",
+      "email": "fesfdsfc@tre.ru",
+      "position": "5",
       "id": 2
     }
   ],
