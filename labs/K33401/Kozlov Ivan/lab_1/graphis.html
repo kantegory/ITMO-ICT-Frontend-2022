@@ -63,79 +63,43 @@
                         <form onsubmit="get_needed_goodes(event)">
 
                             <label>Введите нужные артикулы товара </label>
-                            <input type="text" class="form-control" placeholder="1,2,3..." name="articuls"
+                            <input required type="text" class="form-control" placeholder="1,2,3..." name="articuls"
                                 id="articuls">
 
                             <div class="form-group d-flex flex-column justify-content-start">
                                 <br>
-                                <button type="" class="btn btn-primary">
+                                <button type="" class="btn btn-primary" onclick="">
                                     Отправить
                                 </button>
                             </div> <!-- form-group// -->
                         </form>
+
                     </article> <!-- card-body end .// -->
+                    <a href="http://127.0.0.1:5501/lab_1/graphis.html" style="text-decoration: none;">
+
+                        <div class="form-group d-flex flex-column justify-content-center p-3">
+
+                            <button type="" class="btn btn-danger" onclick="">
+                                Сбросить график
+                            </button>
+
+                        </div>
+
+                    </a>
                 </div> <!-- card.// -->
             </div> <!-- col.//-->
+
         </div> <!-- row.//-->
 
     </div>
 
     <div>
         <canvas id="myChart"></canvas>
-        <script>
-            const labels = [
-                'Товар 1',
-                'Товар 2',
-                'Товар 3',
-                'Товар 4',
-                'Товар 5',
-                'Товар 6',
-            ];
-
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Продажи',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [25, 30, 5, 12, 20, 2, 45],
-                }]
-            };
-
-            const config = {
-                type: 'line',
-                data: data,
-                options: {
-                    scales: {
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Количество'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Наименования товара'
-                            }
-                        }
-                    }
-                }
-            };
-
-        </script>
-
-        <script>
-            const myChart = new Chart(
-                document.getElementById('myChart'),
-                config
-            );
-        </script>
-
 
     </div>
 
     <script>
+
 
         function logout() {
             localStorage.clear()
@@ -151,10 +115,92 @@
             }
         }
 
-        function get_needed_goodes(event) {
+        // функция по сортировке, по товару
 
-            
+        const labels_for = []
+        const count_for = []
 
+        async function get_needed_goodes(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const sort_data = {}
+
+            for (const input of inputs) {
+                sort_data.needed_id = input.value.split(',') // по ключу будет получен массив
+            }
+
+            const needed_id = sort_data.needed_id // нужный массив id
+
+            console.log('МАССИВ', needed_id)
+
+            for (const i of needed_id) {
+                var link = "http://localhost:3000/goods_monitor/" + i
+                const response = await fetch(link, {
+                    method: "GET"
+                })
+
+                console.log('ОТВЕТ', response)
+                const responseJson = await response.json()
+
+                if (response.status != 404) 
+                {
+                    labels_for.push(responseJson.name)
+                    count_for.push(responseJson.count)
+                }
+
+            }
+
+            create_graph(labels_for, count_for);
+
+        }
+
+        function create_graph(labels_for, count_for) {
+
+            console.log("START", "Я вызвался")
+
+            if (labels_for.length != 0) {
+
+                const labels = labels_for
+
+                const data = {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Продажи',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: count_for,
+                    }]
+                };
+
+                const config = {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Количество'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Наименования товара'
+                                }
+                            }
+                        }
+                    }
+                };
+
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {

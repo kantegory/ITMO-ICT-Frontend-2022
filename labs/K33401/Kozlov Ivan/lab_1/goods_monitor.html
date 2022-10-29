@@ -53,8 +53,8 @@
         </div>
     </nav>
 
-    <a href="add_goods.html">
-        <div class="d-flex justify-content-end ">
+    <a href="add_goods.html" style="text-decoration: none;">
+        <div class="d-flex justify-content-end">
             <button type="button" class="btn-dark p-2 flex-grow-1">
                 Добавить товар
             </button>
@@ -66,6 +66,7 @@
         <table class="table table-hover table-bordered " style="color: rgb(0, 0, 0)">
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Артикул</th>
                     <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по наимнованию"
                             id="myInput" onkeyup="findName()"> Наименование</th>
@@ -219,11 +220,12 @@
         function get_field_table({ id, articul, name, type, count }) {
             return `
             <tr>
-                <th scope="row">${articul}</th>
+                <th>${id}</th>
+                <td>${articul}</td>
                 <td>${name}</td>
                 <td>${type}</td>
                 <td>${count}</td>
-                <td class="d-flex justify-content-start gap-${id}">
+                <td class="d-flex justify-content-start gap-2">
                     <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
                         onclick="fill_forms(this)">Редактировать</button>
                     <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
