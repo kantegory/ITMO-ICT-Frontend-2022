@@ -1,18 +1,18 @@
 {
   "workers": [
     {
-      "name": "resfs",
-      "last_name": "dsfdsfds",
+      "name": "Антон",
+      "last_name": "Калашников",
       "phone": "+79888888888",
-      "email": "dsfsdfds@ddsfds.rtu",
+      "email": "ex@ex.ru",
       "position": "44",
       "id": 1
     },
     {
-      "name": "dfsds",
-      "last_name": "dsfsdfds",
+      "name": "Наталья",
+      "last_name": "Ростова",
       "phone": "+79993333333",
-      "email": "fesfdsfc@tre.ru",
+      "email": "rost@nat.ru",
       "position": "5",
       "id": 2
     }
