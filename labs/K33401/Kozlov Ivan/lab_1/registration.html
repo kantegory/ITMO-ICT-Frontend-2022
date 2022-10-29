@@ -48,6 +48,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -120,7 +125,22 @@
 
         }
 
-        window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        function checkAuth() {
+            if (localStorage.accessToken) {
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+        })
+
+
 
     </script>
 

@@ -5,7 +5,7 @@
       "last_name": "dsfdsfds",
       "phone": "+79888888888",
       "email": "dsfsdfds@ddsfds.rtu",
-      "position": "4",
+      "position": "44",
       "id": 1
     },
     {
@@ -36,17 +36,10 @@
   "users": [
     {
       "email": "lbvfzx@gmail.com",
-      "password": "$2a$10$5lrwXVBOIlybZZrw1hsgCezvs5mqSCAsbF1HxfwSCw0ihU74zAFxW",
+      "password": "$2a$10$.nafdfoFen5wAZWpo7i4yeK7KNsmMjBD.8gyLLdj0O4dtyQCPvTEm",
       "name": "Ivan",
       "last_name": "Kozlov",
       "id": 1
-    },
-    {
-      "email": "sdad@Edasdsa.ru",
-      "password": "$2a$10$L733BzG2DVEXK996l/iMG.2JA1Mtkn/L8/pmPO.IoTZoIf.n8/A.y",
-      "name": "sadasdsa",
-      "last_name": "sadasd",
-      "id": 2
     }
   ],
   "login": []

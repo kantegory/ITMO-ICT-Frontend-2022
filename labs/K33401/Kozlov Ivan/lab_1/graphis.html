@@ -45,10 +45,40 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <article class="card-body">
+                        <form onsubmit="get_needed_goodes(event)">
+
+                            <label>Введите нужные артикулы товара </label>
+                            <input type="text" class="form-control" placeholder="1,2,3..." name="articuls"
+                                id="articuls">
+
+                            <div class="form-group d-flex flex-column justify-content-start">
+                                <br>
+                                <button type="" class="btn btn-primary">
+                                    Отправить
+                                </button>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article> <!-- card-body end .// -->
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+        </div> <!-- row.//-->
+
+    </div>
 
     <div>
         <canvas id="myChart"></canvas>
@@ -94,6 +124,7 @@
             };
 
         </script>
+
         <script>
             const myChart = new Chart(
                 document.getElementById('myChart'),
@@ -104,6 +135,32 @@
 
     </div>
 
+    <script>
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        }
+
+        function checkAuth() {
+            if (localStorage.accessToken) {
+            }
+            else {
+                alert("У вас нет доступа к запршиваему ресурсу")
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        function get_needed_goodes(event) {
+
+            
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+        })
+    </script>
 
 
 </body>

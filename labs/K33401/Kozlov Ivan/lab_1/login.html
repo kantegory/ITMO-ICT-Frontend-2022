@@ -43,6 +43,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -60,8 +65,8 @@
                                     <label for="email_address" class="col-md-3 col-form-label text-md-right">Email
                                     </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email"
-                                            required autofocus>
+                                        <input type="text" id="email_address" class="form-control" name="email" required
+                                            autofocus>
                                     </div>
                                 </div>
 
@@ -105,36 +110,56 @@
 
         async function login(event) {
             event.preventDefault()
-      
+
             const inputs = Array.from(event.target.querySelectorAll('input'))
-      
+
             const loginData = {}
-      
+
             for (const input of inputs) {
-              loginData[input.name] = input.value
+                loginData[input.name] = input.value
             }
-      
+
             console.log('login data', loginData)
-      
+
             const response = await fetch('http://localhost:3000/login', {
-              method: "POST",
-              body: JSON.stringify(loginData),
-              headers: {
-                'Content-Type': 'application/json'
-              }
+                method: "POST",
+                body: JSON.stringify(loginData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
-      
+
             const responseJson = await response.json()
-      
+
             const { accessToken, user } = responseJson
-      
+
             console.log('response', responseJson)
-      
-            localStorage.accessToken = accessToken
-            localStorage.user = JSON.stringify(user)
-      
+
+            if (!!accessToken){
+                localStorage.accessToken = accessToken
+                localStorage.user = JSON.stringify(user)
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+
+            
+           
+
+        }
+
+        function checkAuth() {
+            if (localStorage.accessToken) {
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+        })
+
+        function logout() {
+            localStorage.clear()
             window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
-          }
+        }
 
     </script>
 

@@ -43,6 +43,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -242,6 +247,11 @@
                 console.log('response*1', row)
                 document.querySelector("#my_table_rows").innerHTML += get_field_table(row)
             }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
         }
 
         document.addEventListener('DOMContentLoaded', () => {

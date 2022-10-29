@@ -43,6 +43,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -80,12 +85,12 @@
 
                         </form>
                     </article> <!-- card-body end .// -->
-                   
-                    </div>
-                </div> <!-- card.// -->
-            </div> <!-- col.//-->
 
-        </div> <!-- row.//-->
+                </div>
+            </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
 
     </div>
     <!-- скрипт, который обработает нажатие на кнопку и отправит данные на сервер -->
@@ -113,6 +118,11 @@
                 }
             })
 
+        }
+        
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
         }
 
 

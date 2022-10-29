@@ -45,11 +45,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <a href="add_workers.html">
         <div class="d-flex justify-content-end ">
             <button type="button" class="btn-dark p-2 flex-grow-1">Добавить сотрудника</button>
@@ -234,6 +238,11 @@
                 console.log('response*1', row)
                 document.querySelector("#my_table_rows").innerHTML += get_field_table(row)
             }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
         }
 
         document.addEventListener('DOMContentLoaded', () => {
