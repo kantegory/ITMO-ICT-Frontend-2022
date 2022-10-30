@@ -57,7 +57,8 @@
                     <div class="d-flex">
                         <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова" aria-label="Поиск">
-                        <button class="btn btn-outline-dark bi bi-search" type="submit" onclick="searchTitle()"></button>
+                        <button class="btn btn-outline-dark bi bi-search" type="submit"
+                                onclick="searchTitle()"></button>
                     </div>
                 </div>
             </div>
@@ -77,6 +78,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
+                            <div class="text-danger h6 text-center">
+                                <p id="mistakeLogin"></p>
+                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Адрес электронной почты</label>
                                 <input type="email" class="form-control" id="email" name="email"
@@ -110,65 +114,101 @@
     <div class="empty-div-sm d-block d-lg-none"></div>
     <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
     <div class="empty-div-xl d-none d-xl-block"></div>
-    <!-- Registration -->
-    <div class="container w-75 mx-auto mb-5">
-        <h1 class="text-center mb-5">Регистрация</h1>
-        <div class="text-danger text-center h6"><p id="mistakes"></p></div>
+    <!-- Search + Filter -->
+    <div class="container-fluid mt-5">
+        <p id="searchWordInfo" class="mx-5" hidden="true">
+            Результаты поиска по запросу "<b id="searchWord">Запрос</b>"
+        </p>
+        <div class="row mt-5 mx-5">
+            <div class="col col-12 col-lg-3">
+                <div class="container-fluid">
+                    <h3 class="text-danger">Фильтры</h3>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="sort" class="form-label"><b>Показать сначала</b></label>
+                                <select class="form-select mb-3 " id="sort" aria-label="Сортировка">
+                                    <option value="-1" selected>Популярные</option>
+                                    <option value="1">Выше рейтинг</option>
+                                    <option value="2">Ниже рейтинг</option>
+                                </select>
+                            </div>
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="chGenre" class="form-label"><b>Жанр</b></label>
+                                <select class="form-select mb-3" id="chGenre" aria-label="Жанр">
+                                    <option id="gAny" value="-1" selected>- Любой -</option>
+                                </select>
+                            </div>
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="chVolume" class="form-label"><b>Обьем</b></label>
+                                <select class="form-select mb-3" id="chVolume" aria-label="Обьем">
+                                    <option id="vAny" value="-1" selected>- Любой -</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <form class="row g-3 justify-content-center" onsubmit="signup(event)" >
-            <div class="col-md-7">
-                <label for="login" class="form-label">Имя пользователя</label>
-                <input type="text" class="form-control" id="login" placeholder="Ву Пси">
-            </div>
-            <div class="col-md-3">
-                <label for="gender" class="form-label">Пол</label>
-                <select id="gender" class="form-select">
-                    <option selected>не указан</option>
-                    <option>женский</option>
-                    <option>мужской</option>
-                    <option>вертолет</option>
-                </select>
-            </div>
-            <div class="col-md-5">
-                <label for="emailSignUp" class="form-label">Эл. адрес</label>
-                <input type="email" class="form-control" id="emailSignUp">
-            </div>
-            <div class="col-md-5">
-                <label for="emailCopy" class="form-label">Подтвердите эл. адрес</label>
-                <input type="email" class="form-control" id="emailCopy">
-            </div>
-            <div class="col-md-5">
-                <label for="passwordSignUp" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="passwordSignUp">
-            </div>
-            <div class="col-md-5">
-                <label for="passwordCopy" class="form-label">Подтвердите пароль</label>
-                <input type="password" class="form-control" id="passwordCopy">
-            </div>
-
-            <div class="col-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="news" checked="checked">
-                    <label class="form-check-label" for="news">
-                        Подписаться на новостную рассылку
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rules" checked="checked">
-                    <label class="form-check-label" for="rules">
-                        Согласие с правилами бла-бла
-                    </label>
+                    <div class="my-3">
+                        <button class="btn btn-danger" onclick="search()">Подобрать</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-10">
-                <input type="submit" class="btn btn-success" value="Зарегистрироваться">
+            <div class="col col-12 col-lg-9 justify-content-end">
+                <div class="row justify-content-evenly align-items-end mb-3" id="library"></div>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pages">
+                    </ul>
+                </nav>
             </div>
-        </form>
+        </div>
+    </div>
+    <!-- Book's modal window -->
+    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header black-bg text-white">
+                    <h1 class="modal-title fs-5"><p class="h4 mb-0" id="modaltitle">Заголовок книги</p>
+                        <p class="mt-0 h6" id="modalauthor">Автор</p></h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid row">
+                        <div class="col-7">
+                            <p id="modaldesc">Описание описание ушаофжшаоужао жфкшаофукжпожф шофж шокфужпошжфущпош жфшо
+                                жфушпожкш жфо жфшопжщ</p>
+                            <p>
+                                <b>Жанр:</b> <a href="#" class="text-danger" id="modalgenre">приключения</a><br>
+                                <b>Обьем:</b> <a href="#" class="text-danger" id="modaltime">небольшой</a><br>
+                            </p>
+                            <b><span id="modalrate" class="text-danger text-end">4.5 </span> / 5 <i
+                                class="bi bi-star"></i></b>
+                        </div>
+                        <div class="col-5">
+                            <img class="img-rate" id="modalimg" src="res/naruto2.jpeg">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p id="already-added" hidden="true">
+                        Уже на вашей полке
+                    </p>
+                    <div id="buttonsmodal">
+                        <p id="modalId" hidden="true"></p>
+                        <button type="button" id="btn-toread" class="btn btn-danger" onclick="addBook(false)">Буду
+                            читать
+                        </button>
+                        <button type="button" id="btn-read" class="btn btn-success" onclick="addBook(true)">Прочитано
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
-
 <footer class="footer d-none d-md-block mt-auto">
-    <div class="container-fluid pt-3 px-5 mt-5 ">
+    <div class="container-fluid pt-3 px-5 mt-5">
         <div class="row">
             <div class="col-9">
                 <p class="h5">"Фронт-энд разработка", Университет ИТМО</p>
@@ -185,7 +225,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+<script src="js/search.js"></script>
 <script src="js/navbar.js"></script>
-<script src="js/signup.js"></script>
 </body>
 </html>
