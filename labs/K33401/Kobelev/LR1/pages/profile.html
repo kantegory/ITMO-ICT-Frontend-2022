@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Free scenarios for role playing games from different authors">
+    <meta name="keywords" content="Scenarios, Dungeons & Dragons, Role Playing Games">
+    <meta name="author" content="Lev Kobelev">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scenarios & Shots</title>
+    <link rel="icon" href="../img/icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- My Own Styles-->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<header class="header sticky-top">
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-md px-3 py-2 container-fluid">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" onclick="collapseArea(this)">
+            <i class="fa-solid fa-burger"></i>
+        </button>
+        <!-- Mobile Buttons for Sing Up & Log In -->
+        <div class="d-flex d-sm-flex d-md-none justify-content-center py-1 px-0">
+            <button type="button" class="btn btn-sm rounded-pill btn-outline-primary mx-1" data-bs-toggle="modal"
+                    data-bs-target="#signUp">Sign Up
+            </button>
+            <button type="button" class="btn btn-sm rounded-pill btn-primary mx-1" data-bs-toggle="modal"
+                    data-bs-target="#logIn">Log In
+            </button>
+        </div>
+        <!-- Main Navigation -->
+        <div class="col-4 collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto my-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Scenarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Search Bar -->
+        <div class="col-12 col-md-4 col-xl-4 d-flex align-items-center">
+            <label class="pe-2" for="searchBar">Search:</label>
+            <input class="form-control" type="search" placeholder="type here..."
+                   aria-label="Search" id="searchBar">
+        </div>
+        <!-- Profile -->
+        <div class="col-4 d-none d-sm-none d-md-flex justify-content-end">
+            <div class="btn-group">
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">evlko
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="index.html">Sing Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="main">
+    <!-- Content -->
+    <!-- Tabs -->
+    <div class="container-fluid mt-2 mb-1 px-4 px-sm-4 px-md-5">
+        <div class="d-flex justify-content-between justify-md-content-start justify-lg-content-between">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liked</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Published</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Drafts</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+    </div>
+    <!-- Cards -->
+    <div class="container-fluid my-3 px-5">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2">
+            <div class="col">
+                <div class="btn card shadow-sm rounded bg-light h-100">
+                    <i class="fa-solid fa-plus fa-3x m-auto" style="color: #0d6efd;"></i>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm rounded h-100">
+                    <div class="d-flex flex-column h-100">
+                        <div class="card-body row flex-grow-1 p-0">
+                            <div class="col-lg-4 d-none d-sm-none d-md-none d-lg-block">
+                                <img src="../img/image-2.png" class="card-img-top img-fluid text-center" alt="...">
+                            </div>
+                            <div class="col-md-12 col-lg-8">
+                                <div class="d-block d-md-block d-lg-none">
+                                    <img src="../img/image-2.png" class="card-img-top-horizontal img-fluid text-center"
+                                         alt="...">
+                                </div>
+                                <h5 class="card-title mx-2 mt-2 mb-1">Cult of the Cat</h5>
+                                <div class="d-flex flex-row flex-wrap my-1">
+                                    <span
+                                        class="badge rounded-pill bg-light px-2 py-1 mx-1 my-1 text-muted fw-normal"><small>Cats</small></span>
+                                    <span
+                                        class="badge rounded-pill bg-light px-2 py-1 mx-1 my-1 text-muted fw-normal"><small>Long</small></span>
+                                    <span
+                                        class="badge rounded-pill bg-light px-2 py-1 mx-1 my-1 text-muted fw-normal"><small>D&D 5E</small></span>
+                                    <span
+                                        class="badge rounded-pill bg-light px-2 py-1 mx-1 my-1 text-muted fw-normal"><small>Hard</small></span>
+                                </div>
+                                <p class="mx-2 my-1 lh-base"><small>Start your own cult in a land of false prophets,
+                                    venturing out into diverse and mysterious regions to build a loyal community of
+                                    woodland worshippers and spread your Word to become the one true cult.</small></p>
+                            </div>
+                        </div>
+                        <div class="card-footer m-0 d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-sm btn-outline-secondary shadow-sm rounded me-1"><i
+                                    class="fa-solid fa-pencil"></i></button>
+                                <button type="button" class="btn btn-sm btn-outline-danger shadow-sm rounded active"><i
+                                    class="bi-heart"></i> ∞
+                                </button>
+                            </div>
+                            <small class="text-muted fw-light">1 month ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+<footer class="footer bg-light text-center text-lg-start mt-auto">
+    <div class="text-center p-3 bg-light">
+        Lev Kobelev | Laboratory Work 2
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
