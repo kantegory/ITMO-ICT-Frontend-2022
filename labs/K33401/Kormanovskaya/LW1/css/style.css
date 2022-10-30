@@ -1,6 +1,5 @@
 :root {
     --main-black: #181516;
-    --main-red: #fc4614;
     --main-blue: #457bb7;
     --main-yellow: #ff9d04;
 }
@@ -16,28 +15,8 @@
     font-family: 'Avanturin', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.red {
-    color: var(--main-red);
-}
-
-.blue {
-    color: var(--main-blue);
-}
-
-.yellow {
-    color: var(--main-yellow)
-}
-
-.red-bg {
-    background-color: var(--main-red);
-}
-
-.blue-bg {
-    background-color: var(--main-blue);
-}
-
-.yellow-bg {
-    background-color: var(--main-yellow)
+.black {
+    color: var(--main-black);
 }
 
 .black-bg {
@@ -49,31 +28,17 @@
 }
 
 .empty-div-sm {
-    height: 130px;
+    height: 90px;
 }
 
 .empty-div-lg {
-    height: 230px;
+    height: 190px;
 }
 
 .empty-div-xl {
-    height: 200px;
+    height: 140px;
 }
 
-.bi-love-is {
-    font-size: 4em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    color: green;
-}
-
-.love-is {
-    font-family: "Arial Narrow";
-}
-
-.love-is-card {
-    background-color: white;
-}
 
 .img-rate {
     width: 100%;
