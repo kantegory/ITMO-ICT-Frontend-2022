@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="src/Coinbase-logo-1.svg"
+                                                            alt="coinbase logo">
+            </a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
+        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+    </ul>
+</header>
+<section class="dataTable-wrapper d-flex justify-content-center">
+    <table class="table align-middle mt-5 w-75 bg-white border-light">
+        <thead class="table-head ">
+        <tr class="search-row p-2">
+            <td colspan="2" class="align-middle">
+                <div class="input-group w-50 ps-3">
+                  <span class="input-group-text" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-search"
+                             viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                        </svg>
+                  </span>
+                    <label class="w-75">
+                        <input type="text" class="form-control" placeholder="Поиск по названию">
+                    </label>
+                </div>
+            </td>
+            <td colspan="2">
+            </td>
+            <td class="px-2 align-middle">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-button dropdown-toggle" onclick="myFunction()"
+                            type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown">
+                        Фильтры
+                    </button>
+                    <div class="menu-wrapper">
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item" href="#">Дата добавления(ASC)</li>
+                            <li class="dropdown-item" href="#">Дата добавления(DESC)</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="head-row border-light">
+            <th class="fw-normal ps-4">Название</th>
+            <th class="fw-normal">Цена</th>
+            <th class="fw-normal">Изменение</th>
+            <th class="fw-normal">Дата добавления</th>
+            <th class="fw-normal">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="bg-light">
+            <td>
+                <div class="d-flex align-items-center logo-item">
+                    <img src="src/bitcoin-svgrepo-com.svg" alt="" style="width: 30px; height: 30px"
+                         class="rounded-circle"/>
+                    <div class="ms-2">
+                        <p class="fw-bold mb-0">Bitcoin</p>
+                        <p class="text-muted mb-0">BTC</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-0">RUB 1,218,035.77</p>
+            </td>
+            <td>
+                <span class="fw-normal text-success">+0.46%</span>
+            </td>
+            <td>
+                <span class="start-date">03.01.2009</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none">
+                    Купить
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center logo-item">
+                    <img src="src/eth-svgrepo-com.svg" alt="" style="width: 30px; height: 30px" class="rounded-circle"/>
+                    <div class="ms-2">
+                        <p class="fw-bold mb-0">Ethereum</p>
+                        <p class="text-muted mb-0">ETH</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-0">RUB 72,489.48</p>
+            </td>
+            <td>
+                <span class="fw-normal text-danger">-0.60%</span>
+            </td>
+            <td>
+                <span class="start-date">20.07.2015</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none">
+                    Купить
+                </button>
+            </td>
+        </tr>
+        <tr class="bg-light">
+            <td>
+                <div class="d-flex align-items-center logo-item">
+                    <img src="src/doge-svgrepo-com.svg" alt="" style="width: 30px; height: 30px"
+                         class="rounded-circle"/>
+                    <div class="ms-2">
+                        <p class="fw-bold mb-0">Dogecoin</p>
+                        <p class="text-muted mb-0">DOGE</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-0">RUB 3.34</p>
+            </td>
+            <td>
+                <span class="fw-normal text-danger">-2.67%</span>
+            </td>
+            <td>
+                <span class="start-date">06.12.2013</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none">
+                    Купить
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center logo-item">
+                    <img src="src/usdt-svgrepo-com.svg" alt="" style="width: 30px; height: 30px"
+                         class="rounded-circle"/>
+                    <div class="ms-2">
+                        <p class="fw-bold mb-0">Tether</p>
+                        <p class="text-muted mb-0">USDT</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-0">RUB 55.69</p>
+            </td>
+            <td>
+                <span class="fw-normal text-success">+0.02%</span>
+            </td>
+            <td>
+                <span class="start-date">01.11.2015</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none">
+                    Купить
+                </button>
+            </td>
+        </tr>
+        <tr class="bg-light">
+            <td>
+                <div class="d-flex align-items-center logo-item">
+                    <img src="src/usdc-svgrepo-com.svg" alt="" style="width: 30px; height: 30px"
+                         class="rounded-circle"/>
+                    <div class="ms-2">
+                        <p class="fw-bold mb-0">USD Coin</p>
+                        <p class="text-muted mb-0">USDC</p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <p class="fw-normal mb-0">RUB 55.69</p>
+            </td>
+            <td>
+                <span class="fw-normal"></span>
+            </td>
+            <td>
+                <span class="start-date">11.09.2018</span>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none">
+                    Купить
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<script>
+    function myFunction() {
+        document.querySelector(".dropdown-menu").classList.toggle("show");
+    }
+</script>
+</body>
+
+</html>
