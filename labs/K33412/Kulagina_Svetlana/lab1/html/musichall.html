@@ -158,6 +158,10 @@
 			const idLogOut = document.querySelector('#logout');
 			const idLogIn = document.querySelector('#enter');
 			const enterLK = document.querySelector('#enterlk');
+
+			function getAuthToken() {
+				localStorage.accessToken
+			}
 			
 
 			async function addNote() {

@@ -52,7 +52,7 @@
 							</div>
 							<div class="form col-12 col-sm-6 col-lg-4 col-md-5 col-xl-3">
 								<select class="form-select-sm region-type" aria-label=".form-select-lg example">
-									<option value="all">Выберите район город</option>
+									<option value="everything">Выберите район город</option>
 									<option value="petroga">Петроградский</option>
 									<option value="moscow">Московский</option>
 									<option value="prima">Приморский</option>
@@ -65,7 +65,7 @@
 					</div>
 			</section>
 			<section class="container mt-5 row mx-auto">
-				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card theatre petroga">
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 note card theatre petroga everything" data-event-id="1">
 					<img src="./музик холл1.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Мюзик холл</h5>
@@ -74,9 +74,12 @@
 						<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
 						<p class="card-text">Санкт-Петербургский Мюзик-холл - уникальный театр по своей жанровой природе и сегодня единственный в России...</p>
 						<a href="./musichall.html" class="btn btn-dark" style="background-color:#1f4e60">Подробнее</a>
+						<form onsubmit="addNote(1)">
+							<button type="submit" class="btn btn-dark mt-3" style="background-color:#1f4e60">Записаться</button>
+						</form>
 					</div>
 				</div>
-				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card theatre petroga">
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 note card theatre petroga everything" data-event-id="2">
 					<img src="./a_1_38.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Дворец культуры им.Ленсовета</h5>
@@ -85,9 +88,12 @@
 						<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская, Петроградская</p>
 						<p class="card-text">В 1931-1938 годах по проекту Е.А.Левинсона и В.О.Мунца строится здание Дворца культуры промкооперации или "Промка"...</p>
 						<a href="#" class="btn btn-dark" style="background-color:#1f4e60">Подробнее</a>
+						<form onsubmit="addNote(2)">
+							<button type="submit" class="btn btn-dark mt-3" style="background-color:#1f4e60">Записаться</button>
+						</form>
 					</div>
 				</div>
-				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card active moscow">
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 note card active moscow everything" data-event-id="3">
 					<img src="./a_18_0.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">Открытый ледовый каток</h5>
@@ -96,9 +102,12 @@
 						<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Парк Победы</p>
 						<p class="card-text">Вход на каток платный. Есть прокат коньков и заточка. Каждая пара коньков выдаются под...</p>
 						<a href="#" class="btn btn-dark" style="background-color:#1f4e60">Подробнее</a>
+						<form onsubmit="addNote(3)">
+							<button type="submit" class="btn btn-dark mt-3" style="background-color:#1f4e60">Записаться</button>
+						</form>
 					</div>
 				</div>
-				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card active prima">
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 note card active prima everything" data-event-id="4">
 					<img src="./o_L-ubkbkoMrE_0.jpg" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">GorillaPark</h5>
@@ -107,6 +116,9 @@
 						<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px" data-id="prima" >Комендантский проспект, Пионерская</p>
 						<p class="card-text">Взрослых гостей и детей от 7 лет ждут спортивные и очень весёлые локации: - 22 зоны скалодрома...</p>
 						<a href="#" class="btn btn-dark" style="background-color:#1f4e60">Подробнее</a>
+						<form onsubmit="addNote(4)">
+							<button type="submit" class="btn btn-dark mt-3" style="background-color:#1f4e60">Записаться</button>
+						</form>
 					</div>
 				</div>
 				</div>
@@ -163,6 +175,21 @@
 			const result = document.querySelector('.region-type');
 			const cards = document.querySelectorAll('.card')
 
+			async function addNote(id) {
+				const userId = JSON.parse(localStorage.user).id;
+				const relation = {
+					"userId": userId,
+					"eventId": id
+				}
+				console.log(relation)
+				const response = await fetch('http://localhost:3000/userEvents', {
+					method: "POST",
+					body: JSON.stringify(relation),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+			}
 
 			select.addEventListener('change', (event) => {
 					const { value } = event.target
