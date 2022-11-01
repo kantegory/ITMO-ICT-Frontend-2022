@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="assets/Coinbase-logo-1.svg"
+                                                            alt="coinbase logo">
+            </a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
+        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+    </ul>
+</header>
+<section class="dataTable-wrapper d-flex justify-content-center">
+    <table class="table align-middle mt-5 w-75 bg-white border-light">
+        <thead class="table-head">
+        <tr class="search-row p-2 bg-light">
+            <td colspan="5" class="align-middle ">
+                <div class="input-group w-25 ps-2">
+                    <div class="p-2 align-content-center bg-light" id="basic-addon1"
+                         style="border: 1px solid lightgrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                             class="bi bi-search"
+                             viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                        </svg>
+                    </div>
+                    <label class="w-75">
+                        <input type="text" class="form-control" style="height: 45px" onchange="search()"
+                               placeholder="Поиск по названию">
+                    </label>
+                    <button class="bg-light" style="border: 1px solid lightgrey"><img src="assets/icons8-close.svg"
+                                                                                      alt="" class="bg-light"
+                                                                                      onclick="clear_search()">
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr class="head-row border-light">
+            <th class="fw-normal ps-4 ">Название
+                <button class="sort-arrow align-middle" onclick="sort_name()"><img src="assets/icons8-sort-24.png"
+                                                                                   alt="">
+                </button>
+            </th>
+            <th class="fw-normal">Цена
+                <button class="sort-arrow align-middle" onclick="sort_price()"><img src="assets/icons8-sort-24.png"
+                                                                                    alt="">
+                </button>
+            </th>
+            <th class="fw-normal">Изменение
+                <button class="sort-arrow align-middle" onclick="sort_change()"><img src="assets/icons8-sort-24.png"
+                                                                                     alt="">
+                </button>
+            </th>
+            <th class="fw-normal">Дата добавления
+                <button class="sort-arrow align-middle" onclick="sort_date()"><img src="assets/icons8-sort-24.png"
+                                                                                   alt="">
+                </button>
+            </th>
+            <th class="fw-normal">
+                <div class="pagination">
+                    <button class="btn-pagination btn-prev" onclick="prev_page()"><img style="width: 15px;"
+                                                                                       src="assets/left-arrow-svgrepo-com.svg"
+                                                                                       alt="">
+                    </button>
+                    <button class="btn-pagination btn-next" onclick="next_page()"><img
+                        style="width: 15px; transform: rotate(180deg)" src="assets/left-arrow-svgrepo-com.svg" alt="">
+                    </button>
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="coin-wrapper">
+        </tbody>
+    </table>
+</section>
+<script>
+    function getCoinHtml({image, name, current_price, symbol, market_cap_change_percentage_24h, atl_date}) {
+        return `
+            <tr class="">
+                <td>
+                    <div class="d-flex align-items-center logo-item">
+                        <img src="${image}" alt="" style="width: 30px; height: 30px"
+                             class="rounded-circle"/>
+                        <div class="ms-2">
+                            <p class="fw-bold mb-0">${name}</p>
+                            <p class="text-muted mb-0">${symbol.toUpperCase()}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-0">RUB ${current_price}</p>
+                </td>
+                <td class="">
+                    ${changeHandler(market_cap_change_percentage_24h.toFixed(2))}
+                </td>
+                <td>
+                    <span class="start-date">${dateHandler(atl_date)}</span>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="buyCoin(event)">
+                        Купить
+                    </button>
+                </td>
+            </tr>
+        `
+    }
+
+    let data;
+    let searchString = "";
+    let sortName = "";
+    let url = `http://localhost:3000/currency?${searchString}&${sortName}`;
+    let currentPage = 1;
+    let coinsPerPage = 10;
+    let amount;
+
+    const btnPrev = document.querySelector('.btn-prev')
+    const btnNext = document.querySelector('.btn-next')
+
+    function prev_page() {
+        if (currentPage > 1) {
+            currentPage--;
+            loadCoins(url)
+        }
+    }
+
+    function next_page() {
+        if (currentPage < Math.ceil(amount / coinsPerPage)) {
+            currentPage++;
+            loadCoins(url)
+        }
+
+    }
+
+    async function loadCoins(query) {
+        document.querySelector('.coin-wrapper').innerHTML = "";
+
+        if (query === undefined) {
+            query = url;
+        }
+
+        const response = await fetch(query)
+
+        data = await response.json()
+        amount = data.length
+
+        btnPrev.style.visibility = currentPage === 1 ? "hidden" : "visible"
+        btnNext.style.visibility = currentPage === Math.ceil(amount / coinsPerPage) ? "hidden" : "visible"
+
+        for (let i = (currentPage - 1) * coinsPerPage; i < (currentPage * coinsPerPage); i++) {
+            if (i > amount - 1) {
+                break
+            }
+
+            if (amount < coinsPerPage) {
+                btnPrev.style.visibility = "hidden"
+                btnNext.style.visibility = "hidden"
+            }
+
+            document.querySelector('.coin-wrapper').innerHTML += getCoinHtml(data[i])
+        }
+    }
+
+    function search() {
+        const searchValue = document.querySelector('input').value
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+    function clear_search() {
+        const searchValue = ''
+        document.querySelector('input').value = searchValue
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+    function changeHandler(market_cap_change) {
+        return market_cap_change < 0 ? `<span class="fw-normal text-danger">${market_cap_change}%</span>` : `<span class="fw-normal text-success">${market_cap_change}%</span>`
+    }
+
+    function dateHandler(date) {
+        let ruDate = new Date(date)
+        return formatDate(ruDate)
+    }
+
+    function formatDate(date) {
+        let dd = date.getDate();
+        if (dd < 10) dd = '0' + dd;
+
+        let mm = date.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
+
+        let yy = date.getFullYear();
+
+        return dd + '.' + mm + '.' + yy;
+    }
+
+    let cnt_name = 1
+
+    function sort_name() {
+        switch (cnt_name % 3) {
+            case 0:
+                sortName = ``
+                cnt_name++
+                break
+            case 1:
+                sortName = `_sort=name&_order=desc`
+                cnt_name++
+                break
+            case 2:
+                sortName = `_sort=name&_order=asc`
+                cnt_name++
+                break
+        }
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+    let cnt_price = 1
+
+    function sort_price() {
+        switch (cnt_price % 3) {
+            case 0:
+                sortName = ``
+                cnt_price++
+                break
+            case 1:
+                sortName = `_sort=current_price&_order=desc`
+                cnt_price++
+                break
+            case 2:
+                sortName = `_sort=current_price&_order=asc`
+                cnt_price++
+                break
+        }
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+    let cnt_change = 1
+
+    function sort_change() {
+        switch (cnt_change % 3) {
+            case 0:
+                sortName = ``
+                cnt_change++
+                break
+            case 1:
+                sortName = `_sort=market_cap_change_percentage_24h&_order=desc`
+                cnt_change++
+                break
+            case 2:
+                sortName = `_sort=market_cap_change_percentage_24h&_order=asc`
+                cnt_change++
+                break
+        }
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+    let cnt_date = 1
+
+    function sort_date() {
+        switch (cnt_date % 3) {
+            case 0:
+                sortName = ``
+                cnt_date++
+                break
+            case 1:
+                sortName = `_sort=atl_date&_order=desc`
+                cnt_date++
+                break
+            case 2:
+                sortName = `_sort=atl_date&_order=asc`
+                cnt_date++
+                break
+        }
+        url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+        loadCoins(url)
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(loadCoins, 200)
+    })
+
+    async function buyCoin(event) {
+        checkAuth()
+
+        const symbol = event.target.value;
+        let url = `http://localhost:3000/currency?symbol=${symbol}`;
+
+        const response = await fetch(url);
+
+        data = await response.json();
+
+        const {id, current_price} = data[0];
+
+        let coin = {
+            'id': id,
+            'price': current_price,
+            'amount': 0,
+        }
+
+        let amount = prompt("Сколько хотите купить?");
+        if (amount !== null && amount > 0) {
+            coin.amount = amount
+        }
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        let f = true;
+
+        for (let i = 0; i < userJson[0].coins; i++) {
+            if (userJson[0].coins[i].id === coin.id) {
+                userJson[0].coins[i].amount += amount;
+                f = false;
+                break;
+            }
+        }
+
+        if (f) {
+            userJson[0].coins.push(coin)
+        }
+
+
+        await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify(userJson[0]),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+    }
+
+    function checkAuth() {
+        if (!localStorage.user) {
+            window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html'
+        }
+    }
+
+</script>
+</body>
+
+</html>
