@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "email": "example@ya.ru",
+      "password": "$2a$10$MjC0AIzXeyi.W9EK/1vnZex.w1Scsqcoue9H1vqNSJuSQab9WM8qm",
+      "username": "Sveta",
+      "id": 1
+    },
+    {
+      "email": "kulagina@ya.ru",
+      "password": "$2a$10$1S1y6.6yPD4OjRRapkkHDOrFTqaqKieZV5Y0.JX9CaEGqC.ASjW8.",
+      "first_name": "Sveta",
+      "last_name": "Kulagina",
+      "username": "SvetOOO",
+      "id": 2
+    },
+    {
+      "email": "Kirill1111@mail",
+      "password": "$2a$10$MgmZHRZp5G4c/vreE5yS/ushMxMzh1JqEEymSr8sNNn2R1PW6Ku76",
+      "first_name": "Kirill",
+      "last_name": "Бандит",
+      "username": "Kiry",
+      "id": 3
+    },
+    {
+      "email": "neverov.iv@gmail.com",
+      "password": "$2a$10$nQE86aJz2.slx0sT4FDuo.gH9LOF.TFnNJ5C5PQ9HQyYGfU9BiXle",
+      "first_name": "Lesha",
+      "last_name": "Kondratiev ",
+      "username": "qwerfgh",
+      "id": 4
+    },
+    {
+      "email": "nat@mail.com",
+      "password": "$2a$10$lZh2ZG3Nd5P4gfzI.y88eOl1NjmAEU6HEtT/pLR.peQcSTWwR9mL.",
+      "first_name": "Наталья",
+      "last_name": "Кулагина",
+      "username": "nat13",
+      "id": 5
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "mero": "Мюзик Холл",
+      "data": "01.12.2022",
+      "address": "Парк Александровский, д. 4",
+      "metro": "Горьковская"
+    }
+  ],
+  "userEvents": [
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "eventId": 1,
+      "id": 2
+    }
+  ]
+}

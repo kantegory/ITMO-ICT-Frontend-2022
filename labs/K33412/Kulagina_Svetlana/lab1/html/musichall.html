@@ -12,20 +12,20 @@
 		<header class="colors">
 			<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-light" style="background-color:#e388a9">
 				<div class="container">
-					<a class="navbar-brand text-white" href="./main.html">Главная</a>
+					<a class="navbar-brand text-white" href="./calendar.html">Календрь мероприятий</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item">
-								<a class="nav-link active text-white" href="./entrance.html">Вход</a>
+								<a class="nav-link active text-white" href="./entrance.html" id="enter">Вход</a>
 							</li>
 							<li>
-								<a class="nav-link active text-white" href="./lk.html">Личный кабинет</a>
+								<a class="nav-link active text-white" href="./lk.html" id="enterlk">Личный кабинет</a>
 							</li>
 							<li>
-								<a class="nav-link active text-white" href="./calendar.html">Календарь мероприятий</a>
+								<a class="nav-link active text-white" id="logout">Выход</a>
 							</li>
 						</ul>
 					</div>
@@ -33,24 +33,24 @@
 			</nav>
 		</header>
 		<main class="container row mx-auto d-flex pt-5">
-			<section class="container row mx-auto">
-			<h1 class="help mb-5">Мюзик Холл</h1>
+			<section class="note container row mx-auto" data-event-id="1">
+			<h1 class="help mb-5 mero" name="mero">Мюзик Холл</h1>
 				<div class="row d-flex col-md-3 col-lg-2 col-sm-3 col-4 col-xl-2 col-2">
 					<ul>
 						<h6 class="information">Адрес:</h6>
 						<h6 class="information mt-5">Рйон:</h6>
 						<h6 class="information mt-5">Метро:</h6>
-						<h6 class="information mt-5">Телефон:</h6>
+						<h6 class="information mt-5">Дата:</h6>
 						<h6 class="information mt-5">Сайт:</h6>
 						<h6 class="information mt-5">Часы работы:</h6>
 					</ul>
 				</div>
-				<div class="row d-flex col-md-9 col-lg-6 col-sm-9 col-9 col-xl-5">
+				<div class=" row d-flex col-md-9 col-lg-6 col-sm-9 col-9 col-xl-5">
 					<ul>
-						<h6 class="text">Парк Александровский, д. 4</h6>
+						<h6 class="text address" name="address">Парк Александровский, д. 4</h6>
 						<h6 class="text mt-5">Петроградский район</h6>
-						<h6 class="text mt-5">Горьковская (409 м)</h6>
-						<h6 class="text mt-5">+7 (812) 233-09-24</h6>
+						<h6 class="text mt-5 metro" name="metro">Горьковская (409 м)</h6>
+						<h6 class="text mt-5 data" name="data">01.12.2022</h6>
 						<h6 class="text mt-5"><a href="	http://www.musichallspb.ru">http://www.musichallspb.ru</h6></a>
 						<h6 class="text mt-5">кассы: пн-вс: с 12:00 до 19:15</h6>
 					</ul>
@@ -67,9 +67,11 @@
 			</section>
 			<section class="container row mx-auto pt-5">
 			<h3 class="colored-h3">Пойдешь с нами?)</h3>
-				<div class="pt-3">
-					<a role="button" href="./lk.html" class="btn btn-light" style="background:#46abc5">Записаться</a>
-				</div>
+				<form onsubmit="addNote()">
+					<div class="pt-3">
+						<button type="submit" class="btn btn-light" style="background:#46abc5">Записаться</button>
+					</div>
+				</form>
 			</section>
 			<section class="container row mx-auto pt-5">
 				<div class="container">
@@ -152,5 +154,52 @@
 				<a class="text-dark" href="http://t.me/rassvet2002">Kulagina Svetlava</a>
 			</div>
 		</footer>
+		<script>
+			const idLogOut = document.querySelector('#logout');
+			const idLogIn = document.querySelector('#enter');
+			const enterLK = document.querySelector('#enterlk');
+			
+
+			async function addNote() {
+				const userId = JSON.parse(localStorage.user).id;
+				const eventId = Number(document.querySelector(".note").dataset.eventId);
+				const relation = {
+					"userId": userId,
+					"eventId": eventId
+				}
+				console.log(relation)
+				const response = await fetch('http://localhost:3000/userEvents', {
+					method: "POST",
+					body: JSON.stringify(relation),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+			}
+			function logout() {
+				localStorage.clear();
+				window.location.href = "http://localhost:8000/html/entrance.html";
+			}
+
+			function check() {
+				if (localStorage.accessToken){
+					idLogIn.classList.add("d-none")
+				}
+				else {
+					idLogIn.classList.remove("d-none")
+				}
+			}
+
+			function checkenter() {
+				if (!localStorage.accessToken){
+					enterLK.classList.add("d-none");
+					idLogOut.classList.add("d-none")
+				}
+			}
+
+			checkenter();
+			check();
+			idLogOut.addEventListener('click', logout)
+		</script>
 	</body>
 </html>
