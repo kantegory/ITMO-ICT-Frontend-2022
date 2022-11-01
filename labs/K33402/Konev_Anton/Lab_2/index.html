@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link pt-1"><img class="nav-logo" src="assets/Coinbase-logo-1.svg"
+                                                                    alt="coinbase logo"></a></li>
+        <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
+        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+        <li class="nav-item"><button class="" onclick="logout()"  style="border: none; background-color: white; padding-top:5px"><img src="assets/logout.png" style="width: 20px" alt=""></button></li>
+    </ul>
+</header>
+<script>
+    function logout() {
+        if (localStorage.user){
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+</script>
+</body>
+</html>
