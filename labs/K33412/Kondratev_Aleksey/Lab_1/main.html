@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Главная</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Главная</title>
 		<link rel="stylesheet" href="./vendor/normalize.css">
 		<link rel="stylesheet" href="./styles/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
-  <body>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	</head>
+	<body>
 		<header class="container-fluid colors">
 			<nav class="navbar navbar-expand-md d-flex justify-content-between">
 				<div>
-					<a class="navbar-brand text-white fs-4 p-2" href="./main.html">Главная</a>
-					<a class="navbar-brand text-white fs-6 p-2" href="./calendar.html">Календарь</a>
+					<a class="colors navbar-brand text-white fs-4 p-2" href="./main.html">Главная</a>
+					<a class="colors navbar-brand text-white fs-6 p-2" href="./calendar.html">Календарь</a>
 				</div>
 				<div>
-					<a class="navbar-brand text-white fs-6" href="./entry.html">Вход</a>
-					<a class="navbar-brand text-white fs-6" href="./reqistration.html">Регистрация</a>
-					<a class="navbar-brand text-white fs-5 p-2" href="./personal-area.html">Личный кабинет</a>					
+					<button class="colors navbar-brand text-white fs-6" id="entry">Вход</button>
+					<button class="colors navbar-brand text-white fs-6 button-logout" id="exit">Выход</button>
+					<button class="colors navbar-brand text-white fs-6" id="register">Регистрация</button>
+					<button class="colors navbar-brand text-white fs-5 p-2" id="lc">Личный кабинет</button>
 				</div>
 			</nav>
 		</header>
@@ -38,62 +39,101 @@
 					<p class="fs-5 pe-3">Сортировать</p>
 					<div class="dropdown me-3">
 						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-							По названию
+							По виду
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li><a class="dropdown-item" href="#">От а до я</a></li>
-							<li><a class="dropdown-item" href="#">От я до а</a></li>
+							<li><a class="dropdown-item" href="#">Спорт</a></li>
+							<li><a class="dropdown-item" href="#">Музыка</a></li>
 						</ul>
 					</div>
 					<div class="dropdown me-3">
 						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-							По числу
+							По городу
 						</a>
 					
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Ближайшие</a></li>
-							<li><a class="dropdown-item" href="#">Недавно опубликованные</a></li>
+							<li><a class="dropdown-item" href="#">Тверь</a></li>
+							<li><a class="dropdown-item" href="#">Москва</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="row justify-content-center pt-5 pb-5">
-					<div class="card me-4" style="width: 18rem;">
+					<div class="card me-4" style="width: 18rem;" data-event-id="1">
 						<img src="./image/cards/sport.jfif" class="card-img-top" alt="Люди бегут на марафоне" style="height: 11rem;">
 						<div class="card-body">
 							<h5 class="card-title">Марафон</h5>
-							<p class="card-text">Присоединяйся к нам в очередном забеге на 21 или 42 километра, чтобы испытать себя и свое тело</p>
+							<p class="card-text">Спорт</p>
+							<p class="card-data">Тверь</p>
 						<a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
+						<form action="" onsubmit="subscribe(1)">
+							<button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Записаться
+							</button>
+						</form>
 						</div>
 					</div>
-					<div class="card me-4" style="width: 18rem;">
+					<div class="card me-4" style="width: 18rem;" data-event-id="2">
 						<img src="./image/cards/nature.jpeg" class="card-img-top" alt="Люди убирают мусор" style="height: 11rem;">
 						<div class="card-body">
 							<h5 class="card-title">Спасем природу</h5>
-							<p class="card-text">Собирайся со всеми своими друзьями, чтобы сделать наш мир чище, кто если не ты спасет его?
-							</p>
+							<p class="card-text">Музыка</p>
+							<p class="card-data">Москва</p>
 						<a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
+						<form action="" onsubmit="subscribe(2)">
+							<button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Записаться
+							</button>
+						</form>
 						</div>
 					</div>
-					<div class="card me-4" style="width: 18rem;">
+					<div class="card me-4" style="width: 18rem;" data-event-id="3">
 						<img src="./image/cards/study.webp" class="card-img-top" alt="Человек учиться на дистанте" style="height: 11rem;">
 						<div class="card-body">
 							<h5 class="card-title">Учись вместе</h5>
-							<p class="card-text">Находите, что то новое, чтобы хотелось изучить, ибо в нашем мире без развития и интереса никуда</p>
+							<p class="card-text">Музыка</p>
+							<p class="card-data">Москва</p>
 						<a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
+						<form action="" onsubmit="subscribe(3)">
+							<button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Записаться
+							</button>
+						</form>
 						</div>
 					</div>
-					<div class="card me-4" style="width: 18rem;">
+					<div class="card me-4" style="width: 18rem;" data-event-id="4">
 						<img src="./image/cards/tourism.webp" class="card-img-top" alt="Люди идут в поход" style="height: 11rem;">
 						<div class="card-body">
 							<h5 class="card-title">Путешествия</h5>
-							<p class="card-text">Путешествуйте вместе с родными и близкими вам людьми, а также находить новые знакомства в походах
-							</p>
+							<p class="card-text">Спорт</p>
+							<p class="card-data">Москва</p>
 						<a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
+						<form action="" onsubmit="subscribe(4)">
+							<button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Записаться
+							</button>
+						</form>
 						</div>
 					</div>
 				</div>
 			</section>
 		</main>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Вы записаны</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Ждем вас на нашем мероприятие с хорошим настроением
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<footer class="container-fluid pt-5 colors">
 			<div class="row justify-content-between p-2">
@@ -144,6 +184,25 @@
 			</div>
 		</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		<script src="./scripts/header.js"></script>
+		<script>
+			async function subscribe(id) {
+				const userId = JSON.parse(localStorage.user).id;
+				// const eventId = Number(document.querySelector('.card').dataset.eventId);
+				const userEvent = {
+					"userId": userId,
+					"eventId": id
+				}
+				console.log(userEvent)
+				const response = await fetch('http://localhost:3000/userEvents', {
+					method: "POST",
+					body: JSON.stringify(userEvent),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+			}
+		</script>
+	</body>
 </html>

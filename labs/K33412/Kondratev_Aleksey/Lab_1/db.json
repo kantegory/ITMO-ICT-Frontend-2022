@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "email": "example@mail.com",
+      "password": "$2a$10$yj.PvyH8IPqvUK2WiusfN.rPGoyQM/T43LD3aWhjP2JhG2gPdxFM.",
+      "login": "anpan",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 1
+    },
+    {
+      "email": "example1@mail.com",
+      "password": "$2a$10$UMuDvfWz.BNs9uDSPaoa6OjCCFzsp7hqhI8jkCiJlHKyLS7JPkgBC",
+      "login": "anpanf",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 2
+    },
+    {
+      "email": "anpan@mail.com",
+      "password": "$2a$10$gAkG634JAz.Q5YSLriAtKOtFkXfusVs1.KZwZVn40wb8dJUhpFuY.",
+      "login": "anpanman",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 3
+    },
+    {
+      "email": "lizamir@mail.com",
+      "password": "$2a$10$S3Fs1r6ow0zDRrlcsi80Ju3OO8eaJ64/ECrbcSNCAVKYpIw/Eapbq",
+      "firstname": "liza",
+      "lastname": "mironova",
+      "login": "lizamir",
+      "id": 4
+    },
+    {
+      "email": "lizamir1@mail.com",
+      "password": "$2a$10$QJZKojNcwZgQyclbalb17.LhG.WmXzG0a8hmvZxzxlOEzA96dG80K",
+      "firstname": "liza",
+      "lastname": "mironova",
+      "login": "lizamir1",
+      "id": 5
+    },
+    {
+      "email": "kulagina@mail.com",
+      "password": "$2a$10$KGJBmUQpyxpQIEQL0gG3..zWOoOwXgWgZ7IDRiHriCBVSWXZxVhm2",
+      "firstname": "sveta",
+      "lastname": "kulagina",
+      "login": "svetik",
+      "id": 6
+    }
+  ],
+  "events": [
+    {
+      "name": "Марафон",
+      "day": "11.05",
+      "text": "Присоединяйся к нам в очередном забеге на 21 или 42 километра, чтобы испытать себя и свое тело",
+      "src": "./image/cards/sport.jfif",
+      "id": 1
+    },
+    {
+      "name": "Спасем природу",
+      "day": "24.06",
+      "text": "Собирайся со всеми своими друзьями, чтобы сделать наш мир чище, кто если не ты спасет его?",
+      "src": "./image/cards/nature.jpeg",
+      "id": 2
+    },
+    {
+      "name": "Учись вместе",
+      "day": "24.05",
+      "text": "Находите, что то новое, чтобы хотелось изучить, ибо в нашем мире без развития и интереса никуда",
+      "src": "./image/cards/study.webp",
+      "id": 3
+    },
+    {
+      "name": "Путешествия",
+      "day": "14.05",
+      "text": "Путешествуйте вместе с родными и близкими вам людьми, а также находить новые знакомства в походах",
+      "src": "./image/cards/tourism.webp",
+      "id": 4
+    }
+  ],
+  "userEvents": [
+    {
+      "userId": 2,
+      "eventId": 1,
+      "id": 1
+    }
+  ]
+}
