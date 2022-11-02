@@ -74,6 +74,21 @@
       "userId": 5,
       "eventId": 1,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "eventId": 4,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "eventId": 1,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "eventId": 3,
+      "id": 6
     }
   ]
 }

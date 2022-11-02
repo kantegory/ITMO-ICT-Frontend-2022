@@ -97,24 +97,30 @@
 						myEvents.push(item) 
 					} 
 				})
-				console.log("myevents", myEvents) 
+				console.log("myevents", myEvents)
+				console.log("myeventsuser", myUsersEvents)
+				console.log("main", mainId) 
 				for (let i = 0; i < myEvents.length; i++ ) { 
-					document.querySelector("#container").innerHTML += getCardHtml(myEvents[i].id, myEvents[i].mero, myEvents[i].data, myEvents[i].metro, myEvents[i].address, mainId[i].id); 
+					document.querySelector("#container").innerHTML += getCardHtml(myEvents[i].id, myEvents[i].mero, myEvents[i].data, myEvents[i].metro, myEvents[i].address, myEvents[i].id); 
 				} 
 			}
 
-			async function deleteCard(mainId) { 
-				const link = 'http://localhost:3000/userEvents/' + mainId
-				console.log(link)
-				const response = await fetch(link, { 
-					method: "DELETE", 
-					headers: {
-						'Content-Type': 'application/json' 
+			async function deleteCard(event, id) { 
+				for (let i = 0; i < mainId.length; i++) {
+					if (id === mainId[i].eventId && userId === mainId[i].userId) {
+						const link = 'http://localhost:3000/userEvents/' + mainId[i].id;
+						console.log(link);
+						const response = await fetch(link, {
+							method: "DELETE",
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						})
 					}
-				})
+				}
 			}
 
-			function getCardHtml(id, mero, data, metro, address, mainId) {
+			function getCardHtml(id, mero, data, metro, address) {
 				return `
 				<div class="card" data-card-id=${id} style="width: 18rem;">
 						<div class="card-body">
@@ -122,7 +128,7 @@
 							<p class="card-text">${data}</p>
 							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">${address}</p>
 							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">${metro}</p>
-							<form onsubmit="deleteCard(${mainId})">
+							<form onsubmit="deleteCard(event, ${id})">
 								<button type="submit" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</button>
 							</form>
 						</div>
