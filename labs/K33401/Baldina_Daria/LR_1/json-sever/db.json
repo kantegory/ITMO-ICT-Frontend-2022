@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "email": "ddbaldina@mail.ru",
+      "password": "$2a$10$5JvSkGy9NErQy693Prcmq.Omm/ht5bYhoGWlnHZLKIefreq2.tIv.",
+      "lastname": "Балдина",
+      "name": "Дарья",
+      "id": 1
+    },
+    {
+      "email": "312407@niuitmo.ru",
+      "password": "$2a$10$2nYkTPYx2Fw2kj6QmK6ugOTEGS3V4AkSCDTWOOMQEKe3nvM6Z5R92",
+      "lastname": "Матвеев",
+      "name": "Иван",
+      "id": 2
+    },
+    {
+      "email": "aleks@mail.ru",
+      "password": "$2a$10$3/MgnU2p2g5LGK/wERyE7uH5kHmMYNc7XBBNV3acBO/uDky7cOn6.",
+      "lastname": "Алексеев",
+      "name": "Олег",
+      "id": 3
+    }
+  ], 
+
+  "workers": [
+    {
+    "id": 1,
+    "last_name": "Зима",
+    "name" : "Кристина",
+    "middle_name" : "Олеговна",
+    "departure_name" : "Продажи",
+    "userId": 1
+  },
+  {
+    "id": 2,
+    "last_name": "Мальков",
+    "name" : "Игорь",
+    "middle_name" : "Сергеевич",
+    "departure_name" : "Тех.отдел",
+    "userId": 1
+  },
+  {
+    "id": 3,
+    "last_name": "Климова",
+    "name" : "Анастасия",
+    "middle_name" : "Викторовна",
+    "departure_name" : "Управление",
+    "userId": 3
+  }
+    ]
+
+  }
