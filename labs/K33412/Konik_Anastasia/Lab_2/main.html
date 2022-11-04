@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="src/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="src/js/filter.js"></script>
+    <script src="src/js/menu.js"></script>
+    <script src="src/js/main.js"></script>
+</head>
+
+<body>
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./main.html">Main</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="sign_in.html">Sign in</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="./sign_up.html">Sign up</a>
+                    </li>
+                    <li class="nav-item profile_link">
+                        <a class="nav-link active" href="./profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./calendar.html">Calendar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-xl p-5 mb-5">
+    <h1 class="row mb-3 justify-content-center">Events in Saint-Petersburg</h1>
+    <div class="text-center">
+        <img src="src/img/spb.jpg" class="rounded col-6" alt="">
+    </div>
+    <section class="filtration" onchange="searchFilter()">
+        <div class="form text-center col-sm-6 col-lg-4 col-xl-3 mt-3 mx-auto">
+            <select class=form-select-sm" aria-label=".form-select-sm example" id="filter_by_type">
+                <option selected>Event type</option>
+                <option value="theater">Theaters</option>
+                <option value="concert">Concerts</option>
+                <option value="exhibition">Exhibitions</option>
+                <option value="activity">Outdoor activities</option>
+                <option value="festival">Festivals</option>
+            </select>
+        </div>
+        <div class="form text-center col-sm-6 col-lg-4 col-xl-3 mt-3 mx-auto">
+            <select class=form-select-sm" aria-label=".form-select-sm example" id="filter_by_place">
+                <option selected>Choose district</option>
+                <option value="admiralteysky">Admiralteysky</option>
+                <option value="petrogradsky">Petrogradsky</option>
+                <option value="moskovsky">Moskovsky</option>
+                <option value="tsentralny">Tsentralny</option>
+                <option value="vasileostrovsky">Vasileostrovsky</option>
+            </select>
+        </div>
+        <!--        <div class="text-center col-sm-6 col-lg-4 col-xl-3 mt-3 mx-auto">-->
+        <!--            <button class="btn btn-primary" type="submit" style="background-color:#34c0eb" >Search</button>-->
+        <!--        </div>-->
+    </section>
+    <section id="event_cards" class="container justify-content-center row mx-auto mt-3">
+    </section>
+</main>
+
+<footer>
+    <p>&copy 2022, Konik Anastasia</p>
+</footer>
+
+</body>
+</html>

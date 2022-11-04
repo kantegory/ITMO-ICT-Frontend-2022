@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sing up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="src/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="src/js/menu.js"></script>
+    <script src="src/js/auth.js"></script>
+</head>
+
+<body>
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./main.html">Main</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="sign_in.html">Sign in</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="./sign_up.html">Sign up</a>
+                    </li>
+                    <li class="nav-item profile_link">
+                        <a class="nav-link active" href="./profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./calendar.html">Calendar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-xl p-5 mb-5">
+    <h1 class="row mb-3 justify-content-center">Sign up</h1>
+    <form onsubmit="signup(event)">
+        <div class="row mb-2 justify-content-center">
+            <label for="name" class="col-sm-1 col-form-label">Name</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="text" id="name" name="name" required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="lastname" class="col-sm-1 col-form-label">Last name</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="email" class="col-sm-1 col-form-label">Email</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="password" class="col-sm-1 col-form-label">Password</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="user_image" class="col-sm-1 col-form-label">Profile image</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input name="img" type='text' />
+                <br><img id="user_image" class="mt-2" src="" alt="" style="max-height: 200px; max-width: 200px">
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 text-center">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <p>&copy 2022, Konik Anastasia</p>
+</footer>
+
+</body>
+</html>
