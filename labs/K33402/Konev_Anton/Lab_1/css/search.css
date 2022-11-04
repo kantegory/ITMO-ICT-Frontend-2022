@@ -1,0 +1,51 @@
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.table {
+    border: 2px solid;
+}
+
+.head-row {
+    border-bottom: 2px solid;
+    font-weight: normal;
+}
+
+.search-row {
+    height: 65px;
+}
+
+.btn-link {
+    width: 100px;
+}
+
+.logo-item {
+    padding-left: 15px;
+}
+
+.dropdown-button {
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-button:hover, .dropdown-button:focus {
+    background-color: rgba(0,0,0,0.6)
+}
+
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.show {display:block;}

@@ -31,17 +31,17 @@
                   ">
                 <div class="card-body p-5 shadow-5 text-center">
                   <h2 class="fw-bold mb-5">Регистрация</h2>
-                  <form>
+                  <form onsubmit="createAdmin(event)">
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="form3Example1" class="form-control" />
+                          <input type="text" id="form3Example1" class="form-control" id="lastname" name="lastname">
                           <label class="form-label" for="form3Example1">Фамилия</label>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <div class="form-outline">
-                          <input type="text" id="form3Example2" class="form-control" />
+                          <input type="text" id="form3Example2" class="form-control" id="name" name="name">
                           <label class="form-label" for="form3Example2">Имя</label>
                         </div>
                       </div>
@@ -49,26 +49,17 @@
 
         
                     <div class="form-outline mb-4">
-                      <input type="email" id="form3Example3" class="form-control" />
+                      <input type="email" id="form3Example3" class="form-control" id="email" name="email">
                       <label class="form-label" for="form3Example3">Email</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="form3Example4" class="form-control" />
+                      <input type="password" id="form3Example4" class="form-control" id="password" name="password">
                       <label class="form-label" for="form3Example4">Пароль</label>
                     </div>
-      
-                    <div class="form-group mb-4">
-                        <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" value="option1">
-                      <span class="form-check-label"> Мужчина </span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="gender" value="option2">
-                      <span class="form-check-label"> Женщина </span>
-                    </label>
-                    </div>
-                  <a href="main_page.html" class="btn btn-primary d-flex justify-content-center btn-block">Зарегестрироваться</a>
+                  <div class="form-outline col-lg-12"> 
+                    <button type="submit" class="btn btn-primary btn-block">Зарегестрироваться</button>
+                  </div>
                   </form>
                 </div>
               </div>
@@ -81,5 +72,30 @@
           </div>
         </div>
       </section>
+
+      <script>
+        async function createAdmin(event) {
+          event.preventDefault()
+
+          const inputs = Array.from(event.target.querySelectorAll('input'))
+
+          const infoAdmin = {}
+
+          for (const input of inputs) {
+            infoAdmin[input.name] = input.value
+          }
+          console.log('admin data',  infoAdmin)
+
+          const response = await fetch('http://localhost:3000/signup', {
+            method: "POST",
+            body: JSON.stringify(infoAdmin),
+            headers: {
+              'Content-Type': 'application/json',
+          }
+        })
+        window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
+      }
+      
+      </script>
 </body>
 </html>

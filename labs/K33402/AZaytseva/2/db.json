@@ -1,0 +1,341 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@admin.com",
+      "password": "admin"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Платье из натурального кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/1.png",
+      "color": "white"
+    },
+    {
+      "id": 2,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/2.png",
+      "color": "ecru"
+    },
+    {
+      "id": 3,
+      "name": "Жилет из шерсти, шелка и кашемира",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/3.png",
+      "color": "black"
+    },
+    {
+      "id": 4,
+      "name": "Длинный жилет из кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/4.png",
+      "color": "ecru"
+    },
+    {
+      "id": 5,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 92.560,00",
+      "photo": "/img/products/5.png",
+      "color": "black"
+    },
+    {
+      "id": 6,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/6.png",
+      "color": "black"
+    },
+    {
+      "id": 7,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/7.png",
+      "color": "ecru"
+    },
+    {
+      "id": 8,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/8.png",
+      "color": "black"
+    },
+    {
+      "id": 9,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/9.png",
+      "color": "black"
+    },
+    {
+      "id": 10,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/10.png",
+      "color": "black"
+    },
+    {
+      "id": 11,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/11.png",
+      "color": "white"
+    },
+    {
+      "id": 12,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/12.png",
+      "color": "black"
+    },
+    {
+      "id": 13,
+      "name": "Платье из натурального кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/1.png",
+      "color": "white"
+    },
+    {
+      "id": 14,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/2.png",
+      "color": "ecru"
+    },
+    {
+      "id": 15,
+      "name": "Жилет из шерсти, шелка и кашемира",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/3.png",
+      "color": "black"
+    },
+    {
+      "id": 16,
+      "name": "Длинный жилет из кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/4.png",
+      "color": "ecru"
+    },
+    {
+      "id": 17,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 92.560,00",
+      "photo": "/img/products/5.png",
+      "color": "black"
+    },
+    {
+      "id": 18,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/6.png",
+      "color": "black"
+    },
+    {
+      "id": 19,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/7.png",
+      "color": "ecru"
+    },
+    {
+      "id": 20,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/8.png",
+      "color": "black"
+    },
+    {
+      "id": 21,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/9.png",
+      "color": "black"
+    },
+    {
+      "id": 22,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/10.png",
+      "color": "black"
+    },
+    {
+      "id": 23,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/11.png",
+      "color": "white"
+    },
+    {
+      "id": 24,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/12.png",
+      "color": "black"
+    },
+    {
+      "id": 25,
+      "name": "Платье из натурального кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/1.png",
+      "color": "white"
+    },
+    {
+      "id": 26,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/2.png",
+      "color": "ecru"
+    },
+    {
+      "id": 27,
+      "name": "Жилет из шерсти, шелка и кашемира",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/3.png",
+      "color": "black"
+    },
+    {
+      "id": 28,
+      "name": "Длинный жилет из кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/4.png",
+      "color": "ecru"
+    },
+    {
+      "id": 29,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 92.560,00",
+      "photo": "/img/products/5.png",
+      "color": "black"
+    },
+    {
+      "id": 30,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/6.png",
+      "color": "black"
+    },
+    {
+      "id": 31,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/7.png",
+      "color": "ecru"
+    },
+    {
+      "id": 32,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/8.png",
+      "color": "black"
+    },
+    {
+      "id": 33,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/9.png",
+      "color": "black"
+    },
+    {
+      "id": 34,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/10.png",
+      "color": "black"
+    },
+    {
+      "id": 35,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/11.png",
+      "color": "white"
+    },
+    {
+      "id": 36,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/12.png",
+      "color": "black"
+    },
+    {
+      "id": 37,
+      "name": "Платье из натурального кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/1.png",
+      "color": "white"
+    },
+    {
+      "id": 38,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/2.png",
+      "color": "ecru"
+    },
+    {
+      "id": 39,
+      "name": "Жилет из шерсти, шелка и кашемира",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/3.png",
+      "color": "black"
+    },
+    {
+      "id": 40,
+      "name": "Длинный жилет из кашемира",
+      "price": "RUB 71.735,00",
+      "photo": "/img/products/4.png",
+      "color": "ecru"
+    },
+    {
+      "id": 41,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 92.560,00",
+      "photo": "/img/products/5.png",
+      "color": "black"
+    },
+    {
+      "id": 42,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/6.png",
+      "color": "black"
+    },
+    {
+      "id": 43,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/7.png",
+      "color": "ecru"
+    },
+    {
+      "id": 44,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/8.png",
+      "color": "black"
+    },
+    {
+      "id": 45,
+      "name": "Платье из шерсти, шелка и кашемира",
+      "price": "RUB 59.590,00",
+      "photo": "/img/products/9.png",
+      "color": "black"
+    },
+    {
+      "id": 46,
+      "name": "Стеганый жилет с пайетками",
+      "price": "RUB 119.465,00",
+      "photo": "/img/products/10.png",
+      "color": "black"
+    },
+    {
+      "id": 47,
+      "name": "Платье из хлопка и тюля",
+      "price": "RUB 55.830,00",
+      "photo": "/img/products/11.png",
+      "color": "white"
+    }
+  ]
+}

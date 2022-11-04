@@ -1,0 +1,12 @@
+site_name: ITMO-ICT-WEB-DEVELOPMENT
+
+theme:
+  name: readthedocs
+
+nav:
+ - Начальная: index.md
+ - Лабораторная работа №1: lr_1.md
+
+markdown_extensions:
+    - toc:
+        permalink: True

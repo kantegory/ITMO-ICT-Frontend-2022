@@ -1,0 +1,14 @@
+site_name: Отчеты по Font-end
+nav:
+    - Главная страница: index.md
+    - Лабораторные:
+        - Лабораторная №1: lr_1.md
+        - Лабораторная №2: lr_2.md
+    - Домашние задания: 
+        - Задание №1: hw_1.md
+
+
+
+theme:
+  name: null
+  custom_dir: "MkDocs-Theme-Cinder-Superhero/cinder-superhero"
