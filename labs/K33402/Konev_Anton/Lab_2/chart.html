@@ -27,66 +27,204 @@
     </ul>
 </header>
 <div class="container w-100 pt-4">
-    <div class="wrapper">
-        <canvas class="firstChart mb-5"></canvas>
-        <canvas class="secondChart mb-5"></canvas>
+    <div class="d-flex w-25 mb-5 justify-content-between" style="border: 1px solid lightgrey;">
+        <label class="w-100">
+            <input type="text" class="form-control" style="height: 45px;border: none" onchange="search()"
+                   placeholder="Поиск по названию">
+        </label>
+        <button class="bg-light px-2" style="border:none; padding: 0"><img src="assets/icons8-close.svg"
+                                                                      alt="" class="bg-light"
+                                                                      onclick="clear_search()">
+        </button>
     </div>
+
+    <div class="chart-section d-flex">
+        <div class="wrapper d-block" style="height: 500px; width: fit-content; overflow-y: scroll; padding-top: 20px">
+
+        </div>
+        <div class="chart-wrapper w-75"></div>
+    </div>
+
 </div>
 </body>
 <script>
-    let ctx = document.querySelector(".firstChart");
-    let ctx2 = document.querySelector(".secondChart")
-    let bitcoinPrice = 1195166.73
-    let ethereumPrice = 80783.75
-    let endDate = new Date()
-    endDate.setDate(endDate.getDate())
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
-        "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    let timeSet = []
-    let bitcoinSet = []
-    let ethereumSet = []
-    for (let i = 0; i < 50; i++) {
-        bitcoinSet[i] = ((Math.random() * Math.pow(10, 3)) + bitcoinPrice).toFixed(2)
-        ethereumSet[i] = ((Math.random() * Math.pow(10, 2)) + ethereumPrice).toFixed(2)
-        endDate.setDate(endDate.getDate() - 1).toString()
-        timeSet.push(`${endDate.getDate()} ${months[endDate.getMonth()]}`)
+    let data;
+    let searchString = "";
+    let url = `http://localhost:3000/currency?${searchString}`;
+
+    async function currencyList(query) {
+        document.querySelector('.wrapper').innerHTML = "";
+
+        const response = await fetch(query)
+        data = await response.json()
+
+        for (let i = 0; i < data.length; i++) {
+            document.querySelector('.wrapper').innerHTML += getCoinHtml(data[i])
+        }
     }
-    timeSet.reverse()
-    let firstChart = new Chart(ctx, {
-        type: "line",
-        options: {
-            responsive: true,
-        },
-        data: {
-            labels: timeSet,
-            datasets: [
-                {
-                    label: 'Bitcoin',
-                    data: bitcoinSet,
-                    backgroundColor: "rgba(0, 0, 0, 0)",
-                    borderColor: "rgba(249, 105, 14, 1)",
-                    tension: 0,
-                },
-            ],
-        },
-    });
-    let secondChart = new Chart(ctx2, {
-        type: "line",
-        options: {
-            responsive: true,
-        },
-        data: {
-            labels: timeSet,
-            datasets: [
-                {
-                    label: 'Ethereum',
-                    data: ethereumSet,
-                    backgroundColor: "rgba(0, 0, 0, 0)",
-                    borderColor: "rgba(45, 85, 255, 1)",
-                    tension: 0,
-                },
-            ],
-        },
-    });
+
+    function getCoinHtml({image, name, symbol, id}) {
+        return `
+            <button  id='${id}' class="btn btn-light justify-content-between" style="width: 250px" onclick="renderChart(event)">
+                    <div class="d-flex align-items-center ">
+                        <img  src="${image}" alt="" style="width: 30px; height: 30px"
+                             class="rounded-circle"/>
+                        <div  class="ms-2 d-flex flex-column">
+                            <p  class="fw-bold mb-0 d-flex">${name}</p>
+                            <p  class="text-muted d-flex mb-0">${symbol.toUpperCase()}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img id="${id}" src="assets/icons8-combo-chart-24.png">
+                    </div>
+            </button>
+        `
+    }
+
+
+    function search() {
+        const searchValue = document.querySelector('input').value
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}`
+
+        currencyList(url)
+    }
+
+    function clear_search() {
+        const searchValue = ''
+        document.querySelector('input').value = searchValue
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}`
+
+        currencyList(url)
+    }
+
+    async function renderChart(event) {
+        document.querySelector('.chart-wrapper').innerHTML = ''
+        response = await fetch(`http://localhost:3000/charts?id=${event.target.id}`)
+        let chartData = await response.json()
+
+        document.querySelector('.chart-wrapper').innerHTML +=
+            `
+                     <canvas style="width: 100%; height: 100%" class="${chartData[0].id}"></canvas>
+            `;
+
+        let ctx = document.querySelector(`.${chartData[0].id}`)
+        let timeSet = []
+        let dataSet = []
+
+        for (let i = 0; i < chartData[0].prices.length; i++) {
+            timeSet.push(chartData[0].prices[i][0])
+            dataSet.push(chartData[0].prices[i][1])
+        }
+
+        new Chart(ctx, {
+            type: "line",
+            options: {
+                responsive: true,
+            },
+            data: {
+                labels: timeSet,
+                datasets: [
+                    {
+                        label: chartData[0].id,
+                        data: dataSet,
+                        backgroundColor: "rgba(0, 0, 0, 0)",
+                        borderColor: "rgb(14,96,249)",
+                        tension: 0,
+                    },
+                ],
+            },
+        });
+    }
+
+
+    // async function loadCharts() {
+    //     document.querySelector('.wrapper').innerHTML = "";
+    //     let wrapper = document.querySelector('.wrapper')
+    //
+    //     let response = await fetch('http://localhost:3000/charts')
+    //     let chartData = await response.json()
+    //
+    //     console.log(chartData[0])
+    //
+    //     let canvas = []
+    //
+    //     for (let i = 0; i < 4; i++) {
+    //         canvas[i] = `<canvas style="width: 400px; height: 400px" id=${chartData[i].id}></canvas>`
+    //         wrapper.innerHTML += canvas[i]
+    //         let ctx = document.querySelector(`#${chartData[i].id}`)
+    //         let timeSet = []
+    //         let dataSet = []
+    //
+    //         for (let j = 0; j < chartData[i].prices.length; j++) {
+    //             timeSet.push(chartData[i].prices[j][0])
+    //             dataSet.push(chartData[i].prices[j][1].toFixed(2))
+    //         }
+    //
+    //         new Chart(ctx, {
+    //             type: "line",
+    //             // options: {
+    //             //     responsive: true,
+    //             // },
+    //             data: {
+    //                 labels: timeSet,
+    //                 datasets: [
+    //                     {
+    //                         label: chartData[i].id,
+    //                         data: dataSet,
+    //                         backgroundColor: "rgba(0, 0, 0, 0)",
+    //                         borderColor: "rgba(249, 105, 14, 1)",
+    //                         tension: 0,
+    //                     },
+    //                 ],
+    //             },
+    //         });
+    //
+    //     }
+    //
+    //
+    // }
+
+    // function renderCharts(chartData, index) {
+    //     let currId = chartData[index].id
+    //     let ctx = document.querySelector(`#${currId}`)
+    //     let timeSet = []
+    //     let dataSet = []
+    //
+    //     for (let i = 0; i < chartData[index].prices.length; i++) {
+    //         timeSet.push(chartData[index].prices[i][0])
+    //         dataSet.push(chartData[index].prices[i][1].toFixed(2))
+    //     }
+    //     new Chart(ctx, {
+    //         type: "line",
+    //         // options: {
+    //         //     responsive: true,
+    //         // },
+    //         data: {
+    //             labels: timeSet,
+    //             datasets: [
+    //                 {
+    //                     label: chartData[index].id,
+    //                     data: dataSet,
+    //                     backgroundColor: "rgba(0, 0, 0, 0)",
+    //                     borderColor: "rgba(249, 105, 14, 1)",
+    //                     tension: 0,
+    //                 },
+    //             ],
+    //         },
+    //     });
+    //
+    // }
+
+    document.addEventListener('DOMContentLoaded', () => currencyList(url))
 </script>
 </html>
