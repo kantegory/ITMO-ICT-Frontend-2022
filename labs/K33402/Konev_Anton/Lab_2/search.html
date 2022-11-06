@@ -25,8 +25,8 @@
     <table class="table align-middle mt-5 w-75 bg-white border-light">
         <thead class="table-head">
         <tr class="search-row p-2 bg-light">
-            <td colspan="5" class="align-middle ">
-                <div class="input-group w-25 ps-2">
+            <td colspan="5" class="align-middle">
+                <div class="input-group w-50 ps-2 d-flex flex-row">
                     <div class="p-2 align-content-center bg-light" id="basic-addon1"
                          style="border: 1px solid lightgrey">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -36,7 +36,7 @@
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                         </svg>
                     </div>
-                    <label class="w-75">
+                    <label class="w-50">
                         <input type="text" class="form-control" style="height: 45px" onchange="search()"
                                placeholder="Поиск по названию">
                     </label>
@@ -69,13 +69,16 @@
                 </button>
             </th>
             <th class="fw-normal">
-                <div class="pagination">
-                    <button class="btn-pagination btn-prev" onclick="prev_page()"><img style="width: 15px;"
-                                                                                       src="assets/left-arrow-svgrepo-com.svg"
-                                                                                       alt="">
+                <div class="pagination align-content-center">
+                    <button class="btn-pagination m-0 btn-prev" onclick="prev_page()"><img
+                        style="width: 15px;margin-right: 10px;"
+                        src="assets/left-arrow-svgrepo-com.svg"
+                        alt="">
                     </button>
-                    <button class="btn-pagination btn-next" onclick="next_page()"><img
-                        style="width: 15px; transform: rotate(180deg)" src="assets/left-arrow-svgrepo-com.svg" alt="">
+                    <p class="page-number m-0 px-2" style="border: 1px solid black; border-radius: 20px"></p>
+                    <button class="btn-pagination btn-next m-0" onclick="next_page()"><img
+                        style="width: 15px; transform: rotate(180deg); margin-left: 10px"
+                        src="assets/left-arrow-svgrepo-com.svg" alt="">
                     </button>
                 </div>
             </th>
@@ -170,6 +173,8 @@
 
             document.querySelector('.coin-wrapper').innerHTML += getCoinHtml(data[i])
         }
+        let page = document.querySelector('.page-number')
+        page.innerHTML = currentPage;
     }
 
     function search() {
@@ -329,9 +334,22 @@
             'amount': 0,
         }
 
-        let amount = prompt("Сколько хотите купить?");
-        if (amount !== null && amount > 0) {
-            coin.amount = amount
+        let amount;
+        while (true) {
+            amount = prompt("Сколько хотите купить?")
+            if (amount === null) {
+                break;
+            } else if (amount <= 0) {
+                alert("Количество должно быть положительным")
+                amount = 0
+            } else {
+                break
+            }
+        }
+
+        if(amount !== null){
+            amount = parseFloat(amount)
+            coin.amount = amount;
         }
 
         let currentUser = JSON.parse(localStorage.getItem('user'));
@@ -339,20 +357,20 @@
         const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
         const userJson = await user.json();
 
-        let f = true;
-
-        for (let i = 0; i < userJson[0].coins; i++) {
+        let dup = -1;
+        let i = 0;
+        while (i < userJson[0].coins.length) {
             if (userJson[0].coins[i].id === coin.id) {
-                userJson[0].coins[i].amount += amount;
-                f = false;
-                break;
+                dup = i;
             }
+            i++;
         }
 
-        if (f) {
+        if (dup === -1) {
             userJson[0].coins.push(coin)
+        } else {
+            userJson[0].coins[dup].amount += amount;
         }
-
 
         await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
             method: 'PUT',
