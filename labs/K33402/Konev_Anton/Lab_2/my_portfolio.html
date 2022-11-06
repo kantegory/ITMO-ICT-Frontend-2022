@@ -23,23 +23,40 @@
 </header>
 <section class="container">
     <div class="dataTable-wrapper d-flex justify-content-center">
-        <table class="table align-middle border-light mt-5 w-75">
+        <table class="table align-middle border-light mt-5 w-100">
             <thead>
             <tr class="head-row border-light fw-normal">
-                <th>Название</th>
-                <th>Цена</th>
+                <th>Название
+                    <button class="sort-arrow align-middle" onclick="sort_name()"><img src="assets/icons8-sort-24.png"
+                                                                                       alt="">
+                    </button>
+                </th>
+                <th>Цена
+                    <button class="sort-arrow align-middle" onclick="sort_price()"><img src="assets/icons8-sort-24.png"
+                                                                                        alt="">
+                    </button>
+                </th>
                 <th>Количество</th>
                 <th>Итого</th>
                 <th class="fw-normal">
-                    <div class="pagination justify-content-between" style="width: 200px">
-                        <button class="btn-pagination btn-prev" onclick="prev_page()"><img style="width: 15px;"
-                                                                                           src="assets/left-arrow-svgrepo-com.svg"
-                                                                                           alt="">
-                        </button>
-                        <button class="btn-pagination btn-next" onclick="next_page()"><img
-                            style="width: 15px; transform: rotate(180deg)" src="assets/left-arrow-svgrepo-com.svg"
-                            alt="">
-                        </button>
+                    <div class="">
+                        <div class="pagination d-flex justify-content-around">
+                            <button class="btn-pagination btn-prev m-0" onclick="prev_page()"><img style="width: 15px; "
+                                                                                                   src="assets/left-arrow-svgrepo-com.svg"
+                                                                                                   alt="">
+                            </button>
+                            <p class="page-number m-0 px-2" style="border: 1px solid black; border-radius: 20px"></p>
+                            <button class="btn-pagination btn-next m-0" onclick="next_page()"><img
+                                style="width: 15px; transform: rotate(180deg)" src="assets/left-arrow-svgrepo-com.svg"
+                                alt="">
+                            </button>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <p class="balance m-0">
+                        </p>
                     </div>
                 </th>
             </tr>
@@ -80,26 +97,33 @@
                 </td>
                 <td>
                     <span class="total">
-                    RUB ${amount * current_price}
+                    RUB ${(amount * current_price)}
                     </span>
                 </td>
-                <td class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="">
-                        Купить
-                    </button>
-                    <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="">
-                        Продать
-                    </button>
+                <td class="">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="buyCoin(event)">
+                            Купить
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="sellCoin(event)">
+                            Продать
+                        </button>
+                    </div>
                 </td>
             </tr>
         `
     }
 
-    const url = 'http://localhost:3000/currency'
+    let url = 'http://localhost:3000/currency'
     let data, currCoins;
     let currentPage = 1;
-    let coinsPerPage = 2;
+    let coinsPerPage = 4;
     let amount = [];
+    let sortName = "";
 
     const btnPrev = document.querySelector('.btn-prev')
     const btnNext = document.querySelector('.btn-next')
@@ -119,7 +143,7 @@
 
     }
 
-    async function loadCoins() {
+    async function loadCoins(query) {
         document.querySelector('.coin-wrapper').innerHTML = "";
 
         let currentUser = JSON.parse(localStorage.getItem('user'));
@@ -129,7 +153,11 @@
 
         const {coins} = userJson[0];
 
-        const response = await fetch(url);
+        if (query === undefined) {
+            query = url;
+        }
+
+        const response = await fetch(query);
 
         data = await response.json();
         currCoins = coins.length;
@@ -165,7 +193,199 @@
                 document.querySelector('.coin-wrapper').innerHTML += getCoinHtml(renderQuery[k], amount[k])
 
             }
+            let page = document.querySelector('.page-number')
+            page.innerHTML = currentPage;
+            let money = document.querySelector('.balance')
+            money.innerHTML = balance(coins)
         }
+    }
+
+    async function buyCoin(event) {
+        checkAuth()
+
+        const symbol = event.target.value;
+        let url = `http://localhost:3000/currency?symbol=${symbol}`;
+
+        const response = await fetch(url);
+
+        data = await response.json();
+
+        const {id, current_price} = data[0];
+
+        let coin = {
+            'id': id,
+            'price': current_price,
+            'amount': 0,
+        }
+
+        let amount;
+        while (true) {
+            amount = prompt("Сколько хотите купить?")
+            if (amount === null) {
+                break
+            } else if (amount <= 0) {
+                alert("Количество должно быть положительным")
+                amount = 0
+            } else {
+                break
+            }
+        }
+        if (amount !== null) {
+            amount = parseFloat(amount)
+            coin.amount = amount;
+        }
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        let dup = -1;
+        let i = 0;
+        while (i < userJson[0].coins.length) {
+            if (userJson[0].coins[i].id === coin.id) {
+                dup = i;
+            }
+            i++;
+        }
+
+        if (dup === -1) {
+            userJson[0].coins.push(coin)
+        } else {
+            userJson[0].coins[dup].amount += amount;
+        }
+
+        await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify(userJson[0]),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        await loadCoins()
+        location.reload()
+    }
+
+    async function sellCoin(event) {
+        checkAuth()
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        const symbol = event.target.value;
+        let url = `http://localhost:3000/currency?symbol=${symbol}`;
+        const response = await fetch(url);
+        data = await response.json();
+        const {id} = data[0];
+
+        let index;
+        let i = 0;
+        while (i < userJson[0].coins.length) {
+            if (userJson[0].coins[i].id === id) {
+                index = i;
+            }
+            i++;
+        }
+
+        let currentAmount = userJson[0].coins[index].amount;
+
+        let amount
+        let ok
+        let f
+        while (true) {
+            amount = prompt("Сколько хотите продать?")
+            if (amount === null) {
+                break;
+            } else if (amount <= 0) {
+                alert("Количество должно быть положительным")
+            } else if (amount > currentAmount) {
+                alert("У вас нет столько")
+            } else if (amount == currentAmount) {
+                ok = confirm("Хотите продать все?")
+                if (ok) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+
+        if (amount !== null) {
+            amount = parseFloat(amount)
+            currentAmount -= amount
+        }
+
+
+        if (currentAmount == 0) {
+            userJson[0].coins.splice(index, 1)
+        } else {
+            userJson[0].coins[index].amount = currentAmount;
+        }
+
+        await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify(userJson[0]),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        await loadCoins()
+        location.reload()
+    }
+
+    function balance(coins) {
+        let sum = 0;
+        for (let i = 0; i < coins.length; i++) {
+            sum += coins[i].price * coins[i].amount
+        }
+        return `<b>Баланс: </b>${sum.toFixed(2)}`
+    }
+
+    let cnt_name = 1
+
+    function sort_name() {
+        switch (cnt_name % 3) {
+            case 0:
+                sortName = ``
+                cnt_name++
+                break
+            case 1:
+                sortName = `_sort=name&_order=desc`
+                cnt_name++
+                break
+            case 2:
+                sortName = `_sort=name&_order=asc`
+                cnt_name++
+                break
+        }
+        url = `http://localhost:3000/currency?${sortName}`
+        loadCoins(url)
+    }
+
+    let cnt_price = 1
+
+    function sort_price() {
+        switch (cnt_price % 3) {
+            case 0:
+                sortName = ``
+                cnt_price++
+                break
+            case 1:
+                sortName = `_sort=current_price&_order=desc`
+                cnt_price++
+                break
+            case 2:
+                sortName = `_sort=current_price&_order=asc`
+                cnt_price++
+                break
+        }
+        url = `http://localhost:3000/currency?${sortName}`
+
+        loadCoins(url)
     }
 
     document.addEventListener('DOMContentLoaded', () => checkAuth())

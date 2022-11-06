@@ -79,3 +79,8 @@
     background-color: white;
     margin-left: 15px;
 }
+.sort-arrow{
+    border: none;
+    background-color: white;
+    display: inline-block;
+}
