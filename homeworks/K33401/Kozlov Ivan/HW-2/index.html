@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Войти </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light sidebarNavigation color-me "
+        data-sidebarClass="navbar-dark bg-dark" style="background-color: #145ee7;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" style="color: #ffffff;">IK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav nav-flex-icons ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="color: #ffffff;"> Главаня страница
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workers.html" style="color: #ffffff;">Сотрудники</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goods_monitor.html" style="color: #ffffff;">Учет товара</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="graphis.html" style="color: #ffffff;">Графики продаж</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" style="color: #ffffff;">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <h1 class="d-flex justify-content-center">
+            Лабораторная 1
+        </h1>
+        <h2 class="d-flex justify-content-center">
+            Выполнил: Козлов Иван
+        </h2>
+    </main>
+</body>
+
+<script>
+
+    function logout() {
+        localStorage.clear()
+        window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+    }
+</script>
+
+</html>
