@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <title>SEARCH</title>
+    
+</head>
+<body>
+  <header>
+    <!-- Navbar для маленького экрана -->
+    <nav class="navbar navbar-expand-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="main.html"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="main.html">BOHEMIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sign_in.html">SIGN IN/REGISTER</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">SEARCH</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-lg my-3">
+    <div class="row">
+      <h1 class="title-h1"><a class="nav-link text-dark" href="main.html">BOHEMIN</a></h1>
+      <div class="col-lg-4 my-5">
+        <p>SEARCH</p>
+        <!-- Прячем колонку с навигацией для маленького экрана -->
+        <div class="row d-none d-sm-block">
+        <!-- Наваигация -->
+          <ul class="nav flex-column">
+            <li class="nav-item">
+                <p style="margin-top:75px; margin-bottom: 30px;"><a class="nav-link active text-dark" aria-current="page" href="bohemin_collection.html">BOHEMIN COLLECTION</a></p>
+            </li>
+            <li class="nav-item">
+              <p style="margin-top:20px;"><a class="nav-link active text-dark" aria-current="page" href="sign_in.html" target="_blank">SIGN IN/REGISTER</a></p>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-8 my-5">
+        <div class="d-flex justify-content-between">
+          <div class="col-lg-4">
+            <!-- фильтрация по коллекциям -->
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="filter">
+              <option selected id='resultId'>COLLECTIONS</option>
+              <option value="desert" id="desert">DESERT</option>
+              <option value="city" id="city">CITY</option>
+            </select>
+          </div>      
+          <div class="col-lg-4">
+            <!-- поле поиска -->
+            <div class="input-group">
+                <input name="searchBar" id="searchBar" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" autocomplete="off" />
+                <button type="button">search</button>
+            </div>
+          </div>
+        </div>
+        <div class="conteiner mt-5">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-2 g-5" id="clothesList">
+            </div>
+        </div>
+  
+        <script src="search.js"></script>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <!-- футер -->
+    <div class="container-lg my-3">
+      <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-8">
+          <div class="d-flex justify-content-between">
+            <div class="p-2 title-h6">
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-lg-6 offset-md-0">
+                    <p>LOCATION</p>
+                  </div>
+                  <div class="col-sm-6 col-md-6 offset-md-0">
+                    <p class="text-start">Dubai UAE</p>
+                  </div>
+                </div>
+            </div>
+            <div class="p-2 title-h6">
+              <p class="text-end">CONTACT US</p>
+              <div class="row">
+                <div class="col-sm-6 col-md-5">
+                  <p class="text-end"><a class="nav-link active text-dark" href="https://instagram.com/bohemin.ae?igshid=NzNkNDdiOGI=">Instagram</a></p>
+                </div>
+                <div class="col-sm-6 col-md-5 offset-md-1">
+                  <p class="text-end"><a class="nav-link active text-dark" href="https://wa.me/message/KTMI7SHLNZUJK1">WhatsApp</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </footer>
+
+
+
+
+    
+
+
+</body>
+</html>
+    
