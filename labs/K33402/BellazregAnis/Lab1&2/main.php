@@ -1,9 +1,10 @@
 <?php
 
-$xVal = $_POST['x'];
-$yVal = $_POST['y'];
-$rVal = $_POST['r'];
-$time = $_POST['time'];
+$data = json_decode(file_get_contents('php://input'));
+$xVal = $data->x;
+$yVal = $data->y;
+$rVal = $data->r;
+$time = $data->time;
 
 function checkX($xVal)
 {
@@ -76,7 +77,8 @@ $isValidString = $isValid ? 'true' : 'false';
 $isHit = isHit($xVal, $yVal, $rVal);
 $isHitString = $isHit ? 'true' : 'false';
 
-$currentTime = date('H:i:s', time() - $time * 60);
+date_default_timezone_set('Europe/Moscow');
+$currentTime = date('H:i:s', time());
 $execTime = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 7);
 
 if (!$isValid) {
