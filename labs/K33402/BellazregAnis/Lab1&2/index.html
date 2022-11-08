@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Front-end</title>
+    <style>
+        body {
+            color: #FFFFFF;
+            font-family: 'Nunito', sans-serif;
+            background-color: #5A5D67;
+        }
+
+        table, tr, td {
+            padding: 0px;
+        }
+
+        #main-table {
+            width: 95%;
+            margin: auto;
+        }
+
+        #header {
+            background-color: #202225;
+            color: whitesmoke;
+            font-size: 17px;
+        }
+
+        .left-aligned {
+            float: left;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .right-aligned {
+            float: right;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+        }
+
+        #result-table-square {
+            width: 60%;
+            position: relative;
+            vertical-align: top;
+            border-right: solid transparent 15px;
+        }
+
+        .result-header {
+            background-color: #202225;
+        }
+
+        .result-header-title {
+            text-align: center;
+            margin-bottom: 0px;
+            padding-bottom: 5px;
+        }
+
+        #result-content-table {
+            width: 100%;
+            background-color: #AFB1B5;
+            text-align: center;
+        }
+
+        .result-content {
+            position: absolute;
+            height: 90%;
+            padding-bottom: 4px;
+            width: 100%;
+            overflow-y: scroll;
+            background-color: #36393F;
+        }
+
+        #result-content-table tr:nth-child(2n-1) {
+            background-color: #666666;
+        }
+
+        #result-content-table tr:nth-child(2n) {
+            background-color: #a0a0a0;
+        }
+
+        .coords {
+            width: 15%;
+        }
+
+        #graph-table-square {
+            vertical-align: top;
+        }
+
+        .graph-header {
+            background-color: #202225;
+        }
+
+        .graph-header-title {
+            text-align: center;
+            padding-bottom: 5px;
+            margin-bottom: 0;
+        }
+
+        .image-container {
+            background-color: green;
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+
+        .graph-image {
+            height: 250px;
+            margin-left: 50px;
+        }
+
+        #values-table-square {
+            vertical-align: top;
+        }
+
+        .values-header {
+            background-color: #202225;
+        }
+
+        .values-header-title {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .values-container {
+            background-color: #36393F;
+        }
+
+
+        .radio-block label {
+            position: absolute;
+            top: 18px;
+        }
+
+
+        .input-label {
+            width: 25%;
+        }
+
+        .input-value {
+            text-align: center;
+        }
+
+        #input-table {
+            margin: auto;
+        }
+
+        #y-textinput {
+            width: 80%;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        div.x-buttons input {
+            width: 27px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        div.x-buttons input:hover {
+            font-weight: bold;
+            color: darkred;
+        }
+
+        div.sub-res-buttons {
+            text-align: center;
+            margin-bottom: 12px;
+            padding-top: 7px;
+            border-top: solid whitesmoke 3px;
+        }
+
+        div.sub-res-buttons input {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        div.sub-res-buttons input:hover {
+            color: darkred;
+        }
+
+        input[type='submit'] {
+            margin-right: 3px;
+        }
+
+        .text-error {
+            border: 1px solid #ff0000;
+        }
+
+        .text-error::placeholder {
+            color: #ff0000;
+        }
+
+        .button-error {
+            border: 1px solid #ff0000;
+            color: #ff0000;
+        }
+
+        .radio-error {
+            color: #ff0000;
+        }
+
+        .button-clicked {
+            border: 3px solid green;
+        }
+
+        .center-labeled {
+
+            display: inline-block;
+            position: relative;
+            margin: 0 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+
+        }
+
+        .center-labeled label {
+            position: absolute;
+            top: 18px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+<table id='main-table'>
+    <tr>
+        <td id='header' colspan="2">
+            <span class='left-aligned'>Bellazreg Anis</span>
+            <span class='right-aligned'>Group K33402</span>
+        </td>
+    </tr>
+    <tr>
+        <td id='result-table-square' rowspan="2">
+            <div class='result-header'>
+                <h2 class='result-header-title'>Table</h2>
+            </div>
+            <div class='result-content'>
+                <table id='result-content-table'>
+                    <tr id='table-header'>
+                        <th class='coords'>X</th>
+                        <th class='coords'>Y</th>
+                        <th class='coords'>R</th>
+                        <th>Current time</th>
+                        <th>Execution time</th>
+                        <th>Result</th>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td id='graph-table-square'>
+            <div class='graph-header'>
+                <h2 class='graph-header-title'>Graph</h2>
+            </div>
+            <div class='image-container'>
+                <img src='images/areas.png' class='graph-image'>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td id='values-table-square'>
+            <div class=values-header>
+                <h2 class='values-header-title'>Values</h2>
+            </div>
+            <div class='values-container'>
+                <form id='input-form' action='' method='POST'>
+                    <table id='input-table'>
+                        <tr>
+                            <td class='input-label' id='x-input-label'>
+                                <h3>X: </h3>
+                            </td>
+                            <td class='input-value'>
+                                <div class='x-buttons'>
+                                    <input type='button' name='xvalue' value='-3'>
+                                    <input type='button' name='xvalue' value='-2'>
+                                    <input type='button' name='xvalue' value='-1'>
+                                    <input type='button' name='xvalue' value='0'>
+                                    <input type='button' name='xvalue' value='1'>
+                                    <input type='button' name='xvalue' value='2'>
+                                    <input type='button' name='xvalue' value='3'>
+                                    <input type='button' name='xvalue' value='4'>
+                                    <input type='button' name='xvalue' value='5'>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class='input-label'>
+                                <h3>Y: </h3>
+                            </td>
+                            <td class='input-value'>
+                                <input id='y-textinput' type='text' name='yvalue' autocomplete='off'
+                                       placeholder='From -5 to 5...'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='input-label'>
+                                <h3>R: </h3>
+                            </td>
+                            <td class='input-value'>
+                                <div class='center-labeled'>
+                                    <label class='rbox-label' for='1'>1</label>
+                                    <input class='r-radio' id='1' type='radio' name="rvalue" value='1'>
+                                </div>
+                                <div class='center-labeled'>
+                                    <label class='rbox-label' for='2'>2</label>
+                                    <input class='r-radio' id='2' type='radio' name="rvalue" value='2'>
+                                </div>
+                                <div class='center-labeled'>
+                                    <label class='rbox-label' for='3'>3</label>
+                                    <input class='r-radio' id='3' type='radio' name="rvalue" value='3'>
+                                </div>
+                                <div class='center-labeled'>
+                                    <label class='rbox-label' for='4'>4</label>
+                                    <input class='r-radio' id='4' type='radio' name="rvalue" value='4'>
+                                </div>
+                                <div class='center-labeled'>
+                                    <label class='rbox-label' for='5'>5</label>
+                                    <input class='r-radio' id='5' type='radio' name="rvalue" value='5'>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'>
+                                <div class='sub-res-buttons'>
+                                    <input id='submit-button' type="submit" value="Submit">
+                                    <input type="reset" value="Reset">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+<script src='app.js'></script>
+</body>
+</html>
