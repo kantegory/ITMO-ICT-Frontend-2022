@@ -19,7 +19,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item">
-								<a class="nav-link active text-white" href="./entrance.html">Вход</a>
+								<a class="nav-link active text-white" id="logout">Выход</a>
 							</li>
 							<li>
 								<a class="nav-link active text-white" href="./calendar.html">Календарь мероприятий</a>
@@ -44,55 +44,105 @@
 					</ul>
 				</div>
 			</section>
-			<section class="container row mx-auto">
+			<section class="container row mx-auto" id="container">
 				<h4 class="text mt-5">Выбранные мероприятия:</h4>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Каток</h5>
-							<p class="card-text">27.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">Парк Александрийский,д.4</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
+				<!-- <div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">Мюзик холл</h5>
+						<p class="card-text">01.12.2022</p>
+						<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">Парк Александрийский,д.4</p>
+						<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
+						<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
 					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Дворец культуры им.Ленсовета</h5>
-							<p class="card-text">30.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">пр. Каменноостровский, д. 42</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская, Петроградская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Мюзик холл</h5>
-							<p class="card-text">01.12.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">Парк Александрийский,д.4</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">GorillaPark</h5>
-							<p class="card-text">05.01.2023</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">л. Долгоозерная, д. 14, к.2</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Комендантский проспект, Пионерская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Кино</h5>
-							<p class="card-text">06.01.2023</p>
-							<p class="card-text">27.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">ТЦ "Великан Парк"</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
+				</div> -->
 			</section>
 		</main>
+		<script>
+			const idLogOut = document.querySelector('#logout')
+			const userId = JSON.parse(localStorage.user).id; 
+			let users = []; 
+			let events = []; 
+			const myUsersEvents = []; 
+			const myEvents = []; 
+			const mainId = []
+			
+			async function getUsers() { 
+				const response = await fetch('http://localhost:3000/userEvents', { 
+					headers: { 
+						'Content-Type': 'application/json' 
+					} 
+				}) 
+				const jsonResponse = await response.json(); 
+				console.log('response', jsonResponse); 
+				jsonResponse.forEach(user => { 
+					if (user.userId === userId) { 
+						myUsersEvents.push(user.eventId); 
+						mainId.push(user);
+					} 
+				}) 
+			} 
+			
+			async function getEvents() { 
+				const response = await fetch('http://localhost:3000/notes', { 
+					headers: { 
+					'Content-Type': 'application/json' 
+					} 
+				}) 
+				const jsonResponse = await response.json(); 
+				console.log('response', jsonResponse); 
+				events = jsonResponse; 
+				console.log(events) 
+				events.forEach(item => { 
+					if (myUsersEvents.includes(item.id)) {
+						myEvents.push(item) 
+					} 
+				})
+				console.log("myevents", myEvents)
+				console.log("myeventsuser", myUsersEvents)
+				console.log("main", mainId) 
+				for (let i = 0; i < myEvents.length; i++ ) { 
+					document.querySelector("#container").innerHTML += getCardHtml(myEvents[i].id, myEvents[i].mero, myEvents[i].data, myEvents[i].metro, myEvents[i].address, myEvents[i].id); 
+				} 
+			}
+
+			async function deleteCard(event, id) { 
+				for (let i = 0; i < mainId.length; i++) {
+					if (id === mainId[i].eventId && userId === mainId[i].userId) {
+						const link = 'http://localhost:3000/userEvents/' + mainId[i].id;
+						console.log(link);
+						const response = await fetch(link, {
+							method: "DELETE",
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						})
+					}
+				}
+			}
+
+			function getCardHtml(id, mero, data, metro, address) {
+				return `
+				<div class="card" data-card-id=${id} style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title">${mero}</h5>
+							<p class="card-text">${data}</p>
+							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">${address}</p>
+							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">${metro}</p>
+							<form onsubmit="deleteCard(event, ${id})">
+								<button type="submit" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</button>
+							</form>
+						</div>
+					</div> `
+			}
+
+			function logout() {
+				localStorage.clear();
+				window.location.href = "http://localhost:8000/html/entrance.html";
+			}
+			idLogOut.addEventListener('click', logout)
+
+			getUsers();
+			getEvents();
+		</script>
 	</body>
 </html>
