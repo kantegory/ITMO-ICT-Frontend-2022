@@ -41,9 +41,6 @@ async function getEvents() {
 	for (let i = 0; i < myEvents.length; i++) {
 		document.querySelector("#container").innerHTML += getCardHtml(myEvents[i].name, myEvents[i].day, myEvents[i].text, myEvents[i].src, myEvents[i].id);
 	}
-	// myEvents.forEach(card => {
-	// 	document.querySelector("#container").innerHTML += getCardHtml(card.name, card.day, card.text, card.src, card.id, mainId.id);
-	// })
 }
 
 async function deleteCard(event, id) {
