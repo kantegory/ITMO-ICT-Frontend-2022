@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventika</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		    <div class="container-xxl">
+		    	<a class="navbar-brand" href="index.html">Eventika</a>
+		    	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		      		<span class="navbar-toggler-icon"></span>
+		    	</button>
+		    	<div class="collapse navbar-collapse" id="navbarNav">
+		      		<ul class="navbar-nav">
+		      			<li class="nav-item">
+		          			<a class="nav-link" href="index.html">Events</a>
+		        		</li>
+		        		<li class="nav-item">
+		          			<a class="nav-link" href="calendar.html">Calendar</a>
+		        		</li>
+		     	    </ul>
+		    	</div>
+		    	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		      		<ul class="navbar-nav">
+						<li>
+							<button type="button" class="btn text-light" id="login">Log in</button>
+						
+						<li>
+							<button type="button" class="btn text-light" id="signup">Sign up</button>
+						</li>						
+						<li>
+							<button type="button" class="btn text-light" id="profile">Profile</button>
+						</li>
+						<li>
+							<button type="button" class="btn btn-danger" id="logout">Logout</button>
+						</li>
+		     	    </ul>
+		    	</div>
+		  	</div>
+		</nav>
+	</header>
+
+	<section style="margin-top: 50px;">
+		<div class="container-xxl pt-5">
+			<div class="row">
+				<div class="col-6 pt-4">
+					<h1>Find your event</h1>
+					<p class="w-75 pt-3">with Eventika people organize events, make friends, find support, grow a business, and explore their interests. Hundreds of events are happening every day—join the fun.</p>
+				</div>
+				<div class="col-6">
+					<img class="w-100" src="./img/event.jpg">
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<div class="container-xxl" style="margin-top: 160px;">
+			<h2>Upcoming events</h2>
+			<div class="d-flex justify-content-end" style="margin-right: 80px" onchange="filter()">
+				<div class="dropdown  ms-3">
+					<select class="form-select" aria-label=".form-select-lg example" id="event-type">
+						<option>Any type</option>
+						<option value="online">Online</option>
+						<option value="inperson">In person</option>
+					</select>
+				</div>
+				<div class="dropdown  ms-3">
+					<select class="form-select" aria-label=".form-select-lg example" id="category">
+						<option>Any category</option>
+						<option value="technology">Technology</option>
+						<option value="career">Career & Business</option>
+						<option value="health">Health</option>
+						<option value="sports">Sports</option>
+					</select>
+				</div>
+			</div>
+	
+            <div class="row mt-4" id="event_cards">
+            </div>
+            
+		</div>
+	</section>
+
+	<footer class="text-center text-white bg-dark" style="margin-top:160px">
+		<div class="row p-4 justify-content-center">
+			<div class="col-3 text-start">
+				<h5>Your account</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2">
+						<a href="sign_up.html" class="nav-link p-0 text-white">Sign up</a>
+					</li>
+					<li class="nav-item mb-2">
+						<a href="log_in.html" class="nav-link p-0 text-white">Log in</a>
+					</li>
+					<li class="nav-item mb-2">
+						<a href="#" class="nav-link p-0 text-white">Help</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-3 text-start">
+				<h5>Discover</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2">
+						<a href="index.html" class="nav-link p-0 text-white">Events</a>
+					</li>
+					<li class="nav-item mb-2">
+						<a href="calendar.html" class="nav-link p-0 text-white">Calendar</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-3 text-start">
+				<h5>Contact</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2">
+						<a href="#" class="nav-link p-0 text-white">eventika@gmail.com</a>
+					</li>
+					<li class="nav-item mb-2">
+						<a href="#" class="nav-link p-0 text-white">+79042753422</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+	    	© 2022 Eventika
+	    </div>
+	</footer>
+
+	<script src="header.js"></script>
+	<script src="index.js"></script>
+	
+</body>
+</html>
