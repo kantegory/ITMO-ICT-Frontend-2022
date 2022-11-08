@@ -170,7 +170,7 @@ https://cssgridgarden.com/#ru
 
 Реализовать получение погоды (прогноз на ближайшие 7 дней) из открытого API OpenWeatherMap, взависимости от геолокации пользователя. Реализовать вывод полученного прогноза в виде 7 карточек в три ряда (первый ряд - крупная карточка, второй ряд - три карточки в меньшем размере, третий ряд - четыре карточки в маленьком размере).
 
-Дедлайн: 25.10.2022
+Дедлайн: 01.11.2022
 
 ### Язык разметки HTML: доступность
 
@@ -185,8 +185,11 @@ https://cssgridgarden.com/#ru
 
 Отличные ролики от Вадима Макеева по этой теме:
 
-https://www.youtube.com/watch?v=Qwuyeo7iuNY
+https://www.youtube.com/watch?v=Qwuyeo7iuNY  
 https://www.youtube.com/watch?v=8LFbS78a4Rw
+
+Видео-лекция: https://www.youtube.com/watch?v=aKeJuUKTWPI  
+Пример из видео-лекции: https://github.com/kantegory/mentoring/tree/master/08_themization_example/
 
 ### Домашняя работа 3: CSS-переменные, темизация сайта средствами CSS
 
