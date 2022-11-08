@@ -1,0 +1,14 @@
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
