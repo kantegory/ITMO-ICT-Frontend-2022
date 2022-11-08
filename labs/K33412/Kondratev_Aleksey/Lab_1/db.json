@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "email": "example@mail.com",
+      "password": "$2a$10$yj.PvyH8IPqvUK2WiusfN.rPGoyQM/T43LD3aWhjP2JhG2gPdxFM.",
+      "login": "anpan",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 1
+    },
+    {
+      "email": "example1@mail.com",
+      "password": "$2a$10$UMuDvfWz.BNs9uDSPaoa6OjCCFzsp7hqhI8jkCiJlHKyLS7JPkgBC",
+      "login": "anpanf",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 2
+    },
+    {
+      "email": "anpan@mail.com",
+      "password": "$2a$10$gAkG634JAz.Q5YSLriAtKOtFkXfusVs1.KZwZVn40wb8dJUhpFuY.",
+      "login": "anpanman",
+      "firstname": "Aleksey",
+      "lastname": "Kondratev",
+      "id": 3
+    },
+    {
+      "email": "lizamir@mail.com",
+      "password": "$2a$10$S3Fs1r6ow0zDRrlcsi80Ju3OO8eaJ64/ECrbcSNCAVKYpIw/Eapbq",
+      "firstname": "liza",
+      "lastname": "mironova",
+      "login": "lizamir",
+      "id": 4
+    },
+    {
+      "email": "lizamir1@mail.com",
+      "password": "$2a$10$QJZKojNcwZgQyclbalb17.LhG.WmXzG0a8hmvZxzxlOEzA96dG80K",
+      "firstname": "liza",
+      "lastname": "mironova",
+      "login": "lizamir1",
+      "id": 5
+    },
+    {
+      "email": "kulagina@mail.com",
+      "password": "$2a$10$KGJBmUQpyxpQIEQL0gG3..zWOoOwXgWgZ7IDRiHriCBVSWXZxVhm2",
+      "firstname": "sveta",
+      "lastname": "kulagina",
+      "login": "svetik",
+      "id": 6
+    }
+  ],
+  "events": [
+    {
+      "name": "Марафон",
+      "day": "Тверь",
+      "text": "Спорт",
+      "src": "./image/cards/sport.jfif",
+      "id": 1
+    },
+    {
+      "name": "Новое выступление",
+      "day": "Москва",
+      "text": "Музыка",
+      "src": "./image/cards/musicMoscow.jpg",
+      "id": 2
+    },
+    {
+      "name": "Увлекательное шоу",
+      "day": "Санкт-Петербург",
+      "text": "Музыка",
+      "src": "./image/cards/musicSaint.jpg",
+      "id": 3
+    },
+    {
+      "name": "К спорту вместе!",
+      "day": "Москва",
+      "text": "Спорт",
+      "src": "./image/cards/sportMoscow.webp",
+      "id": 4
+    }
+  ],
+  "userEvents": [
+    {
+      "userId": 2,
+      "eventId": 3,
+      "id": 2
+    }
+  ]
+}
