@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "email": "example@ex.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "email": "example@ex.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "email": "example@ex.com",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "email": "ex@ex.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "email": "ex@ex.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "email": "khava@gmail.com",
+      "password": "$2a$10$RNlW1NaNO.VbNZQJt2huPeuRqKqkrtKs7/Lf9BDdD7W3SJCBtPuHO",
+      "id": 6
+    },
+    {
+      "email": "ex@gmail.com",
+      "password": "$2a$10$PJsb.XfsPZdNCjcNy0F5ueAlEmz8DlDh.fNQJI9mG.Z3wmaGPYi7C",
+      "id": 7
+    },
+    {
+      "email": "name@example.com",
+      "password": "$2a$10$t5ngPlWs948CL3Me4S9MKev5uT0zCs.NeRD2e0LIoYChwQt6GkdG.",
+      "name": "Khava",
+      "agpassword": "12345",
+      "": "",
+      "id": 8
+    },
+    {
+      "email": "example1@example.com",
+      "password": "$2a$10$lvZMeR5Re4U6OEkxS1A1a.kaWb1Fyvp1ysRsU0g8UKFiScsvEEoVS",
+      "name": "Unknown",
+      "lastname": "Unknown",
+      "birthday": "10/10/2000",
+      "id": 9
+    },
+    {
+      "email": "example2@example.com",
+      "password": "$2a$10$FTo3AiHyQdHlnkCF/Qq9XOrtNpxsCTTaLU8fL2S6RSPgqN/UJkyLa",
+      "name": "Unknown",
+      "lastname": "Unknown",
+      "birthday": "10/10/2000",
+      "message": "",
+      "id": 10
+    },
+    {
+      "email": "example3@example.com",
+      "password": "$2a$10$.2TBdoZVikKWz09pWPB10eOWJRpv1Ixz1nDrFYA0qFSVXDsyjclJq",
+      "name": "Eva",
+      "lastname": "Evaeva",
+      "birthday": "10/10/2000",
+      "": "",
+      "id": 11
+    },
+    {
+      "email": "eva@example.com",
+      "password": "$2a$10$GkV/ayqGdoYo6CbMmgazCeHU5D5Ojikx1a3SwJ.llF8XcxErrYNKq",
+      "name": "Eva",
+      "lastname": "Evaeva",
+      "birthday": "10/10/2000",
+      "": "",
+      "id": 12
+    }
+  ]
+}
