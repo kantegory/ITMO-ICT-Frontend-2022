@@ -44,15 +44,15 @@
         </li>
       </ul>
     </aside>
-    <section class="col-lg-8 vh-100" style="background-color: #f7f7f7d3">
+    <section class="col-lg-8 vh-100 py-2 px-3" style="background-color: #f7f7f7d3">
       <form onsubmit="filterDate(event)">
       <div class = "mb-3">
+        <label for="start">Начальная дата: </label>
         <input type="date" class="" id="start" name="start">
-        <label for="form3Example2">Начальная дата</label>
       </div>
       <div class = "mb-3">
+        <label for="end">Конечная дата: </label>
         <input type="date" class="" id="end" name="end">
-        <label class="form-label">Конечная дата</label>
       </div>
       <button type = "submit" class = "btn btn-primary col-lg-3">Искать</button>
     </form>
@@ -74,8 +74,6 @@
             var month = [arr[dates[0].getMonth()], arr[dates[1].getMonth()]]
             var days = []
             var values = []
-
-            
 
             if (month[0] == month [1]) {
               for (i = dates[0].getDate(); i <= dates[1].getDate(); i++){
