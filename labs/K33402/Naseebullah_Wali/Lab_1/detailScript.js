@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-    let API_data,bookIsbn;
+    let API_data;
     // let author,title,publisher,bookIsbn,Img_link, page,language,description;
     let output = document.getElementById('Output-js')
     let params = new URLSearchParams(document.location.search);
