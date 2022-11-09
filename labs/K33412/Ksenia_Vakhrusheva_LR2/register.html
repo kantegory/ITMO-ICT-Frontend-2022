@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AdminCosmo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="./js/login.js"></script>
+</head>
+
+<body class="body-background">
+	<div class="column mx-5">
+		<div id='search-result' class="col">
+			<div class="card card-header" style="background-image: url('pictures/enter.jpg');">
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="pt-3 d-flex justify-content-left text-index">
+				<div style="font-size:50px">
+					AdminCosmo
+				</div>
+			</div>
+			<div class="login-form d-flex justify-content-left">
+				<form id="reg-form">
+					<div id="reg-password-mismatch" style="display:none" class="alert alert-danger" role="alert">
+						Password mismatch!
+					</div>
+					<div id="reg-wrong-message" style="display:none" class="alert alert-danger" role="alert">
+						Reg failed!
+					</div>
+					<label for="name" class="form-label">Enter your name</label>
+					<div class="input-group mb-4">
+						<input class="form-control" id="name" name="name"
+							placeholder="name" required>
+					</div>
+					<label for="surname" class="form-label">Enter your surname</label>
+					<div class="input-group mb-4">
+						<input class="form-control" id="surname" name="surname"
+							placeholder="surname" required>
+					</div>
+
+					<label for="email" class="form-label">Enter your e-mail</label>
+					<div class="input-group mb-4">
+						<input type="email" class="form-control" id="email" name="email"
+							placeholder="email" required>
+					</div>
+					<label for="gender" class="form-label">Enter your gender</label>
+					<div class="input-group mb-4">
+						<input class="form-control" id="gender" name="gender"
+							placeholder="gender" required>
+					</div>
+					<label for="password" class="form-label" required>Create a password</label>
+					<div class="input-group mb-4">
+						<input type="password" pattern=".{4,}" class="form-control" id="password" name="password"
+							placeholder="Password" required>
+					</div>
+					<label for="password2" class="form-label" required>Confirm your password</label>
+					<div class="input-group mb-4">
+						<input type="password" pattern=".{4,}" class="form-control" id="password2" name="password2"
+							placeholder="Repeat password" required>
+					</div>
+					<div class="row mt-2 d-flex justify-content-left">
+						<button class="btn button-back mb-2" type="submit"> Enter </button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		const regWrongMessageElement = document.getElementById("reg-wrong-message");
+		function showWrongRegAlert() {
+			regWrongMessageElement.style.display = "block";
+		}
+
+		const regPasswordMismatchMessageElement = document.getElementById("reg-password-mismatch");
+		function showPasswordMismatchAlert() {
+			regPasswordMismatchMessageElement.style.display = "block";
+		}
+
+		const acc = new Account();
+		acc.isAuth()
+			.then(() => window.location = new URL("/personnel_management.html", window.location).toString())
+			.catch(() => console.log("not authed"));
+
+		const regFormElement = document.getElementById("reg-form");
+		const loginElement = regFormElement.querySelector("[name=email]");
+		const passwordElement = regFormElement.querySelector("[name=password]");
+		const password2Element = regFormElement.querySelector("[name=password2]");
+		const submitElement = regFormElement.querySelector("[type=submit]");
+		regFormElement.addEventListener("submit", onRegSubmit);
+		function onRegSubmit(e) {
+			e.preventDefault();
+
+			const login = loginElement.value;
+			const password = passwordElement.value;
+			const password2 = password2Element.value;
+
+			if (password !== password2) {
+				showPasswordMismatchAlert();
+				return;
+			}
+
+			console.log({login,password});
+			submitElement.innerHTML = "AUTH IN PROCESS";
+			acc.register(login, password)
+				.then(() => window.location = new URL("/entry.html", window.location).toString())
+				.catch(showWrongRegAlert)
+				.finally(submitElement.innerHTML = "Enter");
+		}
+	</script>
+</body>
+
+</html>
