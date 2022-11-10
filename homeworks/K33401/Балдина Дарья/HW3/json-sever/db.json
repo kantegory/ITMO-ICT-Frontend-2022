@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "email": "ddbaldina@mail.ru",
+      "password": "$2a$10$5JvSkGy9NErQy693Prcmq.Omm/ht5bYhoGWlnHZLKIefreq2.tIv.",
+      "lastname": "Балдина",
+      "name": "Дарья",
+      "id": 1
+    },
+    {
+      "email": "312407@niuitmo.ru",
+      "password": "$2a$10$2nYkTPYx2Fw2kj6QmK6ugOTEGS3V4AkSCDTWOOMQEKe3nvM6Z5R92",
+      "lastname": "Матвеев",
+      "name": "Иван",
+      "id": 2
+    },
+    {
+      "email": "aleks@mail.ru",
+      "password": "$2a$10$3/MgnU2p2g5LGK/wERyE7uH5kHmMYNc7XBBNV3acBO/uDky7cOn6.",
+      "lastname": "Алексеев",
+      "name": "Олег",
+      "id": 3
+    },
+    {
+      "email": "tema@mail.ru",
+      "password": "$2a$10$EzU/02wt0y/WFK6qYRukNub4p19jR3xNPijfFhISD65iID7wpbir6",
+      "lastname": "Ильин",
+      "name": "Артем",
+      "id": 4
+    },
+    {
+      "email": "nata@mail.ru",
+      "password": "$2a$10$BI9oW0PH/pwfU/hzF40CPeKXKpYZSCTaVERXhtWPYxrSE1nEwMAOi",
+      "lastname": "Авдеева",
+      "name": "Наталья",
+      "id": 5
+    },
+    {
+      "email": "ana@mail.ru",
+      "password": "$2a$10$OiqIKHrkXRwzqTGiW9OQDeFflhhCAgcKaI6utuE8Nbj2ZNgpf5q7u",
+      "lastname": "Ростова",
+      "name": "Анастасия",
+      "id": 6
+    },
+    {
+      "email": "iva@mail.ru",
+      "password": "$2a$10$28tPUCcNg3gjgekZXNm6ZO0mqWafoB.6IcEK.jp.pVcZxC17bFumO",
+      "lastname": "Иваненко",
+      "name": "Руслан",
+      "id": 7
+    },
+    {
+      "email": "nik@gmail.com",
+      "password": "$2a$10$f1X.A0k9l4E7vfpUUflGpuqNRlmBk/psDz72ghd6SfVbaVl6fBfRm",
+      "lastname": "Игоревич",
+      "name": "Николай",
+      "id": 8
+    }
+  ],
+  "workers": [
+    {
+      "id": 1,
+      "last_name": "Зима",
+      "name": "Кристина",
+      "middle_name": "Олеговна",
+      "departure_name": "Продажи",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "last_name": "Мальков",
+      "name": "Игорь",
+      "middle_name": "Сергеевич",
+      "departure_name": "Тех.отдел",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "last_name": "Климова",
+      "name": "Анастасия",
+      "middle_name": "Викторовна",
+      "departure_name": "Управление",
+      "userId": 3
+    }
+  ]
+}
