@@ -1,29 +1,66 @@
 import axios from "axios";
 
+const instance = axios.create({
+    baseURL: 'http://127.0.0.1:8000/'
+});
+
+
+
 export default class ApiService{
-    constructor() {
-        this.api_key = "RcTUFytOS2YUHSqsgEg3oL62hOFbB3Vq6I_qHi8qFls"
-        this.base_url = "https://api.unsplash.com"
+
+    async getPhotos(params={}){
+        const url = "/api/photos/"
+        const response = await instance.get(url, {"params":params})
+        const data = await response.data
+        return {...data, "currentUrl": response.config.url, "url": url, ...response.config.params};
     }
 
-    async getRandomPhoto(count=30){
-        const response = await axios.get(this.base_url + "/photos/random", {
-            params: {
-                count: count,
-                client_id: this.api_key
-            }
-        })
+    async getColors(){
+        const response = await instance.get("/api/colors/", )
         return await response.data
     }
 
-    async getPhotosByQuery(query, count=30){
-        const response = await axios.get(this.base_url + "/search/photos", {
-            params: {
-                query:query,
-                per_page: count,
-                client_id: this.api_key
+    async getKeywords(count=100){
+        const response = await instance.get("/api/keywords/", {"params":{
+            "count": count
+            }})
+        return await response.data
+    }
+
+    async searchPhotos(params={}){
+        const url = "/api/search/"
+        const response = await instance.get(url, {"params":params})
+        const data = await response.data
+        return {...data, "currentUrl": response.config.url, "url": url, ...response.config.params};
+    }
+
+    async registrationUser(username, email, password){
+        const json = JSON.stringify({"username":username, "email":email, "password":password})
+        const response = await instance.post("/api/auth/users/", json, {
+            headers:{
+                'Content-Type': 'application/json'
             }
         })
-        return await response.data
+        return await response.data;
+    }
+
+    async loginUser(username, password){
+        const json = JSON.stringify({"username":username, "password":password})
+        const response = await instance.post("/auth/token/login/", json, {
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        return await response.data;
+    }
+
+    async getUser(){
+        console.log(`Token ${localStorage.getItem("token")}`)
+        const response = await instance.get("/api/auth/users/me/", {
+            headers:{
+                'Authorization': `Token ${localStorage.getItem("token")}`
+            }
+        })
+        return await response.data;
     }
 }

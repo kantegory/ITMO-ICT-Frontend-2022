@@ -1,40 +1,61 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import {useGetRandomPhotosQuery} from "../redux";
+import styles from "./Album.module.css"
+import React, {memo, useEffect, useMemo, useState} from "react";
+import useWindowSize from "../hooks/useWindowSize"
+import PhotoCard from "./PhotoCard/PhotoCard";
+import PreviewPhoto from "./PreviewPhoto/PreviewPhoto";
 
-import React from 'react';
+const splitElements = (n, array) => {
+    const columns = []
+    const t_array = [...array]
+    while (t_array.length){
+        for(let i=0; i<n; i++){
+            if(!columns[i]) columns[i]=[]
+            const elem = t_array.shift();
+            if(elem) columns[i].push(elem)
+        }
+    }
+    return columns
+}
 
-const Album = () => {
-    const randomPhotos = useGetRandomPhotosQuery({count:30});
+const Album = ({photos, innerRef}) => {
+    const [countOfColumns, setCountOfColumns] = useState(1)
+    const windowSize = useWindowSize()
+    const columns = useMemo(()=> splitElements(countOfColumns, photos), [countOfColumns, photos])
 
-    if(randomPhotos.isLoading){
-        return
+    useEffect(()=>{
+        if(windowSize[0]>=997){
+            setCountOfColumns(3)
+        } else if (windowSize[0]<=997 && windowSize[0]>=750) {
+            setCountOfColumns(2)
+        } else {
+            setCountOfColumns(1)
+        }}, [windowSize])
+
+    
+    const getColumn = (photos, key) => {
+        return(
+            <div className={styles.column} key={key}>
+                {photos.map((e)=>{
+                    return <PhotoCard key={e.photo_image_url} photo={e}/>
+                })}
+            </div>
+        )
     }
 
-    return (
-        <div className="album py-5 bg-light">
-            <div className="container">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {randomPhotos.data.map(e=>(
-                        <div key={e.id} className="col">
-                            <Card>
-                                <Card.Img variant="top" src={e.urls.regular} style={{width:'100%', height:'225px', objectFit:'cover'}}/>
-                                <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    ))}
+        return (
+            <div className="album py-5">
+                <PreviewPhoto/>
+                <div className="container-xl">
+                    <div className={"row row-cols-" + countOfColumns}>
+                        {
+                            columns.map((e,index)=>(
+                                getColumn(e, index)
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
-
-        </div>
-    );
+        )
 };
 
-export default Album;
+export default memo(Album);
