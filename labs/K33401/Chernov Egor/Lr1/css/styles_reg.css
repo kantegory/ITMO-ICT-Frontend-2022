@@ -13,7 +13,7 @@ html, body {
 
 
 .headr--link:hover {
-color: #FFF7E9;
+    color: #FFF7E9;
 }
 
 .mywhite--text {
@@ -36,27 +36,27 @@ color: #FFF7E9;
 }
 
 .footer__nav {
-background: #1746A2;
+    background: #1746A2;
 }
 
 .footer--link1{
-color: #1746A2;
-text-decoration: none;
+    color: #1746A2;
+    text-decoration: none;
 }
 
 .footer--link2{
-color: #5F9DF7;
-text-decoration: none;
+    color: #5F9DF7;
+    text-decoration: none;
 }
 
 .footer--link1:hover {
-color: #FFF7E9;
+    color: #FFF7E9;
 }
 
 .footer--link2:hover {
-color: #FFF7E9;
+    color: #FFF7E9;
 }
 
 .footer--text {
-font-size: 12px;
+    font-size: 12px;
 }

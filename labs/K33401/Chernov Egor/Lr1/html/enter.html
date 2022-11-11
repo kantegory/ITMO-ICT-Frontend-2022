@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coins</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles_reg.css">
+  <link rel="stylesheet" href="../css/styles_enter.css">
 </head>
 <body>
   <header class="navbar navbar-expand-sm navbar-dark bd-navbar sticky-top header">
@@ -15,36 +15,56 @@
     </nav>
   </header>
   <main class="main p-4">
-    <form action="account.html" method="post" class="main__form">
-      <section class="mb-3">
-        <label for="firstName" class="form-label">First name</label>
-        <input type="text" class="form-control" id="firstName">
-      </section>
-      <section class="mb-3">
-        <label for="secondName" class="form-label">Second name</label>
-        <input type="text" class="form-control" id="secondName">
-      </section>
-      <section class="mb-3">
-        <label for="age" class="form-label">Age</label>
-        <input type="number" class="form-control" id="age" aria-describedby="ageHelp">
-        <span id="ageHelp" class="form-text">The required age for trading is 18 years old.</span>
-      </section>
-      <section class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
-      </section>
-      <section class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password">
-      </section>
-      <section class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="checkbox">
-        <label class="form-check-label" for="checkbox">Check me out</label>
-      </section>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <section class="main__form">
+      <form onsubmit="login(event)">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" autocomplete="off">
+          <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+      </form>
+      <script>
+        async function login(event) {
+          event.preventDefault()
+
+          const inputs = Array.from(event.target.querySelectorAll('input'))
+
+          const loginData = {}
+
+          for (const input of inputs) {
+            loginData[input.name] = input.value
+          }
+
+          console.log('login data', loginData)
+
+          const response = await fetch('http://localhost:3000/login', {
+            method: "POST",
+            body: JSON.stringify(loginData),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const responseJson = await response.json()
+
+          const { accessToken, user } = responseJson
+
+          console.log('response', responseJson)
+
+        }
+      </script>
+      <form action="reg.html" method="get" class="mt-3">
+        <label for="buttonReg" class="form-label">Don't have an account?</label><br>
+        <input type="submit" class="btn btn-primary" id="buttonReg" value="Join to Coins">
+      </form>
+    </section>
   </main>
+
   <footer class="footer pt-4">
     <section class="col-md-8 mx-auto text-center">
       <h6 class="fw-semibold mywhite--text">Website creator <a href="https://t.me/chernovec" class="footer--link1">Egor Chernov</a></h6>
@@ -55,7 +75,7 @@
           <span class="footer--text">Bootstrap</span>
         </a>
         <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://canvasjs.com/">
-          <img class="d-block mb-2" src="./res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
+          <img class="d-block mb-2" src="../res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
           <span class="footer--text">CanvasJS</span>
         </a>
         <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://axios-http.com/ru/">

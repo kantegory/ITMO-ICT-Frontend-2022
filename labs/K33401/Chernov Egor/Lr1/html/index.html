@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <link rel="stylesheet" href="styles_index.css">
+  <link rel="stylesheet" href="../css/styles_index.css">
 </head>
 <body>
   <header class="header navbar navbar-expand-sm navbar-dark bd-navbar sticky-top">
@@ -148,210 +148,8 @@
     <h4 class="fw-semibold text-center" style="font-size: 2rem;" id="about">What should you do?</h4>
     <p class="fw-semibold text-center" style="font-size: 1rem;">Join us. Together we will drop this market! Just log in.</p>
 
-    <script src="./js/api.js"></script>
-    <script type="text/javascript">
-      
-      // const apiUrl = 'https://api.coingecko.com/api/v3'
+    <script src="../js/api.js"></script>
 
-
-      // function parseData(f_data) {
-      //   let f_dataList = []
-      //   for (let i in f_data) {
-      //     f_dataList.push({
-      //       image: f_data[i].image,
-      //       fullName: f_data[i].name,
-      //       shortName: f_data[i].id,
-      //       price: f_data[i].current_price,
-      //       per: f_data[i].price_change_percentage_1h_in_currency,
-      //       chartData: f_data[i].sparkline_in_7d.price
-      //     })
-      //   }
-      //   return f_dataList
-      // }
-
-
-      // function getCoinChartData(f_dataListEl) {
-      //   let f_coinChartData = {name: f_dataListEl.fullName, data: null}
-      //   const f_price = f_dataListEl.chartData
-      //   let f_priceList = []
-
-      //   let hour = 1
-      //   let day = 1
-      //   for (let i of f_price) {
-      //     if (hour == 24) {
-      //       f_priceList.push({label: `${day}d`, y: i})
-      //       ++day
-      //       hour = 0
-      //     }
-      //     else {
-      //       f_priceList.push({label: `${hour}h`, y: i})
-      //     }
-      //     ++hour
-      //   }
-      //   f_coinChartData["data"] = f_priceList
-      //   return f_coinChartData;
-      // }
-
-
-      // function setLiData(f_data) {
-      //   var ol = document.getElementById("coinList");
-      //   var li = document.createElement("LI").classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-start");
-      //   var divI = document.createElement("DIV").classList.add("ms-2", "mt-1");
-      //   var divN = document.createElement("DIV").classList.add("ms-2", "me-auto", "row");
-      //   var divP = document.createElement("DIV").classList.add("ms-2", "row", "text-end");
-
-      //   var img = document.createElement("IMG");
-      //   img.src=f_data.image;
-      //   img.alt="icon";
-      //   img.wirdth="40";
-      //   var fullName = document.createElement("span").classList.add("fw-bold", "main--text-color");
-      //   fullName.textContent=f_data.fullName;
-      //   var shortName = document.createElement("SPAN").classList.add("main--text-color");
-      //   shortName.textContent=f_data.shortName;
-      //   var price = document.createElement("SPAN").classList.add("fw-bold", "main--text-color");
-      //   price.textContent=f_data.price;
-      //   var divPPer = document.createElement("DIV");
-      //   var per = document.createElement("SPAN").classList.add("badge", "fw-semibold", "rounded-pill", "percent--up--color");
-      //   per.textContent=f_data.per;
-
-      //   ol.appendChild(li)
-      //   li.appendChild(divI)
-      //   li.appendChild(divN)
-      //   li.appendChild(divP)
-
-      //   divI.appendChild(image)
-      //   divN.appendChild(fullName)
-      //   divN.appendChild(shortName)
-      //   divP.appendChild(price)
-      //   divP.appendChild(divPPer)
-      //   divPPer.appendChild(per)
-      // }
-
-      // let mdata = ''
-
-      // async function myResponse() {const res = await this.axios
-      //   .get(`${apiUrl}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=true&price_change_percentage=1h`)
-      //   return res.data}
-
-      // const response = myResponse()
-
-      // console.log(response)
-
-      // function parseData(f_data) {
-      //   let f_dataList = []
-      //   for (let i in f_data) {
-      //     f_dataList.push({
-      //       image: f_data[i].image,
-      //       fullName: f_data[i].name,
-      //       shortName: f_data[i].id,
-      //       price: f_data[i].current_price,
-      //       per: f_data[i].price_change_percentage_1h_in_currency,
-      //       chartData: f_data[i].sparkline_in_7d.price
-      //     })
-      //   }
-      //   return f_dataList
-      // }
-
-
-      // function getCoinChartData(f_dataListEl) {
-      //   let f_coinChartData = {name: f_dataListEl.fullName, data: null}
-      //   const f_price = f_dataListEl.chartData
-      //   let f_priceList = []
-
-      //   let hour = 1
-      //   let day = 1
-      //   for (let i of f_price) {
-      //     if (hour == 24) {
-      //       f_priceList.push({label: `${day}d`, y: i})
-      //       ++day
-      //       hour = 0
-      //     }
-      //     else {
-      //       f_priceList.push({label: `${hour}h`, y: i})
-      //     }
-      //     ++hour
-      //   }
-      //   f_coinChartData["data"] = f_priceList
-      //   return f_coinChartData;
-      // }
-
-
-      // coinList, coinImage, coinFullName, coinShortName, coinPrice, coinPer
-      // <li class="list-group-item d-flex justify-content-between align-items-start">
-      //   <div class="ms-2 mt-1">
-      //     <img src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579" alt="icon" width="40" height="40" loading="lazy" id="coinImage">
-      //   </div>
-      //   <div class="ms-2 me-auto row">
-      //     <span class="fw-bold main--text-color" id="coinFullName">Bitcoin</span>
-      //     <span class="main--text-color" id="coinShortName">BTC</span>
-      //   </div>
-      //   <div class="ms-2 row text-end">
-      //     <span class="fw-bold main--text-color" id="coinPrice">$19,668.34</span>
-      //     <div><span class="badge fw-semibold rounded-pill percent--up--color" id="coinPer">0.3%</span></div>
-      //   </div>
-      // </li>
-      // function setLiData(f_data) {
-      //   var ol = document.getElementById("coinList");
-      //   var li = document.createElement("LI").classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-start");
-      //   var divI = document.createElement("DIV").classList.add("ms-2", "mt-1");
-      //   var divN = document.createElement("DIV").classList.add("ms-2", "me-auto", "row");
-      //   var divP = document.createElement("DIV").classList.add("ms-2", "row", "text-end");
-
-      //   var img = document.createElement("IMG");
-      //   console.log(typeof f_data.image);
-      //   img.src=f_data.image;
-      //   img.alt="icon";
-      //   img.wirdth="40";
-      //   var fullName = document.createElement("SPAN").classList.add("fw-bold", "main--text-color").textContent=f_data.fullName;
-      //   var shortName = document.createElement("SPAN").classList.add("main--text-color").textContent=f_data.shortName;
-      //   var price = document.createElement("SPAN").classList.add("fw-bold", "main--text-color").textContent=f_data.price;
-      //   var divPPer = document.createElement("DIV");
-      //   var per = document.createElement("SPAN").classList.add("badge", "fw-semibold", "rounded-pill", "percent--up--color").textContent=f_data.per;
-
-      //   ol.appendChild(li)
-      //   li.appendChild(divI)
-      //   li.appendChild(divN)
-      //   li.appendChild(divP)
-
-      //   divI.appendChild(image)
-      //   divN.appendChild(fullName)
-      //   divN.appendChild(shortName)
-      //   divP.appendChild(price)
-      //   divP.appendChild(divPPer)
-      //   divPPer.appendChild(per)
-      // }
-
-      // const dataList = parseData(data)
-      // setLiData(dataList[0])
-      // const coinChartData = getCoinChartData(dataList[0])
-
-      // const coinChartData = [
-      //   { label: "1h",  y: 23  },
-      //   { label: "2h", y: 15  },
-      //   { label: "3h", y: 23  },
-      //   { label: "4h",  y: 30  },
-      //   { label: "5h",  y: 34  }]
-      
-
-      // window.onload = function () {
-      //   var chart = new CanvasJS.Chart("chartContainer", {
-      //     theme: "light2", // "light2", "dark1", "dark2"
-      //     animationEnabled: true,
-      //     title:{
-      //       text: coinChartData.name
-      //     },
-      //     data: [
-      //       {
-      //         type: "spline", // "bar", "area", "spline", "pie", etc.
-      //         // dataPoints: coinChartData.data
-      //         dataPoints: coinChartData
-      //       }
-      //     ]
-      //   });
-
-      //   chart.render();
-      // }
-    </script>
   </main>
   <footer class="footer pt-4">
     <section class="col-md-8 mx-auto text-center">
@@ -363,7 +161,7 @@
           <span class="footer--text">Bootstrap</span>
         </a>
         <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://canvasjs.com/">
-          <img class="d-block mb-2" src="./res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
+          <img class="d-block mb-2" src="../res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
           <span class="footer--text">CanvasJS</span>
         </a>
         <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://axios-http.com/ru/">
