@@ -235,13 +235,13 @@
         <nav>
           <ul class="pagination justify-content-center">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+              <a class="page-link" href="#mycoins" aria-label="Previous" onclick="back('pageMyCripto')">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#mycoins" id="pageMyCripto">1</a></li>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+              <a class="page-link" href="#mycoins" aria-label="Next" onclick="next('pageMyCripto')">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
@@ -258,13 +258,13 @@
             Filter
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Meme</a></li>
-            <li><a class="dropdown-item" href="#">NFT</a></li>
-            <li><a class="dropdown-item" href="#">Finance</a></li>
+            <li><a class="dropdown-item" href="#coins" id="meme-token" onclick="filterList('meme-token')">Meme</a></li>
+            <li><a class="dropdown-item" href="#coins" id="non-fungible-tokens-nft" onclick="filterList('non-fungible-tokens-nft')">NFT</a></li>
+            <li><a class="dropdown-item" href="#coins" id="finance-banking" onclick="filterList('finance-banking')">Finance</a></li>
           </ul>
         </div>
-        <input class="form-control col" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn col filter--color" type="submit">Search</button>
+        <input class="form-control col" type="search" placeholder="Search" aria-label="Search" id="findCripto">
+        <button class="btn col filter--color" type="submit" onclick="searchCripto('findCripto')">Search</button>
       </div>
     </section>
 
@@ -286,163 +286,7 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck1">
-                </div>
-              </td>
-              <td class="">
-                <span>1</span>
-              </td>
-              <td class="">
-                <img loading="lazy" width="20" height="20" alt="dogecoin" src="https://assets.coingecko.com/coins/images/5/thumb/dogecoin.png?1547792256">
-                  <a class="" href="#">
-                    <span>Dogecoin</span>
-                    <span>DOGE</span>
-                  </a>
-              </td>
-              <td class="text-end">
-                <span>$0.058935</span>
-              </td>
-              <td class="text-end">
-                <span class="badge fw-semibold rounded-pill percent--down--color">0.6%</span>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col text-center d-none d-md-block"><span class="badge fw-semibold rounded-pill percent--down--color">3.15%</span></div>
-                  <div class="col text-end d-none d-sm-block">
-                    <img loading="lazy" alt="dogecoin" src="https://www.coingecko.com/coins/5/sparkline">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck2">
-                </div>
-              </td>
-              <td class="">
-                <span>2</span>
-              </td>
-              <td class="">
-                <img loading="lazy" width="20" height="20" alt="shiba" src="https://assets.coingecko.com/coins/images/11939/thumb/shiba.png?1622619446">
-                  <a class="" href="#">
-                    <span>Shiba Inu</span>
-                    <span>SHIB</span>
-                  </a>
-              </td>
-              <td class="text-end">
-                <span>$0.00001023</span>
-              </td>
-              <td class="text-end">
-                <span class="badge fw-semibold rounded-pill percent--up--color">0.1%</span>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col text-center d-none d-md-block"><span class="badge fw-semibold rounded-pill percent--up--color">1.3%</span></div>
-                  <div class="col text-end d-none d-sm-block">
-                    <img loading="lazy" alt="shiba" src="https://www.coingecko.com/coins/11939/sparkline">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck3">
-                </div>
-              </td>
-              <td class="">
-                <span>3</span>
-              </td>
-              <td class="">
-                <img loading="lazy" width="20" height="20" alt="dogelon" src="https://assets.coingecko.com/coins/images/14962/thumb/6GxcPRo3_400x400.jpg?1619157413">
-                  <a class="" href="#">
-                    <span>Dogelon Mars</span>
-                    <span>ELON</span>
-                  </a>
-              </td>
-              <td class="text-end">
-                <span>$0.000000253989</span>
-              </td>
-              <td class="text-end">
-                <span class="badge fw-semibold rounded-pill percent--up--color">0.3%</span>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col text-center d-none d-md-block"><span class="badge fw-semibold rounded-pill percent--up--color">1.4%</span></div>
-                  <div class="col text-end d-none d-sm-block">
-                    <img loading="lazy" alt="dogelon" src="https://www.coingecko.com/coins/14962/sparkline">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck4">
-                </div>
-              </td>
-              <td class="">
-                <span>4</span>
-              </td>
-              <td class="">
-                <img loading="lazy" width="20" height="20" alt="kishu" src="https://assets.coingecko.com/coins/images/14890/thumb/uVLzCoP.png?1622445866">
-                  <a class="" href="#">
-                    <span>Kishu Inu</span>
-                    <span>KISHU</span>
-                  </a>
-              </td>
-              <td class="text-end">
-                <span>$0.000000000467589</span>
-              </td>
-              <td class="text-end">
-                <span class="badge fw-semibold rounded-pill percent--down--color">0.9%</span>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col text-center d-none d-md-block"><span class="badge fw-semibold rounded-pill percent--down--color">4.5%</span></div>
-                  <div class="col text-end d-none d-sm-block">
-                    <img loading="lazy" alt="kishu" src="https://www.coingecko.com/coins/14890/sparkline">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheck5">
-                </div>
-              </td>
-              <td class="">
-                <span>5</span>
-              </td>
-              <td class="">
-                <img loading="lazy" width="20" height="20" alt="doge nft" src="https://assets.coingecko.com/coins/images/18111/thumb/Doge.png?1630696110">
-                  <a class="" href="#">
-                    <span>The Doge NFT</span>
-                    <span>DOG</span>
-                  </a>
-              </td>
-              <td class="text-end">
-                <span>$0.00082411</span>
-              </td>
-              <td class="text-end">
-                <span class="badge fw-semibold rounded-pill percent--up--color">0.1%</span>
-              </td>
-              <td>
-                <div class="row align-items-center">
-                  <div class="col text-center d-none d-md-block"><span class="badge fw-semibold rounded-pill percent--up--color">0.9%</span></div>
-                  <div class="col text-end d-none d-sm-block">
-                    <img loading="lazy" alt="doge nft" src="https://www.coingecko.com/coins/18111/sparkline">
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="gridCripto"></tbody>
         </table>
       </div>
       
@@ -451,13 +295,13 @@
         <nav>
           <ul class="pagination justify-content-center">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+              <a class="page-link" href="#coins" aria-label="Previous" onclick="back('pageCripto')">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#coins" id="pageCripto">1</a></li>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+              <a class="page-link" href="#coins" aria-label="Next" onclick="next('pageCripto')">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
@@ -472,38 +316,15 @@
         <div class="row justify-content-center">
           <p class="mw-75 text-center main--text-color">Below you can see an example of plotting currency price changes. The construction is based on fresh data. Using this graph, you can track how the coin price has changed over time.</p>
         </div>
-        <div class="row">
-          <div class="dropdown col">
-            <button class="btn dropdown-toggle filter--color" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Meme</a></li>
-              <li><a class="dropdown-item" href="#">NFT</a></li>
-              <li><a class="dropdown-item" href="#">Finance</a></li>
-            </ul>
-          </div>
-          <input class="form-control col" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn col filter--color" type="submit">Search</button>
-        </div>
         <div class="row justify-content-center">
           <div class="card p-2 m-2" style="width: 400px;">
             <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
           </div>
           <div class="card p-2 m-2" style="width: 400px;">
             <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
           </div>
           <div class="card p-2 m-2" style="width: 400px;">
             <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -511,13 +332,13 @@
         <nav>
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+              <a class="page-link" href="#graph" aria-label="Previous" onclick="back('pageChart')">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#graph" id="pageChart">1</a></li>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+              <a class="page-link" href="#graph" aria-label="Next" onclick="next('pageChart')">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
@@ -525,96 +346,6 @@
         </nav>
       </div>
     </section>
-
-    <script type="text/javascript">
-      const apiUrl = 'https://api.coingecko.com/api/v3'
-      console.log("Start loading")
-      var data
-
-      const response = this.axios
-        .get(`${apiUrl}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h`)
-        .then(res => {
-          console.log(res.data[0].id); // Результат ответа от сервера
-          data = res.data;
-        });
-
-      // function getCoinsChartData() {
-      //   for (var j = 0; j < length(data); i++)
-      //   let coinChartData = []
-      //   let iter = 1
-      //   for (const i in data[0].sparkline_in_7d.price) {
-      //     coinChartData.push({label: `${iter}h`, y: i})
-      //     ++iter
-      //   }
-      //   return coinChartData;
-      // }
-
-      // const myData = 
-
-      const myData = [
-            [{ label: "1h",  y: 23  },
-            { label: "2h", y: 15  },
-            { label: "3h", y: 23  },
-            { label: "4h",  y: 30  },
-            { label: "5h",  y: 34  }],
-            [{ label: "1h",  y: 10  },
-            { label: "2h", y: 15  },
-            { label: "3h", y: 25  },
-            { label: "4h",  y: 30  },
-            { label: "5h",  y: 28  }],
-            [{ label: "1h",  y: 10  },
-            { label: "2h", y: 12  },
-            { label: "3h", y: 34  },
-            { label: "4h",  y: 30  },
-            { label: "5h",  y: 37  }]
-          ]
-      
-      const myDataId = ["chartContainer1", "chartContainer2", "chartContainer3"]
-
-      const myDataName = ["BTC", "NFT", "Dogelon"]
-      
-      window.onload = function () {
-      
-      // var chart = new CanvasJS.Chart("chartContainer", {
-      //   theme: "light2", // "light2", "dark1", "dark2"
-      //   animationEnabled: true, // change to true		
-      //   title:{
-      //     text: "Bitcoin"
-      //   },
-      //   data: [
-      //   {
-      //     // Change type to "bar", "area", "spline", "pie",etc.
-      //     type: "spline",
-      //     dataPoints: myData
-      //   }
-      //   ]
-      // });
-
-        for (const i in myData) {
-          console.log(i)
-          var element = myData[i];
-          console.log(element)
-
-          var chart = new CanvasJS.Chart(myDataId[i], {
-              theme: "light2",
-              animationEnabled: true, // change to true		
-              title:{
-                text: myDataName[i]
-              },
-              data: [
-              {
-                // Change type to "bar", "area", "spline", "pie",etc.
-                type: "spline",
-                dataPoints: myData[i]
-              }
-              ]
-            }
-          );
-
-          chart.render();
-        }
-      }
-    </script>
   </main>
   <footer class="footer pt-4">
     <section class="col-md-8 mx-auto text-center">
@@ -648,4 +379,8 @@
     </section>
   </footer>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="../js/account.js"></script>
 </html>
