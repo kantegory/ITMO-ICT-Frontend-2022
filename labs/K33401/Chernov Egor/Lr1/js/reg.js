@@ -41,17 +41,20 @@ function register() {
         .then(function() {
             var userID = firebase.auth().currentUser.uid;
             var databaseRef = database.ref()
-            const date = Date.now()
 
             var userData = {
                 email: email,
-                firstName: firstName,
-                secondName: secondName,
+                first_name: firstName,
+                second_name: secondName,
                 age: age,
-                lastLogin: date
+            }
+
+            var userCriptoData = {
+                count: 0
             }
 
             databaseRef.child('users/' + userID).set(userData)
+            databaseRef.child('profile/' + userID).set(userCriptoData)
 
             var divTag = document.getElementById("container")
             var childNodes = divTag.getElementsByTagName('*');
@@ -59,6 +62,7 @@ function register() {
                 node.style.display = 'none';
             }
 
+            const date = Date.now()
             const today = new Date(date)
             divTag.innerHTML = "<h1>Congratulations!!! You have successfully registered!!!</h1>" +
                 "<div class=\"\">\n" +
