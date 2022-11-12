@@ -77,7 +77,7 @@ function register() {
                 "  <div class=\"card-body\">\n" +
                 `    <h5 class=\"card-title\">${firstName} ${secondName}</h5>\n` +
                 "    <p class=\"card-text\">Now you can use our web-site for trading criptocurrency.</p>\n" +
-                "    <a href=\"../html/account.html\" class=\"btn btn-primary\">My profile</a>\n" +
+                `    <a href=\"../html/account.html?id=${userID}\" class=\"btn btn-primary\">My profile</a>\n` +
                 "  </div>\n" +
                 "  <div class=\"card-footer text-muted\">\n" +
                 `    Acc create: ${today.toUTCString()}\n` +
