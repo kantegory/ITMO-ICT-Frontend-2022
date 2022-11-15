@@ -1,0 +1,100 @@
+.navbar {
+  background-color: #3a3030 !important;
+}
+
+body {
+  background: rgb(0, 0, 0); /* Цвет фона */
+  color: rgb(255, 255, 255); /* Цвет текста */
+ }
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #f3f3f3;
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+  --bs-table-active-color: #f3f3f3;
+  --bs-table-active-bg: rgba(250, 247, 247, 0.1);
+  --bs-table-hover-color: #f3f3f3;
+  --bs-table-hover-bg: rgba(255, 255, 255, 0.075);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #f2f3f5 !important;
+  vertical-align: top;
+  border-color: #dee2e6;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529 !important;
+  background-color: rgb(96, 46, 46) !important;
+  background-clip: padding-box;
+  border: 1px solid #343a3f;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: rgb(4, 4, 4);
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5a1c54;
+  border-color: #c87ed3;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #24415b;
+  border-color: #6c757d;
+}
+
+.btn-check:active{
+  color: #fff;
+  background-color: #7e397d;
+  border-color: #ac5fc3;
+}
+
+.btn-close {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em 0.25em;
+  color: rgb(255, 255, 255) !important;
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(165, 101, 101) !important;
+  opacity: 1; /* Firefox */
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(0, 0, 0);
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+}
