@@ -110,7 +110,7 @@
                     </div>
                 </td>
                 <td>
-                    <p class="fw-normal mb-0">RUB ${current_price}</p>
+                    <p class="fw-normal mb-0">RUB ${priceHandler(current_price)}</p>
                 </td>
                 <td class="">
                     ${changeHandler(market_cap_change_percentage_24h.toFixed(2))}
@@ -386,6 +386,37 @@
                 'Content-Type': 'application/json',
             }
         })
+    }
+
+    function priceHandler(number) {
+        let newNum = number.toString().split('.')
+        let res = ''
+        res += newNum[0].replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+
+        if (newNum[1] !== undefined) {
+            res += ','
+        }
+
+        if (newNum[1] !== undefined && newNum[1].length % 3 !== 0) {
+            for (let i = 0; i < newNum[1].length % 3; i++) {
+                newNum[1] += '0';
+            }
+            if (newNum[1].length === 3) {
+                res += newNum[1]
+            }
+        }
+
+        if (newNum[1] !== undefined && newNum[1].length > 3) {
+            let j = 0;
+            let str = ''
+            while (j < newNum[1].length) {
+                str += newNum[1].slice(j, j + 3) + ' '
+                j += 3
+            }
+            str.slice(0, -1)
+            res += str
+        }
+        return res
     }
 
     function logout() {
