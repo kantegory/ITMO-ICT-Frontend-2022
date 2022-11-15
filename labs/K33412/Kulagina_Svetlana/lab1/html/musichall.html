@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" name="description" content="Страница мероприятия Мюзик Холл">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Bootstrap demo</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -12,20 +12,20 @@
 		<header class="colors">
 			<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-light" style="background-color:#e388a9">
 				<div class="container">
-					<a class="navbar-brand text-white" href="./calendar.html">Календрь мероприятий</a>
+					<a class="navbar-brand text-dark" href="./calendar.html">Календрь мероприятий</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item">
-								<a class="nav-link active text-white" href="./entrance.html" id="enter">Вход</a>
+								<a class="nav-link active text-dark" href="./entrance.html" id="enter">Вход</a>
 							</li>
 							<li>
-								<a class="nav-link active text-white" href="./lk.html" id="enterlk">Личный кабинет</a>
+								<a class="nav-link active text-dark" href="./lk.html" id="enterlk">Личный кабинет</a>
 							</li>
 							<li>
-								<a class="nav-link active text-white" id="logout">Выход</a>
+								<a class="nav-link active text-dark" id="logout" href="#">Выход</a>
 							</li>
 						</ul>
 					</div>
@@ -36,32 +36,28 @@
 			<section class="note container row mx-auto" data-event-id="1">
 			<h1 class="help mb-5 mero" name="mero">Мюзик Холл</h1>
 				<div class="row d-flex col-md-3 col-lg-2 col-sm-3 col-4 col-xl-2 col-2">
-					<ul>
-						<h6 class="information">Адрес:</h6>
-						<h6 class="information mt-5">Рйон:</h6>
-						<h6 class="information mt-5">Метро:</h6>
-						<h6 class="information mt-5">Дата:</h6>
-						<h6 class="information mt-5">Сайт:</h6>
-						<h6 class="information mt-5">Часы работы:</h6>
-					</ul>
+						<h2 class="information h5">Адрес:</h2>
+						<h2 class="information mt-5 h5">Рйон:</h2>
+						<h2 class="information mt-5 h5">Метро:</h2>
+						<h2 class="information mt-5 h5">Дата:</h2>
+						<h2 class="information mt-5 h5">Сайт:</h2>
+						<h2 class="information mt-5 h5">Часы работы:</h2>
 				</div>
 				<div class=" row d-flex col-md-9 col-lg-6 col-sm-9 col-9 col-xl-5">
-					<ul>
-						<h6 class="text address" name="address">Парк Александровский, д. 4</h6>
-						<h6 class="text mt-5">Петроградский район</h6>
-						<h6 class="text mt-5 metro" name="metro">Горьковская (409 м)</h6>
-						<h6 class="text mt-5 data" name="data">01.12.2022</h6>
-						<h6 class="text mt-5"><a href="	http://www.musichallspb.ru">http://www.musichallspb.ru</h6></a>
-						<h6 class="text mt-5">кассы: пн-вс: с 12:00 до 19:15</h6>
-					</ul>
+						<h2 class="text address h5" name="address">Парк Александровский, д. 4</h2>
+						<h2 class="text mt-5 h5">Петроградский район</h2>
+						<h2 class="text mt-5 h5 metro" name="metro">Горьковская (409 м)</h2>
+						<h2 class="text mt-5 h5 data" name="data">01.12.2022</h2>
+						<h2 class="text mt-5 h5"><a href="http://www.musichallspb.ru">http://www.musichallspb.ru</h2></a>
+						<h2 class="text mt-5 h5">кассы: пн-вс: с 12:00 до 19:15</h2>
 				</div>
 				<div class="row d-flex justify-content-lg-center col-md-12 col-lg-12 col-xl-5">
-					<img src="./музик холл1.jpg" class="musicimg" alt="...">
+					<img src="./музик холл1.jpg" class="musicimg" alt="..." width="431">
 					<div class="container d-flex justify-center-between">
-					<img src="./мх1 (1)_0.jpg" class="musicimg" style="width: 25%" alt="...">
-					<img src="./мх2 (3)_0.jpg" class="musicimg" style="width: 25%" alt="...">
-					<img src="./мх3 (5).jpg" class="musicimg" style="width: 25%" alt="...">
-					<img src="./мх4.jpg" class="musicimg" style="width: 25%" alt="...">
+					<img src="./мх1 (1)_0.jpg" class="musicimg" style="width: 25%" alt="..." width="101.75">
+					<img src="./мх2 (3)_0.jpg" class="musicimg" style="width: 25%" alt="..." width="101.75">
+					<img src="./мх3 (5).jpg" class="musicimg" style="width: 25%" alt="..." width="101.75">
+					<img src="./мх4.jpg" class="musicimg" style="width: 25%" alt="..." width="101.75">
 					</div>
 				</div>
 			</section>
@@ -115,37 +111,42 @@
 			<div class="container pt-4">
 				<section class="mb-4">
 					<a
+						aria-label="..."
 						class="btn btn-link btn-floating btn-lg text-dark m-1"
 						href="#!"
 						role="button"
 						data-mdb-ripple-color="dark"
-						><img srcset="https://img.icons8.com/doodle/344/facebook-new.png 2x" width="30" height="30">
+						><img srcset="https://img.icons8.com/doodle/344/facebook-new.png 2x" width="30" height="30" alt="..."> 
 					</a>
 					<a
+						aria-label="..."
 						class="btn btn-link btn-floating btn-lg text-dark m-1"
 						href="#!"
 						role="button"
 						data-mdb-ripple-color="dark"
-						><img  srcset="https://img.icons8.com/doodle/344/vk-messenger.png 2x" width="30" height="30"></a>
+						><img  srcset="https://img.icons8.com/doodle/344/vk-messenger.png 2x" width="30" height="30" alt="..."></a>
 					<a
+						aria-label="..."
 						class="btn btn-link btn-floating btn-lg text-dark m-1"
 						href="#!"
 						role="button"
 						data-mdb-ripple-color="dark"
-						><img srcset="https://img.icons8.com/doodle/344/twitter-squared.png 2x" width="30" height="30"></a>
+						><img srcset="https://img.icons8.com/doodle/344/twitter-squared.png 2x" width="30" height="30" alt="..."></a>
 					<a
+						aria-label="..."
 						class="btn btn-link btn-floating btn-lg text-dark m-1"
 						href="#!"
 						role="button"
 						data-mdb-ripple-color="dark"
-						><img srcset="https://img.icons8.com/doodle/344/instagram--v1.png 2x" width="30" height="30"
+						><img srcset="https://img.icons8.com/doodle/344/instagram--v1.png 2x" width="30" height="30" alt="..."
 					></a>
 					<a
+						aria-label="..."
 						class="btn btn-link btn-floating btn-lg text-dark m-1"
 						href="#!"
 						role="button"
 						data-mdb-ripple-color="dark"
-						><img srcset="https://img.icons8.com/plasticine/344/telegram-app.png 2x" width="30" height="30"
+						><img srcset="https://img.icons8.com/plasticine/344/telegram-app.png 2x" width="30" height="30" alt="..."
 					></a>
 				</section>
 			</div>
@@ -154,56 +155,6 @@
 				<a class="text-dark" href="http://t.me/rassvet2002">Kulagina Svetlava</a>
 			</div>
 		</footer>
-		<script>
-			const idLogOut = document.querySelector('#logout');
-			const idLogIn = document.querySelector('#enter');
-			const enterLK = document.querySelector('#enterlk');
-
-			function getAuthToken() {
-				localStorage.accessToken
-			}
-			
-
-			async function addNote() {
-				const userId = JSON.parse(localStorage.user).id;
-				const eventId = Number(document.querySelector(".note").dataset.eventId);
-				const relation = {
-					"userId": userId,
-					"eventId": eventId
-				}
-				console.log(relation)
-				const response = await fetch('http://localhost:3000/userEvents', {
-					method: "POST",
-					body: JSON.stringify(relation),
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-			}
-			function logout() {
-				localStorage.clear();
-				window.location.href = "http://localhost:8000/html/entrance.html";
-			}
-
-			function check() {
-				if (localStorage.accessToken){
-					idLogIn.classList.add("d-none")
-				}
-				else {
-					idLogIn.classList.remove("d-none")
-				}
-			}
-
-			function checkenter() {
-				if (!localStorage.accessToken){
-					enterLK.classList.add("d-none");
-					idLogOut.classList.add("d-none")
-				}
-			}
-
-			checkenter();
-			check();
-			idLogOut.addEventListener('click', logout)
-		</script>
+		<script src="../js/musichall.js"></script>
 	</body>
 </html>

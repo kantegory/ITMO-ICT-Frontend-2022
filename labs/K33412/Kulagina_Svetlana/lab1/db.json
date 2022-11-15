@@ -37,6 +37,22 @@
       "last_name": "Кулагина",
       "username": "nat13",
       "id": 5
+    },
+    {
+      "email": "sveta@ya.ru",
+      "password": "$2a$10$9t8ThhtEx5DTLBpbvkAe9uRwMzUPYrku/eHG2DEHsDPQMoYfMq1rC",
+      "first_name": "Светлана",
+      "last_name": "Кулагина",
+      "username": "rassvet",
+      "id": 6
+    },
+    {
+      "email": "kulaginanata@mail.com",
+      "password": "$2a$10$cI80Z4Ca3V3GY12N16vz2u3siOplT1fNVHVbhnShKlxwky5RzXSOa",
+      "first_name": "Наталья",
+      "last_name": "Кулагина",
+      "username": "nata11",
+      "id": 7
     }
   ],
   "notes": [
@@ -84,11 +100,6 @@
       "userId": 2,
       "eventId": 1,
       "id": 5
-    },
-    {
-      "userId": 2,
-      "eventId": 3,
-      "id": 6
     }
   ]
 }
