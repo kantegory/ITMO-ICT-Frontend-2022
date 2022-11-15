@@ -17,8 +17,14 @@
         <li class="nav-item"><a href="#" class="nav-link">Поиск</a></li>
         <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
         <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
-        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
-        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="login" style="display: block"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
+                                                                     class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="logout" style="display: none">
+            <button class="" onclick="logout()"
+                    style="border: none; background-color: white; padding-top:5px"><img
+                src="assets/logout.png" style="width: 20px" alt=""></button>
+        </li>
     </ul>
 </header>
 <section class="dataTable-wrapper d-flex justify-content-center">
@@ -41,7 +47,8 @@
                                placeholder="Поиск по названию">
                     </label>
                     <button class="bg-light" style="border: 1px solid lightgrey"><img src="assets/icons8-close.svg"
-                                                                                      alt="Clear Search" class="bg-light"
+                                                                                      alt="Clear Search"
+                                                                                      class="bg-light"
                                                                                       onclick="clear_search()">
                     </button>
                 </div>
@@ -347,7 +354,7 @@
             }
         }
 
-        if(amount !== null){
+        if (amount !== null) {
             amount = parseFloat(amount)
             coin.amount = amount;
         }
@@ -381,12 +388,22 @@
         })
     }
 
-    function checkAuth() {
-        if (!localStorage.user) {
-            window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html'
+    function logout() {
+        if (localStorage.user) {
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
         }
     }
 
+    function checkAuth() {
+        if (localStorage.user) {
+            document.getElementById('login').style.display = 'none'
+            document.getElementById('register').style.display = 'none'
+            document.getElementById('logout').style.display = 'block'
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth())
 </script>
 </body>
 

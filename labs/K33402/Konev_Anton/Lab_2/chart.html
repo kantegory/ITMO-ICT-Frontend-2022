@@ -22,8 +22,14 @@
         <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
         <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Графики</a></li>
-        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
-        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="login" style="display: block"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
+                                                                     class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="logout" style="display: none">
+            <button class="" onclick="logout()"
+                    style="border: none; background-color: white; padding-top:5px"><img
+                src="assets/logout.png" style="width: 20px" alt=""></button>
+        </li>
     </ul>
 </header>
 <div class="container w-100 pt-4">
@@ -33,8 +39,8 @@
                    placeholder="Поиск по названию">
         </label>
         <button class="bg-light px-2" style="border:none; padding: 0"><img src="assets/icons8-close.svg"
-                                                                      alt="Clear search" class="bg-light"
-                                                                      onclick="clear_search()">
+                                                                           alt="Clear search" class="bg-light"
+                                                                           onclick="clear_search()">
         </button>
     </div>
 
@@ -225,6 +231,24 @@
     //
     // }
 
-    document.addEventListener('DOMContentLoaded', () => currencyList(url))
+    function logout() {
+        if (localStorage.user) {
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+
+    function checkAuth() {
+        if (localStorage.user) {
+            document.getElementById('login').style.display = 'none'
+            document.getElementById('register').style.display = 'none'
+            document.getElementById('logout').style.display = 'block'
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuth()
+        currencyList(url)
+    })
 </script>
 </html>
