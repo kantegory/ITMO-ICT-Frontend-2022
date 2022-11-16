@@ -5,6 +5,8 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/my_portfolio.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
 </head>
 <body>
 <header class="d-flex justify-content-center py-3">
@@ -21,7 +23,7 @@
         <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
                                                                      class="nav-link">Регистрация</a></li>
         <li class="nav-item" id="logout" style="display: none">
-            <button class="" onclick="logout()"
+            <button class="logout-button" onclick="logout()"
                     style="border: none; background-color: white; padding-top:5px"><img
                 src="assets/logout.png" style="width: 20px" alt=""></button>
         </li>
@@ -51,7 +53,7 @@
                                                                                                    src="assets/left-arrow-svgrepo-com.svg"
                                                                                                    alt="Get prev 4 currencies">
                             </button>
-                            <p class="page-number m-0 px-2" style="border: 1px solid black; border-radius: 20px"></p>
+                            <p class="page-number m-0 px-2" style="border: 1px solid; border-radius: 20px"></p>
                             <button class="btn-pagination btn-next m-0" onclick="next_page()"><img
                                 style="width: 15px; transform: rotate(180deg)" src="assets/left-arrow-svgrepo-com.svg"
                                 alt="Get next 4 currencies">

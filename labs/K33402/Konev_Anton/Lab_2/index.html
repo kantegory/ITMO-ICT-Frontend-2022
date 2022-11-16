@@ -5,6 +5,8 @@
     <title>Main</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
 </head>
 <body>
 <header class="d-flex justify-content-center py-3">
@@ -18,12 +20,15 @@
         <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
                                                                      class="nav-link">Регистрация</a></li>
         <li class="nav-item" id="logout" style="display: none">
-            <button class="" onclick="logout()"
+            <button class="logout-button" onclick="logout()"
                     style="border: none; background-color: white; padding-top:5px"><img
                 src="assets/logout.png" style="width: 20px" alt=""></button>
         </li>
     </ul>
 </header>
+<section>
+
+</section>
 <script>
     function logout() {
         if (localStorage.user) {
