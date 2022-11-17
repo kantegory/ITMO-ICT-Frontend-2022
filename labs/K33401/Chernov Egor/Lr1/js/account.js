@@ -28,7 +28,7 @@ async function setCriptoData(f_parseData) {
         tr.innerHTML =
             "    <td class=\"\">\n" +
             "        <div class=\"form-check form-switch\">\n" +
-            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoSwitch${count}\" ${await checkSwitch(data.shortName)} onclick=\"clickSwitch('${data.shortName}')\">\n` +
+            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoSwitch${count}\" ${await checkSwitch(data.shortName)} onclick=\"clickSwitch('${data.shortName}')\" aria-label=\"switcherCheckbox${count}\">\n` +
             "        </div>\n" +
             "    </td>\n" +
             "    <td class=\"\">\n" +
@@ -315,8 +315,8 @@ async function setMyCriptoData(f_parseData) {
         let tr = document.createElement('tr');
         tr.innerHTML =
             "    <td class=\"\">\n" +
-            "        <div class=\"form-check form-switch\">\n" +
-            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoMySwitch${count}\" checked onclick=\"clickMySwitch('${data.shortName}')\">\n` +
+            `        <div class=\"form-check form-switch\">\n` +
+            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoMySwitch${count}\" checked onclick=\"clickMySwitch('${data.shortName}')\" aria-label=\"mySwitcherCheckbox${count}\">\n` +
             "        </div>\n" +
             "    </td>\n" +
             "    <td class=\"\">\n" +
