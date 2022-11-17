@@ -67,56 +67,101 @@
 </header>
 
 <main>
+    <!-- LOG IN modal -->
+    <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <form onsubmit="login(event)" action="http://localhost:9999/index.html">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="text-danger h6 text-center">
+                                <p id="mistakeLogin"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль |
+                                    <a href="#" class="text-decoration-none align-self-end">
+                                        <small>забыли пароль?</small>
+                                    </a>
+                                </label>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <div class="form-check my-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger mb-3">Войти</button>
+                        <a type="submit" class="btn btn-outline-danger mb-3"
+                           href="http://localhost:9999/LW1/singup.html">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- Spaces -->
     <div class="empty-div-sm d-block d-lg-none"></div>
     <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
     <div class="empty-div-xl d-none d-xl-block"></div>
-
+    <!-- Search + Filter -->
     <div class="container-fluid mt-5">
-        <div class="row justify-content-center">
-            <div class="card col col-11 col-md-3 border-start p-3 mb-5">
-                <div class="row align-items-center py-2 mx-auto mb-5">
-                    <div class="col col-11 col-sm-7 gy-1">
-                        <p class="h3 black"><strong id="login">Имя</strong></p>
-                        <p class="h5 text-danger text-wrap"><small id="email">Почта</small></p>
+        <p id="searchWordInfo" class="mx-5" hidden="true">
+            Результаты поиска по запросу "<b id="searchWord">Запрос</b>"
+        </p>
+        <div class="row mt-5 mx-5">
+            <div class="col col-12 col-lg-3">
+                <div class="container-fluid">
+                    <h3 class="text-danger">Фильтры</h3>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="sort" class="form-label"><b>Показать сначала</b></label>
+                                <select class="form-select mb-3 " id="sort" aria-label="Сортировка">
+                                    <option value="-1" selected>Популярные</option>
+                                    <option value="1">Выше рейтинг</option>
+                                    <option value="2">Ниже рейтинг</option>
+                                </select>
+                            </div>
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="chGenre" class="form-label"><b>Жанр</b></label>
+                                <select class="form-select mb-3" id="chGenre" aria-label="Жанр">
+                                    <option id="gAny" value="-1" selected>- Любой -</option>
+                                </select>
+                            </div>
+                            <div class="col col-12 col-sm-5 col-lg-12">
+                                <label for="chVolume" class="form-label"><b>Обьем</b></label>
+                                <select class="form-select mb-3" id="chVolume" aria-label="Обьем">
+                                    <option id="vAny" value="-1" selected>- Любой -</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col col-11 col-sm-4" id="avatar"></div>
-                </div>
-                <div class="py-2 ms-5">
-                    <p><b>Прочитано книг:</b><span id="readBooks"></span></p>
-                    <p><b>Оставлено отзывов:</b><span id="rateBooks"></span></p>
-                    <p><b>Книг на полке:</b><span id="lenBooks"></span></p>
+
+                    <div class="my-3">
+                        <button class="btn btn-danger" onclick="search()">Подобрать</button>
+                    </div>
                 </div>
             </div>
-            <div class="col col-11 col-md-7">
-                <!-- Activity -->
-                <div class="container-75 mx-auto mb-3">
-                    <h3 class="ms-5">Активность</h3>
-                    <p class="ms-5">Тут графики должны быть</p>
-                </div>
-                <!-- Achievements -->
-                <div class="container-75 mx-auto mb-3">
-                    <h3 class="ms-5">Достижения</h3>
-                    <div class="d-flex flex-row flex-wrap ms-5 justify-content-start" id="achievements">
-                        <p id="nullAchievements">Читай больше и здесь обязательно что-то появится!</p>
-                    </div>
-                </div>
-                <!-- Feed -->
-                <div class="container-75 mx-auto mb-3">
-                    <h3 class="ms-5">Лента</h3>
-                    <p class="ms-5">ничего нового :')</p>
-                </div>
+            <div class="col col-12 col-lg-9 justify-content-end">
+                <div class="row justify-content-evenly align-items-end mb-3" id="library"></div>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pages">
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
-    <div class="container-fluid px-5">
-        <h3>Книжная полка</h3>
-        <p id="noBooks">Здесь пока пусто...</p>
-        <div class="row" id="books">
-
-        </div>
-    </div>
-
     <!-- Book's modal window -->
     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -136,25 +181,31 @@
                                 <b>Жанр:</b> <a href="#" class="text-danger" id="modalgenre">приключения</a><br>
                                 <b>Обьем:</b> <a href="#" class="text-danger" id="modaltime">небольшой</a><br>
                             </p>
+                            <b><span id="modalrate" class="text-danger text-end">4.5 </span> / 5 <i
+                                class="bi bi-star"></i></b>
                         </div>
                         <div class="col-5">
                             <img class="img-rate" id="modalimg" src="res/naruto2.jpeg">
                         </div>
+
                     </div>
                 </div>
-                <div class="modal-footer"><p id="modalId" hidden="true"></p>
-                    <select class="form-select mb-3 " id="updateoption" aria-label="Обновить статус">
-                        <option id="прочитано" value="прочитано">прочитано</option>
-                        <option id="отложено" value="отложено">отложено</option>
-                        <option id="deletebook" value="удалить">удалить</option>
-                    </select>
-                    <button type="button" id="btn-toread" class="btn btn-danger" onclick="changeRelation()">Обновить статус
-                    </button>
+                <div class="modal-footer">
+                    <p id="already-added" hidden="true">
+                        Уже на вашей полке
+                    </p>
+                    <div id="buttonsmodal">
+                        <p id="modalId" hidden="true"></p>
+                        <button type="button" id="btn-toread" class="btn btn-danger" onclick="addBook(false)">Буду
+                            читать
+                        </button>
+                        <button type="button" id="btn-read" class="btn btn-success" onclick="addBook(true)">Прочитано
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </main>
 <footer class="footer d-none d-md-block mt-auto">
     <div class="container-fluid pt-3 px-5 mt-5">
@@ -174,7 +225,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+<script src="js/search.js"></script>
 <script src="js/navbar.js"></script>
-<script src="js/userpage.js"></script>
 </body>
 </html>
