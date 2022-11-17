@@ -19,17 +19,6 @@ function filterList(idFilter) {
     loadListData(0, 10, '&category=' + idFilter)
 }
 
-function rounded(number){
-    return +number.toFixed(2);
-}
-
-function perUpOrDown(per) {
-    if (per > 0.0) {
-        return 'percent--up--color'
-    }
-    return 'percent--down--color'
-}
-
 async function setCriptoData(f_parseData) {
     var gridBody = document.getElementById("gridCripto")
     gridBody.innerHTML = ""
@@ -70,64 +59,6 @@ async function setCriptoData(f_parseData) {
         gridBody.append(tr)
         count += 1
     }
-}
-
-async function setMyCriptoData(f_parseData) {
-    var gridBody = document.getElementById("gridMyCripto")
-    gridBody.innerHTML = ""
-    let count = 1
-    for (let data of f_parseData) {
-        let tr = document.createElement('tr');
-        tr.innerHTML =
-            "    <td class=\"\">\n" +
-            "        <div class=\"form-check form-switch\">\n" +
-            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoMySwitch${count}\" checked onclick=\"clickMySwitch('${data.shortName}')\">\n` +
-            "        </div>\n" +
-            "    </td>\n" +
-            "    <td class=\"\">\n" +
-            `        <span>${count}</span>\n` +
-            "    </td>\n" +
-            "    <td class=\"\">\n" +
-            `        <img loading=\"lazy\" width=\"20\" height=\"20\" alt=\"${data.shortName}\"\n` +
-            `             src=\"${data.image}\">\n` +
-            `            <a class=\"\" href=\"https://www.coingecko.com/en/coins/${data.shortName}\">\n` +
-            `                <span>${data.fullName}</span>\n` +
-            "            </a>\n" +
-            "    </td>\n" +
-            "    <td class=\"text-end\">\n" +
-            `        <span>$${data.price}</span>\n` +
-            "    </td>\n" +
-            "    <td class=\"text-end\">\n" +
-            `        <span class=\"badge fw-semibold rounded-pill ${perUpOrDown(rounded(data.per1h))}\">${rounded(data.per1h)}%</span>\n` +
-            "    </td>\n" +
-            "    <td>\n" +
-            "        <div class=\"row align-items-center\">\n" +
-            "            <div class=\"col text-center d-none d-md-block\"><span\n" +
-            `                class=\"badge fw-semibold rounded-pill ${perUpOrDown(rounded(data.per24h))}\">${rounded(data.per24h)}%</span></div>\n` +
-            "            <div class=\"col text-end d-none d-sm-block\">\n" +
-            `                <img loading=\"lazy\" alt=\"dogecoin\" src=\"https://www.coingecko.com/coins/${data.image.split("/")[5]}/sparkline\">\n` +
-            "            </div>\n" +
-            "        </div>\n" +
-            "    </td>\n"
-        gridBody.append(tr)
-        count += 1
-    }
-}
-
-function parseData(f_data) {
-    let f_dataList = []
-    for (let data of f_data) {
-        f_dataList.push({
-            image: data.image,
-            fullName: data.name,
-            shortName: data.id,
-            price: data.current_price,
-            per1h: data.price_change_percentage_1h_in_currency,
-            per24h: data.price_change_percentage_24h_in_currency,
-            chartData: data.sparkline_in_7d.price
-        })
-    }
-    return f_dataList
 }
 
 function getCoinChartData(f_parseData) {
@@ -225,14 +156,6 @@ async function loadSearchListData(cripto) {
     setCriptoData(parseCoinData)
 }
 
-async function loadListData(start=0, end=10, category='') {
-    const response = await fetch(`${apiUrl}/coins/markets?vs_currency=usd${category}&order=market_cap_desc&page=1&sparkline=true&price_change_percentage=1h,24h`)
-    const data = await response.json()
-    const mdata = parseData(data)
-    const tenData = mdata.slice(start, end)
-    setCriptoData(tenData)
-}
-
 async function loadChartData(start=0, end=3, category='') {
     const response = await fetch(`${apiUrl}/coins/markets?vs_currency=usd${category}&order=market_cap_desc&page=1&sparkline=true&price_change_percentage=1h,24h`)
     const data = await response.json()
@@ -317,6 +240,17 @@ function clickSwitch(idCoin) {
     })
 }
 
+function rounded(number){
+    return +number.toFixed(2);
+}
+
+function perUpOrDown(per) {
+    if (per > 0.0) {
+        return 'percent--up--color'
+    }
+    return 'percent--down--color'
+}
+
 function clickMySwitch(idCoin) {
     const databaseRef = database.ref()
 
@@ -371,6 +305,72 @@ async function loadMyCriptoData() {
     }
     console.log(coinDataList)
     setMyCriptoData(coinDataList)
+}
+
+async function setMyCriptoData(f_parseData) {
+    var gridBody = document.getElementById("gridMyCripto")
+    gridBody.innerHTML = ""
+    let count = 1
+    for (let data of f_parseData) {
+        let tr = document.createElement('tr');
+        tr.innerHTML =
+            "    <td class=\"\">\n" +
+            "        <div class=\"form-check form-switch\">\n" +
+            `            <input class=\"form-check-input\" type=\"checkbox\" role=\"switch\" id=\"criptoMySwitch${count}\" checked onclick=\"clickMySwitch('${data.shortName}')\">\n` +
+            "        </div>\n" +
+            "    </td>\n" +
+            "    <td class=\"\">\n" +
+            `        <span>${count}</span>\n` +
+            "    </td>\n" +
+            "    <td class=\"\">\n" +
+            `        <img loading=\"lazy\" width=\"20\" height=\"20\" alt=\"${data.shortName}\"\n` +
+            `             src=\"${data.image}\">\n` +
+            `            <a class=\"\" href=\"https://www.coingecko.com/en/coins/${data.shortName}\">\n` +
+            `                <span>${data.fullName}</span>\n` +
+            "            </a>\n" +
+            "    </td>\n" +
+            "    <td class=\"text-end\">\n" +
+            `        <span>$${data.price}</span>\n` +
+            "    </td>\n" +
+            "    <td class=\"text-end\">\n" +
+            `        <span class=\"badge fw-semibold rounded-pill ${perUpOrDown(rounded(data.per1h))}\">${rounded(data.per1h)}%</span>\n` +
+            "    </td>\n" +
+            "    <td>\n" +
+            "        <div class=\"row align-items-center\">\n" +
+            "            <div class=\"col text-center d-none d-md-block\"><span\n" +
+            `                class=\"badge fw-semibold rounded-pill ${perUpOrDown(rounded(data.per24h))}\">${rounded(data.per24h)}%</span></div>\n` +
+            "            <div class=\"col text-end d-none d-sm-block\">\n" +
+            `                <img loading=\"lazy\" alt=\"dogecoin\" src=\"https://www.coingecko.com/coins/${data.image.split("/")[5]}/sparkline\">\n` +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </td>\n"
+        gridBody.append(tr)
+        count += 1
+    }
+}
+
+function parseData(f_data) {
+    let f_dataList = []
+    for (let data of f_data) {
+        f_dataList.push({
+            image: data.image,
+            fullName: data.name,
+            shortName: data.id,
+            price: data.current_price,
+            per1h: data.price_change_percentage_1h_in_currency,
+            per24h: data.price_change_percentage_24h_in_currency,
+            chartData: data.sparkline_in_7d.price
+        })
+    }
+    return f_dataList
+}
+
+async function loadListData(start=0, end=10, category='') {
+    const response = await fetch(`${apiUrl}/coins/markets?vs_currency=usd${category}&order=market_cap_desc&page=1&sparkline=true&price_change_percentage=1h,24h`)
+    const data = await response.json()
+    const mdata = parseData(data)
+    const tenData = mdata.slice(start, end)
+    setCriptoData(tenData)
 }
 
 const apiUrl = 'https://api.coingecko.com/api/v3'

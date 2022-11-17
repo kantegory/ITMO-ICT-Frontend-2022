@@ -98,3 +98,4 @@ function validateEmail(email) {
 function validatePassword(password) {
     return password > 6;
 }
+
