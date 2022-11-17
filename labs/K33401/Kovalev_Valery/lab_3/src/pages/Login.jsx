@@ -1,26 +1,25 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import {useFetching} from "../hooks/useFetching";
 import ApiService from "../API/ApiService";
+import {initialAuthState, userReducer} from "../reducers/userReducer";
+import {doLogin} from "../API/loginService";
+import {useAuth} from "../hooks/useAuth";
 
 const Login = () => {
+    const [authState, dispatch] = useReducer(userReducer, initialAuthState)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-
-    const [fetchAuth, isFetching, fetchError] = useFetching(async ()=>{
-        const api = new ApiService()
-        const response = await api.loginUser(username, password)
-        localStorage.setItem("token", response.auth_token)
-        console.log(response.auth_token)
-    })
+    const user = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetchAuth()
+        doLogin(dispatch, {username, password})
     }
 
     return (
         <div className={"form-signin w-100 m-auto"}>
             <form method="post" action="#">
+                <h1>{"Hello"}</h1>
                 <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                     <use xlinkHref="#logo"/>
                 </svg>

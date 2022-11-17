@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 
 const LikeButton = ({style, className}) => {
-    
+
     return (
         <Button onClick={()=>{console.log("like")}} className={className} variant="secondary" style={{borderRadius:"50%", width:"50px", height:"50px", ...style}}>
             <svg style={{transform: "scale(1.3)"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-suit-heart-fill"

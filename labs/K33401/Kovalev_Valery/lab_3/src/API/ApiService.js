@@ -44,21 +44,20 @@ export default class ApiService{
         return await response.data;
     }
 
-    async loginUser(username, password){
+    async getToken(username, password){
         const json = JSON.stringify({"username":username, "password":password})
         const response = await instance.post("/auth/token/login/", json, {
             headers:{
                 'Content-Type': 'application/json'
             }
         })
-        return await response.data;
+        return await response.data.auth_token;
     }
 
-    async getUser(){
-        console.log(`Token ${localStorage.getItem("token")}`)
+    async getUser(token){
         const response = await instance.get("/api/auth/users/me/", {
             headers:{
-                'Authorization': `Token ${localStorage.getItem("token")}`
+                'Authorization': `Token ${token}`
             }
         })
         return await response.data;

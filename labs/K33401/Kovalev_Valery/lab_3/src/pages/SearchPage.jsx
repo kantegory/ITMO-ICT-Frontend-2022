@@ -32,7 +32,6 @@ const SearchPage = () => {
     })
 
 
-
     useEffect(()=>{
         setOffset(0)
         fetchPhotos()
@@ -43,8 +42,6 @@ const SearchPage = () => {
         if(isPhotosLoading) return
         setOffset(offset+limit)
     }, [isPhotosLoading, isAddPhotosLoading])
-
-
 
 
     useEffect(()=>{

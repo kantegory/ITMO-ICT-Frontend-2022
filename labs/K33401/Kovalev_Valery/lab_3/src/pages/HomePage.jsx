@@ -14,11 +14,10 @@ const HomePage = () => {
     const [offset, setOffset] = useState(0)
     const [total, setTotal] = useState(0)
     const lastElement = useRef()
-    const [filter, setFilter] = [context.filter, context.setFilter]
 
     const [fetchPhotos, isPhotosLoading, photosError] = useFetching( async ()=>{
         const api = new ApiService()
-        const response = await api.getPhotos({"limit":limit, "offset":offset, "random":30})
+        const response = await api.getPhotos({"limit":limit, "offset":offset, "random":303030})
         if(total){
             setPhotos([...photos, ...response.results])
         } else {
@@ -38,12 +37,6 @@ const HomePage = () => {
             fetchPhotos()
         }
     }, [offset])
-
-    // useEffect(()=>{
-    //     return ()=> {
-    //         setPhotos([])
-    //     }
-    // }, [])
 
     return (
         <BasePage>

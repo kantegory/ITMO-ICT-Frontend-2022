@@ -10,15 +10,16 @@ import {useFetching} from "./hooks/useFetching";
 import ApiService from "./API/ApiService";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import {useAuth} from "./hooks/useAuth";
 
 function App() {
     const api = new ApiService()
-    // const [photos, setPhotos] = useState([])
     const [filter, setFilter] = useState({"keywords":[], "colors":[]})
     const [previewPhoto, setPreviewPhoto] = useState([])
     const [colors, setColors] = useState([])
     const [keywords, setKeywords] = useState([{"total": "", "keyword": ""}])
     const token = useMemo(()=>(localStorage.getItem("token")), [])
+
 
     const [fetchFilter, isFilterLoading, filterError] = useFetching( async ()=>{
         const colors = await api.getColors()
