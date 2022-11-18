@@ -17,8 +17,11 @@
 <header class="d-flex justify-content-center py-3">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="assets/Coinbase-logo-1.svg"
-                                                            alt="coinbase logo">
+            <a href="index.html" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
             </a>
         </li>
         <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
@@ -29,20 +32,26 @@
                                                                      class="nav-link">Регистрация</a></li>
         <li class="nav-item" id="logout" style="display: none">
             <button class="logout-button" onclick="logout()"
-                    style="border: none; padding-top:5px;  background-color: #fff"><img
-                src="assets/logout.png" style="width: 20px" alt=""></button>
+                    style="border: none; padding-top:5px;  background-color: #fff">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
         </li>
     </ul>
 </header>
 <div class="container w-100 pt-4">
     <div class="d-flex w-25 mb-5 justify-content-between search-section" style="border: 1px solid;">
         <label class="w-100">
-            <input type="text" class="form-control" style="height: 45px;border: none" onchange="search()"
+            <input type="text" class="form-control" style="height: 45px;border: 2px solid var(--border-input)" onchange="search()"
                    placeholder="Поиск по названию">
         </label>
-        <button class="bg-light px-2 clear-search" style="border:none; padding: 0"><img src="assets/icons8-close.svg"
-                                                                           alt="Clear search" class="bg-light"
-                                                                           onclick="clear_search()">
+        <button class="bg-light px-2 clear-search" style="border:2px solid var(--border-input); padding: 0" onclick="clear_search()">
+            <svg class="clear-icon" style="width: 30px; height: 30px">
+                <use xlink:href="sprite.svg#clear">
+                </use>
+            </svg>
         </button>
     </div>
 
@@ -83,7 +92,10 @@
                         </div>
                     </div>
                     <div>
-                        <img id="${id}" class="draw-chart" src="assets/icons8-combo-chart-24.png" alt="Draw chart">
+                        <svg id='${id}' class="draw-chart" style="width: 20px; height: 20px">
+                            <use xlink:href="sprite.svg#chart">
+                            </use>
+                        </svg>
                     </div>
             </button>
         `

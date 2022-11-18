@@ -75,4 +75,8 @@ body {
     .nav-logo {
         filter: invert(10%);
     }
+
+    .clear-icon{
+        filter: invert(60%);
+    }
 }

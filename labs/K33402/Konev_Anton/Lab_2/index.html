@@ -11,8 +11,14 @@
 <body>
 <header class="d-flex justify-content-center py-3">
     <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link pt-1"><img class="nav-logo" src="assets/Coinbase-logo-1.svg"
-                                                                    alt="coinbase logo"></a></li>
+        <li class="nav-item">
+            <a href="#" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
+            </a>
+        </li>
         <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
         <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
         <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
@@ -21,8 +27,12 @@
                                                                      class="nav-link">Регистрация</a></li>
         <li class="nav-item" id="logout" style="display: none">
             <button class="logout-button" onclick="logout()"
-                    style="border: none; background-color: white; padding-top:5px"><img
-                src="assets/logout.png" style="width: 20px" alt=""></button>
+                    style="border: none; background-color: white; padding-top:5px">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
         </li>
     </ul>
 </header>

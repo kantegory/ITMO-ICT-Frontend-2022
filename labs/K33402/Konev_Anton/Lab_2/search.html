@@ -12,8 +12,11 @@
 <header class="d-flex justify-content-center py-3">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="assets/Coinbase-logo-1.svg"
-                                                            alt="coinbase logo">
+            <a href="index.html" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
             </a>
         </li>
         <li class="nav-item"><a href="#" class="nav-link">Поиск</a></li>
@@ -24,8 +27,12 @@
                                                                      class="nav-link">Регистрация</a></li>
         <li class="nav-item" id="logout" style="display: none">
             <button class="logout-button" onclick="logout()"
-                    style="border: none; background-color: white; padding-top:5px"><img
-                src="assets/logout.png" style="width: 20px" alt="" class="logout-img"></button>
+                    style="border: none; background-color: white; padding-top:5px">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
         </li>
     </ul>
 </header>
@@ -37,57 +44,71 @@
                 <div class="input-group w-50 ps-2 d-flex flex-row">
                     <div class="p-2 align-content-center bg-light search-icon" id="basic-addon1"
                          style="border: 1px solid lightgrey">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                             class="bi bi-search"
-                             viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                        <svg style="width: 25px; height: 25px">
+                            <use xlink:href="sprite.svg#search">
+                            </use>
                         </svg>
                     </div>
                     <label class="w-50 label-search">
                         <input type="text" class="form-control" style="height: 45px" onchange="search()"
                                placeholder="Поиск по названию">
                     </label>
-                    <button class="bg-light clear" style="border: 1px solid lightgrey"><img src="assets/icons8-close.svg"
-                                                                                      alt="Clear Search"
-                                                                                      class="bg-light"
-                                                                                      onclick="clear_search()">
+                    <button class="bg-light clear" onclick="clear_search()" style="border: 1px solid lightgrey">
+                        <svg style="width: 30px; height: 30px">
+                            <use xlink:href="sprite.svg#clear">
+                            </use>
+                        </svg>
                     </button>
                 </div>
             </td>
         </tr>
         <tr class="head-row border-light">
-            <th class="fw-normal ps-4 ">Название
-                <button class="sort-arrow align-middle" onclick="sort_name()"><img src="assets/icons8-sort-24.png"
-                                                                                   alt="Sort by name">
+            <th class="fw-normal ps-4 align-middle">Название
+                <button class="sort-arrow" onclick="sort_name()">
+                    <svg style="width: 15px; height: 15px">
+                        <use xlink:href="sprite.svg#sort">
+                        </use>
+                    </svg>
                 </button>
             </th>
-            <th class="fw-normal">Цена
-                <button class="sort-arrow align-middle" onclick="sort_price()"><img src="assets/icons8-sort-24.png"
-                                                                                    alt="Sort by price">
+            <th class="fw-normal align-middle">Цена
+                <button class="sort-arrow" onclick="sort_price()">
+                    <svg style="width: 15px; height: 15px">
+                        <use xlink:href="sprite.svg#sort">
+                        </use>
+                    </svg>
                 </button>
             </th>
-            <th class="fw-normal">Изменение
-                <button class="sort-arrow align-middle" onclick="sort_change()"><img src="assets/icons8-sort-24.png"
-                                                                                     alt="Sort by change">
+            <th class="fw-normal align-middle">Изменение
+                <button class="sort-arrow" onclick="sort_change()">
+                    <svg style="width: 15px; height: 15px">
+                        <use xlink:href="sprite.svg#sort">
+                        </use>
+                    </svg>
                 </button>
             </th>
-            <th class="fw-normal">Дата добавления
-                <button class="sort-arrow align-middle" onclick="sort_date()"><img src="assets/icons8-sort-24.png"
-                                                                                   alt="Sort by date">
+            <th class="fw-normal align-middle">Дата добавления
+                <button class="sort-arrow" onclick="sort_date()">
+                    <svg style="width: 15px; height: 15px">
+                        <use xlink:href="sprite.svg#sort">
+                        </use>
+                    </svg>
                 </button>
             </th>
             <th class="fw-normal">
                 <div class="pagination align-content-center">
-                    <button class="btn-pagination m-0 btn-prev" onclick="prev_page()"><img
-                        style="width: 15px;margin-right: 10px;"
-                        src="assets/left-arrow-svgrepo-com.svg"
-                        alt="Get prev 10 currencies">
+                    <button class="btn-pagination m-0 btn-prev" onclick="prev_page()">
+                        <svg style="width: 27px; height: 27px">
+                            <use xlink:href="sprite.svg#arrow">
+                            </use>
+                        </svg>
                     </button>
                     <p class="page-number m-0 px-2" style="border: 1px solid; border-radius: 20px"></p>
-                    <button class="btn-pagination btn-next m-0" onclick="next_page()"><img
-                        style="width: 15px; transform: rotate(180deg); margin-left: 10px"
-                        src="assets/left-arrow-svgrepo-com.svg" alt="Get next 10 currencies">
+                    <button class="btn-pagination btn-next m-0" onclick="next_page()">
+                        <svg style="width: 27px; height: 27px; transform: rotate(180deg)">
+                            <use xlink:href="sprite.svg#arrow">
+                            </use>
+                        </svg>
                     </button>
                 </div>
             </th>

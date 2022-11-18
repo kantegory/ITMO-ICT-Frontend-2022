@@ -74,12 +74,13 @@
     margin: 0;
 }
 
-.btn-pagination{
+.btn-pagination {
     border: none;
     background-color: white;
     margin-left: 15px;
 }
-.sort-arrow{
+
+.sort-arrow {
     border: none;
     background-color: white;
     display: inline-block;
