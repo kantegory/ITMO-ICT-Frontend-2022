@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Календарь">
 		<title>Календарь</title>
 		<link rel="stylesheet" href="./vendor/normalize.css">
 		<link rel="stylesheet" href="./styles/calendar.css">
@@ -25,15 +26,16 @@
 		</header>
 
 		<main class="container-fluid">
-			<section class="d-flex justify-content-center pt-5 pb-5">
-				<iframe src="https://calendar.yandex.ru/embed/week?&layer_ids=20024228&tz_id=Europe/Moscow&layer_names=фронт" width="1000" height="575" frameborder="0" style="border: 1px solid #eee"></iframe>
+			<section class="row justify-content-center pt-5 pb-5">
+				<h1 class="">Календарь</h1>
+				<iframe src="https://calendar.yandex.ru/embed/week?&layer_ids=20024228&tz_id=Europe/Moscow&layer_names=фронт" width="1000" height="575" frameborder="0" style="border: 1px solid #eee">Календарь</iframe>
 			</section>
 		</main>
 
 		<footer class="container-fluid pt-5 colors">
 			<div class="row justify-content-between p-2">
 				<div class="col-2">
-					<h5>Ваш аккаунт</h5>
+					<h2>Ваш аккаунт</h2>
 					<ul class="nav flex-column">
 						<li class="nav-item mb-2"><a href="./personal-area.html" class="nav-link p-0 text-white">Личный кабинет</a></li>
 						<li class="nav-item mb-2"><a href="./entry.html" class="nav-link p-0 text-white">Вход</a></li>
@@ -42,7 +44,7 @@
 				</div>
 	
 				<div class="col-2">
-					<h5>Найти</h5>
+					<h2>Найти</h2>
 					<ul class="nav flex-column">
 						<li class="nav-item mb-2"><a href="./calendar.html" class="nav-link p-0 text-white">Календарь</a></li>
 						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Поиск мероприятий</a></li>
@@ -50,7 +52,7 @@
 				</div>
 	
 				<div class="col-2">
-					<h5>О нас</h5>
+					<h2>О нас</h2>
 					<ul class="nav flex-column">
 						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">ВКонтакте</a></li>
 						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Телеграм</a></li>
@@ -59,7 +61,7 @@
 	
 				<div class="col-4 offset-1">
 					<form>
-						<h5>Подпишись на нас, чтобы не пропустить ничего интересного</h5>
+						<h2>Подпишись на нас, чтобы не пропустить ничего интересного</h2>
 						<div class="d-flex w-100 gap-2">
 							<label for="newsletter1" class="visually-hidden">Ваша почта</label>
 							<input id="newsletter1" type="text" class="form-control" placeholder="example@email.com">
@@ -71,11 +73,6 @@
 	
 			<div class="d-flex justify-content-between py-4 my-4 border-top">
 				<p>&copy 2022, Кондратьев Алексей</p>
-				<ul class="list-unstyled d-flex">
-					<li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-					<li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-					<li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-				</ul>
 			</div>
 		</footer>
 
