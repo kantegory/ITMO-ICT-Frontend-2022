@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Podo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <link
+        href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,300italic,400italic,600italic&amp;display=swap"
+        rel="stylesheet" />
+    <link href="src/podo.ico" rel="icon" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Podo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled Page</a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#SignOut" aria-hidden="true">
+                                Sign out
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="SignOut" data-bs-backdrop="non-static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="SignOutLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="SignOutLabel">
+                                                Are you sure?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary"
+                                                onclick="window.location.href=('/index.html')" tabindex="1">Sign
+                                                Out</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 class="text">👋 Hi, Constantine! </h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditToday"
+            aria-hidden="true">
+            Edit today
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="EditToday" data-bs-backdrop="non-static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="EditTodayLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="EditTodayLabel">
+                            How was your Monday?</h1>
+                        <!-- TODO: API day transfer -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="username" class="col-form-label">Score:</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="Score radio" type="radio"
+                                            id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">-2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="Score radio" type="radio"
+                                            id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">-1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="Score radio" type="radio"
+                                            id="inlineCheckbox3" value="option3">
+                                        <label class="form-check-label" for="inlineCheckbox3">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="Score radio" type="radio"
+                                            id="inlineCheckbox4" value="option4" checked>
+                                        <label class="form-check-label" for="inlineCheckbox4">+1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="Score radio" type="radio"
+                                            id="inlineCheckbox5" value="option5">
+                                        <label class="form-check-label" for="inlineCheckbox5">+2</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Insight of the day:</label>
+                                <textarea class="form-control" id="insight">💡 </textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="supplements" class="col-form-label">Supplements</label>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input mt-0" type="checkbox" value="" id="supplements1"
+                                        aria-label="Checkbox for following text input">
+                                    <label class="form-check-label" for="suppCheckbox1">Ashwagandha</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input mt-0" type="checkbox" value="" id="supplements2"
+                                        aria-label="Checkbox for following text input">
+                                    <label class="form-check-label" for="suppCheckbox2">Beetroot</label>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox"
+                                        placeholder="Add new type">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-primary"
+                            onclick="window.location.href=('/lk.html')" tabindex="1">Confrim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
