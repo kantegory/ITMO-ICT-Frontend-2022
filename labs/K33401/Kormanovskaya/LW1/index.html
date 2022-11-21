@@ -20,19 +20,21 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-dark black-bg navbar-expand-md justify-content-end">
         <div class="container-fluid">
-            <a class="navbar-brand title-font text-white ms-2" href="index.html"><h2>Читае<span
-                class="text-danger">м</span>ы</h2></a>
+            <a class="navbar-brand title-font text-white ms-2" href="http://localhost:9999/LW1/index.html">
+                <h2>Читае<span class="text-danger">м</span>ы</h2>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Библиотека</a>
+                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3" id="navbarTop">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                            href="http://localhost:9999/LW1/search.html">Библиотека</a>
                     </li>
                     <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Книжные
                         клубы</a></li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="navLogin">
                         <button class="btn btn-success" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#loginModal">Войти
                         </button>
@@ -45,37 +47,17 @@
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
-                    <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                    <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Новинки</a></div>
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Топ-100</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фэнтези</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Современная проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фантастика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Мистика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Приключения</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Подростковая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Сказки</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фанфики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Ужасы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Поэзия</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Детективы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Любовные романы</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Историческая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Боевики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Политические
-                            романы</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4">
-                    <form class="d-flex" role="search">
-                        <input class="form-control flex-fill mx-3" type="search"
+                    <div class="d-flex">
+                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова" aria-label="Поиск">
-                        <button class="btn btn-outline-dark bi bi-search" type="submit"></button>
-                    </form>
+                        <button class="btn btn-outline-dark bi bi-search" type="submit" onclick="searchTitle()"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,46 +65,55 @@
 </header>
 
 <main>
-    <!-- SiGN IN modal -->
+    <!-- LOG IN modal -->
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="mb-3">
-                            <label for="emailInput" class="form-label">Адрес электронной почты</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPassword" class="form-label">
-                                Пароль | <a href="#" class="text-decoration-none align-self-end"><small>забыли
-                                пароль?</small></a>
-                            </label>
-                            <input type="password" class="form-control" id="inputPassword">
-                            <div class="form-check my-3">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+        <form onsubmit="login(event)" action="http://localhost:9999/index.html">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="text-danger h6 text-center">
+                                <p id="mistakeLogin"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль |
+                                    <a href="#" class="text-decoration-none align-self-end">
+                                        <small>забыли пароль?</small>
+                                    </a>
+                                </label>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <div class="form-check my-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a type="submit" class="btn btn-danger mb-3" href="#">Войти</a>
-                    <a type="submit" class="btn btn-outline-danger mb-3" href="singup.html">Регистрация</a>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger mb-3">Войти</button>
+                        <a type="submit" class="btn btn-outline-danger mb-3"
+                           href="http://localhost:9999/LW1/singup.html">Регистрация</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+
     <!-- Spaces -->
     <div class="empty-div-sm d-block d-lg-none"></div>
     <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
     <div class="empty-div-xl d-none d-xl-block"></div>
     <!-- Banner WeeklyTop + Adv -->
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row m-3 align-items-stretch">
             <div class="col col-12 col-lg-3 black-bg align-items-center justify-content-center mb-3">
                 <div class="d-none d-lg-flex text-white h-100">[ Side advertisement ]</div>
@@ -217,411 +208,6 @@
             </div>
         </div>
     </div>
-    <!-- Search + Filter -->
-    <div class="container-fluid mt-5">
-        <div class="row mt-5">
-            <div class="col col-12 col-lg-3">
-                <div class="container-fluid">
-                    <h3 class="text-danger">Фильтры</h3>
-                    <form>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col col-12 col-sm-5 col-lg-12">
-                                    <label for="sort" class="form-label"><b>Показать сначала</b></label>
-                                    <select class="form-select mb-3 " id="sort" aria-label="Сортировка">
-                                        <option selected>Популярные</option>
-                                        <option value="1">Больше прочтений</option>
-                                        <option value="2">Меньше прочтений</option>
-                                        <option value="3">Выше рейтинг</option>
-                                        <option value="4">Ниже рейтинг</option>
-                                    </select>
-                                </div>
-                                <div class="col col-12 col-sm-5 col-lg-12">
-                                    <label for="genre" class="form-label"><b>Жанр</b></label>
-                                    <select class="form-select mb-3" id="genre" aria-label="Жанр">
-                                        <option selected>- Любой -</option>
-                                        <option value="1">Проза</option>
-                                        <option value="2">Мистика</option>
-                                        <option value="3">Боевик</option>
-                                    </select>
-                                </div>
-                                <div class="col col-12 col-sm-5 col-lg-12">
-                                    <p class="form-label"><b>Объем</b></p>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v0" checked>
-                                        <label class="form-check-label" for="v0">
-                                            любой
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v1">
-                                        <label class="form-check-label" for="v1">
-                                            крошечные (до часа)
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v2">
-                                        <label class="form-check-label" for="v2">
-                                            короткие (до 4 часов)
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v3">
-                                        <label class="form-check-label" for="v3">
-                                            средние (до 8 часов)
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v4">
-                                        <label class="form-check-label" for="v4">
-                                            большие (до 16 часов)
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="v5">
-                                        <label class="form-check-label" for="v5">
-                                            гигантские
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col col-12 col-sm-5 col-lg-12">
-                                    <p class="form-label"><b>Эпоха</b></p>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="date0" checked>
-                                        <label class="form-check-label" for="date0">
-                                            любая
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="date1">
-                                        <label class="form-check-label" for="date1">
-                                            Возрождение
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="date2">
-                                        <label class="form-check-label" for="date2">
-                                            Модернизм
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="date3">
-                                        <label class="form-check-label" for="date3">
-                                            Серебряный век
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="date4">
-                                        <label class="form-check-label" for="v4">
-                                            Японский феодализм
-                                        </label>
-                                    </div>
-                                    <a class="text-decoration-none" data-bs-toggle="collapse" href="#collapseExample"
-                                       role="button"
-                                       aria-expanded="false" aria-controls="collapseExample">
-                                        Больше...
-                                    </a>
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="date5">
-                                            <label class="form-check-label" for="date5">
-                                                Древняя Русь
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="date6">
-                                            <label class="form-check-label" for="date6">
-                                                Не Древняя Русь
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="my-3">
-                            <button type="submit" class="btn btn-danger">Подобрать</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col col-12 col-lg-9 justify-content-end">
-                <div class="row justify-content-evenly align-items-end mb-3">
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1">
-                        <div class="overflow-hidden d-none d-sm-block"><img src="res/naruto2.jpeg"
-                                                                            class="card-img-top img-library" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <p class="text-truncate h6 mb-0">
-                                <a href="#" class="text-decoration-none text-dark">Наруто: Ураганные Хроники</a>
-                            </p>
-                            <p class="text-muted text-truncate mb-0">
-                                <small>Масаси Кисимото</small>
-                            </p>
-                            <div class="row">
-                                <p class="col text-end mb-0 mt-3"><small><span class="text-danger">4.5</span> / 5 <i
-                                    class="bi bi-star"></i></small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav aria-label="Пример навигации по страницам">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Предыдущая</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Следующая</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-    </div>
-
-
 </main>
 <footer class="footer d-none d-md-block mt-auto">
     <div class="container-fluid pt-3 px-5 mt-5">
@@ -641,9 +227,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
+<script src="js/navbar.js"></script>
 </body>
 </html>

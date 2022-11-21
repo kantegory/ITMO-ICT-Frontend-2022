@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,19 +21,21 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-dark black-bg navbar-expand-md justify-content-end">
         <div class="container-fluid">
-            <a class="navbar-brand title-font text-white ms-2" href="index.html"><h2>Читае<span
-                class="text-danger">м</span>ы</h2></a>
+            <a class="navbar-brand title-font text-white ms-2" href="http://localhost:9999/LW1/index.html">
+                <h2>Читае<span class="text-danger">м</span>ы</h2>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Библиотека</a>
+                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3" id="navbarTop">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                            href="http://localhost:9999/LW1/search.html">Библиотека</a>
                     </li>
                     <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Книжные
                         клубы</a></li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="navLogin">
                         <button class="btn btn-success" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#loginModal">Войти
                         </button>
@@ -45,37 +48,17 @@
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
-                    <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                    <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Новинки</a></div>
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Топ-100</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фэнтези</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Современная проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фантастика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Мистика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Приключения</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Подростковая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Сказки</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фанфики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Ужасы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Поэзия</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Детективы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Любовные романы</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Историческая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Боевики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Политические
-                            романы</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4">
-                    <form class="d-flex" role="search">
-                        <input class="form-control flex-fill mx-3" type="search"
+                    <div class="d-flex">
+                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова" aria-label="Поиск">
-                        <button class="btn btn-outline-dark bi bi-search" type="submit"></button>
-                    </form>
+                        <button class="btn btn-outline-dark bi bi-search" type="submit" onclick="searchTitle()"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,40 +66,46 @@
 </header>
 
 <main>
-    <!-- SiGN IN modal -->
+    <!-- LOG IN modal -->
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="mb-3">
-                            <label for="emailInput" class="form-label">Адрес электронной почты</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPassword" class="form-label">
-                                Пароль | <a href="#" class="text-decoration-none align-self-end"><small>забыли
-                                пароль?</small></a>
-                            </label>
-                            <input type="password" class="form-control" id="inputPassword">
-                            <div class="form-check my-3">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+        <form onsubmit="login(event)" action="http://localhost:9999/index.html">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль |
+                                    <a href="#" class="text-decoration-none align-self-end">
+                                        <small>забыли пароль?</small>
+                                    </a>
+                                </label>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <div class="form-check my-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a type="submit" class="btn btn-danger mb-3" href="#">Войти</a>
-                    <a type="submit" class="btn btn-outline-danger mb-3" href="#">Регистрация</a>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger mb-3">Войти</button>
+                        <a type="submit" class="btn btn-outline-danger mb-3"
+                           href="http://localhost:9999/LW1/singup.html">Регистрация</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+
     <!-- Spaces -->
     <div class="empty-div-sm d-block d-lg-none"></div>
     <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
@@ -124,14 +113,16 @@
     <!-- Registration -->
     <div class="container w-75 mx-auto mb-5">
         <h1 class="text-center mb-5">Регистрация</h1>
-        <form class="row g-3 justify-content-center" action="userpage.html">
+        <div class="text-danger text-center h6"><p id="mistakes"></p></div>
+
+        <form class="row g-3 justify-content-center" onsubmit="signup(event)" >
             <div class="col-md-7">
-                <label for="inputName" class="form-label">Имя пользователя</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Ву Пси">
+                <label for="login" class="form-label">Имя пользователя</label>
+                <input type="text" class="form-control" id="login" placeholder="Ву Пси">
             </div>
             <div class="col-md-3">
-                <label for="inputGender" class="form-label">Пол</label>
-                <select id="inputGender" class="form-select">
+                <label for="gender" class="form-label">Пол</label>
+                <select id="gender" class="form-select">
                     <option selected>не указан</option>
                     <option>женский</option>
                     <option>мужской</option>
@@ -139,38 +130,38 @@
                 </select>
             </div>
             <div class="col-md-5">
-                <label for="inputEmail4" class="form-label">Эл. адрес</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="emailSignUp" class="form-label">Эл. адрес</label>
+                <input type="email" class="form-control" id="emailSignUp">
             </div>
             <div class="col-md-5">
-                <label for="inputEmail5" class="form-label">Подтвердите эл. адрес</label>
-                <input type="email" class="form-control" id="inputEmail5">
+                <label for="emailCopy" class="form-label">Подтвердите эл. адрес</label>
+                <input type="email" class="form-control" id="emailCopy">
             </div>
             <div class="col-md-5">
-                <label for="inputPassword4" class="form-label">Пароль</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <label for="passwordSignUp" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="passwordSignUp">
             </div>
             <div class="col-md-5">
-                <label for="inputPassword5" class="form-label">Подтвердите пароль</label>
-                <input type="password" class="form-control" id="inputPassword5">
+                <label for="passwordCopy" class="form-label">Подтвердите пароль</label>
+                <input type="password" class="form-control" id="passwordCopy">
             </div>
 
             <div class="col-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
+                    <input class="form-check-input" type="checkbox" id="news" checked="checked">
+                    <label class="form-check-label" for="news">
                         Подписаться на новостную рассылку
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                    <label class="form-check-label" for="gridCheck1">
+                    <input class="form-check-input" type="checkbox" id="rules" checked="checked">
+                    <label class="form-check-label" for="rules">
                         Согласие с правилами бла-бла
                     </label>
                 </div>
             </div>
             <div class="col-10">
-                <input type="submit" class="btn btn-success" value="Зарегистрироваться"
+                <input type="submit" class="btn btn-success" value="Зарегистрироваться">
             </div>
         </form>
     </div>
@@ -194,9 +185,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
+<script src="js/navbar.js"></script>
+<script src="js/signup.js"></script>
 </body>
 </html>

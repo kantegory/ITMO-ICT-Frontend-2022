@@ -1,0 +1,57 @@
+[ 
+  {
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-16.jpg",
+    "description": "Silk Maxi Dress with Long Flared Sleeves",
+    "price": "1270 AED",
+    "collection": "city"
+  },
+  {
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-13.jpg",
+    "description": "Maxi Sleeveless Milk Dress",
+    "price": "890 AED",
+    "collection": "city"
+  },
+  {
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-28.jpg",
+    "description": "Purple Dress",
+    "price": "1300 AED",
+    "collection": "desert"
+  },
+  {  
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-34 — копия.jpg",
+    "description": "Midnight Blue Knitted Fabric Dress",
+    "price": "1500 AED",
+    "collection": "desert"
+  },
+  {
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-14.jpg",
+    "description": "Grey Sillk Dress",
+    "price": "1450 AED",
+    "collection": "city"
+  },
+  {
+    "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-37 — копия.jpg",
+    "description": "Sleeveless Dress",
+    "price": "760 AED",
+    "collection": "desert"
+  },
+  {
+    "img": "images/prof/images for page with shirts/photo_2022-10-08_00-46-35 — копия.jpg",
+    "description": "Accent Shoulder Shirt",
+    "price": "540 AED",
+    "collection": "desert"
+  },
+  {
+    "img": "images/prof/images for page with skirts/photo_2022-10-08_00-46-30 — копия.jpg",
+    "description":"Midi Skirt with Fringe",
+    "price": "600 AED",
+    "collection": "desert"
+  },
+  {
+    "img": "images/prof/images for page with skirts/photo_2022-10-08_00-46-23.jpg",  
+    "description": "Wrap Midi Skirt",
+    "price": "550 AED",
+    "collection": "desert"
+    
+  }
+]
