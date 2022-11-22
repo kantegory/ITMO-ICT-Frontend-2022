@@ -8,7 +8,7 @@
 </head>
 <body class="text-center sign-body">
 <main class="sign-form w-100 m-auto">
-    <form method="post" action="./index.html">
+    <form method="post" onsubmit="register(event)">
         <div class="container pb-4">
             <img class="filter-orange" src="/assets/img/wallet2.svg" alt="Wallet" width="50" height="50">
             <p class="fs-3">crypto wallet</p>
@@ -17,29 +17,58 @@
         <div class="input-group mb-2">
             <span class="input-group-text bg-gray white">@</span>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                <input type="text" name="username" class="form-control" id="floatingInputGroup1" placeholder="Username">
                 <label for="floatingInputGroup1">Username</label>
             </div>
         </div>
 
         <div class="form-floating mb-2">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
         </div>
 
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
         <div class="form-floating pb-5">
-            <input type="password" class="form-control" id="repeatingFloatingPassword" placeholder="Password">
-            <label for="repeatingFloatingPassword">Repeat password</label>
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
         </div>
 
         <div>
-            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign up</button>
+            <button class="w-100 btn btn-lg btn-dark mb-3" type="submit">Sign up</button>
         </div>
+        <p>
+            Уже есть аккаунт? <a href="signin.html">Войти</a>
+        </p>
     </form>
+
+    <script>
+        async function register(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+            const registerData = {}
+
+            for (const input of inputs) {
+                registerData[input.name] = input.value
+            }
+
+            const response = await fetch('http://localhost:3000/register', {
+                method: "POST",
+                body: JSON.stringify(registerData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const responseJson = await response.json()
+
+            const { accessToken, user } = responseJson
+
+            localStorage.accessToken = accessToken
+            localStorage.user = JSON.stringify(user)
+
+            window.location.href = "http://localhost:8000/index.html"
+        }
+    </script>
 </main>
 </body>
 </html>

@@ -21,161 +21,189 @@
                 <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
             </ul>
 
-            <div class="btn-group">
-                <a href="./profile.html" class="btn btn-orange btn-md" role="button">
-                    Profile
-                </a>
-
-                <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="./unauthorized.html">Sign out</a></li>
-                </ul>
-            </div>
+            <div class="btn-group" id="profileButtonGroup"></div>
         </div>
     </div>
 </header>
 
+<script src="profileButton.js"></script>
+
 <main class="bg-creme">
     <section class="min-vh-100">
-        <section>
-            <div class="container py-5">
-                <div class="row row-cols-2">
-                    <div class="col-12 pb-3">
-                        <div style="height:560px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid rgb(94, 94, 94); border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; box-shadow: inset 0 -20px 0 0 rgb(94, 94, 94); padding:1px; margin: 0; width: 100%;">
-                            <div style="height:540px; padding:0; margin:0; width: 100%;">
-                                <iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>
-                            </div>
-                            <div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-                                <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">
-                                    Cryptocurrency Prices
-                                </a>&nbsp;by Coinlib</div>
+        <div class="container py-5">
+            <div class="row row-cols-2">
+                <div class="col-12 pb-3">
+                    <div style="height:560px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid rgb(94, 94, 94); border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; box-shadow: inset 0 -20px 0 0 rgb(94, 94, 94); padding:1px; margin: 0; width: 100%;">
+                        <div style="height:540px; padding:0; margin:0; width: 100%;" id="currency">
+                            <iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>
                         </div>
-                    </div>
-
-                    <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-outline-success btn-lg">Купить</button>
-                    </div>
-
-                    <div class="d-grid gap-2">
-                        <button type="button" class="btn btn-outline-danger btn-lg">Продать</button>
+                        <div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+                            <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">
+                                Cryptocurrency Prices
+                            </a>&nbsp;by Coinlib</div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section>
-            <div class="container py-5">
-                <div class="row row-cols-1 g-4">
-                    <div class="col d-flex justify-content-center">
-                        <h2>
-                            Смотреть также
-                        </h2>
-                    </div>
+                <div class="d-grid gap-2">
+                    <button type="button" id="buy" class="btn btn-outline-success btn-lg" onclick="transaction(event)">Купить</button>
+                </div>
 
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <a href="./currency.html" class="btn btn-light text-left">
-                                <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                    <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Ethereum">
-                                    </div>
-                                    <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ethereum</h5>
-                                            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">1 ETH:</small> $1.312,23</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 122,37M</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-danger"><small class="text-muted ">24 часа:</small> -0,04%</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,15%</p>
-                                                </div>
-                                            </div>
-                                            <p class="card-text"><small class="text-muted">Date added: 16.10.22</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <a href="./currency.html" class="btn btn-light text-left">
-                                <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                    <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Tether">
-                                    </div>
-                                    <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tether</h5>
-
-                                            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">1 USDT:</small> $0,99993540</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 68,43B</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +0,69%</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,28%</p>
-                                                </div>
-                                            </div>
-                                            <p class="card-text"><small class="text-muted">Date added: 15.10.22</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <a href="./currency.html" class="btn btn-light text-left">
-                                <div class="row d-flex align-items-center px-4">
-                                    <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="BNB">
-                                    </div>
-                                    <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                        <div class="card-body">
-                                            <h5 class="card-title">BNB</h5>
-                                            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">1 BNB:</small> $272,21</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 161,34M</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +1%</p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="card-text text-danger"><small class="text-muted ">7 дней:</small> -0,82%</p>
-                                                </div>
-                                            </div>
-                                            <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="d-grid gap-2">
+                    <button type="button" id="sell" class="btn btn-outline-danger btn-lg" onclick="transaction(event)">Продать</button>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Crypto wallet</strong>
+                    <small>Just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="toast_body">
+                </div>
+            </div>
+        </div>
     </section>
+
+    <script>
+        let currency
+        let userId
+
+        function addSearchParam(url, key, value) {
+            let newUrl = new URL(url)
+            newUrl.searchParams.set(key, value)
+
+            return newUrl.toString()
+        }
+
+        function getCurrencyFrame() {
+            return `<iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=${currency["coinlib_id"]}&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>`
+        }
+
+        function checkAuth() {
+            if (!localStorage.accessToken) {
+                window.location.href = "http://localhost:8000/signin.html"
+            } else {
+                userId = localStorage.getItem("userId")
+            }
+        }
+
+        function showToast() {
+            if (document.querySelector("#toast_body").innerHTML) {
+                const toastElement = document.getElementById('liveToast')
+                const toast = new bootstrap.Toast(toastElement)
+
+                toast.show()
+            }
+        }
+
+        function configureTransactionPatchRequest(event, ownership) {
+            const patchURL = `http://localhost:3000/ownership/${ownership["id"]}`
+            let patchData = {}
+
+            if (event.target.id === "buy") {
+                patchData["count"] = ownership["count"] + 1
+                document.querySelector("#toast_body").innerHTML = `Вы успешно приобрели 1 ${currency['abbreviation']} за $${currency['price']}`
+            } else if (event.target.id === "sell") {
+                if (ownership["count"] > 0) {
+                    patchData["count"] = ownership["count"] - 1
+                    document.querySelector("#toast_body").innerHTML = `Вы успешно продали 1 ${currency['abbreviation']} за $${currency['price']}`
+                } else {
+                    document.querySelector("#toast_body").innerHTML = `На вашем балансе закончились ${currency['abbreviation']}`
+                }
+            }
+
+            return [patchURL, patchData]
+        }
+
+        function configureTransactionPostRequest(event) {
+            const postURL = `http://localhost:3000/ownership`
+            let postData = {}
+
+            if (event.target.id === "buy") {
+                postData = {
+                    "currency_id": currency.id,
+                    "userId": parseInt(userId),
+                    "count": 1,
+                    "progress": 0
+                }
+                document.querySelector("#toast_body").innerHTML = `Вы успешно приобрели 1 ${currency['abbreviation']} за $${currency['price']}`
+            } else if (event.target.id === "sell") {
+                postData = {
+                    "currency_id": currency.id,
+                    "userId": parseInt(userId),
+                    "count": 0,
+                    "progress": 0
+                }
+                document.querySelector("#toast_body").innerHTML = ""
+            }
+
+            return [postURL, postData]
+        }
+
+        async function getOwnership() {
+            let url = addSearchParam("http://localhost:3000/ownership", "currency_id", currency["id"])
+            url = addSearchParam(url, "userId", userId)
+
+            const response = await fetch(url)
+            const responseJson = await response.json()
+
+            return responseJson[0]
+        }
+
+        async function loadGraph() {
+            let url = "http://localhost:3000/currencies"
+
+            const queryString = window.location.search
+            const urlParams = new URLSearchParams(queryString)
+            const id = urlParams.get('id')
+
+            url = addSearchParam(url, "id", id)
+
+            const response = await fetch(url)
+            const responseJSON = await response.json()
+            currency = responseJSON[0]
+
+            document.querySelector("#currency").innerHTML = getCurrencyFrame()
+        }
+
+        async function transaction(event) {
+            event.preventDefault()
+            await checkAuth()
+            const ownership = await getOwnership()
+
+            let requestUrl = ""
+            let requestData = {}
+            let method = ""
+
+            if (ownership) {
+                [requestUrl, requestData] = configureTransactionPatchRequest(event, ownership)
+                method = "PATCH"
+            } else {
+                [requestUrl, requestData] = configureTransactionPostRequest(event)
+                method = "POST"
+            }
+
+            const response = await fetch(requestUrl, {
+                method: method,
+                body: JSON.stringify(requestData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const responseJson = await response.json()
+            if (responseJson) {
+                await showToast()
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGraph()
+        })
+    </script>
 </main>
 
 <footer class="bg-gray">

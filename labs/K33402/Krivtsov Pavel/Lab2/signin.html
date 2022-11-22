@@ -8,26 +8,57 @@
 </head>
 <body class="text-center sign-body">
 <main class="sign-form w-100 m-auto">
-    <form method="post" action="./index.html">
+    <form method="post" onsubmit="login(event)">
         <div class="container pb-4">
             <img class="filter-orange" src="/assets/img/wallet2.svg" alt="Wallet" width="50" height="50">
             <p class="fs-3">crypto wallet</p>
         </div>
 
         <div class="form-floating mb-2">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
         </div>
 
         <div class="form-floating pb-5">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
 
         <div>
-            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-dark mb-3" type="submit">Sign in</button>
         </div>
+        <p>
+            Нет аккаунта? <a href="signup.html">Зарегистрироваться</a>
+        </p>
     </form>
+
+    <script>
+        async function login(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+            const loginData = {}
+
+            for (const input of inputs) {
+                loginData[input.name] = input.value
+            }
+
+            const response = await fetch('http://localhost:3000/login', {
+                method: "POST",
+                body: JSON.stringify(loginData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const responseJson = await response.json()
+
+            localStorage.accessToken = responseJson["accessToken"]
+            localStorage.userId = responseJson["user"].id
+
+            window.location.href = "http://localhost:8000/index.html"
+        }
+    </script>
 </main>
 </body>
 </html>

@@ -21,23 +21,12 @@
                 <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
             </ul>
 
-            <div class="btn-group">
-                <a href="./profile.html" class="btn btn-orange btn-md" role="button">
-                    Profile
-                </a>
-
-                <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="./unauthorized.html">Sign out</a></li>
-                </ul>
-            </div>
+            <div class="btn-group" id="profileButtonGroup"></div>
         </div>
     </div>
 </header>
+
+<script src="profileButton.js"></script>
 
 <main class="bg-creme">
     <section class="min-vh-100">
@@ -50,178 +39,132 @@
         <hr class="featurette-divider">
 
         <div class="container pt-5">
-            <form class="d-flex">
-                <button class="btn btn-orange">Фильтровать по дате</button>
+            <form class="d-flex" onsubmit="search(event)">
                 <input class="form-control mx-2" type="search" placeholder="Поиск криптовалюты (название/символ)" aria-label="Search">
-                <button class="btn btn-orange">Search</button>
+                <button class="btn btn-orange" type="submit">Search</button>
             </form>
+            <button class="btn btn-orange mx-3 mt-3" onclick="sort(event)" id="sort_by_date">Сортировать по дате</button>
+            <button class="btn btn-orange mx-3 mt-3" onclick="sort(event)" id="sort_by_price">Сортировать по цене</button>
         </div>
 
         <div class="container py-5">
             <div class="row row-cols-1 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row d-flex align-items-center px-4">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Bitcoin">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bitcoin</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">1 BTC:</small> $19.291,8</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 19,18M</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-secondary"><small class="text-muted ">24 часа:</small> 0%</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,50%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Ethereum">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ethereum</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">1 ETH:</small> $1.312,23</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 122,37M</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-danger"><small class="text-muted ">24 часа:</small> -0,04%</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,15%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 16.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Tether">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Tether</h5>
-
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">1 USDT:</small> $0,99993540</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 68,43B</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +0,69%</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,28%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 15.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row d-flex align-items-center px-4">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="BNB">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BNB</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">1 BNB:</small> $272,21</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 161,34M</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +1%</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-danger"><small class="text-muted ">7 дней:</small> -0,82%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row d-flex align-items-center px-4">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Dogecoin">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dogecoin</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">1 DOGE:</small> $0,059385</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 132,67B</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +0,65%</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-danger"><small class="text-muted ">7 дней:</small> -2,53%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col" id="currencies">
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        let url = "http://localhost:3000/currencies"
+        let sort_by_date_desc = false
+        let sort_by_price_desc = false
+
+        function getFormattedDate(dateStr) {
+            const date = new Date(dateStr);
+
+            return date.getDate() + "." +  (date.getMonth()+1) + "." + date.getFullYear();
+        }
+
+        function getCardHTML({ id, name, abbreviation, price, count, daily_changes, weekly_changes, date_added, image}) {
+            return `
+                <div class="card shadow-sm my-3" data-card-id="${id}">
+                    <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                        <div class="row d-flex align-items-center px-4">
+                            <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
+                                <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
+                            </div>
+                            <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
+                                <div class="card-body">
+                                    <h5 class="card-title">${name}</h5>
+                                    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
+                                        <div class="col">
+                                            <p class="card-text"><small class="text-muted ">1 ${abbreviation}:</small> $${price}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><small class="text-muted ">Всего в обращении:</small> ${count}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text ${daily_changes>=0?"text-success":"text-danger"}"><small class="text-muted ">24 часа:</small> ${daily_changes}%</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text ${weekly_changes>=0?"text-success":"text-danger"}"><small class="text-muted ">7 дней:</small> ${weekly_changes}%</p>
+                                        </div>
+                                    </div>
+                                    <p class="card-text"><small class="text-muted">Date added: ${getFormattedDate(date_added)}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `
+        }
+
+        function setSortButtonsHTML() {
+            const date_sign = sort_by_date_desc?"↑":"↓"
+            const price_sign = sort_by_price_desc?"↑":"↓"
+
+            document.querySelector("#sort_by_date").innerHTML = `Сортировать по дате ${date_sign}`
+            document.querySelector("#sort_by_price").innerHTML = `Сортировать по цене ${price_sign}`
+        }
+
+
+        function addSearchParam(key, value) {
+            let newUrl = new URL(url)
+            newUrl.searchParams.set(key, value)
+
+            return newUrl.toString()
+        }
+
+        async function loadCurrencies(searchString="", sortString="", orderString="") {
+            document.querySelector("#currencies").innerHTML = ""
+
+            if (searchString) {
+                url = addSearchParam('q', searchString)
+            }
+
+            if (sortString && orderString) {
+                url = addSearchParam('_sort', sortString)
+                url = addSearchParam('_order', orderString)
+            }
+
+            const response = await fetch(url)
+            const responseJSON = await response.json()
+
+            for (const currency of responseJSON) {
+                document.querySelector("#currencies").innerHTML += getCardHTML(currency)
+            }
+        }
+
+        async function search(event) {
+            event.preventDefault()
+
+            const searchString = event.target.querySelector('input').value
+            await loadCurrencies(searchString)
+        }
+
+        async function sort(event) {
+            event.preventDefault()
+
+            if (event.target.id === "sort_by_date") {
+                const orderString = sort_by_date_desc?"desc":"asc"
+                sort_by_date_desc = !sort_by_date_desc
+
+                await loadCurrencies("", "date_added", orderString)
+            } else if (event.target.id === "sort_by_price") {
+                const orderString = sort_by_price_desc?"desc":"asc"
+                sort_by_price_desc = !sort_by_price_desc
+
+                await loadCurrencies("", "price", orderString)
+            }
+
+            setSortButtonsHTML()
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCurrencies()
+        })
+    </script>
 </main>
 
 <footer class="bg-gray">

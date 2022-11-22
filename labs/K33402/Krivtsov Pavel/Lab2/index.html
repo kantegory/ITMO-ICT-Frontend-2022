@@ -21,23 +21,12 @@
                     <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
                 </ul>
 
-                <div class="btn-group">
-                    <a href="./profile.html" class="btn btn-orange btn-md" role="button">
-                        Profile
-                    </a>
-
-                    <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="./unauthorized.html">Sign out</a></li>
-                    </ul>
-                </div>
+                <div class="btn-group" id="profileButtonGroup"></div>
             </div>
         </div>
     </header>
+
+    <script src="profileButton.js"></script>
 
     <main class="bg-creme">
         <section class="min-vh-100">
@@ -74,7 +63,7 @@
                             </div>
 
                             <div class="menu-text btn-group flex-grow-1 py-5 px-5">
-                                <a href="./signup.html" class="btn btn-lg btn-orange" role="button">
+                                <a class="btn btn-lg btn-orange" role="button" onclick="checkAuthForStart()">
                                     Начать!
                                 </a>
                             </div>
@@ -90,100 +79,7 @@
                     </div>
 
                     <div class="row row-cols-1 g-4">
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <a href="./currency.html" class="btn btn-light text-left">
-                                    <div class="row d-flex align-items-center px-4">
-                                        <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Bitcoin">
-                                        </div>
-                                        <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bitcoin</h5>
-                                                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">1 BTC:</small> $19.291,8</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 19,18M</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-secondary"><small class="text-muted ">24 часа:</small> 0%</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,50%</p>
-                                                    </div>
-                                                </div>
-                                                <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <a href="./currency.html" class="btn btn-light text-left">
-                                    <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                        <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Ethereum">
-                                        </div>
-                                        <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Ethereum</h5>
-                                                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">1 ETH:</small> $1.312,23</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 122,37M</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-danger"><small class="text-muted ">24 часа:</small> -0,04%</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,15%</p>
-                                                    </div>
-                                                </div>
-                                                <p class="card-text"><small class="text-muted">Date added: 16.10.22</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 shadow-sm">
-                                <a href="./currency.html" class="btn btn-light text-left">
-                                    <div class="row g-1 d-flex align-items-center px-4 py-1">
-                                        <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                            <img src="https://cryptologos.cc/logos/tether-usdt-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Tether">
-                                        </div>
-                                        <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Tether</h5>
-
-                                                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">1 USDT:</small> $0,99993540</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text"><small class="text-muted ">Всего в обращении:</small> 68,43B</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-success"><small class="text-muted ">24 часа:</small> +0,69%</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="card-text text-success"><small class="text-muted ">7 дней:</small> +0,28%</p>
-                                                    </div>
-                                                </div>
-                                                <p class="card-text"><small class="text-muted">Date added: 15.10.22</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="col" id="currencies">
                         </div>
                     </div>
 
@@ -194,6 +90,78 @@
                     </div>
                 </div>
             </section>
+
+            <script>
+                async function checkAuthForStart() {
+                    if (localStorage.accessToken) {
+                        window.location.href = "/markets.html"
+                    } else {
+                        window.location.href = "/signin.html"
+                    }
+                }
+
+                function getFormattedDate(dateStr) {
+                    const date = new Date(dateStr);
+
+                    return date.getDate() + "." +  (date.getMonth()+1) + "." + date.getFullYear();
+                }
+
+                function getCardHTML({ id, name, abbreviation, price, count, daily_changes, weekly_changes, date_added, image}) {
+                    return `
+                        <div class="card shadow-sm my-3" data-card-id="${id}">
+                            <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                                <div class="row d-flex align-items-center px-4">
+                                    <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
+                                        <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
+                                    </div>
+                                    <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${name}</h5>
+                                            <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
+                                                <div class="col">
+                                                    <p class="card-text"><small class="text-muted ">1 ${abbreviation}:</small> $${price}</p>
+                                                </div>
+                                                <div class="col">
+                                                    <p class="card-text"><small class="text-muted ">Всего в обращении:</small> ${count}</p>
+                                                </div>
+                                                <div class="col">
+                                                    <p class="card-text ${daily_changes>=0?"text-success":"text-danger"}"><small class="text-muted ">24 часа:</small> ${daily_changes}%</p>
+                                                </div>
+                                                <div class="col">
+                                                    <p class="card-text ${weekly_changes>=0?"text-success":"text-danger"}"><small class="text-muted ">7 дней:</small> ${weekly_changes}%</p>
+                                                </div>
+                                            </div>
+                                            <p class="card-text"><small class="text-muted">Date added: ${getFormattedDate(date_added)}</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    `
+                }
+
+                async function loadPopularCurrencies() {
+                    document.querySelector("#currencies").innerHTML = ""
+
+                    const url = "http://localhost:3000/currencies"
+                    const response = await fetch(url)
+                    const responseJSON = await response.json()
+
+                    for (const counter in responseJSON) {
+                        if (counter < 3) {
+                            currency = responseJSON[counter]
+                            document.querySelector("#currencies").innerHTML += getCardHTML(currency)
+                        } else {
+                            break
+                        }
+                    }
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    loadPopularCurrencies()
+                })
+            </script>
         </section>
     </main>
 

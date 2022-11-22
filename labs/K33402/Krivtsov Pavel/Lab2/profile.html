@@ -21,104 +21,105 @@
                 <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
             </ul>
 
-            <div class="btn-group">
-                <a href="./profile.html" class="btn btn-orange btn-md" role="button">
-                    Profile
-                </a>
-
-                <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="./unauthorized.html">Sign out</a></li>
-                </ul>
-            </div>
+            <div class="btn-group" id="profileButtonGroup"></div>
         </div>
     </div>
 </header>
 
+<script src="profileButton.js"></script>
+
 <main class="bg-creme">
     <section class="min-vh-100">
         <div class="container pt-5 pb-3">
-            <h1>
-                Профиль
-            </h1>
+            <h1 id="profileTitle"></h1>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="container pt-5">
-            <form class="d-flex">
-                <button class="btn btn-orange">Фильтровать по дате</button>
-                <input class="form-control mx-2" type="search" placeholder="Поиск криптовалюты (название/символ)" aria-label="Search">
-                <button class="btn btn-orange">Search</button>
-            </form>
-        </div>
-
         <div class="container py-5">
             <div class="row row-cols-1 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row d-flex align-items-center px-4">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Bitcoin">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bitcoin</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Количество в портфеле:</small> 1</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Стоимость в портфеле:</small> $19.291,8</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-success"><small class="text-muted ">За время владения:</small> +20%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <a href="./currency.html" class="btn btn-light text-left">
-                            <div class="row d-flex align-items-center px-4">
-                                <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
-                                    <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=023" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="Dogecoin">
-                                </div>
-                                <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Dogecoin</h5>
-                                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pb-3">
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Количество в портфеле:</small> 100</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text"><small class="text-muted ">Стоимость в портфеле:</small> $5,9385</p>
-                                            </div>
-                                            <div class="col">
-                                                <p class="card-text text-danger"><small class="text-muted ">За время владения:</small> -10%</p>
-                                            </div>
-                                        </div>
-                                        <p class="card-text"><small class="text-muted">Date added: 17.10.22</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <div class="col" id="profileCurrencies"></div>
             </div>
         </div>
     </section>
+
+    <script>
+        async function checkAuth() {
+            if (!localStorage.accessToken) {
+                window.location.href = "http://localhost:8000/signin.html"
+            }
+        }
+
+        function getFormattedDate(dateStr) {
+            const date = new Date(dateStr);
+
+            return date.getDate() + "." +  (date.getMonth()+1) + "." + date.getFullYear();
+        }
+
+        function getCardHTML({count, progress}, { id, name, abbreviation, price, date_added, image}) {
+            return `
+                <div class="card shadow-sm my-3">
+                    <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                        <div class="row d-flex align-items-center px-4">
+                            <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
+                                <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
+                            </div>
+                            <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
+                                <div class="card-body">
+                                    <h5 class="card-title">${name}</h5>
+                                    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pb-3">
+                                        <div class="col">
+                                            <p class="card-text"><small class="text-muted ">Количество в портфеле:</small> ${count}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><small class="text-muted ">Стоимость в портфеле:</small> $${Math.round(price * count * 100) / 100}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text ${progress>=0?"text-success":"text-danger"}"><small class="text-muted ">За время владения:</small> ${progress}%</p>
+                                        </div>
+                                    </div>
+                                    <p class="card-text"><small class="text-muted">Date added: ${getFormattedDate(date_added)}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `
+        }
+
+        async function loadProfileCurrencies() {
+            document.querySelector("#profileTitle").innerHTML = ""
+            document.querySelector("#profileCurrencies").innerHTML = ""
+
+            const ownershipURL = `http://localhost:3000/ownership?userId=${localStorage.userId}`
+            const ownershipResponse = await fetch(ownershipURL)
+            const ownershipResponseJSON = await ownershipResponse.json()
+
+            for (const ownership of ownershipResponseJSON) {
+                if (ownership["count"] > 0) {
+                    const currencyURL = `http://localhost:3000/currencies?id=${ownership["currency_id"]}`
+                    const currencyResponse = await fetch(currencyURL)
+                    const currencyResponseJSON = await currencyResponse.json()
+
+                    document.querySelector("#profileCurrencies").innerHTML += getCardHTML(ownership, currencyResponseJSON[0])
+                }
+            }
+        }
+
+        async function loadProfileTitle() {
+            const userURL = `http://localhost:3000/users?id=${localStorage.userId}`
+            const userResponse = await fetch(userURL)
+            const userResponseJSON = await userResponse.json()
+
+            document.querySelector("#profileTitle").innerHTML = `Профиль пользователя ${userResponseJSON[0]["username"]}`
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth()
+            loadProfileCurrencies()
+            loadProfileTitle()
+        })
+    </script>
 </main>
 
 <footer class="bg-gray">
