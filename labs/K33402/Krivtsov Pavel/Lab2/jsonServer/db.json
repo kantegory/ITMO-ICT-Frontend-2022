@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "email": "pavel@gmail.com",
+      "password": "$2a$10$biSWUSzsnBvNKCoKN8jJy./XcV/DriAnOPkn4kLlEbGuKLqGhl2Tu",
+      "username": "pavel",
+      "id": 1
+    }
+  ],
+  "currencies": [
+    {
+      "id": 1,
+      "name": "Bitcoin",
+      "abbreviation": "BTC",
+      "price": 19291.8,
+      "count": "19.18M",
+      "daily_changes": 0,
+      "weekly_changes": 0.5,
+      "date_added": "2022-10-13T16:02:18.843Z",
+      "coinlib_id": "859",
+      "image": "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=023"
+    },
+    {
+      "id": 2,
+      "name": "Ethereum",
+      "abbreviation": "ETH",
+      "price": 1312.23,
+      "count": "122.37M",
+      "daily_changes": -0.04,
+      "weekly_changes": 0.15,
+      "date_added": "2022-10-16T16:02:18.843Z",
+      "coinlib_id": "145",
+      "image": "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=023"
+    },
+    {
+      "id": 3,
+      "name": "Tether",
+      "abbreviation": "USDT",
+      "price": 0.9999354,
+      "count": "68.43B",
+      "daily_changes": 0.69,
+      "weekly_changes": 0.28,
+      "date_added": "2022-10-15T16:02:18.843Z",
+      "coinlib_id": "637",
+      "image": "https://cryptologos.cc/logos/tether-usdt-logo.png?v=023"
+    },
+    {
+      "id": 4,
+      "name": "BNB",
+      "abbreviation": "BNB",
+      "price": 272.21,
+      "count": "161.34M",
+      "daily_changes": 1,
+      "weekly_changes": -0.82,
+      "date_added": "2022-10-17T14:02:18.843Z",
+      "coinlib_id": "1209",
+      "image": "https://cryptologos.cc/logos/bnb-bnb-logo.png?v=023"
+    },
+    {
+      "id": 5,
+      "name": "Dogecoin",
+      "abbreviation": "DOGE",
+      "price": 0.059385,
+      "count": "132.67B",
+      "daily_changes": 0.65,
+      "weekly_changes": -2.53,
+      "date_added": "2022-10-17T16:02:18.843Z",
+      "coinlib_id": "280",
+      "image": "https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=023"
+    }
+  ],
+  "ownership": [
+    {
+      "id": 1,
+      "currency_id": 1,
+      "userId": 1,
+      "count": 9,
+      "progress": 20
+    },
+    {
+      "id": 2,
+      "currency_id": 5,
+      "userId": 1,
+      "count": 100,
+      "progress": -10
+    }
+  ]
+}
