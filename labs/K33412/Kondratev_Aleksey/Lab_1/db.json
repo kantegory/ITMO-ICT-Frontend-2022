@@ -89,6 +89,11 @@
       "userId": 1,
       "eventId": 4,
       "id": 3
+    },
+    {
+      "userId": 1,
+      "eventId": 3,
+      "id": 4
     }
   ]
 }
