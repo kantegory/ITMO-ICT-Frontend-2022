@@ -193,10 +193,11 @@
                 }
             })
 
-            const responseJson = await response.json()
-            if (responseJson) {
-                await showToast()
+            if (response.status !== 200) {
+                document.querySelector("#toast_body").innerHTML = await response.json()
             }
+
+            await showToast()
         }
 
         document.addEventListener('DOMContentLoaded', () => {
