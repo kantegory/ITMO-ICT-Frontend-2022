@@ -56,7 +56,6 @@
     </section>
 
     <script>
-        let url = "http://localhost:3000/currencies"
         let sort_by_date_desc = false
         let sort_by_price_desc = false
 
@@ -109,7 +108,7 @@
         }
 
 
-        function addSearchParam(key, value) {
+        function addSearchParam(url, key, value) {
             let newUrl = new URL(url)
             newUrl.searchParams.set(key, value)
 
@@ -117,15 +116,16 @@
         }
 
         async function loadCurrencies(searchString="", sortString="", orderString="") {
+            let url = "http://localhost:3000/currencies"
             document.querySelector("#currencies").innerHTML = ""
 
             if (searchString) {
-                url = addSearchParam('q', searchString)
+                url = addSearchParam(url, 'q', searchString)
             }
 
             if (sortString && orderString) {
-                url = addSearchParam('_sort', sortString)
-                url = addSearchParam('_order', orderString)
+                url = addSearchParam(url, '_sort', sortString)
+                url = addSearchParam(url, '_order', orderString)
             }
 
             const response = await fetch(url)
