@@ -1,14 +1,14 @@
 import {ApiService} from "./ApiService.js";
 
-if(!localStorage.getItem('likes')){
-    localStorage.setItem('likes', [])
+if(!localStorage.getItem('Download')){
+    localStorage.setItem('Download', [])
 }
 
 const api = new ApiService()
 export let photos = await api.fetchRandomPhotos()
 
-export const likes = () => {
-    let data = localStorage.getItem('likes')
+export const download = () => {
+    let data = localStorage.getItem('Download')
     if(data){
         return JSON.parse(data)
     }else{
@@ -16,18 +16,18 @@ export const likes = () => {
     }
 }
 
-export const handleLike = (photo) => {
-    let data = likes()
+export const handleDownload = (photo) => {
+    let data = downloads()
     if(!data.find(e => e.id === photo.id)){
         data.push(photo)
-        localStorage.setItem('likes', JSON.stringify(data))
+        localStorage.setItem('Download', JSON.stringify(data))
     }
 }
 
-export const removeLike = (photo) => {
-    localStorage.setItem('likes', JSON.stringify((likes().filter(e => e.id !== photo.id))))
+export const removeDownload = (photo) => {
+    localStorage.setItem('Download', JSON.stringify((downloads().filter(e => e.id !== photo.id))))
     clearAlbum()
-    renderAlbum(likes(), removeButton)
+    renderAlbum(downloads(), removeButton)
 }
 
 export const searchBar = () =>{
@@ -43,12 +43,12 @@ export const searchBar = () =>{
 export const queryFilter = async (filter) => {
     photos = await api.fetchPhotosByQuery(filter)
     clearAlbum()
-    renderAlbum(photos, likeButton)
+    renderAlbum(photos, downloadButton)
 }
 
 
 export const renderFilters = () => {
-    const filters = ["Architecture", "Nature", "Cars", "Fashion", "People", "Animals", "Arts & Culture", "Food & Drinks", "Street Photography"]
+    const filters = ["Cities", "Health", "", "Fashion & Style", "People", "Animals", "Arts & Culture", "Sport", "Food and Drinks", "Houses", "Tech"]
     const filtersField = document.getElementsByClassName("categories_filter")
     filters.forEach(filter => {
         const btn = document.createElement('button')
@@ -68,13 +68,13 @@ export const clearAlbum = () => {
     }
 }
 
-export const likeButton = (photo) => {
-    const like_button = document.createElement('button')
-    like_button.type="button"
-    like_button.className="btn btn-sm btn-outline-secondary"
-    like_button.textContent="Like"
-    like_button.onclick = handleLike.bind(null, photo)
-    return like_button
+export const downloadButton = (photo) => {
+    const download_button = document.createElement('button')
+    download_button.type="button"
+    download_button.className="btn btn-sm btn-outline-secondary"
+    download_button.textContent="Download"
+    download_button.onclick = handleLike.bind(null, photo)
+    return download_button
 }
 
 export const removeButton = (photo) => {

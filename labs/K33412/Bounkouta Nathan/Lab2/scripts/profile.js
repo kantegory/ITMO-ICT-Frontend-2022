@@ -1,3 +1,3 @@
-import {likes, renderAlbum, removeButton} from "./app.js";
+import {downloads, renderAlbum, removeButton} from "./app.js";
 
 renderAlbum(likes(), removeButton)
