@@ -1,23 +1,23 @@
 html, body {
-    background: #FFF7E9;
+    background: var(--main-background-color);
   }
 
 .header {
-background: #FF731D;
+    background: var(--nav-background-color);
 }
 
 .headr--link{
-    color: #FFF7E9;
+    color: var(--hfp-text-color);
     text-decoration: none;
 }
 
 
 .headr--link:hover {
-color: #FFF7E9;
+    color: var(--hfp-text-color);
 }
 
 .mywhite--text {
-    color:#FFF7E9;
+    color: var(--hfp-text-color);
 }
 
 .main {
@@ -25,38 +25,63 @@ color: #FFF7E9;
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    color: var(--main-text-color);
 }
 
 .main__form {
     width: 60%;
 }
 
+.btn-colors {
+    background: var(--filter-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:hover {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:active {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:focus {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.card-text-color {
+    color: var(--card-text-color);
+}
+
 .footer {
-    background: #5F9DF7;
+    background: var(--footer-background-color);
 }
 
 .footer__nav {
-background: #1746A2;
+    background: var(--footer-nav-background-color);
 }
 
 .footer--link1{
-color: #1746A2;
-text-decoration: none;
+    color: var(--fn1-text-color);
+    text-decoration: none;
 }
 
 .footer--link2{
-color: #5F9DF7;
-text-decoration: none;
+    color: var(--fn2-text-color);
+    text-decoration: none;
 }
 
 .footer--link1:hover {
-color: #FFF7E9;
+    color: var(--hfp-text-color);
 }
 
 .footer--link2:hover {
-color: #FFF7E9;
+    color: var(--hfp-text-color);
 }
 
 .footer--text {
-font-size: 12px;
+    font-size: 12px;
 }

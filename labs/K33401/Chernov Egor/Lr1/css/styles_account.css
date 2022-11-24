@@ -1,5 +1,5 @@
 html, body {
-    background: #FFF7E9;
+    background: var(--main-background-color);
 }
 
 .mywhite--text {
@@ -7,58 +7,35 @@ html, body {
 }
 
 .header {
-    background: #FF731D;
+    background: var(--nav-background-color);
 }
 
 .header__section {
-    background: #FF731D;
+    background: var(--nav-background-color);
 }
 
 .filter--color {
-    color: #FFF7E9;
-    background: #5F9DF7;
+    color: var(--hfp-text-color);
+    background: var(--filter-background-color);
 }
 
 .filter--color:hover {
-    color: #FFF7E9;
-    background: #1746A2;
+    color: var(--hfp-text-color);
+    background: var(--filter-act-background-color);
 }
 
 .filter--color:active {
-    color: #FFF7E9;
-    background: #1746A2;
+    color: var(--hfp-text-color);
+    background: var(--filter-act-background-color);
 }
 
 .filter--color:focus {
-    color: #FFF7E9;
-    background: #1746A2;
+    color: var(--hfp-text-color);
+    background: var(--filter-act-background-color);
 }
-
-/* .table-scrollable {
-    min-width: 600px;
-}
-
-.cg-sticky-first-col {
-    width: 23px;
-    min-width: 23px;
-    max-width: 23px;
-    left: 0;
-}
-
-.cg-sticky-second-col {
-    width: 40px;
-    min-width: 40px;
-    max-width: 45px;
-    left: 23px;
-}
-
-.cg-sticky-third-col {
-    max-width: 9rem;
-    left: 63px;
-} */
 
 .main--text-color {
-    color:#000;
+    color: var(--main-text-color);
 }
 
 .mytable {
@@ -71,30 +48,30 @@ html, body {
 }
 
 .percent--up--color {
-    background: #009966;
-    color:#FFF7E9;
+    background: var(--per-up-background-color);
+    color: #FFF7E9;
 }
 
 .percent--down--color {
-    background: #E60C0C;
-    color:#FFF7E9;
+    background: var(--per-down-background-color);
+    color: #FFF7E9;
 }
 
 .footer {
-    background: #5F9DF7;
+    background: var(--footer-background-color);
 }
 
 .footer__nav {
-    background: #1746A2;
+    background: var(--footer-nav-background-color);
 }
 
 .footer--link1{
-    color: #1746A2;
+    color: var(--fn1-text-color);
     text-decoration: none;
 }
 
 .footer--link2{
-    color: #5F9DF7;
+    color: var(--fn2-text-color);
     text-decoration: none;
 }
 

@@ -1,0 +1,15 @@
+:root {
+    --hfp-text-color: #FFF7E9;
+    --main-text-color: #000;
+    --fn1-text-color: #1746A2;
+    --fn2-text-color: #5F9DF7;
+
+    --nav-background-color: #FF731D;
+    --main-background-color: #FFF7E9;
+    --footer-background-color: #5F9DF7;
+    --footer-nav-background-color: #1746A2;
+    --filter-background-color: #5F9DF7;
+    --filter-act-background-color: #1746A2;
+    --per-up-background-color: #009966;
+    --per-down-background-color: #E60C0C;
+}

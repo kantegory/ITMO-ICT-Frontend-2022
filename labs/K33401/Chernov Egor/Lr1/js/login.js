@@ -50,14 +50,14 @@ function login() {
                         "    <p class='invisible'>invisible</p>\n" +
                         "  </div>\n" +
                         "</div>" +
-                        "<div class=\"card text-center\">\n" +
+                        "<div class=\"card text-center card-text-color\">\n" +
                         "  <div class=\"card-header\">\n" +
                         "    Success\n" +
                         "  </div>\n" +
                         "  <div class=\"card-body\">\n" +
                         `    <h5 class=\"card-title\">${firstName} ${secondName}</h5>\n` +
                         "    <p class=\"card-text\">Now you can use our web-site for trading criptocurrency.</p>\n" +
-                        `    <a href=\"../html/account.html?id=${user.uid}\" class=\"btn btn-primary\">My profile</a>\n` +
+                        `    <a href=\"../html/account.html?id=${user.uid}\" class=\"btn btn-colors\">My profile</a>\n` +
                         "  </div>\n" +
                         "  <div class=\"card-footer text-muted\">\n" +
                         `    Today: ${today.toUTCString()}\n` +

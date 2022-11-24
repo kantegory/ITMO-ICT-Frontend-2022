@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF7E9">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B23498C">
   <title>Coins</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <link rel="stylesheet" href="../css/styles_index.css">
+  <link rel="stylesheet" href="../css/styles/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="../css/styles/dark.css" media="(prefers-color-scheme: dark)">
 </head>
 <body>
   <header class="header navbar navbar-expand-sm navbar-dark bd-navbar sticky-top">
@@ -62,7 +66,7 @@
         <h2 class="fw-semibold main--text-color" id="preview" style="font-size: 2rem;">Cryptocurrency Prices by Market Cap</h2>
         <p class="pe-lg-5 main--text-color" style="font-size: 1rem;">Here you will find all the cryptocurrencies that are on the market. If you want to keep track of a certain coin, then you need to add it to your portfolio. You can also view coins by category for this there is a filter.</p>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle footer filter--color" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle filter--color" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Filter
           </button>
           <ul class="dropdown-menu">
@@ -71,17 +75,17 @@
             <li><a class="dropdown-item" href="#">Finance</a></li>
           </ul>
         </div>
-        <ol class="list-group list-group-numbered" id="coinList">
+        <ol class="list-group list-group-numbered list--color" id="coinList">
           <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 mt-1">
               <img src="https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579" alt="icon" width="40" height="40" loading="lazy" id="coinImage">
             </div>
             <div class="ms-2 me-auto row">
-              <span class="fw-bold main--text-color" id="coinFullName">Bitcoin</span>
-              <span class="main--text-color" id="coinShortName">BTC</span>
+              <span class="fw-bold" id="coinFullName">Bitcoin</span>
+              <span id="coinShortName">BTC</span>
             </div>
             <div class="ms-2 row text-end">
-              <span class="fw-bold main--text-color" id="coinPrice">$19,668.34</span>
+              <span class="fw-bold" id="coinPrice">$19,668.34</span>
               <div><span class="badge fw-semibold rounded-pill percent--up--color" id="coinPer">0.3%</span></div>
             </div>
           </li>
@@ -90,11 +94,11 @@
               <img src="https://assets.coingecko.com/coins/images/279/thumb/ethereum.png?1595348880" alt="icon" width="40" height="40" loading="lazy">
             </div>
             <div class="ms-2 me-auto row">
-              <span class="fw-bold main--text-color">Ethereum</span>
-              <span class="main--text-color">ETH</span>
+              <span class="fw-bold">Ethereum</span>
+              <span>ETH</span>
             </div>
             <div class="ms-2 row text-end">
-              <span class="fw-bold main--text-color">$1,328.18</span>
+              <span class="fw-bold">$1,328.18</span>
               <div><span class="badge fw-semibold rounded-pill percent--up--color">0.3%</span></div>
             </div>
           </li>
@@ -103,11 +107,11 @@
               <img src="https://assets.coingecko.com/coins/images/325/thumb/Tether-logo.png?1598003707" alt="icon" width="40" height="40" loading="lazy">
             </div>
             <div class="ms-2 me-auto row">
-              <span class="fw-bold main--text-color">Tether</span>
-              <span class="main--text-color">USDT</span>
+              <span class="fw-bold">Tether</span>
+              <span>USDT</span>
             </div>
             <div class="ms-2 row text-end">
-              <span class="fw-bold main--text-color">$1.00</span>
+              <span class="fw-bold">$1.00</span>
               <div><span class="badge fw-semibold rounded-pill percent--up--color">0.1%</span></div>
             </div>
           </li>
@@ -116,11 +120,11 @@
               <img src="https://assets.coingecko.com/coins/images/6319/thumb/USD_Coin_icon.png?1547042389" alt="icon" width="40" height="40" loading="lazy">
             </div>
             <div class="ms-2 me-auto row">
-              <span class="fw-bold main--text-color">USD Coin</span>
-              <span class="main--text-color">USDC</span>
+              <span class="fw-bold">USD Coin</span>
+              <span>USDC</span>
             </div>
             <div class="ms-2 row text-end">
-              <span class="fw-bold main--text-color">$0.993591</span>
+              <span class="fw-bold">$0.993591</span>
               <div><span class="badge fw-semibold rounded-pill percent--down--color">0.2%</span></div>
             </div>
           </li>
@@ -129,11 +133,11 @@
               <img src="https://assets.coingecko.com/coins/images/4713/thumb/matic-token-icon.png?1624446912" alt="icon" width="40" height="40" loading="lazy">
             </div>
             <div class="ms-2 me-auto row">
-              <span class="fw-bold main--text-color">Polygon</span>
-              <span class="main--text-color">MATIC</span>
+              <span class="fw-bold">Polygon</span>
+              <span>MATIC</span>
             </div>
             <div class="ms-2 row text-end">
-              <span class="fw-bold main--text-color">$0.813748</span>
+              <span class="fw-bold">$0.813748</span>
               <div><span class="badge fw-semibold rounded-pill percent--down--color">0.4%</span></div>
             </div>
           </li>
@@ -145,8 +149,8 @@
         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
       </div>
     </section>
-    <h2 class="fw-semibold text-center" style="font-size: 2rem;" id="about">What should you do?</h2>
-    <p class="fw-semibold text-center" style="font-size: 1rem;">Join us. Together we will drop this market! Just log in.</p>
+    <h2 class="fw-semibold text-center main--text-color" style="font-size: 2rem;" id="about">What should you do?</h2>
+    <p class="fw-semibold text-center main--text-color" style="font-size: 1rem;">Join us. Together we will drop this market! Just log in.</p>
 
     <script src="../js/api.js"></script>
 

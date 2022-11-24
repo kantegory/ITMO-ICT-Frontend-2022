@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF7E9">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B23498C">
   <title>Coins</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/styles_enter.css">
+  <link rel="stylesheet" href="../css/styles/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="../css/styles/dark.css" media="(prefers-color-scheme: dark)">
 </head>
 <body>
   <header class="navbar navbar-expand-sm navbar-dark bd-navbar sticky-top header">
@@ -26,11 +30,11 @@
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" name="password" autocomplete="off">
         </div>
-        <button type="submit" class="btn btn-primary" onclick="login()">Submit</button>
+        <button type="submit" class="btn btn-colors" onclick="login()">Submit</button>
       </div>
       <div class="my-4" id="form1">
         <label for="buttonReg" class="form-label">Don't have an account?</label><br>
-          <a class="btn btn-primary" href="../html/reg.html" role="button" id="buttonReg">Join to Coins</a>
+          <a class="btn btn-colors" href="../html/reg.html" role="button" id="buttonReg">Join to Coins</a>
       </div>
     </section>
   </main>
