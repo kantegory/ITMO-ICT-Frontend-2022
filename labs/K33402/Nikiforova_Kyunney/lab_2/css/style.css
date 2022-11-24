@@ -1,0 +1,27 @@
+header {
+	position: sticky;
+	z-index: 100;
+	top: 0;
+}
+
+.card-img-top {
+	height: 10rem;
+}
+
+.card-event-date {
+	color: #5c89ab;
+	font-weight: 600;
+}
+
+.card-event-location {
+	color: grey;
+}
+
+.right-block-sticky {
+	position: sticky;
+  	top: 5em;
+}
+
+.card2 {
+	width: 15rem;
+}
