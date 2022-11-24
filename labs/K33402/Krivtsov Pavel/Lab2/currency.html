@@ -118,7 +118,7 @@
         }
 
         function configureTransactionPostRequest(event) {
-            const postURL = `http://localhost:3000/ownership`
+            let postURL = `http://localhost:3000/ownership`
             let postData = {}
 
             if (event.target.id === "buy") {
@@ -130,12 +130,7 @@
                 }
                 document.querySelector("#toast_body").innerHTML = `Вы успешно приобрели 1 ${currency['abbreviation']} за $${currency['price']}`
             } else if (event.target.id === "sell") {
-                postData = {
-                    "currency_id": currency.id,
-                    "userId": parseInt(userId),
-                    "count": 0,
-                    "progress": 0
-                }
+                postURL = ""
                 document.querySelector("#toast_body").innerHTML = ""
             }
 
@@ -182,22 +177,24 @@
                 method = "PATCH"
             } else {
                 [requestUrl, requestData] = configureTransactionPostRequest(event)
-                method = "POST"
-            }
-
-            const response = await fetch(requestUrl, {
-                method: method,
-                body: JSON.stringify(requestData),
-                headers: {
-                    'Content-Type': 'application/json'
+                if (requestUrl) {
+                    method = "POST"
                 }
-            })
-
-            if (response.status !== 200) {
-                document.querySelector("#toast_body").innerHTML = await response.json()
             }
 
-            await showToast()
+            if (method) {
+                const response = await fetch(requestUrl, {
+                    method: method,
+                    body: JSON.stringify(requestData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+
+                if (response.status === 200) {
+                    await showToast()
+                }
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
