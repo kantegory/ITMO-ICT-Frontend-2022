@@ -142,17 +142,13 @@
                 async function loadPopularCurrencies() {
                     document.querySelector("#currencies").innerHTML = ""
 
-                    const url = "http://localhost:3000/currencies"
+                    const url = "http://localhost:3000/currencies?id_lte=3"
                     const response = await fetch(url)
                     const responseJSON = await response.json()
 
                     for (const counter in responseJSON) {
-                        if (counter < 3) {
-                            currency = responseJSON[counter]
-                            document.querySelector("#currencies").innerHTML += getCardHTML(currency)
-                        } else {
-                            break
-                        }
+                        currency = responseJSON[counter]
+                        document.querySelector("#currencies").innerHTML += getCardHTML(currency)
                     }
                 }
 
