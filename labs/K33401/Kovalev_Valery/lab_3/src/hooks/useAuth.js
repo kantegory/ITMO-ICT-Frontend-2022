@@ -1,10 +1,9 @@
-import {useReducer} from "react";
-import {initialAuthState, userReducer} from "../reducers/userReducer";
+import {useEffect, useMemo, useReducer} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {initLogin} from "../store/actions/authActions";
+
 
 export const useAuth = () => {
-    const [authState, dispatch] = useReducer(userReducer, initialAuthState)
-
-    return {
-        isAuth: !!authState.username, ...authState
-    }
+    const {user, isLoading, token, error, isAuth} = useSelector(state=>state.auth)
+    return {isAuth, isLoading, token, user, error}
 }

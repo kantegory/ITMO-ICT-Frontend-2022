@@ -1,20 +1,28 @@
-import React, {useReducer, useState} from 'react';
-import {useFetching} from "../hooks/useFetching";
-import ApiService from "../API/ApiService";
-import {initialAuthState, userReducer} from "../reducers/userReducer";
-import {doLogin} from "../API/loginService";
-import {useAuth} from "../hooks/useAuth";
+import React, {useEffect, useReducer, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {login} from "../store/actions/authActions";
+import {useNavigate} from "react-router-dom";
+import AppButton from "../components/AppButton";
 
 const Login = () => {
-    const [authState, dispatch] = useReducer(userReducer, initialAuthState)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const user = useAuth()
+
+    const dispatch = useDispatch()
+    const {error, isAuth} = useSelector(state=>state.auth)
+    const navigate = useNavigate()
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        doLogin(dispatch, {username, password})
+        dispatch(login(username,password))
     }
+
+    useEffect(()=>{
+        if(isAuth && !error){
+            navigate("/")
+        }
+    },[error, isAuth])
 
     return (
         <div className={"form-signin w-100 m-auto"}>
@@ -35,12 +43,8 @@ const Login = () => {
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
 
-                <div className="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"/> Remember me
-                    </label>
-                </div>
-                <button onClick={handleSubmit} className="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+                <AppButton onClick={handleSubmit} className="w-100" type="submit">Sign in</AppButton>
+
                 <p className="mt-5 mb-3 text-muted">© 2022</p>
             </form>
         </div>

@@ -1,3 +1,24 @@
+:root {
+    --border-color: #cccccc;
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #fff;
+        --background-color: #212529;
+    }
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary-color: #212529;
+        --background-color: #fff;
+    }
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +26,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    background: var(--background-color) !important;
 }
 
 code {
@@ -17,7 +39,7 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -63,5 +85,13 @@ code {
 .form-signin input[id="surname"] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+* h1{
+   color: var(--primary-color);
+}
+
+* h2{
+    color: var(--primary-color);
 }
 

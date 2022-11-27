@@ -3,30 +3,32 @@ import {Carousel} from "react-bootstrap";
 import {useFetching} from "../hooks/useFetching";
 import ApiService from "../API/ApiService";
 import MyImage from "./MyImage/MyImage";
+import {useSelector} from "react-redux";
+import {useAuth} from "../hooks/useAuth";
+import styles from "./Slider.module.css"
+import AppButton from "./AppButton";
+import {config} from '@react-spring/web'
+import useScrollTo from 'react-spring-scroll-to-hook'
 
 const Slider = () => {
-    const [photos, setPhotos] = useState([])
-
-
-    const [fetchPhotos, isPhotosLoading, photosError] = useFetching( async ()=>{
-        const api = new ApiService()
-        const response = await api.getPhotos({"limit":3, "random":Math.floor(Math.random() * 100)})
-        setPhotos([...response.results])
-    })
-
-    useEffect(()=>{
-        fetchPhotos()
-    }, [])
+    const {user} = useAuth()
+    const {scrollTo} = useScrollTo({ mass: 1, tension: 20000, friction: 14 })
 
 
     return (
-        <Carousel>
-            {photos.map(e=>(
-                <Carousel.Item key={e.photo_url} style={{'height':'400px'}}>
-                    <img className="d-block w-100" src={e.photo_image_url+"?w=1920"} alt={``} style={{'height':'400px', 'objectFit':'cover'}}/>
-                </Carousel.Item>
-            ))}
-        </Carousel>
+
+        <div className={`${styles.slider} d-flex flex-column justify-content-center align-items-center mb-2`}>
+            <h1>Welcome</h1>
+            <h2>{user.username}</h2>
+            <span className="text-muted">you can search photos by keywords or colors</span>
+            <AppButton ariaLabel={"try"} onClick={
+                ()=>{
+                    scrollTo('#filter')
+                }
+            }>
+                Try
+            </AppButton>
+        </div>
     );
 };
 

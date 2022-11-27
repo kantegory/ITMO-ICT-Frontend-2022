@@ -1,24 +1,39 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import MyImage from "../MyImage/MyImage";
 import styles from "./PhotoCard.module.css"
 import LikeButton from "../LikeButton";
 import AddButton from "../AddButton";
-import {Context} from "../../context";
-import ReactCSSTransitionGroup from 'react-transition-group';
+import {useAuth} from "../../hooks/useAuth";
+import {useDispatch, useSelector} from "react-redux";
+import {likePhoto, unlikePhoto} from "../../store/actions/likeActions";
 
 const PhotoCard = ({photo}) => {
-    const context = useContext(Context)
-    const setPreviewPhoto = context.setPreviewPhoto
+    const {token} = useAuth()
+    const {likes, likedPhotos} = useSelector(state=>state.like)
+    const liked = useMemo(()=>(!!likedPhotos.find(e=>e.photo_id===photo.photo_id)), [likedPhotos])
+    const dispatch = useDispatch()
 
+
+
+
+    const handleLike = async () => {
+        if(liked){
+            const like = likes.find(e=>e.photo.photo_id===photo.photo_id)
+            dispatch(unlikePhoto(token, like.id))
+        } else {
+            dispatch(likePhoto(token, photo))
+        }
+    }
 
     return (
-        <div onClick={()=>{setPreviewPhoto(photo)}} className={styles.photoCard}>
+        <div className={styles.photoCard}>
             <MyImage photo={photo}/>
             <div className={styles.cover}>
                 <div className={styles.bottomPanel}>
                     <div className={styles.buttonsPanel}>
+                        {/*<h1>{liked.toString()}</h1>*/}
                         <AddButton/>
-                        <LikeButton/>
+                        <LikeButton onClick={handleLike} style={liked && {color:"red"}}/>
                     </div>
                 </div>
             </div>
