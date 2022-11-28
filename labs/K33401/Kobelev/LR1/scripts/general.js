@@ -2,9 +2,11 @@ function changeSorting(button) {
     const icon = button.getElementsByTagName("use")[0];
     if (button.value === "asc") {
         button.value = "desc";
+        button.textContent = "Descending";
         icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#s-desc');
     } else {
         button.value = "asc";
+        button.textContent = "Ascending";
         icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#s-asc');
     }
 }
