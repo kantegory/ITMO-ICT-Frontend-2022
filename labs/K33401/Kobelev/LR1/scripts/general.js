@@ -2,12 +2,20 @@ function changeSorting(button) {
     const icon = button.getElementsByTagName("use")[0];
     if (button.value === "asc") {
         button.value = "desc";
-        button.textContent = "Descending";
-        icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#s-desc');
+        button.innerHTML =
+            "<svg class=\"icon\">\n" +
+            "   <use xlink:href=\"#s-desc\"></use>\n" +
+            "   <title>Sort</title>\n" +
+            "</svg>\n" +
+            "Descending"
     } else {
         button.value = "asc";
-        button.textContent = "Ascending";
-        icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#s-asc');
+        button.innerHTML =
+            "<svg class=\"icon\">\n" +
+            "   <use xlink:href=\"#s-asc\"></use>\n" +
+            "   <title>Sort</title>\n" +
+            "</svg>\n" +
+            "Ascending"
     }
 }
 
@@ -60,8 +68,7 @@ async function likeScenario(id, button) {
     if (button.classList.contains('active')) {
         currentLikes += 1
         likes.push(id)
-    }
-    else {
+    } else {
         currentLikes -= 1
         let index = likes.indexOf(id);
         likes.splice(index, 1);

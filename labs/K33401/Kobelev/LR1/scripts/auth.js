@@ -65,7 +65,7 @@ async function signup(event) {
     signUpData['username'] = document.getElementById("usernameSignUo").value
     signUpData['email'] = document.getElementById("emailSignUp").value
     signUpData['password'] = document.getElementById("passwordSignUp").value
-
+    signUpData['likes'] = []
 
     const response = await fetch('http://localhost:3000/register', {
         method: "POST", body: JSON.stringify(signUpData), headers: {

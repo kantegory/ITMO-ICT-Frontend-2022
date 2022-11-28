@@ -15,6 +15,15 @@
       "username": "oklve",
       "likes": [],
       "id": 2
+    },
+    {
+      "email": "test@mail.au",
+      "password": "$2a$10$IQbDXEPjoWdMVJAZSXKcHeq4hM.zZqGrytfeYb3jJP4XQhmY07oYW",
+      "username": "johndoe",
+      "likes": [
+        8
+      ],
+      "id": 3
     }
   ],
   "scenarios": [
@@ -145,7 +154,7 @@
         6,
         7
       ],
-      "likes": 0,
+      "likes": 1,
       "system": 2,
       "finished": 1,
       "adult": 0,
