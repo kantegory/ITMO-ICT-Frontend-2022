@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "login": "magicaksu.f3@gmail.com",
+      "password": "AlexSm2111",
+      "id": 1
+    }
+  ]
 }
