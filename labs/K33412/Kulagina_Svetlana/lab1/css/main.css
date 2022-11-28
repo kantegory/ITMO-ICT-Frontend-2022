@@ -49,6 +49,13 @@
 	width: 100%;
 }
 
+.icon-main{
+	stroke: currentColor;
+	fill: none;
+	width: 16px;
+	height: 16px
+}
+
 .img{
 	width: 70%
 }
