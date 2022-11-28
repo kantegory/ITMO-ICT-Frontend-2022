@@ -86,19 +86,3 @@ async function likeScenario(id, button) {
 
     button.textContent = currentLikes
 }
-
-function checkAuthUser() {
-    let user = getUser()
-
-    if (user !== null) {
-        return
-    }
-
-    const hiddenElements =  document.querySelectorAll(".visible-login-only")
-
-    hiddenElements.forEach((element) => {
-        element.classList.add('d-none');
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => checkAuthUser())

@@ -105,7 +105,7 @@
                    aria-label="Search" id="searchBar">
         </div>
         <!-- Sign Up and Log In -->
-        <div id="navAuthButtons" class="col-8 col-sm-4 d-flex justify-content-end">
+        <div class="col-8 col-sm-4 d-flex justify-content-end invisible-login">
             <div class="text-center">
                 <form>
                     <button type="button" class="btn btn-sm rounded-pill btn-outline-primary mx-1"
@@ -122,10 +122,10 @@
             </div>
         </div>
         <!-- Profile -->
-        <div id="navProfile" class="col-8 col-sm-4 d-flex justify-content-end">
+        <div class="col-8 col-sm-4 d-flex justify-content-end visible-login-only">
             <div class="btn-group">
                 <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button id='usernameText' class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
