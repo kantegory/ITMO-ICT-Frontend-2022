@@ -1,4 +1,4 @@
-const LIMIT=20
+const LIMIT = 20
 const params = new URLSearchParams(window.location.search)
 
 /*
@@ -18,6 +18,7 @@ async function loadVolume() {
         document.getElementById(`v${params.get('timeToReadId')}`).selected = true
     }
 }
+
 // genreId
 async function loadChGenres() {
     const response = await fetch("http://localhost:3000/genre")
@@ -47,7 +48,8 @@ function getBookCardHtml({id, title, author, rate, slug}) {
                             class="text-decoration-none text-dark text-truncate">${title}</a>
                     </p>
                     <p class="text-muted text-truncate mb-0"><small>${author}</small></p>
-                    <div class="row"><p class="col text-end mb-0 mt-3"><small><span class="text-danger">${rate}</span> / 5 <i class="bi bi-star"></i></small></p></div>
+                    <div class="row"><p class="col text-end mb-0 mt-3"><small><span class="text-danger">${rate}</span> / 5 <svg class="icon">
+                                    <use xlink:href="../res/sprite.svg#star"></use></svg></small></p></div>
                 </div>
             </div>
         </div>
@@ -60,6 +62,7 @@ function getPaginationButtonHTML(name, text, isPrev = false, isNext = false) {
             <button class="page-link text-danger" id="p${name}" onclick="changePage('${name}', ${isPrev}, ${isNext})">${text}</button>
         </li>`
 }
+
 // Recoloring pagination buttons
 function changeState(idx, disabled = true) {
     if (disabled) {
@@ -70,8 +73,9 @@ function changeState(idx, disabled = true) {
         document.querySelector(`#p${idx}`).classList.add('text-danger')
     }
 }
+
 // Replacing cards on the page
-async function loadBooks(page, limit=20) {
+async function loadBooks(page, limit = 20) {
     document.querySelector("#library").innerHTML = ""
     const load_params = new URLSearchParams(window.location.search)
     load_params.append('_page', page.toString())
@@ -83,6 +87,7 @@ async function loadBooks(page, limit=20) {
         document.querySelector("#library").innerHTML += getBookCardHtml(book)
     }
 }
+
 // Update page
 function changePage(idx, prev = false, next = false) {
     if (prev) idx = Number(localStorage.currentpage) - 1
@@ -90,30 +95,29 @@ function changePage(idx, prev = false, next = false) {
     changeState(Number(localStorage.currentpage), false)
     changeState(idx)
     localStorage.currentpage = idx
-    loadBooks(Number(idx)+1)
+    loadBooks(Number(idx) + 1)
     changeState('prev', Number(localStorage.currentpage) === 0)
     changeState('next', Number(localStorage.currentpage) === (Math.ceil(Number(localStorage.pages) / LIMIT) - 1))
 }
 
 async function generatePage() {
-    if (params.has('q')){
+    if (params.has('q')) {
         document.getElementById('searchWordInfo').hidden = false
         document.getElementById('searchWord').textContent = params.get('q')
     }
     const response = await fetch(`http://localhost:3000/books?${params.toString()}`)
     const responseJson = await response.json()
     localStorage.pages = responseJson.length
-    if (Number(localStorage.pages) !== 0){
+    if (Number(localStorage.pages) !== 0) {
         if (Number(localStorage.pages) > LIMIT) {
             document.querySelector("#pages").innerHTML += getPaginationButtonHTML('prev', 'Предыдущая', true, false)
-            for (let i=0; i<Math.ceil(Number(localStorage.pages) / LIMIT); i++){
+            for (let i = 0; i < Math.ceil(Number(localStorage.pages) / LIMIT); i++) {
                 document.querySelector("#pages").innerHTML += getPaginationButtonHTML(i, i + 1)
             }
             document.querySelector("#pages").innerHTML += getPaginationButtonHTML('next', 'Следующая', false, true)
             localStorage.currentpage = 0
             changePage(0)
-        }
-        else {
+        } else {
             loadBooks(1)
         }
     } else {
@@ -153,16 +157,16 @@ async function fillModal(id) {
     document.getElementById('buttonsmodal').hidden = exists.length !== 0
     document.getElementById('already-added').hidden = exists.length === 0
 }
+
 // Add book to user's library through book's window
-async function addBook(read=false){
+async function addBook(read = false) {
     const data = {}
     const userInfo = JSON.parse(localStorage.getItem('user'))
     data['userId'] = userInfo.id
     data['bookId'] = Number(document.getElementById('modalId').textContent)
-    if (read){
+    if (read) {
         data['status'] = 'прочитано'
-    }
-    else {
+    } else {
         data['status'] = 'отложено'
     }
     await fetch('http://localhost:3000/user_book', {
@@ -175,7 +179,6 @@ async function addBook(read=false){
     document.getElementById('buttonsmodal').hidden = true
     document.getElementById('already-added').hidden = false
 }
-
 
 
 function search() {

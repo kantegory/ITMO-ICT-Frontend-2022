@@ -12,6 +12,17 @@
     font-display: swap;
 }
 
+.icon {
+    stroke: currentColor;
+    width: 16px;
+    height: 16px;
+    fill: none;
+}
+
+.icon--filled {
+    fill: currentColor;
+}
+
 .title-font {
     font-family: 'Avanturin', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

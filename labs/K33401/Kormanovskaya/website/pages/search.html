@@ -53,16 +53,24 @@
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
                     <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-black bg-warning p-1">Новинки</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
+                        <div class="p-1 mx-2"><a href="#"
+                                                 class="text-decoration-none text-black bg-warning p-1">Новинки</a>
+                        </div>
+                        <div class="p-1 mx-2"><a href="#"
+                                                 class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4">
                     <div class="d-flex">
                         <input class="form-control flex-fill mx-3" type="search" id="textSearch"
-                               placeholder="Название, автор, ключевые слова" aria-label="Название, автор, ключевые слова">
-                        <button class="btn btn-outline-dark bi bi-search" aria-label="Искать" type="submit"
-                                onclick="searchTitle()"></button>
+                               placeholder="Название, автор, ключевые слова"
+                               aria-label="Название, автор, ключевые слова">
+                        <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
+                                onclick="searchTitle()">
+                            <svg class="icon icon--filled">
+                                <use xlink:href="../res/sprite.svg#search"></use>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -184,8 +192,11 @@
                                 <b>Жанр:</b> <a href="#" class="text-danger" id="modalgenre">приключения</a><br>
                                 <b>Обьем:</b> <a href="#" class="text-danger" id="modaltime">небольшой</a><br>
                             </p>
-                            <b><span id="modalrate" class="text-danger text-end">4.5 </span> / 5 <i
-                                class="bi bi-star"></i></b>
+                            <b><span id="modalrate" class="text-danger text-end">4.5 </span> / 5
+                                <svg class="icon">
+                                    <use xlink:href="../res/sprite.svg#star"></use>
+                                </svg>
+                            </b>
                         </div>
                         <div class="col-5">
                             <img class="img-rate" id="modalimg" src="../res/naruto2.jpeg" alt="Изображение книги">
@@ -219,7 +230,16 @@
             </div>
             <div class="col-3 border-start border-danger py-2">
                 <p class="h6"><strong>Кормановская Дарина</strong>, K33401</p>
-                <p class="h6 text-danger"><i class="bi bi-github"></i> <i class="bi bi-telegram"></i> eispoohw</p>
+
+                <p class="h6 text-danger">
+                    <svg class="icon icon--filled">
+                        <use xlink:href="../res/sprite.svg#github"></use>
+                    </svg>
+                    <svg class="icon icon--filled">
+                        <use xlink:href="../res/sprite.svg#tg"></use>
+                    </svg>
+                    eispoohw
+                </p>
             </div>
         </div>
     </div>
@@ -230,5 +250,6 @@
         crossorigin="anonymous"></script>
 <script src="../js/search.js"></script>
 <script src="../js/navbar.js"></script>
+
 </body>
 </html>
