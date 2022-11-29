@@ -38,17 +38,17 @@ async function loadChGenres() {
  */
 function getBookCardHtml({id, title, author, rate, slug}) {
     return `
-        <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1" data-card-id="${id}" id="b${id}">
+        <div class="card border-0 white-bg col col-10 col-sm-5 col-md-3 col-xl-2 p-0 mx-1 my-4" data-card-id="${id}" id="b${id}">
             <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.webp" class="card-img-top img-library" alt="${title}"></div>
                 <div class="card-body">
                     <p class="text-truncate h6 mb-0">
                         <a onclick="fillModal(${id})"
                             href="#" 
                             data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                            class="text-decoration-none text-dark text-truncate">${title}</a>
+                            class="text-decoration-none text-main text-truncate">${title}</a>
                     </p>
                     <p class="text-muted text-truncate mb-0"><small>${author}</small></p>
-                    <div class="row"><p class="col text-end mb-0 mt-3"><small><span class="text-danger">${rate}</span> / 5 <svg class="icon">
+                    <div class="row"><p class="col text-end text-main mb-0 mt-3"><small><span class="text-danger">${rate}</span> / 5 <svg class="icon">
                     <title>Rate</title>
                                     <use xlink:href="../res/sprite.svg#star"></use></svg></small></p></div>
                 </div>
@@ -60,7 +60,7 @@ function getBookCardHtml({id, title, author, rate, slug}) {
 function getPaginationButtonHTML(name, text, isPrev = false, isNext = false) {
     return `
         <li class="page-item" id="li${name}">
-            <button class="page-link text-danger" id="p${name}" onclick="changePage('${name}', ${isPrev}, ${isNext})">${text}</button>
+            <button class="page-link border text-main white-bg" id="p${name}" onclick="changePage('${name}', ${isPrev}, ${isNext})">${text}</button>
         </li>`
 }
 
@@ -68,10 +68,10 @@ function getPaginationButtonHTML(name, text, isPrev = false, isNext = false) {
 function changeState(idx, disabled = true) {
     if (disabled) {
         document.querySelector(`#li${idx}`).classList.add('disabled')
-        document.querySelector(`#p${idx}`).classList.remove('text-danger')
+        document.querySelector(`#p${idx}`).classList.remove('text-main')
     } else {
         document.querySelector(`#li${idx}`).classList.remove('disabled')
-        document.querySelector(`#p${idx}`).classList.add('text-danger')
+        document.querySelector(`#p${idx}`).classList.add('text-main')
     }
 }
 

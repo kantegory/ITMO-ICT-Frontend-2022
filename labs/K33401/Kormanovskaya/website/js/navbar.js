@@ -39,7 +39,7 @@ function logout() {
 }
 
 function getGenre({id, name}) {
-    return `<div class="p-1 mx-2">
+    return `<div class="p-1 mx-1">
                 <a href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/search.html?genreId=${id}" 
                    class="text-decoration-none text-white">
                         ${name}
@@ -69,14 +69,14 @@ function showLoginOrProfile() {
                         src="../res/${userInfo.avatar}" alt="${userInfo.login}"></div>
                         <div class="col col-8 gy-1">
                             <p class="h5 black"><strong>${userInfo.login}</strong></p>
-                            <p class="h6 text-danger text-wrap"><small>${userInfo.email}</small></p>
+                            <p class="h6 text-focus text-wrap"><small>${userInfo.email}</small></p>
                         </div>
                     </div>
                 </li>
                 <li><a class="dropdown-item" href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/userpage.html">Читательский билет</a></li>
                 <li><a class="dropdown-item disabled" href="#">Книжная полка</a></li>
                 <li><a class="dropdown-item disabled" href="#">Литературный клуб</a></li>
-                <li><hr class="dropdown-divider bg-danger"></li>
+                <li><hr class="dropdown-divider bg-focus"></li>
                 <li><button class="dropdown-item black" onclick="logout()">Выйти</button></li>
             </ul>
         </li>

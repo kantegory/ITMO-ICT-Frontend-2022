@@ -10,7 +10,9 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../css/light.css" media="(prefers-color-scheme: light)">
     <!-- Settings -->
     <title>Читаемы</title>
     <link type="image/x-icon" href="../res/rwe-colored.png" rel="shortcut icon">
@@ -46,26 +48,26 @@
         </div>
     </nav>
     <!-- Genres & search -->
-    <nav class="navbar bg-danger">
+    <nav class="navbar bg-focus">
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
                     <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-black bg-warning p-1">Новинки</a>
+                                                 class="text-decoration-none text-main bg-accent p-1">Новинки</a>
                         </div>
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
+                                                 class="text-decoration-none text-white black-bg p-1">Топ-100</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4 p-2 text-end">
                     <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
                     <div class="d-flex">
 
-                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
+                        <input class="form-control flex-fill mx-3 white-bg" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова"
                                aria-label="Название, автор, ключевые слова">
-                        <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
+                        <button class="btn bg-accent" aria-label="Искать" type="submit"
                                 onclick="searchTitle()">
                             <svg class="icon icon--filled">
                                 <title>Search</title>
@@ -79,14 +81,14 @@
     </nav>
 </header>
 
-<main>
+<main class="white-bg">
     <!-- login modal -->
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <form onsubmit="login(event)">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content white-bg">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
+                        <h1 class="modal-title text-main fs-5" id="loginModalLabel">Вход</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                     </div>
                     <div class="modal-body">
@@ -95,12 +97,12 @@
                                 <p id="mistakeLogin"></p>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Адрес электронной почты</label>
-                                <input type="email" class="form-control" id="email" name="email"
+                                <label for="email" class="text-main form-label">Адрес электронной почты</label>
+                                <input type="email" class="text-main form-control" id="email" name="email"
                                        placeholder="name@example.com">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Пароль |
+                                <label for="password" class="form-label text-main">Пароль |
                                     <a href="#" class="text-decoration-none align-self-end">
                                         <small>забыли пароль?</small>
                                     </a>
@@ -108,7 +110,7 @@
                                 <input type="password" class="form-control" id="password" name="password">
                                 <div class="form-check my-3">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+                                    <label class="form-check-label text-main" for="flexCheckDefault"> Не выходить</label>
                                 </div>
                             </div>
                         </div>
@@ -134,26 +136,26 @@
         <div class="row mt-5 mx-5">
             <div class="col col-12 col-lg-3">
                 <div class="container-fluid">
-                    <h3 class="text-danger">Фильтры</h3>
+                    <h3 class="text-accent">Фильтры</h3>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col col-12 col-sm-5 col-lg-12">
-                                <label for="sort" class="form-label"><b>Показать сначала</b></label>
-                                <select class="form-select mb-3 " id="sort" aria-label="Сортировка">
+                                <label for="sort" class="form-label text-main"><b>Показать сначала</b></label>
+                                <select class="form-select mb-3 white-bg text-main" id="sort" aria-label="Сортировка">
                                     <option value="-1" selected>Популярные</option>
                                     <option value="1">Выше рейтинг</option>
                                     <option value="2">Ниже рейтинг</option>
                                 </select>
                             </div>
                             <div class="col col-12 col-sm-5 col-lg-12">
-                                <label for="chGenre" class="form-label"><b>Жанр</b></label>
-                                <select class="form-select mb-3" id="chGenre" aria-label="Жанр">
+                                <label for="chGenre" class="form-label text-main"><b>Жанр</b></label>
+                                <select class="form-select mb-3 white-bg text-main" id="chGenre" aria-label="Жанр">
                                     <option id="gAny" value="-1" selected>- Любой -</option>
                                 </select>
                             </div>
                             <div class="col col-12 col-sm-5 col-lg-12">
-                                <label for="chVolume" class="form-label"><b>Обьем</b></label>
-                                <select class="form-select mb-3" id="chVolume" aria-label="Обьем">
+                                <label for="chVolume" class="form-label text-main"><b>Обьем</b></label>
+                                <select class="form-select mb-3 white-bg text-main" id="chVolume" aria-label="Обьем">
                                     <option id="vAny" value="-1" selected>- Любой -</option>
                                 </select>
                             </div>
@@ -168,7 +170,7 @@
             <div class="col col-12 col-lg-9 justify-content-end">
                 <div class="row justify-content-evenly align-items-end mb-3" id="library"></div>
                 <nav>
-                    <ul class="pagination justify-content-center" id="pages">
+                    <ul class="pagination justify-content-center white-bg text-main" id="pages">
                     </ul>
                 </nav>
             </div>
@@ -177,7 +179,7 @@
     <!-- Book's modal window -->
     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content white-bg text-main">
                 <div class="modal-header black-bg text-white">
                     <h1 class="modal-title fs-5"><p class="h4 mb-0" id="modaltitle">Заголовок книги</p>
                         <p class="mt-0 h6" id="modalauthor">Автор</p></h1>
@@ -223,17 +225,17 @@
         </div>
     </div>
 </main>
-<footer class="footer d-none d-md-block mt-auto">
-    <div class="container-fluid pt-3 px-5 mt-5">
+<footer class="footer d-none d-md-block mt-auto white-bg">
+    <div class="container-fluid pt-3 px-5 mt-5 text-main">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 ">
                 <p class="h5">"Фронт-энд разработка", Университет ИТМО</p>
                 <p>Лабораторные работы №1, №2. Домашние работы №2, №3, №4</p>
             </div>
             <div class="col-3 border-start border-danger py-2">
                 <p class="h6"><strong>Кормановская Дарина</strong>, K33401</p>
 
-                <p class="h6 text-danger">
+                <p class="h6 text-accent">
                     <svg class="icon icon--filled">
                         <title>Github</title>
                         <use xlink:href="../res/sprite.svg#github"></use>

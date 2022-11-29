@@ -13,14 +13,14 @@ function loadPage(){
 
 function getBook({title, description, id, author, slug}, status){
     return `
-        <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1 data-card-id="${id}>
-            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.webp" class="card-img-top img-library" alt="${title}"></div>
+        <div class="card white-bg text-main border-0 col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-4 data-card-id="${id}>
+            <div class="overflow-hidden d-none d-sm-block px-5"><img src="../res/${slug}.webp" class="card-img-top img-library" alt="${title}"></div>
                 <div class="card-body">
                     <p class="text-truncate h6 mb-0">
                         <a onclick="fillModal(${id})"
                             href="#" 
                             data-bs-toggle="modal" data-bs-target="#exampleModal" 
-                            class="text-decoration-none text-dark text-truncate">${title}</a>
+                            class="text-decoration-none text-main text-truncate">${title}</a>
                     </p>
                     <p class="text-muted text-truncate mb-0"><small>${author}</small></p>
                     <div class="row"><p class="col text-end mb-0 mt-3">${status}</p></div>
@@ -87,8 +87,8 @@ async function changeRelation() {
 
 function getAchievements({title, description, id, userId}){
     return `
-        <div class="card m-3 p-2 border border-danger border-2">
-            <h6 class="card-title text-danger">${title}</h6>
+        <div class="card bg-accent text-main m-3 p-2 border-0">
+            <h6 class="card-title">${title}</h6>
             <p><small>${description}</small></p>
         </div>
     `

@@ -9,14 +9,16 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../css/light.css" media="(prefers-color-scheme: light)">
     <!-- Settings -->
     <title>Читаемы</title>
     <link type="image/x-icon" href="../res/rwe-colored.png" rel="shortcut icon">
     <link type="image/x-icon" href="../res/rwe-colored.png" rel="icon">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 white-bg black-text">
 <header class="fixed-top">
     <!-- NAVIGATION -->
     <!-- Menu & login bar -->
@@ -45,26 +47,26 @@
         </div>
     </nav>
     <!-- Genres & search -->
-    <nav class="navbar bg-danger">
+    <nav class="navbar bg-focus">
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
                     <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-black bg-warning p-1">Новинки</a>
+                                                 class="text-decoration-none text-main bg-accent p-1">Новинки</a>
                         </div>
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
+                                                 class="text-decoration-none text-white black-bg p-1">Топ-100</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4 p-2 text-end">
                     <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
                     <div class="d-flex">
 
-                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
+                        <input class="form-control flex-fill mx-3 white-bg" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова"
                                aria-label="Название, автор, ключевые слова">
-                        <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
+                        <button class="btn bg-accent" aria-label="Искать" type="submit"
                                 onclick="searchTitle()">
                             <svg class="icon icon--filled">
                                 <title>Search</title>
@@ -90,7 +92,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <div class="text-danger h6 text-center">
+                            <div class="text-focus h6 text-center">
                                 <p id="mistakeLogin"></p>
                             </div>
                             <div class="mb-3">
@@ -137,7 +139,7 @@
                 <div class="container-fluid">
                     <h2>Читаемы на этой неделе:</h2>
                     <div class="row justify-content-evenly align-items-end mx-mb-0 text-center">
-                        <div class="col col-4 col-md-2 card border-0 p-0 m-0 p-md-1 m-md-1"
+                        <div class="col col-4 col-md-2 card white-bg border-0 p-0 m-0 p-md-1 m-md-1"
                              data-bs-toggle="popover" data-bs-trigger="hover focus"
                              data-bs-content="Своеобразный антипод второй великой антиутопии XX века - «О дивный новый
                              мир» Олдоса Хаксли. Что, в сущности, страшнее: доведенное до абсурда «общество потребления»
@@ -153,7 +155,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col col-4 col-md-2 card border-0 p-0 m-0 p-md-1 m-md-1"
+                        <div class="col col-4 col-md-2 card white-bg border-0 p-0 m-0 p-md-1 m-md-1"
                              data-bs-toggle="popover" data-bs-trigger="hover focus"
                              data-bs-content="Роман Чака Паланика «Бойцовский клуб» – это темная сатира, крик отчаяния и шаг
                              в тот мир, что лежит «по ту сторону». Таинственный, манящий, обнажающий чувства подвал, куда могут
@@ -168,7 +170,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col col-4 col-md-2 card border-0 p-0 m-0 p-md-1 m-md-1"
+                        <div class="col col-4 col-md-2 white-bg card border-0 p-0 m-0 p-md-1 m-md-1"
                              data-bs-toggle="popover" data-bs-trigger="hover focus"
                              data-bs-content="Сказка посвящена истории женитьбы царя Салтана и рождению его сына,
                              князя Гвидона, который из-за козней тёток попадает на необитаемый остров, встречает там
@@ -183,7 +185,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col col-4 col-md-2 card border-0 p-0 m-0 p-md-1 m-md-1"
+                        <div class="col col-4 col-md-2 card white-bg border-0 p-0 m-0 p-md-1 m-md-1"
                              data-bs-toggle="popover" data-bs-trigger="hover focus"
                              data-bs-content="Учебник отличается систематическим и строгим изложением основ математического анализа.
                              Материал излагается в логической последовательности и сопровождается примерами, облегчающими процесс
@@ -200,7 +202,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col col-4 col-md-2 card border-0 p-0 m-0 p-md-1 m-md-1"
+                        <div class="col col-4 col-md-2 card white-bg border-0 p-0 m-0 p-md-1 m-md-1"
                              data-bs-toggle="popover" data-bs-trigger="hover focus"
                              data-bs-content="Эротический роман британской писательницы Э. Л. Джеймс, написанный и изданный
                              в 2011 году. Роман повествует об истории отношений между предпринимателем Кристианом Греем и
@@ -223,17 +225,17 @@
     </div>
 </main>
 
-<footer class="footer d-none d-md-block mt-auto">
-    <div class="container-fluid pt-3 px-5 mt-5">
+<footer class="footer d-none d-md-block mt-auto white-bg">
+    <div class="container-fluid pt-3 px-5 mt-5 text-main">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 ">
                 <p class="h5">"Фронт-энд разработка", Университет ИТМО</p>
                 <p>Лабораторные работы №1, №2. Домашние работы №2, №3, №4</p>
             </div>
             <div class="col-3 border-start border-danger py-2">
                 <p class="h6"><strong>Кормановская Дарина</strong>, K33401</p>
 
-                <p class="h6 text-danger">
+                <p class="h6 text-accent">
                     <svg class="icon icon--filled">
                         <title>Github</title>
                         <use xlink:href="../res/sprite.svg#github"></use>

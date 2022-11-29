@@ -10,14 +10,16 @@
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../css/light.css" media="(prefers-color-scheme: light)">
     <!-- Settings -->
     <title>Читаемы</title>
     <link type="image/x-icon" href="../res/rwe-colored.png" rel="shortcut icon">
     <link type="image/x-icon" href="../res/rwe-colored.png" rel="icon">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 white-bg secondary-text">
 <header class="fixed-top">
     <!-- NAVIGATION -->
     <!-- Menu & login bar -->
@@ -46,26 +48,26 @@
         </div>
     </nav>
     <!-- Genres & search -->
-    <nav class="navbar bg-danger">
+    <nav class="navbar bg-focus">
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
                     <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-black bg-warning p-1">Новинки</a>
+                                                 class="text-decoration-none text-main bg-accent p-1">Новинки</a>
                         </div>
                         <div class="p-1 mx-2"><a href="#"
-                                                 class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
+                                                 class="text-decoration-none text-white black-bg p-1">Топ-100</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4 p-2 text-end">
                     <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
                     <div class="d-flex">
 
-                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
+                        <input class="form-control flex-fill mx-3 white-bg" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова"
                                aria-label="Название, автор, ключевые слова">
-                        <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
+                        <button class="btn bg-accent" aria-label="Искать" type="submit"
                                 onclick="searchTitle()">
                             <svg class="icon icon--filled">
                                 <title>Search</title>
@@ -79,7 +81,7 @@
     </nav>
 </header>
 
-<main>
+<main class="white-bg">
     <!-- login modal -->
     <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <form onsubmit="login(event)">
@@ -128,7 +130,7 @@
     <div class="empty-div-xl d-none d-xl-block"></div>
     <!-- Registration -->
     <div class="container w-75 mx-auto my-5">
-        <h1 class="text-center mb-5">Регистрация</h1>
+        <h1 class="text-center mb-5 text-main">Регистрация</h1>
         <div class="text-danger text-center h6"><p id="mistakes"></p></div>
 
         <form class="row g-3 justify-content-center" onsubmit="signup(event)" >
@@ -183,17 +185,17 @@
     </div>
 </main>
 
-<footer class="footer d-none d-md-block mt-auto">
-    <div class="container-fluid pt-3 px-5 mt-5">
+<footer class="footer d-none d-md-block mt-auto white-bg">
+    <div class="container-fluid pt-3 px-5 mt-5 text-main">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 ">
                 <p class="h5">"Фронт-энд разработка", Университет ИТМО</p>
                 <p>Лабораторные работы №1, №2. Домашние работы №2, №3, №4</p>
             </div>
             <div class="col-3 border-start border-danger py-2">
                 <p class="h6"><strong>Кормановская Дарина</strong>, K33401</p>
 
-                <p class="h6 text-danger">
+                <p class="h6 text-accent">
                     <svg class="icon icon--filled">
                         <title>Github</title>
                         <use xlink:href="../res/sprite.svg#github"></use>
