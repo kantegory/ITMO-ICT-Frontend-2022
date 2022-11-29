@@ -14,7 +14,7 @@ function loadPage(){
 function getBook({title, description, id, author, slug}, status){
     return `
         <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1 data-card-id="${id}>
-            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.jpg" class="card-img-top img-library" alt="${title}"></div>
+            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.webp" class="card-img-top img-library" alt="${title}"></div>
                 <div class="card-body">
                     <p class="text-truncate h6 mb-0">
                         <a onclick="fillModal(${id})"
@@ -37,7 +37,7 @@ async function fillModal(id) {
     document.getElementById('modaltitle').textContent = book['title']
     document.getElementById('modaldesc').textContent = book['description']
     document.getElementById('modalauthor').textContent = book['author']
-    document.getElementById('modalimg').src = `../res/${book['slug']}.jpg`
+    document.getElementById('modalimg').src = `../res/${book['slug']}.webp`
 
     const response2 = await fetch(`http://localhost:3000/genre/${book['genreId']}`)
     const genre = await response2.json()

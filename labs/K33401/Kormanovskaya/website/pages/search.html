@@ -36,8 +36,6 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                                             href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/search.html">Библиотека</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Книжные
-                        клубы</a></li>
                     <li class="nav-item" id="navLogin">
                         <button class="btn btn-success" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#loginModal">Войти
@@ -60,14 +58,17 @@
                                                  class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
                     </div>
                 </div>
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 p-2 text-end">
+                    <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
                     <div class="d-flex">
+
                         <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова"
                                aria-label="Название, автор, ключевые слова">
                         <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
                                 onclick="searchTitle()">
                             <svg class="icon icon--filled">
+                                <title>Search</title>
                                 <use xlink:href="../res/sprite.svg#search"></use>
                             </svg>
                         </button>
@@ -194,12 +195,13 @@
                             </p>
                             <b><span id="modalrate" class="text-danger text-end">4.5 </span> / 5
                                 <svg class="icon">
+                                    <title>Rate</title>
                                     <use xlink:href="../res/sprite.svg#star"></use>
                                 </svg>
                             </b>
                         </div>
                         <div class="col-5">
-                            <img class="img-rate" id="modalimg" src="../res/naruto2.jpeg" alt="Изображение книги">
+                            <img class="img-rate" id="modalimg" src="../res/naruto2.webp" alt="Изображение книги">
                         </div>
 
                     </div>
@@ -233,9 +235,11 @@
 
                 <p class="h6 text-danger">
                     <svg class="icon icon--filled">
+                        <title>Github</title>
                         <use xlink:href="../res/sprite.svg#github"></use>
                     </svg>
                     <svg class="icon icon--filled">
+                        <title>Telegram</title>
                         <use xlink:href="../res/sprite.svg#tg"></use>
                     </svg>
                     eispoohw

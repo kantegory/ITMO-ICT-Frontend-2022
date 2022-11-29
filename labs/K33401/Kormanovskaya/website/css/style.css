@@ -14,8 +14,8 @@
 
 .icon {
     stroke: currentColor;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     fill: none;
 }
 
@@ -58,8 +58,10 @@
 }
 
 .img-library {
-    margin-top: -4em;
-    margin-bottom: -4em;
+    margin-top: -30px;
+    margin-bottom: -30px;
+    width: 200px;
+    height: 280px;
 }
 
 .adv {

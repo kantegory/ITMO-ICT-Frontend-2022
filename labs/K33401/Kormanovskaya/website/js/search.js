@@ -1,4 +1,4 @@
-const LIMIT = 20
+const LIMIT = 12
 const params = new URLSearchParams(window.location.search)
 
 /*
@@ -39,7 +39,7 @@ async function loadChGenres() {
 function getBookCardHtml({id, title, author, rate, slug}) {
     return `
         <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1" data-card-id="${id}" id="b${id}">
-            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.jpg" class="card-img-top img-library" alt="${title}"></div>
+            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.webp" class="card-img-top img-library" alt="${title}"></div>
                 <div class="card-body">
                     <p class="text-truncate h6 mb-0">
                         <a onclick="fillModal(${id})"
@@ -49,6 +49,7 @@ function getBookCardHtml({id, title, author, rate, slug}) {
                     </p>
                     <p class="text-muted text-truncate mb-0"><small>${author}</small></p>
                     <div class="row"><p class="col text-end mb-0 mt-3"><small><span class="text-danger">${rate}</span> / 5 <svg class="icon">
+                    <title>Rate</title>
                                     <use xlink:href="../res/sprite.svg#star"></use></svg></small></p></div>
                 </div>
             </div>
@@ -75,7 +76,7 @@ function changeState(idx, disabled = true) {
 }
 
 // Replacing cards on the page
-async function loadBooks(page, limit = 20) {
+async function loadBooks(page, limit = 12) {
     document.querySelector("#library").innerHTML = ""
     const load_params = new URLSearchParams(window.location.search)
     load_params.append('_page', page.toString())
@@ -137,7 +138,7 @@ async function fillModal(id) {
     document.getElementById('modalId').textContent = book['id']
     document.getElementById('modaldesc').textContent = book['description']
     document.getElementById('modalauthor').textContent = book['author']
-    document.getElementById('modalimg').src = `../res/${book['slug']}.jpg`
+    document.getElementById('modalimg').src = `../res/${book['slug']}.webp`
     document.getElementById('modalrate').textContent = book['rate'].toString()
     const response2 = await fetch(`http://localhost:3000/genre/${book['genreId']}`)
     const genre = await response2.json()

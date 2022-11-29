@@ -35,8 +35,6 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                                             href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/search.html">Библиотека</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Книжные
-                        клубы</a></li>
                     <li class="nav-item" id="navLogin">
                         <button class="btn btn-success" type="submit" data-bs-toggle="modal"
                                 data-bs-target="#loginModal">Войти
@@ -59,14 +57,17 @@
                                                  class="text-decoration-none text-white bg-dark p-1">Топ-100</a></div>
                     </div>
                 </div>
-                <div class="col col-lg-4">
+                <div class="col col-lg-4 p-2 text-end">
+                    <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
                     <div class="d-flex">
+
                         <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова"
                                aria-label="Название, автор, ключевые слова">
                         <button class="btn btn-outline-dark" aria-label="Искать" type="submit"
                                 onclick="searchTitle()">
                             <svg class="icon icon--filled">
+                                <title>Search</title>
                                 <use xlink:href="../res/sprite.svg#search"></use>
                             </svg>
                         </button>
@@ -143,7 +144,7 @@
                              или доведенное до абсолюта «общество идеи»? По Оруэллу, нет и не может быть ничего ужаснее
                              тотальной несвободы...">
                             <div class="card-body">
-                                <img src="../res/1984.jpg" class="img-fluid shadow mb-1" alt="Изображение книги">
+                                <img src="../res/1984.webp" class="img-fluid shadow mb-1" alt="Изображение книги">
                                 <p class="text-truncate h6 mb-0 d-none d-sm-block">
                                     <a href="#" class="text-decoration-none text-dark">1984</a>
                                 </p>
@@ -158,7 +159,7 @@
                              в тот мир, что лежит «по ту сторону». Таинственный, манящий, обнажающий чувства подвал, куда могут
                              войти только избранные. Пока не накатит очередная «Волна».">
                             <div class="card-body">
-                                <img src="../res/fight-club.jpg" class="img-fluid shadow mb-1" alt="Изображение книги">
+                                <img src="../res/fight-club.webp" class="img-fluid shadow mb-1" alt="Изображение книги">
                                 <p class="text-truncate h6 mb-0 d-none d-sm-block">
                                     <a href="#" class="text-decoration-none text-dark">Бойцовский клуб</a>
                                 </p>
@@ -173,7 +174,7 @@
                              князя Гвидона, который из-за козней тёток попадает на необитаемый остров, встречает там
                              волшебницу — царевну Лебедь, с её помощью становится могущественным владыкой и воссоединяется с отцом.">
                             <div class="card-body">
-                                <img src="../res/fairytale.jpg" class="img-fluid img-rate shadow mb-1" alt="Изображение книги">
+                                <img src="../res/fairytale.webp" class="img-fluid img-rate shadow mb-1" alt="Изображение книги">
                                 <p class="text-truncate h6 mb-0  d-none d-sm-block">
                                     <a href="#" class="text-decoration-none text-dark">Сказка о царе Салтане</a>
                                 </p>
@@ -206,7 +207,7 @@
                              выпускницей университета Анастейшей Стил; в книге содержатся сцены откровенного сексуального характера,
                              в том числе с БДСМ.">
                             <div class="card-body">
-                                <img src="../res/fifty.jpg" class="img-fluid img-rate shadow mb-1" alt="Изображение книги">
+                                <img src="../res/fifty.webp" class="img-fluid img-rate shadow mb-1" alt="Изображение книги">
                                 <p class="text-truncate h6 mb-0 d-none d-sm-block">
                                     <a href="#" class="text-decoration-none text-dark">Пятьдесят оттенков серого</a>
                                 </p>
@@ -234,9 +235,11 @@
 
                 <p class="h6 text-danger">
                     <svg class="icon icon--filled">
+                        <title>Github</title>
                         <use xlink:href="../res/sprite.svg#github"></use>
                     </svg>
                     <svg class="icon icon--filled">
+                        <title>Telegram</title>
                         <use xlink:href="../res/sprite.svg#tg"></use>
                     </svg>
                     eispoohw
