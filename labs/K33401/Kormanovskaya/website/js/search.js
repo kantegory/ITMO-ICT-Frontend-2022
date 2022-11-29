@@ -1,24 +1,5 @@
-const separator = "abracadabra"
+const LIMIT=20
 const params = new URLSearchParams(window.location.search)
-const sorts = {
-    2: function (a, b) {
-        if (Number(a.rate) > Number(b.rate)) {
-            return 1;
-        }
-        if (Number(a.rate) < Number(b.rate)) {
-            return -1;
-        }
-        return 0
-    }, 1: function (a, b) {
-        if (Number(a.rate) < Number(b.rate)) {
-            return 1;
-        }
-        if (Number(a.rate) > Number(b.rate)) {
-            return -1;
-        }
-        return 0
-    }
-}
 
 /*
  * FILTRATION
@@ -37,7 +18,6 @@ async function loadVolume() {
         document.getElementById(`v${params.get('timeToReadId')}`).selected = true
     }
 }
-
 // genreId
 async function loadChGenres() {
     const response = await fetch("http://localhost:3000/genre")
@@ -55,11 +35,10 @@ async function loadChGenres() {
 /*
  * BOOK CARDS GENERATION
  */
-
 function getBookCardHtml({id, title, author, rate, slug}) {
     return `
         <div class="card col col-10 col-sm-5 col-md-3 col-xl-2 p-0 m-1" data-card-id="${id}" id="b${id}">
-            <div class="overflow-hidden d-none d-sm-block"><img src="res/${slug}.jpg" class="card-img-top img-library" alt="${title}"></div>
+            <div class="overflow-hidden d-none d-sm-block"><img src="../res/${slug}.jpg" class="card-img-top img-library" alt="${title}"></div>
                 <div class="card-body">
                     <p class="text-truncate h6 mb-0">
                         <a onclick="fillModal(${id})"
@@ -92,88 +71,56 @@ function changeState(idx, disabled = true) {
     }
 }
 // Replacing cards on the page
-function changePage(idx, prev = false, next = false) {
-    const pages = localStorage.pages.split(separator)
+async function loadBooks(page, limit=20) {
+    document.querySelector("#library").innerHTML = ""
+    const load_params = new URLSearchParams(window.location.search)
+    load_params.append('_page', page.toString())
+    load_params.append('_limit', limit.toString())
+    const response = await fetch(`http://localhost:3000/books?${load_params.toString()}`)
 
+    const responseJson = await response.json()
+    for (const book of responseJson) {
+        document.querySelector("#library").innerHTML += getBookCardHtml(book)
+    }
+}
+// Update page
+function changePage(idx, prev = false, next = false) {
     if (prev) idx = Number(localStorage.currentpage) - 1
     if (next) idx = Number(localStorage.currentpage) + 1
-
-    document.querySelector("#library").innerHTML = ""
-    document.querySelector("#library").innerHTML += pages[idx]
-
-    changeState(idx)
     changeState(Number(localStorage.currentpage), false)
-
+    changeState(idx)
     localStorage.currentpage = idx
-
+    loadBooks(Number(idx)+1)
     changeState('prev', Number(localStorage.currentpage) === 0)
-    changeState('next', Number(localStorage.currentpage) === pages.length - 1)
+    changeState('next', Number(localStorage.currentpage) === (Math.ceil(Number(localStorage.pages) / LIMIT) - 1))
 }
 
-async function loadBooks() {
-    const loadparams = new URLSearchParams()
-    if (params.has('timeToReadId')) {
-        loadparams.set('timeToReadId', params.get('timeToReadId'))
-    }
-    if (params.has('genreId')) {
-        loadparams.set('genreId', params.get('genreId'))
-    }
-    let compare = ""
-    if (params.has('textSearch')) {
-        compare = params.get('textSearch').toLowerCase()
-    }
-
-    const response = await fetch(`http://localhost:3000/books?${loadparams.toString()}`)
-    const responseJson = await response.json()
-    const rawpages = []
-
-    for (const book of responseJson) {
-        if (compare !== "" && (book.title.toLowerCase().includes(compare) || book.author.toLowerCase().includes(compare)) || compare === "") {
-            rawpages.push(book)
-        }
-    }
-
-    if (compare !== "") {
+async function generatePage() {
+    if (params.has('q')){
         document.getElementById('searchWordInfo').hidden = false
-        document.getElementById('searchWord').textContent = compare
+        document.getElementById('searchWord').textContent = params.get('q')
     }
-
-    if (rawpages.length !== 0) {
-        if (params.has('sort')) {
-            rawpages.sort(sorts[params.get('sort')])
-        }
-
-        const pages = []
-        let counter = 0
-        const bound = 20
-
-        document.querySelector("#pages").innerHTML += getPaginationButtonHTML('prev', 'Предыдущая', true, false)
-        changeState('prev')
-
-        for (const p of rawpages) {
-            const idx = Math.floor(counter / bound)
-            if (counter % bound === 0) {
-                document.querySelector("#pages").innerHTML += getPaginationButtonHTML(idx, idx + 1)
-                pages.push("")
+    const response = await fetch(`http://localhost:3000/books?${params.toString()}`)
+    const responseJson = await response.json()
+    localStorage.pages = responseJson.length
+    if (Number(localStorage.pages) !== 0){
+        if (Number(localStorage.pages) > LIMIT) {
+            document.querySelector("#pages").innerHTML += getPaginationButtonHTML('prev', 'Предыдущая', true, false)
+            for (let i=0; i<Math.ceil(Number(localStorage.pages) / LIMIT); i++){
+                document.querySelector("#pages").innerHTML += getPaginationButtonHTML(i, i + 1)
             }
-            pages[idx] += getBookCardHtml(p)
-            counter++
+            document.querySelector("#pages").innerHTML += getPaginationButtonHTML('next', 'Следующая', false, true)
+            localStorage.currentpage = 0
+            changePage(0)
         }
-        document.querySelector("#pages").innerHTML += getPaginationButtonHTML('next', 'Следующая', false, true)
-        if (counter < bound) {
-            changeState('next')
+        else {
+            loadBooks(1)
         }
-
-        document.querySelector("#library").innerHTML += pages[0]
-        localStorage.pages = pages.join(separator)
-        localStorage.currentpage = 0
-        changeState(localStorage.currentpage)
     } else {
-        localStorage.pages = null
-        localStorage.currentpage = 0
         document.querySelector("#pages").innerHTML += `<p>Нет соответствий :'(</p>`
     }
 }
+
 
 /*
  * BOOK'S MODAL WINDOW
@@ -186,7 +133,7 @@ async function fillModal(id) {
     document.getElementById('modalId').textContent = book['id']
     document.getElementById('modaldesc').textContent = book['description']
     document.getElementById('modalauthor').textContent = book['author']
-    document.getElementById('modalimg').src = `res/${book['slug']}.jpg`
+    document.getElementById('modalimg').src = `../res/${book['slug']}.jpg`
     document.getElementById('modalrate').textContent = book['rate'].toString()
     const response2 = await fetch(`http://localhost:3000/genre/${book['genreId']}`)
     const genre = await response2.json()
@@ -218,34 +165,34 @@ async function addBook(read=false){
     else {
         data['status'] = 'отложено'
     }
-
-    console.log(data)
-    const response = await fetch('http://localhost:3000/user_book', {
+    await fetch('http://localhost:3000/user_book', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-    const responseJson = await response.json()
-    console.log(responseJson)
     document.getElementById('buttonsmodal').hidden = true
     document.getElementById('already-added').hidden = false
 }
 
 
 
-function search(event) {
+function search() {
     const updateparams = new URLSearchParams()
     if (document.getElementById('chGenre').value !== '-1') updateparams.set('genreId', document.getElementById('chGenre').value)
     if (document.getElementById('chVolume').value !== '-1') updateparams.set('timeToReadId', document.getElementById('chVolume').value)
-    if (document.getElementById('sort').value !== '-1') updateparams.set('sort', document.getElementById('sort').value)
-    searchTitle(updateparams)
+    if (document.getElementById('sort').value !== '-1') {
+        const asc = Number(document.getElementById('sort').value) === 2 ? 'acs' : 'desc'
+        updateparams.set('_sort', 'rate')
+        updateparams.set('_order', asc)
+    }
+    window.location.replace(`http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/search.html?${updateparams.toString()}`)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     loadVolume()
     loadChGenres()
-    loadBooks()
+    generatePage()
 })
 
