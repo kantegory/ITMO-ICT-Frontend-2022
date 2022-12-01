@@ -130,7 +130,7 @@
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
+                td = tr[i].getElementsByTagName("td")[1];
                 if (td) {
                     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
@@ -148,7 +148,7 @@
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[0];
                 if (td) {
                     if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
@@ -256,18 +256,8 @@
             window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
         }
 
-        function checkAuth() {
-            if (localStorage.accessToken) {
-            }
-            else {
-                alert("У вас нет доступа к запршиваему ресурсу")
-                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             load_table();
-            checkAuth();
         })
 
 

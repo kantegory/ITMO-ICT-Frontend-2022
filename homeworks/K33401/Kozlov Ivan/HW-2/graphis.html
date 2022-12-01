@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Войти </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light sidebarNavigation color-me "
+        data-sidebarClass="navbar-dark bg-dark" style="background-color: #145ee7;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" style="color: #ffffff;">IK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav nav-flex-icons ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="color: #ffffff;"> Главаня страница
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workers.html" style="color: #ffffff;">Сотрудники</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goods_monitor.html" style="color: #ffffff;">Учет товара</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="graphis.html" style="color: #ffffff;">Графики продаж</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" style="color: #ffffff;">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <article class="card-body">
+                        <form onsubmit="get_needed_goodes(event)">
+
+                            <label>Введите нужные артикулы товара </label>
+                            <input required type="text" class="form-control" placeholder="1,2,3..." name="articuls"
+                                id="articuls">
+
+                            <div class="form-group d-flex flex-column justify-content-start">
+                                <br>
+                                <button type="" class="btn btn-primary" onclick="">
+                                    Отправить
+                                </button>
+                            </div> <!-- form-group// -->
+                        </form>
+
+                    </article> <!-- card-body end .// -->
+                    <a href="http://127.0.0.1:5501/lab_1/graphis.html" style="text-decoration: none;">
+
+                        <div class="form-group d-flex flex-column justify-content-center p-3">
+
+                            <button type="" class="btn btn-danger" onclick="">
+                                Сбросить график
+                            </button>
+
+                        </div>
+
+                    </a>
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+        </div> <!-- row.//-->
+
+    </div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+
+    </div>
+
+    <script>
+
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        }
+
+        function checkAuth() {
+            if (localStorage.accessToken) {
+            }
+            else {
+                alert("У вас нет доступа к запршиваему ресурсу")
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        // функция по сортировке, по товару
+
+        const labels_for = []
+        const count_for = []
+
+        async function get_needed_goodes(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const sort_data = {}
+
+            for (const input of inputs) {
+                sort_data.needed_id = input.value.split(',') // по ключу будет получен массив
+            }
+
+            const needed_id = sort_data.needed_id // нужный массив id
+
+            console.log('МАССИВ', needed_id)
+
+            for (const i of needed_id) {
+                var link = "http://localhost:3000/goods_monitor/" + i
+                const response = await fetch(link, {
+                    method: "GET"
+                })
+
+                console.log('ОТВЕТ', response)
+                const responseJson = await response.json()
+
+                if (response.status != 404) 
+                {
+                    labels_for.push(responseJson.name)
+                    count_for.push(responseJson.count)
+                }
+
+            }
+
+            create_graph(labels_for, count_for);
+
+        }
+
+        function create_graph(labels_for, count_for) {
+
+            console.log("START", "Я вызвался")
+
+            if (labels_for.length != 0) {
+
+                const labels = labels_for
+
+                const data = {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Продажи',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: count_for,
+                    }]
+                };
+
+                const config = {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Количество'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Наименования товара'
+                                }
+                            }
+                        }
+                    }
+                };
+
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+        })
+    </script>
+
+
+</body>
+
+</html>
