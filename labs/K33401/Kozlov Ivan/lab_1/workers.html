@@ -58,7 +58,16 @@
     </nav>
     <a href="add_workers.html" style="text-decoration: none;">
         <div class="d-flex justify-content-end ">
-            <button type="button" class="btn-dark p-2 flex-grow-1">Добавить сотрудника</button>
+            <button type="button" class="btn-dark p-2 flex-grow-1">
+
+                <svg width="20px" height="25px" fill="#ffffff">
+
+                    <use xlink:href="sprite.svg#add">
+
+                    </use>
+                </svg>
+                Добавить сотрудника
+            </button>
         </div>
     </a>
 
@@ -217,9 +226,18 @@
                 <td>${email}</td>
                 <td>${position}</td>
                 <td class="d-flex justify-content-start gap-2">
+                    
                         <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
-                            onclick="fill_forms(this)">Редактировать</button>
-                        <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
+                            onclick="fill_forms(this)"> 
+                            <svg width="20px" height="25px">
+                                <use xlink:href="sprite.svg#pencil"></use>
+                              </svg>
+                            Редактировать</button>
+                        <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)"> 
+                            <svg width="13px" height="16px">
+                                <use xlink:href="sprite.svg#trash"></use>
+                              </svg>
+                            Удалить</button>
                 </td>
             </tr>
 
