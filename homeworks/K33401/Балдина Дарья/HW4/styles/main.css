@@ -1,0 +1,29 @@
+.section {
+    background-color: var(--bg-color)
+}
+
+.subtext {
+    color:  var(--subtext-color)
+}
+
+.text{
+    color:  var(--text-color)
+}
+
+.card {
+    background-color: var(--card-color);
+    color: var(--text-card-color)
+}
+
+.admin {
+    color:  var(--admin-color)
+
+}
+
+.link {
+    color: var(--link-color)
+}
+
+.btn-primary {
+    background-color: var(--btn-color)
+}

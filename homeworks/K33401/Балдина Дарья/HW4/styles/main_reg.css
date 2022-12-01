@@ -1,0 +1,24 @@
+section {
+    background-color: var(--bg-color)
+}
+
+.card {
+    background-color: var(--card-color);
+    color: var(--text-card-color);
+    backdrop-filter: blur(30px)
+}
+
+.btn-primary {
+    background-color: var(--btn-color)
+}
+
+
+.cascading-right {
+    margin-right: -50px;
+  }
+
+  @media (max-width: 991.98px) {
+    .cascading-right {
+      margin-right: 0;
+    }
+  }
