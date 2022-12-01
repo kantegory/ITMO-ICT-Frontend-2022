@@ -223,8 +223,6 @@ function search() {
     query.set("_sort", document.querySelector('input[name="sortingOption"]:checked').value);
     query.set("_order", document.getElementById("sortingOrder").value);
 
-    console.log(query.toString())
-
     loadScenarios(query)
 }
 
