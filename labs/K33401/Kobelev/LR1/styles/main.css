@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--theme-primary-contrast);
+    font-family: sans-serif;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    stroke: currentColor;
+    margin-bottom: 0.15em;
+    overflow: visible;
+}
+
+.header, .footer {
+    background-color: var(--bs-light);
+}
+
+.card-img-top {
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-img-top-horizontal {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card {
+    min-height: 350px;
+    background-color: var(--card-bg-color);
+}
+
+.card-footer {
+    color: var(--theme-primary-contrast);
+    background-color: var(--bs-light);
+}
+
+.badge {
+    color: var(--theme-primary-contrast);
+    background-color: var(--bs-light);
+}
+
+.nav-item .active {
+    color: var(--theme-primary-contrast);
+}
+
+.nav-link {
+    color: var(--theme-primary-contrast-muted);
+}
+
+.author img {
+    max-height: 45px;
+}
+
+.btn-primary {
+    color: var(--bg-color);
+    background: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+.btn-outline-primary {
+    color: var(--theme-primary);
+    background-color: var(--bg-color);
+    border-color: var(--theme-primary)
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    color: white;
+    background: var(--theme-primary-dark);
+    border-color: var(--theme-primary-dark);
+}
+
+.btn-primary:focus, .btn-primary:active:focus, .btn-outline-primary:focus, .btn-outline-primary:active:focus {
+    color: white;
+    background: var(--theme-primary-dark);
+    box-shadow: 0 0 0 0.2rem var(--theme-primary-light);
+    border-color: var(--theme-primary-dark);
+}
+
+.btn-outline-danger {
+    color: var(--theme-red);
+    border-color: var(--theme-red);
+    background: var(--bg-color);
+}
+
+.btn-outline-danger.disabled {
+    color: var(--theme-red);
+    border-color: var(--theme-red);
+    background: var(--bg-color);
+}
+
+.btn-light, .dropdown-item {
+    color: var(--theme-primary-contrast);
+    background-color: var(--bs-light);
+}
+
+.btn-secondary.active {
+    color: var(--bs-light);
+    background-color: var(--theme-primary-contrast);
+}
+
+.dropdown-item:focus, .dropdown-item:active:focus, .dropdown-item:focus, .dropdown-item:active:focus {
+    color: white;
+    background: var(--bs-light);
+    box-shadow: 0 0 0 0.1rem var(--theme-primary-light);
+    border-color: var(--theme-primary-contrast);
+}
+
+.dropdown-menu {
+    background: var(--bs-light);
+    border-color: var(--theme-primary-contrast);
+}
+
+a, a:hover {
+    color: var(--theme-primary);
+}
+
+.modal-content {
+    background: var(--bs-light);
+}
+
+.form-control, .form-control:focus {
+    color: var(--theme-primary-contrast);
+    background: var(--bg-color);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.15rem var(--theme-primary-light);
+}
+
+label {
+    color: var(--theme-primary-contrast-muted);
+}
+
+.form-check-input {
+    border-color: var(--theme-primary-contrast-muted);
+    background-color: var(--bs-light);
+}
+
+.form-check-input:checked, .form-check-input:focus:active, .form-check-input:focus, .form-check-input:active {
+    border-color: var(--theme-primary);
+}
+
+.form-check-input:focus, .form-check-input:active, .form-check-input:checked {
+    color: var(--theme-primary-contrast);
+    background: var(--bg-color);
+}
+
+.form-check-input:checked {
+    background: var(--theme-primary);
+}
+
+.form-check-input:focus, .form-check-input:focus:active {
+    box-shadow: 0 0 0 0.15rem var(--theme-primary-light);
+}
+
+.btn-check:checked~.custom-control-label {
+    color: var(--bg-color);
+    background: var(--theme-primary);
+    border: var(--theme-primary);
+}
+
+.btn-check:hover~.custom-control-label {
+    background: var(--theme-primary-light);
+}
+
+.btn-check:active~.custom-control-label, .btn-check:focus~.custom-control-label {
+    background: var(--theme-primary);
+    box-shadow: 0 0 0 0.2rem var(--theme-primary-light);
+    border-color: var(--theme-primary);
+}
+
+.form-control::placeholder {
+    font-weight: lighter;
+    color: var(--theme-primary-contrast-muted);
+}
