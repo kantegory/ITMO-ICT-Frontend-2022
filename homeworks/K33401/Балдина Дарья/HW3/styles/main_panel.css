@@ -1,0 +1,25 @@
+.aside {
+    background-color: var(--bg-color)
+}
+
+.section {
+    background-color: var(--section-color);
+}
+h1,p {
+    color: var(--text-color);
+}
+
+h2, th, .table {
+   color: var(--h2-color);
+}
+
+.label {
+    color: var(--h2-color)
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
