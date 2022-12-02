@@ -15,17 +15,17 @@ async function setupUserProfile() {
 
     const edit_button = document.getElementById("edit-button")
     const done_button = document.getElementById("done-button")
-    edit_button.addEventListener("click", function() {
-        info.innerHTML=''
+    edit_button.addEventListener("click", function () {
+        info.innerHTML = ''
         info.contentEditable = 'true'
-        info.style.backgroundColor = '#E6E6FA'
-        done_button.classList.replace('invisible','visible')
+        // info.style.backgroundColor
+        done_button.classList.replace('invisible', 'visible')
     })
-    done_button.addEventListener("click", function() {
+    done_button.addEventListener("click", function () {
         info.contentEditable = 'false'
-        info.style.backgroundColor = 'white'
+        // info.style.backgroundColor
         info.classList.remove('placeholder_text')
-        done_button.classList.replace('visible','invisible')
+        done_button.classList.replace('visible', 'invisible')
         let user_input = info.innerHTML
         console.log(user_input)
         // send(user_input, user_id)
@@ -98,16 +98,25 @@ function generateEventCard(data) {
     let div = document.createElement('div')
     div.classList.add('card', 'col-xl-4', 'col-lg-3', 'col-md-6', 'col-sm-10', 'mx-3', 'mt-3')
     div.innerHTML = `
-            <img src="${data['img_src']}" class="card-img-top mt-2" style="height:210px" alt="">
+            <img src="${data['img_src']}" class="card-img-top mt-2" style="height:210px" alt="${data['title']}">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${data['title']}</h5>
+                <p class="card-title" style="font-size:18pt"><b>${data['title']}</b></p>
                 <p class="card-text">${data['address']}</p>
                 <p class="card-text">${data['short_description']}</p>
                 <p class="card-text"><b>${data['date']}</b></p>
-                <a href="./calendar.html" class="btn mt-auto btn-dark purple_button">Go to calendar</a>
+                <button id="calendar_btn_${data['id']}" aria-pressed="true" class="btn mt-auto btn-dark purple_button" onclick="goToCalendar()">
+                    <svg class="icon">
+                        <use xlink:href="src/sprite.svg#Calendar"></use>
+                    </svg>
+                    Go to calendar
+                </button>
             </div>        
     `
     return div
+}
+
+function goToCalendar() {
+    window.location.href = './calendar.html'
 }
 
 // async function send(user_input, user_id) {

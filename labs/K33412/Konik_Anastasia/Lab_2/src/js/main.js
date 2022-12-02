@@ -14,13 +14,17 @@ async function loadCards() {
 }
 
 function getCardHtml(data) {
-    return `<div class="event col-xl-4 col-lg-4 col-md-4 col-sm-6 card mx-3 mt-3 ${data['district']} ${data['type']}">
-            <img src="${data['img_src']}" class="card-img-top mt-2" style="height: 210px" alt="">
+    return `<div class="card event col-xl-4 col-lg-4 col-md-4 col-sm-6 card mx-3 mt-3 ${data['district']} ${data['type']}">
+            <img src="${data['img_src']}" class="card-img-top mt-2" style="height: 210px" alt="${data['title']}">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${data['title']}</h5>
+                <p class="card-title" style="font-size:18pt"><b>${data['title']}</b></p>
                 <p class="card-text">${data['address']}</p>
                 <p class="card-text">${data['short_description']}</p>
-                <button id="event_showmore_${data['id']}" onclick="goToEvent(this.id)" class="btn mt-auto btn-dark purple_button event_showmore_btn">Show more</button>
+                <button id="event_showmore_${data['id']}" aria-pressed="true" onclick="goToEvent(this.id)" class="btn mt-auto btn-dark purple_button event_showmore_btn">Show more
+                    <svg class="icon">
+                        <use xlink:href="src/sprite.svg#ShowMore"></use>
+                    </svg>
+                </button>
             </div>
     </div>`
 }
