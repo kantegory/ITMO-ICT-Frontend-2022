@@ -27,7 +27,7 @@
     </div>
 </header>
 
-<main class="bg-creme">
+<main class="bg-white">
     <section class="min-vh-100">
         <div class="container pt-5 pb-3 text-center">
             <div class="row">
@@ -70,14 +70,14 @@
         function getCardHTML({count, progress}, { id, name, abbreviation, price, date_added, image}) {
             return `
                 <div class="card shadow-sm my-3">
-                    <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                    <a href="./currency.html?id=${id}" class="btn btn-light text-bg-white text-left">
                         <div class="row d-flex align-items-center px-4">
                             <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
                                 <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
                             </div>
                             <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
                                 <div class="card-body">
-                                    <h5 class="card-title">${name}</h5>
+                                    <h5 class="card-title">${name} <small class="text-muted ">${abbreviation}</small></h5>
                                     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pb-3">
                                         <div class="col">
                                             <p class="card-text"><small class="text-muted ">Количество в портфеле:</small> ${count}</p>
@@ -134,7 +134,7 @@
 
 <footer class="bg-gray">
     <div class="container">
-        <p class="col-md-4 mb-0 text-muted py-3">&copy; 2022 Crypto Wallet, Inc</p>
+        <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
     </div>
 </footer>
 </body>

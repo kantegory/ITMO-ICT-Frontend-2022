@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <main class="bg-creme">
+    <main class="bg-white">
         <section class="min-vh-100">
             <section>
                 <div class="container">
@@ -61,11 +61,9 @@
                                 </div>
                             </div>
 
-                            <div class="menu-text btn-group flex-grow-1 py-5 px-5">
-                                <a class="btn btn-lg btn-orange" role="button" onclick="checkAuthForStart()">
-                                    Начать!
-                                </a>
-                            </div>
+                            <button type="button" class="btn btn-lg btn-orange my-5 mx-5" onclick="checkAuthForStart()">
+                                Начать!
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +81,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center pt-4">
-                        <a href="./markets.html" class="btn link-gray">
+                        <a href="./markets.html" class="link-gray">
                             Посмотреть больше
                         </a>
                     </div>
@@ -108,7 +106,7 @@
                 function getCardHTML({ id, name, abbreviation, price, count, daily_changes, weekly_changes, date_added, image}) {
                     return `
                         <div class="card shadow-sm my-3" data-card-id="${id}">
-                            <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                            <a href="./currency.html?id=${id}" class="btn btn-light text-bg-white text-left">
                                 <div class="row d-flex align-items-center px-4">
                                     <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
                                         <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
@@ -162,7 +160,7 @@
 
     <footer class="bg-gray">
         <div class="container">
-            <p class="col-md-4 mb-0 text-muted py-3">&copy; 2022 Crypto Wallet, Inc</p>
+            <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
         </div>
     </footer>
 </body>

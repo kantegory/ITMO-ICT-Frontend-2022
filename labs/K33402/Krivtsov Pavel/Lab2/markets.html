@@ -27,7 +27,7 @@
     </div>
 </header>
 
-<main class="bg-creme">
+<main class="bg-white">
     <section class="min-vh-100">
         <div class="container pt-5 pb-3">
             <h1>
@@ -38,10 +38,14 @@
         <hr class="featurette-divider">
 
         <div class="container pt-5">
-            <form class="d-flex" onsubmit="search(event)">
-                <input class="form-control mx-2" type="search" placeholder="Поиск криптовалюты (название/символ)" aria-label="Search">
+            <div class="input-group">
+                <form class="form-floating" onsubmit="search(event)">
+                    <input class="form-control" type="search" id="searchInput" placeholder="Поиск криптовалюты (название/символ)" aria-label="Search">
+                    <label for="searchInput">Поиск криптовалюты (название/символ)</label>
+                </form>
                 <button class="btn btn-orange" type="submit">Search</button>
-            </form>
+            </div>
+
             <button class="btn btn-orange mx-3 mt-3" onclick="sort(event)" id="sort_by_date">Сортировать по дате</button>
             <button class="btn btn-orange mx-3 mt-3" onclick="sort(event)" id="sort_by_price">Сортировать по цене</button>
         </div>
@@ -67,7 +71,7 @@
         function getCardHTML({ id, name, abbreviation, price, count, daily_changes, weekly_changes, date_added, image}) {
             return `
                 <div class="card shadow-sm my-3" data-card-id="${id}">
-                    <a href="./currency.html?id=${id}" class="btn btn-light text-left">
+                    <a href="./currency.html?id=${id}" class="btn btn-light text-bg-white text-left">
                         <div class="row d-flex align-items-center px-4">
                             <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
                                 <img src="${image}" style="max-height:100px; max-width:100px;" class="img rounded-start" alt="${name}">
@@ -168,7 +172,7 @@
 
 <footer class="bg-gray">
     <div class="container">
-        <p class="col-md-4 mb-0 text-muted py-3">&copy; 2022 Crypto Wallet, Inc</p>
+        <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
     </div>
 </footer>
 </body>

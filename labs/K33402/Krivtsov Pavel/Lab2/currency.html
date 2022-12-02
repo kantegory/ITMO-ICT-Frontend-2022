@@ -27,7 +27,7 @@
     </div>
 </header>
 
-<main class="bg-creme">
+<main class="bg-white">
     <section class="min-vh-100">
         <div class="container py-5">
             <div class="row row-cols-2">
@@ -78,7 +78,7 @@
         }
 
         function getCurrencyFrame() {
-            return `<iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=${currency["coinlib_id"]}&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>`
+            return `<iframe title="График роста ${currency["name"]}" src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=${currency["coinlib_id"]}&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>`
         }
 
         function checkAuth() {
@@ -191,7 +191,7 @@
                     }
                 })
 
-                if (response.status === 200) {
+                if (response.status === 200 || response.status === 201) {
                     await showToast()
                 }
             }
@@ -205,7 +205,7 @@
 
 <footer class="bg-gray">
     <div class="container">
-        <p class="col-md-4 mb-0 text-muted py-3">&copy; 2022 Crypto Wallet, Inc</p>
+        <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
     </div>
 </footer>
 </body>
