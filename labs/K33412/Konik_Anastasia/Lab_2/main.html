@@ -6,10 +6,26 @@
     <title>Main Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="src/styles.css" rel="stylesheet">
+    <link href="src/styling/styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+
+    <meta name="color-scheme" content="light dark">
+
+    <script>
+        if (matchMedia('(prefers-color-scheme:dark)').media === 'not all') {
+            document.documentElement.style.display = 'none';
+            document.head.insertAdjacentHTML(
+                'beforeend',
+                '<link href="src/styling/light.css" rel="stylesheet" onload="document.documentElement.style.display=\'\'">'
+            );
+        }
+    </script>
+
+    <link href="src/styling/styles.css" rel="stylesheet">
+    <link href="src/styling/light.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+    <link href="src/styling/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
     <script src="src/js/filter.js"></script>
     <script src="src/js/menu.js"></script>
     <script src="src/js/main.js"></script>
@@ -17,9 +33,9 @@
 
 <body>
 <header class="container-fluid">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" id="Menu_btn" aria-label="Menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
@@ -48,11 +64,11 @@
 <main class="container-xl p-5 mb-5">
     <h1 class="row mb-3 justify-content-center">Events in Saint-Petersburg</h1>
     <div class="text-center">
-        <img src="src/img/spb.jpg" class="rounded col-6" alt="">
+        <img src="src/img/spb.jpg" class="rounded col-6" alt="Photo of Saint-Petersburg">
     </div>
     <section class="filtration" onchange="searchFilter()">
         <div class="form text-center col-sm-6 col-lg-4 col-xl-3 mt-3 mx-auto">
-            <select class=form-select-sm" aria-label=".form-select-sm example" id="filter_by_type">
+            <select class="filter form-select-sm" aria-label=".form-select-sm example" id="filter_by_type">
                 <option selected>Event type</option>
                 <option value="theater">Theaters</option>
                 <option value="concert">Concerts</option>
@@ -62,7 +78,7 @@
             </select>
         </div>
         <div class="form text-center col-sm-6 col-lg-4 col-xl-3 mt-3 mx-auto">
-            <select class=form-select-sm" aria-label=".form-select-sm example" id="filter_by_place">
+            <select class="filter form-select-sm" aria-label=".form-select-sm example" id="filter_by_place">
                 <option selected>Choose district</option>
                 <option value="admiralteysky">Admiralteysky</option>
                 <option value="petrogradsky">Petrogradsky</option>

@@ -6,10 +6,25 @@
     <title>Your profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="src/styles.css" rel="stylesheet">
+    <link href="src/styling/styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+
+    <script>
+        if (matchMedia('(prefers-color-scheme:dark)').media === 'not all') {
+            document.documentElement.style.display = 'none';
+            document.head.insertAdjacentHTML(
+                'beforeend',
+                '<link href="src/styling/light.css" rel="stylesheet" onload="document.documentElement.style.display=\'\'">'
+            );
+        }
+    </script>
+    <meta name="color-scheme" content="light dark">
+
+    <link href="src/styling/styles.css" rel="stylesheet">
+    <link href="src/styling/light.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+    <link href="src/styling/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
     <script src="src/js/menu.js"></script>
     <script src="src/js/auth.js"></script>
     <script src="src/js/profile.js"></script>
@@ -17,27 +32,27 @@
 
 <body>
 <header class="container-fluid">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" id="Menu_btn" aria-label="Menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active menu_item" href="./main.html">Main</a>
+                        <a class="nav-link active" href="./main.html">Main</a>
                     </li>
                     <li class="nav-item signinup_link">
-                        <a class="nav-link active menu_item" href="./sign_in.html">Sign in</a>
+                        <a class="nav-link active" href="sign_in.html">Sign in</a>
                     </li>
                     <li class="nav-item signinup_link">
-                        <a class="nav-link active menu_item" href="./sign_up.html">Sign up</a>
+                        <a class="nav-link active" href="./sign_up.html">Sign up</a>
                     </li>
                     <li class="nav-item profile_link">
-                        <a class="nav-link active menu_item" href="./profile.html">Profile</a>
+                        <a class="nav-link active" href="./profile.html">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active menu_item" href="./calendar.html">Calendar</a>
+                        <a class="nav-link active" href="./calendar.html">Calendar</a>
                     </li>
                 </ul>
             </div>
@@ -48,25 +63,33 @@
 <main class="container p-5 mb-5">
     <section id="user_profile" class="container row mx-auto">
         <div class="row d-flex col-md-5 col-lg-4 col-xl-4 col-sm-8">
-            <img id="user_image" src="" alt="">
+            <img id="user_image" src="" alt="User image">
         </div>
         <div class="row d-flex col-xl-6 col-lg-8 col-md-8 col-sm-12">
-            <ul>
-                <h1 id="user_name" class="text mt-3"></h1>
-                <p id="user_login" class="text mt-3" style="font-size: 14pt"></p>
-                <p id="user_info" class="text mt-2 placeholder_text">Tell something about yourself</p>
-            </ul>
+<!--            <ul>-->
+                <h1 id="user_name" class="text"></h1>
+                <p id="user_login" class="text" style="font-size: 14pt"></p>
+                <p id="user_info" class="info text placeholder_text">Tell something about yourself</p>
+<!--            </ul>-->
         </div>
         <div>
-            <a class="btn btn-primary mt-3 mx-1" role="button" id="edit-button" aria-pressed="true">Edit profile</a>
-            <a class="btn btn-success mt-3 invisible" role="button" id="done-button" aria-pressed="true">Done</a>
+            <button class="btn btn-primary mt-3 mx-1" role="button" id="edit-button" aria-pressed="true">Edit profile
+                <svg class="icon">
+                    <use xlink:href="src/sprite.svg#Edit"></use>
+                </svg>
+            </button>
+            <button class="btn btn-success mt-3 invisible" role="button" id="done-button" aria-pressed="true">Done
+                <svg class="icon">
+                    <use xlink:href="src/sprite.svg#Done"></use>
+                </svg>
+            </button>
         </div>
         <div>
             <button class="btn btn-secondary mt-3 mx-1" onclick="logout()" role="button" aria-pressed="true">Log out</button>
         </div>
     </section>
     <section id="user_events" class="container row mx-auto justify-content-center">
-        <h4 class="text mt-4">Your events:</h4>
+        <p class="text mt-4" style="font-size: 20pt"><b>Your events:</b></p>
     </section>
 </main>
 
