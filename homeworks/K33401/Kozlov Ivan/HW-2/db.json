@@ -1,0 +1,60 @@
+{
+  "workers": [
+    {
+      "name": "Антон",
+      "last_name": "Калашников",
+      "phone": "+79888888888",
+      "email": "ex@ex.ru",
+      "position": "44",
+      "id": 1
+    },
+    {
+      "name": "Наталья",
+      "last_name": "Ростова",
+      "phone": "+79993333333",
+      "email": "rost@nat.ru",
+      "position": "5",
+      "id": 2
+    }
+  ],
+  "goods_monitor": [
+    {
+      "articul": "3",
+      "name": "Очки",
+      "type": "Аксессуары",
+      "count": "340",
+      "id": 1
+    },
+    {
+      "articul": "2",
+      "name": "Кофта",
+      "type": "Одежда",
+      "count": "100",
+      "id": 2
+    },
+    {
+      "articul": "1",
+      "name": "Зонтик",
+      "type": "Аксессуары ",
+      "count": "200",
+      "id": 3
+    },
+    {
+      "articul": "45",
+      "name": "Шорты",
+      "type": "Одежда",
+      "count": "120",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "lbvfzx@gmail.com",
+      "password": "$2a$10$.nafdfoFen5wAZWpo7i4yeK7KNsmMjBD.8gyLLdj0O4dtyQCPvTEm",
+      "name": "Ivan",
+      "last_name": "Kozlov",
+      "id": 1
+    }
+  ],
+  "login": []
+}

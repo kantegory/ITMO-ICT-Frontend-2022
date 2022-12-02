@@ -1,0 +1,36 @@
+.navigation-bar {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 40px 8px 10px;
+    margin: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+.nav-logo {
+    width: 12%;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.form-control {
+    height: 70px;
+    border-radius: 8px;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.btn-primary {
+    height: 70px;
+}

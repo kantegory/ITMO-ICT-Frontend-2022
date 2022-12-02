@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,45 +21,24 @@
     <!-- Navigation bar -->
     <nav class="navbar navbar-dark black-bg navbar-expand-md justify-content-end">
         <div class="container-fluid">
-            <a class="navbar-brand title-font text-white ms-2" href="index.html"><h2>Читае<span
-                class="text-danger">м</span>ы</h2></a>
+            <a class="navbar-brand title-font text-white ms-2" href="http://localhost:9999/LW1/index.html">
+                <h2>Читае<span class="text-danger">м</span>ы</h2>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Библиотека</a>
+                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3" id="navbarTop">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                            href="http://localhost:9999/LW1/search.html">Библиотека</a>
                     </li>
                     <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Книжные
                         клубы</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Моя полка
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end"
-                            aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item disabled container-fluid">
-                                <div class="row align-items-center py-2 mx-auto">
-                                    <div class="col col-4">
-                                        <img class="w-100 mx-auto border border-2 border-danger"
-                                             src="res/big-pig-face.png" alt="Аватар пользователя Ву Пси">
-                                    </div>
-                                    <div class="col col-8 gy-1">
-                                        <p class="h5 black"><strong>Ву Пси</strong></p>
-                                        <p class="h6 text-danger text-wrap"><small>Сын маминой подруги</small></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Читательский билет</a></li>
-                            <li><a class="dropdown-item" href="#">Книжная полка</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Литературный клуб</a></li>
-                            <li>
-                                <hr class="dropdown-divider bg-danger">
-                            </li>
-                            <li><a class="dropdown-item black" href="#">Выйти</a></li>
-                        </ul>
+                    <li class="nav-item" id="navLogin">
+                        <button class="btn btn-success" type="submit" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">Войти
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -68,37 +48,18 @@
         <div class="container-fluid">
             <div class="row w-100 align-items-center">
                 <div class="col col-lg-8 d-none d-lg-flex">
-                    <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                    <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Новинки</a></div>
                         <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-warning">Топ-100</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фэнтези</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Современная проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фантастика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Мистика</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Приключения</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Подростковая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Сказки</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Фанфики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Ужасы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Поэзия</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Детективы</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Любовные романы</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Историческая проза</a>
-                        </div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Боевики</a></div>
-                        <div class="p-1 mx-2"><a href="#" class="text-decoration-none text-white">Политические
-                            романы</a></div>
                     </div>
                 </div>
                 <div class="col col-lg-4">
-                    <form class="d-flex" role="search">
-                        <input class="form-control flex-fill mx-3" type="search"
+                    <div class="d-flex">
+                        <input class="form-control flex-fill mx-3" type="search" id="textSearch"
                                placeholder="Название, автор, ключевые слова" aria-label="Поиск">
-                        <button class="btn btn-outline-dark bi bi-search" type="submit"></button>
-                    </form>
+                        <button class="btn btn-outline-dark bi bi-search" type="submit"
+                                onclick="searchTitle()"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,23 +72,20 @@
     <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
     <div class="empty-div-xl d-none d-xl-block"></div>
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="card col col-11 col-md-3 border-start p-3 mb-5">
                 <div class="row align-items-center py-2 mx-auto mb-5">
                     <div class="col col-11 col-sm-7 gy-1">
-                        <p class="h3 black"><strong>Ву Пси</strong></p>
-                        <p class="h5 text-danger text-wrap"><small>Сын маминой подруги</small></p>
+                        <p class="h3 black"><strong id="login">Имя</strong></p>
+                        <p class="h5 text-danger text-wrap"><small id="email">Почта</small></p>
                     </div>
-                    <div class="col col-11 col-sm-4">
-                        <img class="w-100 mx-auto border border-2 border-danger d-none d-sm-flex"
-                             src="res/big-pig-face.png" alt="Аватар пользователя Ву Пси">
-                    </div>
+                    <div class="col col-11 col-sm-4" id="avatar"></div>
                 </div>
                 <div class="py-2 ms-5">
-                    <p><b>Прочитано книг:</b> 500</p>
-                    <p><b>Оставлено отзывов:</b> 499</p>
-                    <p><b>Книг на полке:</b> 99999</p>
+                    <p><b>Прочитано книг:</b><span id="readBooks"></span></p>
+                    <p><b>Оставлено отзывов:</b><span id="rateBooks"></span></p>
+                    <p><b>Книг на полке:</b><span id="lenBooks"></span></p>
                 </div>
             </div>
             <div class="col col-11 col-md-7">
@@ -139,19 +97,8 @@
                 <!-- Achievements -->
                 <div class="container-75 mx-auto mb-3">
                     <h3 class="ms-5">Достижения</h3>
-                    <div class="d-flex flex-row flex-wrap ms-5 justify-content-start">
-                        <div class="card m-3 p-2 border border-danger border-2">
-                            <h6 class="card-title text-danger">Слезы это просто вода</h6>
-                            <p><small>Прочитано 30 драм</small></p>
-                        </div>
-                        <div class="card m-3 p-2 border border-danger border-2">
-                            <h6 class="card-title text-danger">Зачем?</h6>
-                            <p><small>Ты прочитал гигантский фанфик</small></p>
-                        </div>
-                        <div class="card m-3 p-2 border border-danger border-2">
-                            <h6 class="card-title text-danger">Лучшие тусовки у нас в клубе</h6>
-                            <p><small>книжном клубе</small></p>
-                        </div>
+                    <div class="d-flex flex-row flex-wrap ms-5 justify-content-start" id="achievements">
+                        <p id="nullAchievements">Читай больше и здесь обязательно что-то появится!</p>
                     </div>
                 </div>
                 <!-- Feed -->
@@ -160,10 +107,53 @@
                     <p class="ms-5">ничего нового :')</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container-fluid px-5">
+        <h3>Книжная полка</h3>
+        <p id="noBooks">Здесь пока пусто...</p>
+        <div class="row" id="books">
 
         </div>
     </div>
 
+    <!-- Book's modal window -->
+    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header black-bg text-white">
+                    <h1 class="modal-title fs-5"><p class="h4 mb-0" id="modaltitle">Заголовок книги</p>
+                        <p class="mt-0 h6" id="modalauthor">Автор</p></h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid row">
+                        <div class="col-7">
+                            <p id="modaldesc">Описание описание ушаофжшаоужао жфкшаофукжпожф шофж шокфужпошжфущпош жфшо
+                                жфушпожкш жфо жфшопжщ</p>
+                            <p>
+                                <b>Жанр:</b> <a href="#" class="text-danger" id="modalgenre">приключения</a><br>
+                                <b>Обьем:</b> <a href="#" class="text-danger" id="modaltime">небольшой</a><br>
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <img class="img-rate" id="modalimg" src="res/naruto2.jpeg">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><p id="modalId" hidden="true"></p>
+                    <select class="form-select mb-3 " id="updateoption" aria-label="Обновить статус">
+                        <option id="прочитано" value="прочитано">прочитано</option>
+                        <option id="отложено" value="отложено">отложено</option>
+                        <option id="deletebook" value="удалить">удалить</option>
+                    </select>
+                    <button type="button" id="btn-toread" class="btn btn-danger" onclick="changeRelation()">Обновить статус
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main>
 <footer class="footer d-none d-md-block mt-auto">
@@ -184,9 +174,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-<script>
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-</script>
+<script src="js/navbar.js"></script>
+<script src="js/userpage.js"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+:root {
+    --bg-color: hsl(0, 0%, 18%);
+    --text-color: rgb(0, 254, 204);
+    --subtext-color: rgb(255, 255, 255);
+    --card-color: rgb(122, 69, 255);
+    --text-card-color:  rgb(255, 255, 255);
+    --admin-color: rgb(0, 254, 204);
+    --link-color: rgb(255, 255, 255);
+    --btn-color: rgb(12, 183, 143);
+  }

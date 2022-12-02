@@ -160,7 +160,11 @@ https://cssgridgarden.com/#ru
 
 ### Язык программирования JS: Иммитация работы с API
 
-Видео-лекция: https://www.youtube.com/watch?v=_3YLqewhII0&t=297s
+Видео-лекция: https://www.youtube.com/watch?v=_3YLqewhII0
+
+### Язык программирования JS: Иммитация работы с закрытым API (авторизация)
+
+Видео-лекция: https://www.youtube.com/watch?v=_yvw_tAUGZw&t=437s
 
 ### Лабораторная работа 2: взаимодействие с внешним API
 
@@ -170,43 +174,65 @@ https://cssgridgarden.com/#ru
 
 Реализовать получение погоды (прогноз на ближайшие 7 дней) из открытого API OpenWeatherMap, взависимости от геолокации пользователя. Реализовать вывод полученного прогноза в виде 7 карточек в три ряда (первый ряд - крупная карточка, второй ряд - три карточки в меньшем размере, третий ряд - четыре карточки в маленьком размере).
 
-Дедлайн: 25.10.2022
+Дедлайн: 01.11.2022
 
 ### Язык разметки HTML: доступность
+
+Видео-лекция: https://www.youtube.com/watch?v=HYc0xGTDFzI
+
+Ссылки:
+
+Статья на developers.google: https://developers.google.com/web/fundamentals/accessibility?hl=ru 
+Большой раздел на MDN: https://developer.mozilla.org/ru/docs/Learn/Accessibility/HTML 
+Примеры того, как делать не надо: https://www.htmhell.dev/
 
 ### Домашняя работа 2: доступность в HTML
 
 Задание: улучшить доступность ранее реализованного сайта. Добавить необходимые HTML-атрибуты ко всему контенту на странице и проверить это с помощью инструментов из Dev Tools браузера Firefox и сервиса Google Lighthouse.
 
-Дедлайн: 17.11.2022 (дедлайн ориентировочный и может быть сдвинут)
+Дедлайн: 29.11.2022
 
 ### Язык CSS: работа с CSS-переменными
 ### Язык CSS: темизация сайта через CSS-переменные
 
 Отличные ролики от Вадима Макеева по этой теме:
 
-https://www.youtube.com/watch?v=Qwuyeo7iuNY
+https://www.youtube.com/watch?v=Qwuyeo7iuNY  
 https://www.youtube.com/watch?v=8LFbS78a4Rw
+
+Видео-лекция: https://www.youtube.com/watch?v=aKeJuUKTWPI  
+Пример из видео-лекции: https://github.com/kantegory/mentoring/tree/master/08_themization_example/
 
 ### Домашняя работа 3: CSS-переменные, темизация сайта средствами CSS
 
 Задание: выполнить темизацию ранее реализованного сайта.
 
-Дедлайн: 24.11.2022 (дедлайн ориентировочный и может быть сдвинут)
+Видео-лекция: https://www.youtube.com/watch?v=aKeJuUKTWPI
+Пример, который разбирали на лекции: https://github.com/kantegory/mentoring/tree/master/08_themization_example
+
+Дедлайн: 29.11.2022
 
 ### Для чего нужен SVG-спрайт? Создание собственного SVG-спрайта
 
 Видео о том, как создать SVG-спрайт: https://www.youtube.com/watch?v=dPoRsolsCjA
 
+Видео-лекция: https://www.youtube.com/watch?v=2cNj9kcbIC8
+Пример, который разбирали на лекции: https://github.com/kantegory/mentoring/tree/master/09_svg_sprite_example
+
 ### Домашняя работа 4: SVG-спрайт
 
 Задание: вынести все используемые ранее SVG-иконки в общий SVG-спрайт.
 
-Дедлайн: 01.12.2022 (дедлайн ориентировочный и может быть сдвинут)
+Дедлайн: 29.11.2022
+
+### Кроссбраузерные картинки (тег picture)
+
+Видео-лекция: https://www.youtube.com/watch?v=2cNj9kcbIC8
+Пример, который разбирали на лекции: https://github.com/kantegory/mentoring/tree/master/10_tag_picture_example
 
 ### Контрольная работа 1
 
-Дата проведения: 01.12.2022 (может быть сдвинута)
+Дата проведения: 17.11.2022-22.11.2022
 
 ## Раздел “Разработка одностраничного веб-приложения (SPA) с использованием фреймворка Vue.JS”
 
@@ -220,7 +246,8 @@ https://www.youtube.com/watch?v=8LFbS78a4Rw
 
 ### Фреймворк Vue.JS: компонентный подход
 
-Видео-лекция: https://www.youtube.com/watch?v=0jPwrj5f8no
+Видео-лекция: https://youtu.be/0jPwrj5f8no  
+Пример: https://github.com/kantegory/mentoring/tree/master/19_frontend_router
 
 ### Фреймворк Vue.JS: маршрутизация на клиентской части
 

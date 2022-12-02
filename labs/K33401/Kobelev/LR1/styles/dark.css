@@ -1,0 +1,14 @@
+:root {
+    --bg-color: #121212;
+    --card-bg-color: #232d39;
+    --visited-link-color: #d7d7d7;
+
+    --bs-light: #232d39;
+    --theme-primary: #2196f3;
+    --theme-primary-dark: #0069c0;
+    --theme-primary-light: #6ec6ff;
+    --theme-primary-contrast: #d7d7d7;
+    --theme-primary-contrast-muted: #d7d7d7;
+
+    --theme-red: #f44336;
+}

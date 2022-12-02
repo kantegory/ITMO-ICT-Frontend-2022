@@ -7,6 +7,8 @@
     <title> Войти </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -69,6 +71,10 @@
                             <div class="form-group d-flex flex-column justify-content-start">
                                 <br>
                                 <button type="" class="btn btn-primary" onclick="">
+                                    <svg width="20px" height="20px" fill="#ffffff">
+                                        <use xlink:href="sprite.svg#send"></use>
+                                      </svg>
+                                    
                                     Отправить
                                 </button>
                             </div> <!-- form-group// -->
@@ -80,6 +86,10 @@
                         <div class="form-group d-flex flex-column justify-content-center p-3">
 
                             <button type="" class="btn btn-danger" onclick="">
+                                <svg width="20px" height="20px">
+                                    <use xlink:href="sprite.svg#reload"></use>
+                                  </svg>
+
                                 Сбросить график
                             </button>
 
@@ -144,8 +154,7 @@
                 console.log('ОТВЕТ', response)
                 const responseJson = await response.json()
 
-                if (response.status != 404) 
-                {
+                if (response.status != 404) {
                     labels_for.push(responseJson.name)
                     count_for.push(responseJson.count)
                 }

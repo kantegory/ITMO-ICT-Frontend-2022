@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="../img/favicon.ico">
+
+    
+    <title>Лабораторная №2 - Отчеты по Font-end</title>
+    
+
+    <link href="../css/hack.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-custom.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link href="../css/highlight.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="..">Отчеты по Font-end</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Главная страница</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Лабораторные <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../lr_1/">Лабораторная №1</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Лабораторная №2</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Домашние задания <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hw_1/">Задание №1</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../hw_2/">Задание №2</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../hw_3/">Задание №3</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+		    <!--
+                    <li >
+                        <a rel="prev" href="../lr_1/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../hw_1/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+		    -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#no-2">Лабораторная работа № 2</a></li>
+        <li class="first-level "><a href="#_1">Сотрудники</a></li>
+        <li class="first-level "><a href="#_2">Учет товаров</a></li>
+        <li class="first-level "><a href="#_3">График продаж</a></li>
+        <li class="first-level "><a href="#_4">Вывод</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="no-2">Лабораторная работа № 2</h1>
+<h2> Работа с API </h2>
+<p><code>Описание:</code>
+Основывается на лабораторной работе № 1, только теперь формирование данных идет динамически по API</p>
+<p><code>Вариант:</code> сайт администратора интернет-магазина </p>
+<p>Необходимо реализовать:</p>
+<ul>
+<li>
+<p>Вход</p>
+</li>
+<li>
+<p>Регистрация</p>
+</li>
+<li>
+<p>Учёт товара на складе</p>
+</li>
+<li>
+<p>Графики по продажам тех или иных товаров</p>
+</li>
+<li>
+<p>Управление сотрудниками</p>
+</li>
+</ul>
+<hr>
+
+<h1 id="_1">Сотрудники</h1>
+<ul>
+<li>
+<p><code>workers.html</code> - таблица с сотрудниками</p>
+</li>
+<li>
+<p>Добавлен поиск по должности с помощью JS</p>
+</li>
+<li>Пояивлось возможность удаление и редактирование сотрудников</li>
+</ul>
+<blockquote>
+<p><strong>Скриншот</strong></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/lr_2/workers.png" /></p>
+<p>&nbsp;</p>
+
+<p><img alt="Screenshot1" src="../img/lr_2/edit_workers.png" /></p>
+<p>&nbsp;</p>
+
+<p><img alt="Screenshot1" src="../img/lr_2/delete_workers.png" /></p>
+<blockquote>
+<p><strong>Код</strong></p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt; Войти &lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;
+        integrity=&quot;sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js&quot;
+        integrity=&quot;sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM&quot;
+        crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;nav class=&quot;navbar navbar-expand-md navbar-light sidebarNavigation color-me &quot;
+        data-sidebarClass=&quot;navbar-dark bg-dark&quot; style=&quot;background-color: #145ee7;&quot;&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;index.html&quot; style=&quot;color: #ffffff;&quot;&gt;IK&lt;/a&gt;
+            &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse&quot;
+                aria-controls=&quot;navbarCollapse&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse&quot;&gt;
+                &lt;ul class=&quot;nav navbar-nav nav-flex-icons ms-auto&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;index.html&quot; style=&quot;color: #ffffff;&quot;&gt; Главаня страница
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;workers.html&quot; style=&quot;color: #ffffff;&quot;&gt;Сотрудники&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;goods_monitor.html&quot; style=&quot;color: #ffffff;&quot;&gt;Учет товара&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;graphis.html&quot; style=&quot;color: #ffffff;&quot;&gt;Графики продаж&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;login.html&quot; style=&quot;color: #ffffff;&quot;&gt;Войти&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;registration.html&quot; style=&quot;color: #ffffff;&quot;&gt;Регистрация&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; onclick=&quot;logout()&quot;&gt;
+                            Logout
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;a href=&quot;add_workers.html&quot; style=&quot;text-decoration: none;&quot;&gt;
+        &lt;div class=&quot;d-flex justify-content-end &quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-dark p-2 flex-grow-1&quot;&gt;Добавить сотрудника&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+
+    &lt;table class=&quot;table table-hover table-bordered&quot; style=&quot;color: rgb(0, 0, 0)&quot; id=&quot;myTable&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope=&quot;col&quot;&gt;№&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Имя&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Фамилия&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Телефон&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Email&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt; &lt;input class=&quot;form-control me-2&quot; type=&quot;search&quot; placeholder=&quot;Поиск по должности&quot;
+                        id=&quot;myInput&quot; onkeyup=&quot;findPosition()&quot;&gt;
+                    &lt;/div&gt; Должность&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Действия&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody id=&quot;my_table_rows&quot;&gt;
+
+
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;!-- Modal --&gt;
+    &lt;div class=&quot; modal fade&quot; id=&quot;edit_workers&quot; tabindex=&quot;-1&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+                &lt;div class=&quot;modal-header&quot;&gt;
+                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Изменить сотрудника&lt;/h5&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;modal-body&quot;&gt;
+                    &lt;article class=&quot;card-body&quot;&gt;
+                        &lt;form onsubmit=&quot;update_worker(event)&quot;&gt;
+
+                            &lt;label&gt;Имя &lt;/label&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;name&quot; id=&quot;name&quot; value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Фамилия &lt;/label&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;last_name&quot; id=&quot;last_name&quot;
+                                value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Телефон&lt;/label&gt;
+                            &lt;input required type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;phone&quot; id=&quot;phone&quot;
+                                pattern=&quot;\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}&quot; value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Email&lt;/label&gt;
+                            &lt;input required type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;email&quot; id=&quot;email&quot;
+                                value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Должность&lt;/label&gt;
+                            &lt;input required type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;position&quot; id=&quot;position&quot; value=&quot;&quot;&gt;
+
+                            &lt;div class=&quot;modal-footer&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-dismiss=&quot;modal&quot;&gt;Закрыть&lt;/button&gt;
+                                &lt;button type=&quot;&quot; class=&quot;btn btn-primary&quot;&gt;Сохранить изменения&lt;/button&gt;
+                            &lt;/div&gt;
+
+                        &lt;/form&gt;
+                    &lt;/article&gt; &lt;!-- card-body end .// --&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        function findPosition() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById(&quot;myInput&quot;);
+            filter = input.value.toUpperCase();
+            table = document.getElementById(&quot;myTable&quot;);
+            tr = table.getElementsByTagName(&quot;tr&quot;);
+            for (i = 0; i &lt; tr.length; i++) {
+                td = tr[i].getElementsByTagName(&quot;td&quot;)[3];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) &gt; -1) {
+                        tr[i].style.display = &quot;&quot;;
+                    } else {
+                        tr[i].style.display = &quot;none&quot;;
+                    }
+                }
+            }
+        }
+
+        async function fill_forms(obj) {
+
+            var link = &quot;http://localhost:3000/workers/&quot; + obj.id
+
+            window.needed_id = obj.id
+
+            const response = await fetch(link, {
+                method: &quot;GET&quot;
+            })
+
+            const responseJson = await response.json()
+
+            document.getElementById('name').value = responseJson.name
+            document.getElementById('last_name').value = responseJson.last_name
+            document.getElementById('email').value = responseJson.email
+            document.getElementById('phone').value = responseJson.phone
+            document.getElementById('position').value = responseJson.position
+
+
+        }
+
+        async function delete_row(obj) {
+
+            var link = 'http://localhost:3000/workers/' + obj.id
+
+            if (confirm(&quot;Вы уверены, что хотите удалить данного сотрудника?\nЭта операция не восстановима.&quot;)) {
+                const response = await fetch(link, {
+                    method: &quot;DELETE&quot;
+                })
+            };
+
+
+        }
+
+        async function update_worker(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const up_data = {}
+
+            for (const input of inputs) {
+                up_data[input.name] = input.value
+            }
+
+            console.log('update data', up_data)
+
+            var link = 'http://localhost:3000/workers/' + needed_id
+
+            const response = await fetch(link, {
+                method: &quot;PUT&quot;,
+                body: JSON.stringify(up_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+
+        function get_field_table({ id, name, last_name, phone, email, position }) {
+            return `
+            &lt;tr&gt;
+                &lt;td&gt;${id}&lt;/td&gt;        
+                &lt;td&gt;${name}&lt;/td&gt;
+                &lt;td&gt;${last_name}&lt;/td&gt;
+                &lt;td&gt;${phone}&lt;/td&gt;
+                &lt;td&gt;${email}&lt;/td&gt;
+                &lt;td&gt;${position}&lt;/td&gt;
+                &lt;td class=&quot;d-flex justify-content-start gap-2&quot;&gt;
+                        &lt;button id=&quot;${id}&quot; type=&quot;button&quot; class=&quot;btn btn-warning&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#edit_workers&quot;
+                            onclick=&quot;fill_forms(this)&quot;&gt;Редактировать&lt;/button&gt;
+                        &lt;button id=&quot;${id}&quot; type=&quot; button&quot; class=&quot;btn btn-danger&quot; onclick=&quot;delete_row(this)&quot;&gt;Удалить&lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+
+            `
+        }
+
+        async function load_table() {
+            const response = await fetch(&quot;http://localhost:3000/workers&quot;, {
+                method: &quot;GET&quot;
+            })
+            const responseJson = await response.json()
+
+
+            console.log('response', responseJson)
+            console.log('response99', responseJson[0].name)
+
+            for (const row of responseJson) {
+                console.log('response*1', row)
+                document.querySelector(&quot;#my_table_rows&quot;).innerHTML += get_field_table(row)
+            }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = &quot;http://127.0.0.1:5501/lab_1/index.html&quot;
+        }
+
+        document.addEventListener('DOMContentLoaded', () =&gt; {
+            load_table();
+        })
+
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<hr>
+
+<h1 id="_2">Учет товаров</h1>
+<ul>
+<li>
+<p><code>goods_monitor.html</code> - таблица с товаром</p>
+</li>
+<li>
+<p>Добавлен поиск по наименованию и типу товара с помощью JS</p>
+</li>
+<li>Пояивлось возможность удаление и редактирование товара</li>
+</ul>
+<blockquote>
+<p><strong>Скриншот</strong></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/lr_2/goods.png" /></p>
+<p>&nbsp;</p>
+
+<p><img alt="Screenshot1" src="../img/lr_2/edit_goods.png" /></p>
+<p>&nbsp;</p>
+
+<p><img alt="Screenshot1" src="../img/lr_2/delete_goods.png" /></p>
+<blockquote>
+<p><strong>Код</strong></p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt; Войти &lt;/title&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;
+        integrity=&quot;sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC&quot; crossorigin=&quot;anonymous&quot;&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js&quot;
+        integrity=&quot;sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM&quot;
+        crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;nav class=&quot;navbar navbar-expand-md navbar-light sidebarNavigation color-me &quot;
+        data-sidebarClass=&quot;navbar-dark bg-dark&quot; style=&quot;background-color: #145ee7;&quot;&gt;
+        &lt;div class=&quot;container-fluid&quot;&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;index.html&quot; style=&quot;color: #ffffff;&quot;&gt;IK&lt;/a&gt;
+            &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarCollapse&quot;
+                aria-controls=&quot;navbarCollapse&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+                &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarCollapse&quot;&gt;
+                &lt;ul class=&quot;nav navbar-nav nav-flex-icons ms-auto&quot;&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;index.html&quot; style=&quot;color: #ffffff;&quot;&gt; Главаня страница
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;workers.html&quot; style=&quot;color: #ffffff;&quot;&gt;Сотрудники&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;goods_monitor.html&quot; style=&quot;color: #ffffff;&quot;&gt;Учет товара&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;graphis.html&quot; style=&quot;color: #ffffff;&quot;&gt;Графики продаж&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;login.html&quot; style=&quot;color: #ffffff;&quot;&gt;Войти&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;nav-item&quot;&gt;
+                        &lt;a class=&quot;nav-link&quot; href=&quot;registration.html&quot; style=&quot;color: #ffffff;&quot;&gt;Регистрация&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; onclick=&quot;logout()&quot;&gt;
+                            Logout
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;a href=&quot;add_goods.html&quot; style=&quot;text-decoration: none;&quot;&gt;
+        &lt;div class=&quot;d-flex justify-content-end&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn-dark p-2 flex-grow-1&quot;&gt;
+                Добавить товар
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+
+
+    &lt;div class=&quot;table-responsive&quot; id=&quot;myTable&quot;&gt;
+        &lt;table class=&quot;table table-hover table-bordered &quot; style=&quot;color: rgb(0, 0, 0)&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot;&gt;Артикул&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot;&gt; &lt;input class=&quot;form-control me-2&quot; type=&quot;search&quot; placeholder=&quot;Поиск по наимнованию&quot;
+                            id=&quot;myInput&quot; onkeyup=&quot;findName()&quot;&gt; Наименование&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot;&gt; &lt;input class=&quot;form-control me-2&quot; type=&quot;search&quot; placeholder=&quot;Поиск по типу&quot;
+                            id=&quot;myInput_2&quot; onkeyup=&quot;findType()&quot;&gt; Тип &lt;/th&gt;
+                    &lt;th scope=&quot;col&quot;&gt;Количество&lt;/th&gt;
+                    &lt;th scope=&quot;col&quot;&gt;Действия&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+
+            &lt;tbody id=&quot;my_table_rows&quot;&gt;
+
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot; modal fade&quot; id=&quot;edit_workers&quot; tabindex=&quot;-1&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+                &lt;div class=&quot;modal-header&quot;&gt;
+                    &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Изменить товар&lt;/h5&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;modal-body&quot;&gt;
+                    &lt;article class=&quot;card-body&quot;&gt;
+                        &lt;form onsubmit=&quot;update_goods(event)&quot;&gt;
+
+                            &lt;label&gt;Артикул &lt;/label&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;articul&quot; id=&quot;articul&quot; value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Наименование &lt;/label&gt;
+                            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;name&quot; id=&quot;name&quot;
+                                value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Тип&lt;/label&gt;
+                            &lt;input required type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;type&quot; id=&quot;type&quot; value=&quot;&quot;&gt;
+
+                            &lt;label&gt;Количество&lt;/label&gt;
+                            &lt;input required type=&quot;number&quot; class=&quot;form-control&quot; placeholder=&quot;&quot; name=&quot;count&quot; id=&quot;count&quot;
+                                value=&quot;&quot;&gt;
+
+                            &lt;div class=&quot;modal-footer&quot;&gt;
+                                &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-bs-dismiss=&quot;modal&quot;&gt;Закрыть&lt;/button&gt;
+                                &lt;button type=&quot;&quot; class=&quot;btn btn-primary&quot;&gt;Сохранить изменения&lt;/button&gt;
+                            &lt;/div&gt;
+
+                        &lt;/form&gt;
+                    &lt;/article&gt; &lt;!-- card-body end .// --&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+
+         function findType() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById(&quot;myInput_2&quot;);
+            filter = input.value.toUpperCase();
+            table = document.getElementById(&quot;myTable&quot;);
+            tr = table.getElementsByTagName(&quot;tr&quot;);
+            for (i = 0; i &lt; tr.length; i++) {
+                td = tr[i].getElementsByTagName(&quot;td&quot;)[1];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) &gt; -1) {
+                        tr[i].style.display = &quot;&quot;;
+                    } else {
+                        tr[i].style.display = &quot;none&quot;;
+                    }
+                }
+            }
+        }
+
+        function findName() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById(&quot;myInput&quot;);
+            filter = input.value.toUpperCase();
+            table = document.getElementById(&quot;myTable&quot;);
+            tr = table.getElementsByTagName(&quot;tr&quot;);
+            for (i = 0; i &lt; tr.length; i++) {
+                td = tr[i].getElementsByTagName(&quot;td&quot;)[0];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) &gt; -1) {
+                        tr[i].style.display = &quot;&quot;;
+                    } else {
+                        tr[i].style.display = &quot;none&quot;;
+                    }
+                }
+            }
+        }
+
+        async function fill_forms(obj) {
+
+            var link = &quot;http://localhost:3000/goods_monitor/&quot; + obj.id
+
+            window.needed_id = obj.id
+
+            const response = await fetch(link, {
+                method: &quot;GET&quot;
+            })
+
+            const responseJson = await response.json()
+
+            document.getElementById('articul').value = responseJson.articul
+            document.getElementById('name').value = responseJson.name
+            document.getElementById('type').value = responseJson.type
+            document.getElementById('count').value = responseJson.count
+
+
+        }
+
+        async function delete_row(obj) {
+
+            var link = 'http://localhost:3000/goods_monitor/' + obj.id
+
+            if (confirm(&quot;Вы уверены, что хотите удалить этот товар?\nЭта операция не восстановима.&quot;)) {
+                const response = await fetch(link, {
+                    method: &quot;DELETE&quot;
+                })
+            };
+
+
+        }
+
+        async function update_goods(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const up_data = {}
+
+            for (const input of inputs) {
+                up_data[input.name] = input.value
+            }
+
+            console.log('update data', up_data)
+
+            var link = 'http://localhost:3000/goods_monitor/' + needed_id
+
+            const response = await fetch(link, {
+                method: &quot;PUT&quot;,
+                body: JSON.stringify(up_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+
+        function get_field_table({ id, articul, name, type, count }) {
+            return `
+            &lt;tr&gt;
+                &lt;th&gt;${id}&lt;/th&gt;
+                &lt;td&gt;${articul}&lt;/td&gt;
+                &lt;td&gt;${name}&lt;/td&gt;
+                &lt;td&gt;${type}&lt;/td&gt;
+                &lt;td&gt;${count}&lt;/td&gt;
+                &lt;td class=&quot;d-flex justify-content-start gap-2&quot;&gt;
+                    &lt;button id=&quot;${id}&quot; type=&quot;button&quot; class=&quot;btn btn-warning&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#edit_workers&quot;
+                        onclick=&quot;fill_forms(this)&quot;&gt;Редактировать&lt;/button&gt;
+                    &lt;button id=&quot;${id}&quot; type=&quot; button&quot; class=&quot;btn btn-danger&quot; onclick=&quot;delete_row(this)&quot;&gt;Удалить&lt;/button&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+
+            `
+        }
+
+        async function load_table() {
+            const response = await fetch(&quot;http://localhost:3000/goods_monitor&quot;, {
+                method: &quot;GET&quot;
+            })
+            const responseJson = await response.json()
+
+
+            console.log('response', responseJson)
+            console.log('response99', responseJson[0].name)
+
+            for (const row of responseJson) {
+                console.log('response*1', row)
+                document.querySelector(&quot;#my_table_rows&quot;).innerHTML += get_field_table(row)
+            }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = &quot;http://127.0.0.1:5501/lab_1/index.html&quot;
+        }
+
+        document.addEventListener('DOMContentLoaded', () =&gt; {
+            load_table();
+        })
+
+
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+</code></pre>
+<hr>
+
+<h1 id="_3">График продаж</h1>
+<ul>
+<li>
+<p><code>graphis.html</code> - график</p>
+</li>
+<li>
+<p>График формируется с помощью запроса к json серверу по API</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Скриншот</strong></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/lr_2/empty_graph.png" /></p>
+<p>&nbsp;</p>
+
+<p><img alt="Screenshot" src="../img/lr_2/request_graph.png" /></p>
+<p><code>↓</code></p>
+<p><img alt="Screenshot" src="../img/lr_2/needed_graph.png" /></p>
+<hr>
+
+<h1 id="_4">Вывод</h1>
+<p>В ходе работы были сделаны авторизация, регистрация, редактирование и удаление товаров и сотрудников с помощью API, фильтрация и отрисовка графика средствами JS</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <p>
+            <!--
+	<small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+	-->
+
+            
+            
+    </footer>
+
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/fontawesome-all.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Поиск</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Вы можете искать по документам.
+                    Введите условия поиска ниже.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Поиск" id="mkdocs-search-query"
+                            title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    <a href="https://github.com/IYunet/ITMO-ICT-Frontend-2022">
+        <center>GitHub</center>
+    </a>
+    </body>
+
+</html>
