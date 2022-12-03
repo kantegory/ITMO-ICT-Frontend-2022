@@ -19,7 +19,7 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
-                    <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
+                    <li tabindex="0"><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
                 </ul>
 
                 <div class="btn-group" id="profileButtonGroup"></div>
@@ -81,9 +81,11 @@
                     </div>
 
                     <div class="d-flex justify-content-center pt-4">
-                        <a href="./markets.html" class="link-gray">
-                            Посмотреть больше
-                        </a>
+                        <div tabindex="0">
+                            <a href="./markets.html" class="link-gray">
+                                Посмотреть больше
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -105,7 +107,7 @@
 
                 function getCardHTML({ id, name, abbreviation, price, count, daily_changes, weekly_changes, date_added, image}) {
                     return `
-                        <div class="card shadow-sm my-3" data-card-id="${id}">
+                        <div class="card shadow-sm my-3" data-card-id="${id}" tabindex="0">
                             <a href="./currency.html?id=${id}" class="btn btn-light text-bg-white text-left">
                                 <div class="row d-flex align-items-center px-4">
                                     <div class="col-5 col-sm-3 col-xl-1 col-lg-2 d-flex justify-content-center">
@@ -151,7 +153,6 @@
                 }
 
                 document.addEventListener('DOMContentLoaded', () => {
-
                     loadPopularCurrencies()
                 })
             </script>

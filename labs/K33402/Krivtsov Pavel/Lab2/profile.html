@@ -19,7 +19,7 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center">
-                <li><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
+                <li tabindex="0"><a href="./markets.html" class="nav-link px-3 link-white">Рынки</a></li>
             </ul>
 
             <div class="btn-group" id="profileButtonGroup"></div>
@@ -37,7 +37,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <a role="button" class="btn btn-outline-secondary" href="change_password.html">Сменить пароль</a>
+                    <button type="button" class="btn btn-outline-secondary" onclick="location.href='change_password.html'">Сменить пароль</button>
                 </div>
                 <div class="col-auto">
                     <button type="button" class="btn btn-outline-danger" onclick="logout()">Выйти</button>
