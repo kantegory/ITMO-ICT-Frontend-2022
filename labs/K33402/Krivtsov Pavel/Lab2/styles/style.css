@@ -3,31 +3,35 @@ body {
     height: 100%;
 }
 
-.bg-gray {
-    background-color: #292929;
+.bg-navbar {
+    background-color: var(--nav-bg-color);
 }
 
-.bg-white {
-    background-color: #FDFDFC;
+.bg-main {
+    background-color: var(--main-bg-color);
 }
 
-.filter-orange {
-    filter: invert(38%) sepia(89%) saturate(658%) hue-rotate(338deg) brightness(93%) contrast(93%);
+.bg-side {
+    background-color: var(--secondary-bg-color);
 }
 
-.orange {
-    color: #BC5815;
+.filter-logo {
+    filter: var(--logo-filter);
 }
 
-.white {
-    color: #FFFFFF;
+.h3-text-color {
+    color: var(--text-headers-color);
+}
+
+.color-main {
+    color: var(--main-color);
 }
 
 .navbar-logo {
     padding-top: 0.3125rem;
     margin-right: 3rem;
     font-size: 1.2rem;
-    color: #FFFFFF;
+    color: var(--logo-color);
     text-decoration: none;
     white-space:nowrap
 }
@@ -39,59 +43,79 @@ body {
 }
 
 .navbar-logo:focus, .navbar-logo:hover {
-    color: rgb(210, 89, 39);
+    color: var(--logo-focused-color);
 }
 
-.navbar-orange {
-    --bs-navbar-color: rgba(255, 255, 255, 0.55);
-    --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
-    --bs-navbar-disabled-color: rgb(94, 94, 94);
-    --bs-navbar-active-color: rgb(210, 89, 39);
-    --bs-navbar-brand-color: rgb(210, 89, 39);
-    --bs-navbar-brand-hover-color: rgb(210, 89, 39);
-    --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
-}
-
-.btn-orange {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #BC5815;
-    --bs-btn-border-color: rgb(212, 202, 189);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #c4652a;
-    --bs-btn-hover-border-color: rgb(212, 202, 189);
+.btn-main {
+    --bs-btn-color: var(--secondary-color);
+    --bs-btn-bg: var(--main-color);
+    --bs-btn-border-color: var(--secondary-color);
+    --bs-btn-hover-color: var(--secondary-color);
+    --bs-btn-hover-bg: var(--main-focused-color);
+    --bs-btn-hover-border-color: var(--secondary-color);
     --bs-btn-focus-shadow-rgb: 130, 138, 145;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #BC5815;
-    --bs-btn-active-border-color: rgb(212, 202, 189);
+    --bs-btn-active-color: var(--secondary-color);
+    --bs-btn-active-bg: var(--main-color);
+    --bs-btn-active-border-color: var(--secondary-color);
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #6c757d;
-    --bs-btn-disabled-border-color:#6c757d
 }
 
-.link-white {
-    color:#ffffff !important
+.btn-outline-secondary {
+    --bs-btn-color: var(--secondary-bg-color);
+    --bs-btn-border-color: var(--secondary-bg-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--secondary-bg-color);
+    --bs-btn-hover-border-color: var(--secondary-bg-color);
+    --bs-btn-focus-shadow-rgb: 108, 117, 125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--secondary-bg-color);
+    --bs-btn-active-border-color: var(--secondary-bg-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--secondary-bg-color);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--secondary-bg-color);
+    --bs-gradient:none
 }
 
-.link-white:focus, .link-white:hover {
-    color:#6c757d !important
+.link-main {
+    color: var(--main-link) !important
 }
 
-.link-gray {
-    color: rgb(94, 94, 94);
+.link-main:focus, .link-main:hover {
+    color: var(--main-link-focused) !important
 }
 
-.link-gray:focus, .link-gray:hover {
-    color: #BC5815 !important
+.link-side {
+    color: var(--side-link);
+}
+
+.link-side:focus, .link-side:hover {
+    color: var(--side-link-focused) !important
 }
 
 .text-left {
     text-align: left !important;
 }
 
-.text-bg-white {
+.card-bg-color {
     color: #000 !important;
-    background-color: #ffffff !important
+    background-color: var(--card-bg-color) !important
+}
+
+.card-main-color {
+    color: var(--card-main);
+}
+
+.card-muted-color {
+    color: var(--card-muted);
+}
+
+.card-success {
+    color: var(--success-color);
+}
+
+.card-danger {
+    color: var(--danger-color);
 }
 
 .sign-body {
@@ -99,7 +123,7 @@ body {
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #FDFDFC;
+    background-color: var(--main-bg-color);
 }
 
 .sign-form {

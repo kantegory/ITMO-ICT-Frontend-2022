@@ -81,19 +81,19 @@
                             </div>
                             <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
                                 <div class="card-body">
-                                    <h5 class="card-title">${name} <small class="text-muted ">${abbreviation}</small></h5>
+                                    <h5 class="card-title card-main-color">${name} <small class="card-muted-color">${abbreviation}</small></h5>
                                     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 pb-3">
                                         <div class="col">
-                                            <p class="card-text"><small class="text-muted ">Количество в портфеле:</small> ${count}</p>
+                                            <p class="card-main-color"><small class="card-muted-color">Количество в портфеле:</small> ${count}</p>
                                         </div>
                                         <div class="col">
-                                            <p class="card-text"><small class="text-muted ">Стоимость в портфеле:</small> $${Math.round(price * count * 100) / 100}</p>
+                                            <p class="card-main-color"><small class="card-muted-color">Стоимость в портфеле:</small> $${Math.round(price * count * 100) / 100}</p>
                                         </div>
                                         <div class="col">
-                                            <p class="card-text ${progress >= 0 ? "text-success" : "text-danger"}"><small class="text-muted ">За время владения:</small> ${progress}%</p>
+                                            <p class="card-main-color ${progress >= 0 ? "card-success" : "card-danger"}"><small class="card-muted-color">За время владения:</small> ${progress}%</p>
                                         </div>
                                     </div>
-                                    <p class="card-text"><small class="text-muted">Date added: ${getFormattedDate(date_added)}</small></p>
+                                    <p class="card-main-color"><small class="card-muted-color">Date added: ${getFormattedDate(date_added)}</small></p>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
 
 <footer class="bg-navbar">
     <div class="container">
-        <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
+        <p class="col-md-4 mb-0 color-main py-3">&copy; 2022 Crypto Wallet, Inc</p>
     </div>
 </footer>
 </body>

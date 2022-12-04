@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-lg btn-orange my-5 mx-5" onclick="checkAuthForStart()">
+                            <button type="button" class="btn btn-lg btn-main my-5 mx-5" onclick="checkAuthForStart()">
                                 Начать!
                             </button>
                         </div>
@@ -119,22 +119,22 @@
                                     </div>
                                     <div class="col-7 col-sm-9 col-xl-11 col-lg-10">
                                         <div class="card-body">
-                                            <h5 class="card-title">${name}</h5>
+                                            <h5 class="card-title card-main-color">${name}</h5>
                                             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 pb-3">
                                                 <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">1 ${abbreviation}:</small> $${price}</p>
+                                                    <p class="card-main-color"><small class="card-muted-color">1 ${abbreviation}:</small> $${price}</p>
                                                 </div>
                                                 <div class="col">
-                                                    <p class="card-text"><small class="text-muted ">Всего в обращении:</small> ${count}</p>
+                                                    <p class="card-main-color"><small class="card-muted-color">Всего в обращении:</small> ${count}</p>
                                                 </div>
                                                 <div class="col">
-                                                    <p class="card-text ${daily_changes >= 0 ? "text-success" : "text-danger"}"><small class="text-muted ">24 часа:</small> ${daily_changes}%</p>
+                                                    <p class="card-main-color ${daily_changes >= 0 ? "card-success" : "card-danger"}"><small class="card-muted-color">24 часа:</small> ${daily_changes}%</p>
                                                 </div>
                                                 <div class="col">
-                                                    <p class="card-text ${weekly_changes >= 0 ? "text-success" : "text-danger"}"><small class="text-muted ">7 дней:</small> ${weekly_changes}%</p>
+                                                    <p class="card-main-color ${weekly_changes >= 0 ? "card-success" : "card-danger"}"><small class="card-muted-color">7 дней:</small> ${weekly_changes}%</p>
                                                 </div>
                                             </div>
-                                            <p class="card-text"><small class="text-muted">Date added: ${getFormattedDate(date_added)}</small></p>
+                                            <p class="card-main-color"><small class="card-muted-color">Date added: ${getFormattedDate(date_added)}</small></p>
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@
 
     <footer class="bg-navbar">
         <div class="container">
-            <p class="col-md-4 mb-0 text-light py-3">&copy; 2022 Crypto Wallet, Inc</p>
+            <p class="col-md-4 mb-0 color-main py-3">&copy; 2022 Crypto Wallet, Inc</p>
         </div>
     </footer>
 </body>
