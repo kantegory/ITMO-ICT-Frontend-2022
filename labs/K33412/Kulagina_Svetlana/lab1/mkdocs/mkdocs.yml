@@ -1,7 +1,7 @@
 site_name: Kулагина Светлана, K33412
 
-theme:
-  name: material
+theme: 
+  name: 'material'
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -13,3 +13,4 @@ markdown_extensions:
 nav:
  - Знакомство: index.md
  - Лабораторная работа №1: lr_1.md
+ - Лабораторная работа №2: lr_2.md
