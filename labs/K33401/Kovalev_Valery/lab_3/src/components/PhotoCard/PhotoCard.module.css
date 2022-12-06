@@ -1,0 +1,52 @@
+.photoCard{
+    position: relative;
+}
+
+.photoCard > div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top: 0;
+}
+
+.bottomPanel{
+    display: flex;
+    height: 100%;
+    flex-direction: column-reverse;
+}
+
+.buttonsPanel{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+
+.like{
+}
+.cover{
+    background: linear-gradient(0deg, rgb(54, 54, 54) 0%, rgba(112,255,0,0) 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.cover:hover,.cover:focus{
+    opacity: 1;
+}
+
+.image{
+    background: red;
+}
+
+button{
+    right: 0;
+    bottom: 0;
+}
+
+/*.photoCard:hover{*/
+/*    background: red;*/
+/*}*/
