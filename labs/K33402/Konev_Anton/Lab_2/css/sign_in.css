@@ -23,3 +23,57 @@
 .extra-link {
     text-decoration: none;
 }
+
+.btn-primary {
+    background-color: var(--btn-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.card {
+    background-color: var(--card-color);
+    border-color: var(--border-input);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+h3 {
+    color: var(--text-color);
+}
+
+label {
+    color: var(--text-color);
+}
+
+.form-control {
+    background-color: var(--bg-color);
+    border-color: var(--border-input);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+    color: var(--text-color)
+}
+
+.btn-light, .btn-light:hover {
+    background-color: var(--btn-secondary);
+    color: var(--text-color);
+    border-color: var(--btn-secondary);
+}

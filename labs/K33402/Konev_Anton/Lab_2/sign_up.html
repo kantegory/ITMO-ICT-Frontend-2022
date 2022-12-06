@@ -5,6 +5,8 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/sign_up.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
 </head>
 <body>
 
@@ -12,7 +14,10 @@
     <ul class="navigation-bar">
         <li class="nav-item">
             <a class="nav-link pt-1" href="#">
-                <img class="nav-logo" src="assets/Coinbase-icon-symbol-1.svg" alt="Coinbase small logo">
+                <svg class="nav-logo" height="35px">
+                    <use xlink:href="sprite.svg#small-logo">
+                    </use>
+                </svg>
             </a>
         </li>
         <li class="nav-item">
@@ -99,7 +104,6 @@
     </div>
 </section>
 <script>
-
     function checkAuth() {
         if (localStorage.user) {
             window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/index.html'
