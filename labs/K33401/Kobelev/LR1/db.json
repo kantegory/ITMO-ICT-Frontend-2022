@@ -5,7 +5,6 @@
       "password": "$2a$10$Qf/da36.0MX8IreRqb.p5uT3OrofOlZRgH3XORylRyyEQDp9YuRRy",
       "username": "evlko",
       "likes": [
-        2,
         3
       ],
       "id": 1
@@ -16,6 +15,15 @@
       "username": "oklve",
       "likes": [],
       "id": 2
+    },
+    {
+      "email": "test@mail.au",
+      "password": "$2a$10$IQbDXEPjoWdMVJAZSXKcHeq4hM.zZqGrytfeYb3jJP4XQhmY07oYW",
+      "username": "johndoe",
+      "likes": [
+        8
+      ],
+      "id": 3
     }
   ],
   "scenarios": [
@@ -45,7 +53,7 @@
         17,
         18
       ],
-      "likes": 1,
+      "likes": 0,
       "system": 1,
       "finished": 1,
       "adult": 0,
@@ -146,7 +154,7 @@
         6,
         7
       ],
-      "likes": 0,
+      "likes": 1,
       "system": 2,
       "finished": 1,
       "adult": 0,

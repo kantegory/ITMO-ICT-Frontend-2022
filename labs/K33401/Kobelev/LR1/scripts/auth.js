@@ -10,16 +10,20 @@ function getUser() {
 }
 
 function checkAuth() {
-    const navProfile = document.getElementById('navProfile')
-    if (localStorage.accessToken) {
-        const navAuthButtons = document.getElementById('navAuthButtons')
-        navAuthButtons.classList.add("d-none");
-        const usernameText = navProfile.getElementsByClassName("btn")[0];
+    let user = getUser()
+    let hiddenClass = '.visible-login-only'
+
+    if (user !== null) {
+        hiddenClass = '.invisible-login'
+        const usernameText = document.getElementById('usernameText')
         usernameText.textContent = JSON.parse(getUser()).username;
     }
-    else {
-        navProfile.classList.add("d-none");
-    }
+
+    const hiddenElements =  document.querySelectorAll(hiddenClass)
+
+    hiddenElements.forEach((element) => {
+        element.classList.add('d-none');
+    });
 }
 
 
@@ -42,7 +46,7 @@ async function login(event) {
     const responseJson = await response.json()
 
     if (responseJson === "Incorrect password" || responseJson === "Cannot find user") {
-        console.log("mistake")
+        console.log("error!")
         return
     }
 
@@ -61,7 +65,7 @@ async function signup(event) {
     signUpData['username'] = document.getElementById("usernameSignUo").value
     signUpData['email'] = document.getElementById("emailSignUp").value
     signUpData['password'] = document.getElementById("passwordSignUp").value
-
+    signUpData['likes'] = []
 
     const response = await fetch('http://localhost:3000/register', {
         method: "POST", body: JSON.stringify(signUpData), headers: {
