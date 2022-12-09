@@ -1,6 +1,8 @@
-html, body {
+body {
     width: 100%;
     height: 100%;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
 }
 
 header {
@@ -46,11 +48,11 @@ header {
     background-color: #ffffe6;
 }
 .button-back {
-    background-color: #804000 !important ;
-    color: #fff !important;
+    background-color: #804000;
+    color: #fff;
 }
 .text-index {
-    color: #4d2600 !important;
+    color: #4d2600;
 }
 .table-color {
     background-color: #c9a079;
