@@ -1,54 +1,37 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import Album from "../components/Album";
-import {useFetching} from "../hooks/useFetching";
-import ApiService from "../API/ApiService";
-import {useObserver} from "../hooks/useObserver";
-import {Context} from "../context";
 import BasePage from "./BasePage";
+import {useDispatch, useSelector} from "react-redux";
+import {clearPhotos, fetchPhotos, fetchSearchPhotos} from "../store/actions/photoActions";
+import Filter from "../components/Filter/Filter";
+import Slider from "../components/Slider";
 
 
 const HomePage = () => {
-    const context = useContext(Context);
-    const [photos, setPhotos] = useState([])
     const [limit, setLimit] = useState(30)
     const [offset, setOffset] = useState(0)
-    const [total, setTotal] = useState(0)
     const lastElement = useRef()
-    const [filter, setFilter] = [context.filter, context.setFilter]
 
-    const [fetchPhotos, isPhotosLoading, photosError] = useFetching( async ()=>{
-        const api = new ApiService()
-        const response = await api.getPhotos({"limit":limit, "offset":offset, "random":30})
-        if(total){
-            setPhotos([...photos, ...response.results])
-        } else {
-            setPhotos([...response.results])
-        }
-        setTotal(response.count)
-    })
-
-
-    useObserver(lastElement, offset<total, ()=>{
-        if(isPhotosLoading) return
-        setOffset(offset+limit)
-    }, [isPhotosLoading])
+    const dispatch = useDispatch()
+    const filterState = useSelector(state => state.filter)
+    const {photos} = useSelector(state=>state.photo)
 
     useEffect(()=>{
-        if(!isPhotosLoading){
-            fetchPhotos()
+        dispatch(fetchSearchPhotos({filterState, limit, offset}))
+        return () => {
+            dispatch(clearPhotos())
         }
-    }, [offset])
-
-    // useEffect(()=>{
-    //     return ()=> {
-    //         setPhotos([])
-    //     }
-    // }, [])
+    }, [dispatch])
 
     return (
         <BasePage>
+            <Slider/>
+            <Filter/>
             <Album photos={photos}/>
-            <div ref={lastElement} style={{width:"100%",  height: "25%", position:"absolute", bottom:0}}/>
+            <button onClick={()=>{
+                dispatch(fetchPhotos({filterState, offset:offset+limit}))
+                setOffset(offset+limit)
+            }}>More</button>
         </BasePage>
     );
 };

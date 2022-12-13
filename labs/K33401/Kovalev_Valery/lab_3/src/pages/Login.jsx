@@ -1,26 +1,33 @@
-import React, {useState} from 'react';
-import {useFetching} from "../hooks/useFetching";
-import ApiService from "../API/ApiService";
+import React, {useEffect, useReducer, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {login} from "../store/actions/authActions";
+import {useNavigate} from "react-router-dom";
+import AppButton from "../components/AppButton";
 
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const [fetchAuth, isFetching, fetchError] = useFetching(async ()=>{
-        const api = new ApiService()
-        const response = await api.loginUser(username, password)
-        localStorage.setItem("token", response.auth_token)
-        console.log(response.auth_token)
-    })
+    const dispatch = useDispatch()
+    const {error, isAuth} = useSelector(state=>state.auth)
+    const navigate = useNavigate()
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetchAuth()
+        dispatch(login(username,password))
     }
+
+    useEffect(()=>{
+        if(isAuth && !error){
+            navigate("/")
+        }
+    },[error, isAuth])
 
     return (
         <div className={"form-signin w-100 m-auto"}>
             <form method="post" action="#">
+                <h1>{"Hello"}</h1>
                 <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                     <use xlinkHref="#logo"/>
                 </svg>
@@ -36,12 +43,8 @@ const Login = () => {
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
 
-                <div className="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"/> Remember me
-                    </label>
-                </div>
-                <button onClick={handleSubmit} className="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+                <AppButton onClick={handleSubmit} className="w-100" type="submit">Sign in</AppButton>
+
                 <p className="mt-5 mb-3 text-muted">© 2022</p>
             </form>
         </div>

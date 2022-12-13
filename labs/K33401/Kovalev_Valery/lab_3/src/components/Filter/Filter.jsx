@@ -1,65 +1,69 @@
-import React, {useContext, useEffect, useMemo, useRef} from 'react';
-import styles from "./Filter.module.css"
+import React, {useEffect, useMemo} from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
-import {Context} from "../../context";
-import CategoryButton from "../CategoryButton";
-import ScrollButton from "../ScrollButton";
-import FilterField from "./filterField";
+import Select from 'react-select';
+import Creatable from 'react-select/creatable';
+import {useDispatch, useSelector} from "react-redux";
+import {clearSelectedFields, fetchFilter, setTone, setKeywords} from "../../store/actions/filterActions";
+import chroma from "chroma-js";
+import styles from "./Filter.module.css"
 
 
 const Filter = () => {
-    const context = useContext(Context);
-    const [filter, setFilter] = [context.filter, context.setFilter]
-    const setPhotos = context.setPhotos
-    const location = useLocation()
     const navigate = useNavigate()
 
+    const dispatch = useDispatch()
+    const {keywords, tones, selectedTone, selectedKeywords} = useSelector(state=>state.filter)
+
     useEffect(()=>{
-        if(location.pathname !== "/search") setFilter({keywords: [], colors: []})
-    },[location, setFilter])
+        dispatch(fetchFilter())
+    }, [dispatch])
 
+    const tonesStyles = {
+        control: (styles) => ({...styles, backgroundColor:"transperent"}),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            const color = chroma(data.color);
+            return {...styles, backgroundColor:color.hex(), color:color.brighten(3).hex(), width:"98%", fontSize:"12px", borderRadius:"4px", height:"50px", marginLeft:"5px", marginBottom:"5px"}
+        },
+    }
 
-    // useMemo(()=>{
-    //     if (filter.keywords.length || filter.colors.length){
-    //         navigate("/search")
-    //     }
-    // },[location])
+    const keywordStyles = {
+        control: (styles) => ({...styles, backgroundColor:"transperent"}),
+    }
 
-    const categories = useRef(null)
+    const keywordsOptions = useMemo(()=>{
+        return keywords.map(e=>({value:e.keyword, label:e.keyword}))
+    }, [keywords, tones])
+
+    const tonesOptions = useMemo(()=>{
+        return tones.map(e=>({value:e, label:e, color:e}))
+    }, [tones, keywords])
+
+    const defaultKeywords = useMemo(()=>{
+        return keywordsOptions.filter(e=> selectedKeywords.includes(e.value))
+    },[selectedKeywords, keywordsOptions])
+
+    // const defaultColors = useMemo(()=>{
+    //     return colorsOptions.filter(e=> selectedColors.includes(e.value))
+    // },[colorsOptions, selectedColors])
+
+    const handleKeyword = (selectedOption) => {
+        dispatch(setKeywords(selectedOption.map(e=>e.value)))
+        navigate("/search")
+    }
+
+    const handleTone = (selectedOption) => {
+        dispatch(setTone(selectedOption.value))
+        navigate("/search")
+    }
 
     return (
-        <div className={styles.filter + " container-xl"}>
-            {
-            !context.isFilterLoading && (
-                    <div className={styles.filters}>
-                        <ScrollButton scrollPx={300} elem={categories} direction={"left"}/>
-                        <div ref={categories} className={styles.categories}>
-                            {
-                                context.keywords.map(({keyword, count}, index)=>(
-                                    <CategoryButton key={index} keyword={keyword}/>
-                                ))
-                            }
-                        </div>
-                        <ScrollButton scrollPx={300} elem={categories} direction={"right"}/>
-                        <FilterField name={"Colors"}>
-                            {context.colors.map((color,index) => (
-                                <div key={color} className={styles.colorCheckBox}>
-                                    <input
-                                        type="checkbox"
-                                        id={`color-checkbox-${color}`}
-                                        value={color}
-                                        // checked={filter.colors.includes(color)}
-                                        name={color}
-                                    />
-                                    <label htmlFor={`color-checkbox-${index}`}>{color}</label>
-                                    <div className={styles.colorSquare} style={{background:color}}/>
-                                </div>
-                            ))}
-                        </FilterField>
-                    </div>
-                )
-        }
+        <div className="container-xl">
+            <div id={"filter"} className={styles.filter}>
+                <Creatable aria-labelledby="choose keyword" defaultValue={defaultKeywords} styles={keywordStyles} options={keywordsOptions} isMulti onChange={handleKeyword}/>
+                <Select aria-labelledby="choose tone" options={tonesOptions} onChange={handleTone} styles={tonesStyles}/>
+            </div>
         </div>
+
     )
 };
 
