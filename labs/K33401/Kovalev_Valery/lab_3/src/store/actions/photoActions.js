@@ -29,8 +29,8 @@ export const fetchSearchPhotos = ({filterState, limit = 30, offset = 0}) => {
                 limit,
                 offset,
                 keywords:filterState.selectedKeywords,
-                colors:filterState.selectedColors,
-                random:filterState.random
+                tone:filterState.selectedTone,
+                random:filterState.random,
             })
             dispatch(photoSlice.actions.fetchSuccess(
                 response.results

@@ -1,7 +1,5 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import Album from "../components/Album";
-import {useFetching} from "../hooks/useFetching";
-import {useObserver} from "../hooks/useObserver";
 import BasePage from "./BasePage";
 import {useDispatch, useSelector} from "react-redux";
 import {clearPhotos, fetchPhotos, fetchSearchPhotos} from "../store/actions/photoActions";

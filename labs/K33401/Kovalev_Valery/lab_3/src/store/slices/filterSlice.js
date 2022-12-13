@@ -4,9 +4,9 @@ import {clearSelectedFields} from "../actions/filterActions";
 
 const initialState = {
     keywords: [],
-    colors:[],
+    tones:["white", "black", "red", "green", "blue", "cyan", "magenta", "yellow"],
     selectedKeywords:[],
-    selectedColors:[],
+    selectedTone: "",
     error: "",
     random:30,
     isLoading: false,
@@ -17,8 +17,7 @@ export const filterSlice = createSlice({
     initialState,
     reducers: {
         fetchFilterSuccess(state, action){
-            state.keywords = action.payload.keywords
-            state.colors = action.payload.colors
+            state.keywords = action.payload
             state.isLoading = false
             state.error = ""
         },
@@ -32,12 +31,12 @@ export const filterSlice = createSlice({
         setSelectedKeywords(state, action){
             state.selectedKeywords = action.payload
         },
-        setSelectedColors(state, action){
-            state.selectedColors = action.payload
+        setSelectedTone(state, action){
+            state.selectedTone = action.payload
         },
         clearSelectedFields(state){
             state.selectedKeywords = []
-            state.selectedColors = []
+            state.selectedTone = ""
         }
     }
 })

@@ -19,7 +19,7 @@ const SearchPage = () => {
         return () => {
             dispatch(clearPhotos())
         }
-    }, [dispatch, filterState.selectedKeywords, filterState.selectedColors])
+    }, [dispatch, filterState.selectedKeywords, filterState.selectedTone])
 
     return (
         <BasePage>

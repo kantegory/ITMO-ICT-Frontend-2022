@@ -5,9 +5,8 @@ export const fetchFilter = () => {
     return async (dispatch) => {
         try {
             dispatch(filterSlice.actions.filterIsLoading())
-            const colors = await ApiService.getColors()
             const keywords = await ApiService.getKeywords()
-            dispatch(filterSlice.actions.fetchFilterSuccess({keywords, colors}))
+            dispatch(filterSlice.actions.fetchFilterSuccess(keywords))
         } catch (e) {
             dispatch(filterSlice.actions.filterError(e))
         }
@@ -20,9 +19,9 @@ export const clearSelectedFields = () => {
     }
 }
 
-export const setColors = (colors) => {
+export const setTone = (tone) => {
     return (dispatch) => {
-        dispatch(filterSlice.actions.setSelectedColors(colors))
+        dispatch(filterSlice.actions.setSelectedTone(tone))
     }
 }
 
