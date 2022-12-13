@@ -1,0 +1,144 @@
+.list-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 90%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: var(--card-color);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px #00000099;
+}
+
+.personal-box{
+
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.nav-list {
+    display: grid;
+    grid-template-columns: 100px 135px 30px;
+    list-style: none;
+}
+
+.list-elem {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 20px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    border-style: double;
+}
+
+.list-elem:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 3px solid #03e9f4;
+    border-right: none;
+    padding: 5px;
+    height: 35px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    background: var(--bg-color);
+}
+
+.searchTerm:focus {
+    color: #03e9f4;
+}
+
+.searchButton {
+    width: 40px;
+    height: 35px;
+    border: 1px solid #03e9f4;
+    background: #03e9f4;
+    text-align: center;
+    color: #0000007F;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.search-container {
+    width: 30%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 40px;
+    left: 17.5%;
+}
+
+.search-row {
+}
+
+.form-control {
+    background: var(--bg-color);
+}
+
+.form-control:hover, .form-control:focus, .clear-btn:hover{
+    box-shadow: 0 0 15px #03e9f4,
+    0 0 15px #03e9f4,
+    0 0 15px #03e9f4,
+    0 0 15px #03e9f4 !important;
+    color: var(--text-color) !important;
+}
+
+.sort-arrow {
+    background: none;
+    border: none;
+}
+
+.inner-pic {
+    fill: var(--icon-color);
+    width: 25px;
+    height: 25px;
+}
+
+.btn:hover {
+    background: var(--button-hover) !important;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.clear-btn{
+    background: var(--bg-color);
+}
+
+.logout-box:hover {
+    background: #03e9f4 !important;
+    color: #fff !important;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.logout-icon:hover {
+    fill: white !important;
+}

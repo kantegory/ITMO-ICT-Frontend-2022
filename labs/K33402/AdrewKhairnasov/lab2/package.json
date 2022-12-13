@@ -1,0 +1,14 @@
+{
+    "name": "json-server",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "npx json-server --watch db.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chart.js": "^4.0.1",
+        "json-server": "^0.17.1"
+    }
+}
