@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/styles/light.css" media="(prefers-color-scheme: light)">
   <title>SEARCH</title>
     
 </head>
@@ -41,7 +43,11 @@
     <div class="row">
       <h1 class="title-h1"><a class="nav-link text-dark" href="main.html">BOHEMIN</a></h1>
       <div class="col-lg-4 my-5">
-        <p>SEARCH</p>
+        <p>SEARCH
+          <svg class="icon">
+            <use xlink:href="styles/sprite.svg#search"></use>
+          </svg>
+        </p>
         <!-- Прячем колонку с навигацией для маленького экрана -->
         <div class="row d-none d-sm-block">
         <!-- Наваигация -->
@@ -67,9 +73,20 @@
           </div>      
           <div class="col-lg-4">
             <!-- поле поиска -->
-            <div class="input-group">
+            <div class="d-flex justify-content-between">
+
+              <div class="input-group">
                 <input name="searchBar" id="searchBar" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" autocomplete="off" />
-                <button type="button">search</button>
+              </div>
+              <button type="button" class="btn btn-secondary btn-small">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" id="search">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                  <!-- search -->
+                
+              </button>
+            
             </div>
           </div>
         </div>
