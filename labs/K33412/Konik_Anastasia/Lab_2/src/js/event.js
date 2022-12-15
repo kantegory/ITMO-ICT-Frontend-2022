@@ -52,9 +52,9 @@ async function generatePageContents(data) {
             <img class="align-self-end" src="${data['img_src']}" alt="${data['title']}">
         </div>
         <div class="mx-1 mb-5 mt-4">
-         <button id="event_enroll_${data['id']}" class="btn mt-auto btn-dark purple_button" onclick="enroll(this.id)"${disable ? ' disabled' : ''}>Enroll${disable ? 'ed!' : ''}</button>
+         <button id="event_enroll_${data['id']}" class="btn mt-auto btn-dark purple_button" aria-pressed="true" onclick="enroll(this.id)"${disable ? ' disabled' : ''}>Enroll${disable ? 'ed!' : ''}</button>
         </div>
-        <div class="card text-dark border-light bg-light mb-3 mx-auto">
+        <div class="card border-light mb-3 mx-auto">
             <div class="card-header">Description</div>
             <div class="card-body">
                 <h5 class="card-title">${data['short_description']}</h5>
