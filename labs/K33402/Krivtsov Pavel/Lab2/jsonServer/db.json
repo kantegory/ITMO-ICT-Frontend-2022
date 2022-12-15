@@ -2,9 +2,21 @@
   "users": [
     {
       "email": "pavel@gmail.com",
-      "password": "$2a$10$biSWUSzsnBvNKCoKN8jJy./XcV/DriAnOPkn4kLlEbGuKLqGhl2Tu",
+      "password": "$2a$10$e92goHdASnEHmhKuEB6MrulPTDYDMpXVuXquCWuAg1Gv8vaqJDWVy",
       "username": "pavel",
       "id": 1
+    },
+    {
+      "email": "user1@gmail.com",
+      "password": "$2a$10$85vpPTIZlXQ4lcXceztmX.COFhUKwpAXcpcO/lYzOzrMKzGZ7JQ.u",
+      "username": "user1",
+      "id": 2
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$pWMWWBB1HiQLqcYPpYBkZ.J607njsPN56dEPWNj/6UAjESSqBsKLq",
+      "username": "user1",
+      "id": 3
     }
   ],
   "currencies": [
@@ -74,15 +86,22 @@
       "id": 1,
       "currency_id": 1,
       "userId": 1,
-      "count": 9,
+      "count": 4,
       "progress": 20
     },
     {
-      "id": 2,
-      "currency_id": 5,
+      "currency_id": 2,
       "userId": 1,
-      "count": 100,
-      "progress": -10
+      "count": 2,
+      "progress": 0,
+      "id": 2
+    },
+    {
+      "currency_id": 3,
+      "userId": 1,
+      "count": 1,
+      "progress": 0,
+      "id": 3
     }
   ]
 }

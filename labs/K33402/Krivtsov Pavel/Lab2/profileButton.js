@@ -1,11 +1,11 @@
 function getButtonHTML() {
     if (localStorage.accessToken) {
         return `
-            <a href="./profile.html" class="btn btn-orange btn-md" role="button">
+            <button type="button" class="btn btn-main btn-md" onclick="location.href='./profile.html'">
                 Профиль
-            </a>
+            </button>
 
-            <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-md btn-main dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -16,11 +16,11 @@ function getButtonHTML() {
         `
     } else {
         return `
-            <a href="./signup.html" class="btn btn-orange btn-md" role="button">
+            <button type="button" class="btn btn-main btn-md" onclick="location.href='./signup.html'">
                 Профиль
-            </a>
+            </button>
 
-            <button type="button" class="btn btn-md btn-orange dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-md btn-main dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
