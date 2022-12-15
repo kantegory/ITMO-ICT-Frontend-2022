@@ -1,0 +1,8 @@
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: black;
+    --card-bg-color: #ffffff;
+    --card-border: 1px solid #c8c8c8;
+    --btn-bg-color: #212529;
+    --form-border: 1px solid #c8c8c8;
+}

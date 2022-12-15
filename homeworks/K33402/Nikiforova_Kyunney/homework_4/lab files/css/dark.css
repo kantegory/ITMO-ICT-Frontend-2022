@@ -1,0 +1,12 @@
+:root {
+    --bg-color: #171a1d;
+    --text-color: #f5f5f5;
+    --card-border: 1px solid #dbdbdb24;
+    --btn-bg-color: #5c89ab;
+    --form-bg-color: #171a1d;
+    --form-color: #f5f5f5;
+    --form-border: 1px solid #dbdbdb24;
+    --event-title-color: #171a1d;
+    --event-title-border: 1px solid #dbdbdb24;
+    --link-color: #c3c3c3;
+}
