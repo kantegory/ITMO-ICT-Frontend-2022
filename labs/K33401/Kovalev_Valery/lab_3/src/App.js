@@ -1,10 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useLayoutEffect } from "react";
-import { getToken, getUser } from "./API/AuthService";
+import { useEffect } from "react";
+import { getToken } from "./API/AuthService";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchToken, fetchUser } from "./store/actions/authActions";
+import { fetchToken } from "./store/actions/authActions";
 import { useAuth } from "./hooks/useAuth";
+import BasePage from "./pages/BasePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,20 +17,6 @@ function App() {
 
   const { user, isAuth } = useAuth();
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>{user.username}</h1>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <BasePage />;
 }
-
 export default App;

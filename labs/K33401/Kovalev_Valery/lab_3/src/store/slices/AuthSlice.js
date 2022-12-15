@@ -17,7 +17,6 @@ export const authSlice = createSlice({
     },
     [fetchToken.fulfilled]: (state, action) => {
       state.token = action.payload;
-      state.isLoading = false;
       state.error = "";
     },
     [fetchToken.rejected]: (state, action) => {

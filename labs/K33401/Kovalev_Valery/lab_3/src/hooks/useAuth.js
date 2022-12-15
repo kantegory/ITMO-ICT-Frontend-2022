@@ -10,10 +10,10 @@ export const useAuth = () => {
   }, [user]);
 
   useEffect(() => {
-    if (!isAuth) {
+    if (!isAuth || !token) {
       dispatch(fetchUser());
     }
-  }, [isAuth]);
+  }, [isAuth, dispatch]);
 
   return { user, isAuth };
 };

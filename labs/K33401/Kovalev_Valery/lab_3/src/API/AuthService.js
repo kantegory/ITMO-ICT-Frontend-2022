@@ -7,7 +7,6 @@ export const getToken = async ({ username, password }) => {
 };
 
 export const getUser = async ({ token }) => {
-  console.log(token);
   const response = await API.get("auth/users/me/", {
     headers: {
       Authorization: `Token ${token}`,
