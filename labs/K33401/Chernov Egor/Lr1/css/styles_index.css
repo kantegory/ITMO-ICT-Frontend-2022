@@ -6,6 +6,13 @@ html, body {
     color: var(--hfp-text-color);
   }
 
+  .icon {
+      stroke: currentColor;
+      width: 24px;
+      height: 24px;
+      fill: none;
+  }
+
   .header {
     background: var(--nav-background-color);
   }
