@@ -1,4 +1,17 @@
+import { API } from "./index";
+
 export const getToken = async ({ username, password }) => {
   const json = JSON.stringify({ username, password });
-  return await API.public.post("auth/token/login/", json);
+  const response = await API.post("auth/token/login/", json);
+  return response.data;
+};
+
+export const getUser = async ({ token }) => {
+  console.log(token);
+  const response = await API.get("auth/users/me/", {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return await response.data;
 };
