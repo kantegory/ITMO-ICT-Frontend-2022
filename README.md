@@ -236,7 +236,7 @@ https://www.youtube.com/watch?v=8LFbS78a4Rw
 
 ## Раздел “Разработка одностраничного веб-приложения (SPA) с использованием фреймворка Vue.JS”
 
-Общий мануал по работе с Vue.JS на базовом уровне: https://docs.google.com/document/d/1Q2okFWi3E2SqRkKmRrBFaM6nszJKEQTe4y5_pTfS0PY/edit?usp=sharing
+Общий мануал по работе с Vue.JS на базовом уровне: https://docs.google.com/document/d/187UkgGNrcWqkb2aCGpkHTLgeozoElMqdVgVGMBOC9gk/edit?usp=sharing
 
 ### Фреймворк Vue.JS: основы, работа с менеджером зависимостей npm
 
