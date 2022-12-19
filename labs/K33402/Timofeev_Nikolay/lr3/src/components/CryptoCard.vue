@@ -5,7 +5,7 @@
         </div>
         <div class="card-body text-success">
             <h5 class="card-title">{{ price }}$</h5>
-            <canvas id="lariChart"></canvas>
+            <img class="card-img" src="@/assets/chart.png" width="200" />
         </div>
         <div v-if="description" class="card-footer bg-transparent border-success">{{ description }}</div>
     </div>
@@ -13,14 +13,32 @@
 
 <script>
 export default {
-    props: ["title", "price", "description"],
+    props: ["id", "title", "description"],
     name: "CryptoCard",
-    computed: {
-        link() {
-            return "/market/{{this.$router.title}}";
+    data() {
+        return {
+            price: null,
+        };
+    },
+    methods: {
+        async fetchData() {
+            this.axios
+                .get(`http://127.0.0.1:8088/market/${this.id}/`)
+                .then((res) => {
+                    this.price = res.data.last_price;
+                })
+                .catch(() => null);
         },
+    },
+    async mounted() {
+        await this.fetchData();
     },
 };
 </script>
 
-<style></style>
+<style>
+.card-img {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+</style>

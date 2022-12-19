@@ -24,6 +24,9 @@
                     ><router-link to="/login"><i class="bi bi-person-circle"></i></router-link>
                 </a>
             </li>
+            <span v-else>
+                <li><p class="nav-link px-2 link-dark">Welcome, {{user.username}}! <a class="btn btn-sm btn-primary" @click="logout">Exit</a></p></li>
+            </span>
         </ul>
     </header>
 </template>
@@ -36,10 +39,29 @@ export default {
             user: null,
         };
     },
-    mounted() {
+    methods: {
+        async getMeData(token) {
+            await this.axios
+                .get("http://127.0.0.1:8088/auth/users/me/", {
+                    headers: {
+                        Authorization: `Token ` + token,
+                    },
+                })
+                .then((res) => {
+                    console.log(res);
+                    this.user = res.data;
+                })
+                .catch(() => null);
+        },
+        async logout() {
+            localStorage.clear();
+            this.$router.go();
+        }
+    },
+    async mounted() {
         const token = localStorage.getItem("token");
         if (token) {
-            console.log(token);
+            await this.getMeData(token);
         }
     },
 };

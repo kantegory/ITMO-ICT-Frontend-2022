@@ -58,12 +58,12 @@ export default {
         loginUser() {
             this.err = "";
             this.axios
-                .post("http://127.0.0.1:8000/auth/login/", {
+                .post("http://127.0.0.1:8088/auth/token/login/", {
                     username: this.username,
                     password: this.password,
                 })
                 .then((resp) => {
-                    localStorage.setItem("token", resp.data.access);
+                    localStorage.setItem("token", resp.data.auth_token);
                     this.$router.push("/");
                 })
                 .catch((e) => {
