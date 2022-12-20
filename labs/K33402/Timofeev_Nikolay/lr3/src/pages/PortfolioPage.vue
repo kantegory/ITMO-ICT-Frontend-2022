@@ -1,5 +1,6 @@
 <template>
     <body class="container">
+        <nav-bar />
         <hr class="opacity-100 m-0" />
 
         <p class="lead text-center py-1 my-1">My Portfolio (-11% daily):</p>
@@ -24,11 +25,16 @@
         </section>
 
         <hr class="opacity-100 m-0" />
+        <page-footer />
     </body>
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue";
+import PageFooter from "@/components/PageFooter.vue";
+
 export default {
+    components: { NavBar, PageFooter },
     name: "PortfolioPage",
 };
 </script>

@@ -4,10 +4,10 @@
         <hr class="opacity-100 m-0" />
         <div class="container d-flex justify-content-between align-items-start py-3 align-baseline">
             <h1 class="lead">
-                {{ $route.params.currency }} <span class="badge bg-primary rounded-pill">{{ price }}$</span>
+                {{ this.name }} <span class="badge bg-primary rounded-pill">{{ price }}$</span>
             </h1>
             <span>
-                <span v-for="t in tags" :key="t" class="badge bg-info rounded-pill">{{ t.name }}</span>
+                <span class="badge bg-info rounded-pill">{{ label }}</span>
             </span>
             <span>
                 <button
@@ -31,6 +31,30 @@
                 {{ description }}
             </p>
         </section>
+
+        <hr class="opacity-100 m-0" />
+
+        <section>
+            <p class="text-center lead py-5">Deals</p>
+            <span v-if="deals.length">
+                <ul class="list-group list-group-flush">
+                    <li
+                        v-for="deal in deals"
+                        :key="deal"
+                        class="mx-auto list-group-item d-flex justify-content-between col-6"
+                    >
+                        <span>{{ deal.seller_username }} selling {{ deal.count }}</span>
+                        <button @click="javascript.void()" class="text-white badge bg-success rounded-pill">
+                            Buy for {{ deal.price }}$
+                        </button>
+                    </li>
+                </ul>
+            </span>
+            <span v-else>
+                <p class="lead text-center">Seems that no one are selling {{ name }} now...</p>
+            </span>
+        </section>
+
         <hr class="opacity-100 m-0" />
         <page-footer></page-footer>
     </body>
@@ -45,14 +69,38 @@ export default {
     name: "CryptoPage",
     data() {
         return {
-            name: `BTCUSD`,
-            price: `19842.55`,
-            description: `Bitcoin (BTC) is a cryptocurrency, a virtual currency designed to act as money and a form of payment
-                outside the control of any one person, group, or entity, and thus removing the need for third-party
-                involvement in financial transactions. It is rewarded to blockchain miners for the work done to verify
-                transactions and can be purchased on several exchanges.`,
-            tags: [{ name: `Editor's choice` }, { name: `Hottest` }],
+            err: null,
+            name: ``,
+            price: ``,
+            description: ``,
+            label: ``,
+            deals: [],
         };
+    },
+    methods: {
+        async getAssetInfo() {
+            this.axios
+                .get(`http://127.0.0.1:8088/market/${this.$route.params.id}/`)
+                .then((res) => {
+                    this.name = res.data.name;
+                    this.description = res.data.description;
+                    this.label = res.data.label;
+                    this.price = res.data.last_price;
+                })
+                .catch(() => {
+                    this.err = "Currency not listed in our market";
+                    this.$router.push("/404");
+                });
+        },
+        async getAllDeals() {
+            this.axios.get(`http://127.0.0.1:8088/market-requests/?entry=${this.$route.params.id}`).then((res) => {
+                this.deals = res.data;
+            });
+        },
+    },
+    async mounted() {
+        await this.getAssetInfo();
+        await this.getAllDeals();
     },
 };
 </script>

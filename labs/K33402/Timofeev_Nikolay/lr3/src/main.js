@@ -7,16 +7,18 @@ import CryptoPage from "@/pages/CryptoPage";
 import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import PortfolioPage from "@/pages/PortfolioPage";
+import SearchPage from "@/pages/SearchPage";
 
 import VueAxios from "vue-axios";
 import axios from "axios";
 
 const routes = [
     { path: "/", component: HomePage },
+    { path: "/search", component: SearchPage },
     { path: "/login", component: LoginPage },
     { path: "/signup", component: SignupPage },
     { path: "/profile", component: PortfolioPage },
-    { path: "/market/:currency", component: CryptoPage },
+    { path: "/market/:id", component: CryptoPage },
     { path: "/:pathMatch(.*)*", component: PageNotFound },
 ];
 

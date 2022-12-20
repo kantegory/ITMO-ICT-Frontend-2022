@@ -12,20 +12,30 @@
                 >
             </li>
             <li>
-                <a href="#" class="nav-link px-2 link-dark" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <router-link
+                    to="/search"
+                    class="nav-link px-2 link-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#searchModal"
+                >
                     <i class="bi bi-search-heart"></i>
-                </a>
+                </router-link>
             </li>
             <li>
-                <a href="/profile" class="nav-link px-2 link-dark"> <i class="bi bi-wallet2"></i> </a>
+                <router-link to="/profile" class="nav-link px-2 link-dark"> <i class="bi bi-wallet2"></i> </router-link>
             </li>
             <li v-if="!user">
-                <a href="#" class="nav-link px-2 link-dark"
-                    ><router-link to="/login"><i class="bi bi-person-circle"></i></router-link>
-                </a>
+                <router-link to="/login" class="nav-link px-2 link-dark"
+                    ><i class="bi bi-person-circle"></i>
+                </router-link>
             </li>
             <span v-else>
-                <li><p class="nav-link px-2 link-dark">Welcome, {{user.username}}! <a class="btn btn-sm btn-primary" @click="logout">Exit</a></p></li>
+                <li>
+                    <p class="nav-link px-2 link-dark">
+                        Welcome, {{ user.username }}! {{ user.balance }}$
+                        <a class="btn btn-sm btn-primary" @click="logout">Exit</a>
+                    </p>
+                </li>
             </span>
         </ul>
     </header>
@@ -48,7 +58,6 @@ export default {
                     },
                 })
                 .then((res) => {
-                    console.log(res);
                     this.user = res.data;
                 })
                 .catch(() => null);
@@ -56,7 +65,7 @@ export default {
         async logout() {
             localStorage.clear();
             this.$router.go();
-        }
+        },
     },
     async mounted() {
         const token = localStorage.getItem("token");

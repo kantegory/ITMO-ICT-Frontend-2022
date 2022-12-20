@@ -1,7 +1,7 @@
 <template>
     <div class="card border-success mb-3" style="max-width: 18rem">
         <div class="card-header bg-transparent border-success">
-            <router-link :to="'market/' + title.toLowerCase()">{{ title }}</router-link>
+            <router-link :to="'market/' + id">{{ title }}</router-link>
         </div>
         <div class="card-body text-success">
             <h5 class="card-title">{{ price }}$</h5>
