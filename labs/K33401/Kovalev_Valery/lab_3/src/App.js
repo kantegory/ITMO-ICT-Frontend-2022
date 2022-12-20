@@ -5,18 +5,11 @@ import { getToken } from "./API/AuthService";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchToken } from "./store/actions/authActions";
 import { useAuth } from "./hooks/useAuth";
-import BasePage from "./pages/BasePage";
+import BasePage from "./pages/BasePage/BasePage";
+import { fetchCategories } from "./store/actions/categoriesActions";
+import MainPage from "./pages/MainPage";
 
 function App() {
-  const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    dispatch(fetchToken({ username: "kovalev-vxx", password: "Mail308819ru112" }));
-  }, [dispatch]);
-
-  const { user, isAuth } = useAuth();
-
-  return <BasePage />;
+  return <MainPage />;
 }
 export default App;
