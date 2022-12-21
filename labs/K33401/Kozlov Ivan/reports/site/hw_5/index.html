@@ -8,17 +8,17 @@
     
     
     
-    <link rel="img/favicon.ico">
+    <link rel="../img/favicon.ico">
 
     
-    <title>Главная страница - Отчеты по Font-end</title>
+    <title>Задание №5 - Отчеты по Font-end</title>
     
 
-    <link href="css/hack.min.css" rel="stylesheet">
-    <link href="css/bootstrap-custom.css" rel="stylesheet">
-    <link href="css/base.css" rel="stylesheet">
-    <link href="css/cinder.css" rel="stylesheet">
-    <link href="css/highlight.css" rel="stylesheet">
+    <link href="../css/hack.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-custom.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link href="../css/highlight.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
      
 </head>
 
-<body class="homepage" >
+<body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -47,7 +47,7 @@
 
             <!-- Main title -->
 
-            <a class="navbar-brand" href=".">Отчеты по Font-end</a>
+            <a class="navbar-brand" href="..">Отчеты по Font-end</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -56,8 +56,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Главная страница</a>
+                    <li >
+                        <a href="..">Главная страница</a>
                     </li>
                 
                 
@@ -68,13 +68,13 @@
                         
                             
 <li >
-    <a href="lr_1/">Лабораторная №1</a>
+    <a href="../lr_1/">Лабораторная №1</a>
 </li>
 
                         
                             
 <li >
-    <a href="lr_2/">Лабораторная №2</a>
+    <a href="../lr_2/">Лабораторная №2</a>
 </li>
 
                         
@@ -83,37 +83,37 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Домашние задания <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="hw_1/">Задание №1</a>
+    <a href="../hw_1/">Задание №1</a>
 </li>
 
                         
                             
 <li >
-    <a href="hw_2/">Задание №2</a>
+    <a href="../hw_2/">Задание №2</a>
 </li>
 
                         
                             
 <li >
-    <a href="hw_3/">Задание №3</a>
+    <a href="../hw_3/">Задание №3</a>
 </li>
 
                         
                             
 <li >
-    <a href="hw_4/">Задание №4</a>
+    <a href="../hw_4/">Задание №4</a>
 </li>
 
                         
                             
-<li >
-    <a href="hw_5/">Задание №5</a>
+<li class="active">
+    <a href="./">Задание №5</a>
 </li>
 
                         
@@ -130,13 +130,13 @@
                         </a>
                     </li>
 		    <!--
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../hw_4/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="lr_1/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -151,18 +151,83 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">Титульный лист</a></li>
+        <li class="first-level active"><a href="#no-5">Практическая работа № 5</a></li>
+            <li class="second-level"><a href="#1-vue">1. Установка vue</a></li>
+                
+            <li class="second-level"><a href="#2">2. Инициализация проекта</a></li>
+                
+            <li class="second-level"><a href="#3">3. Установим зависимости</a></li>
+                
+            <li class="second-level"><a href="#4">4. Запускаем проект</a></li>
+                
+            <li class="second-level"><a href="#_1">Вывод</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="_1">Титульный лист</h2>
-<h1> Выполнил: Козлов Иван Дмитриевич </h1>
-<h1> Группа: К33401 </h1>
-<h1> Предмет: Фронт-энд разработка</h1>
-<h1> Преподаватель: Добряков Давид Ильич</h1>
-<h4> Университет ИТМО </h4>
-<h4> Санкт-Петербург 2022 </h4></div>
+<h1 id="no-5">Практическая работа № 5</h1>
+<p><code>Описание:</code> В рамках данной работы Вам предстоит изучить основные команды пакетного менеджера NPM и научиться стартовать проект на Vue.</p>
+<hr>
+
+<h2 id="1-vue">1. Установка vue</h2>
+<blockquote>
+<p><code>&gt;&gt; npm install -g @vue/cli</code></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/hw_5/install.png" /></p>
+<hr>
+
+<h2 id="2">2. Инициализация проекта</h2>
+<blockquote>
+<p><code>&gt;&gt; npm init vue@latest</code></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/hw_5/init.png" /></p>
+<hr>
+
+<h2 id="3">3. Установим зависимости</h2>
+<blockquote>
+<p><code>&gt;&gt; cd first_project</code> </p>
+<p><code>&gt;&gt; npm install</code></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/hw_5/depend.png" /></p>
+<ul>
+<li>В файле package.json надо сделать следующие изменения в секции scripts:</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;first_project&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;vite --port 9000&quot;,
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;preview&quot;: &quot;vite preview&quot;,
+    &quot;lint&quot;: &quot;eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore&quot;
+    },
+  &quot;dependencies&quot;: {
+    &quot;pinia&quot;: &quot;^2.0.28&quot;,
+    &quot;vue&quot;: &quot;^3.2.45&quot;,
+    &quot;vue-router&quot;: &quot;^4.1.6&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@vitejs/plugin-vue&quot;: &quot;^4.0.0&quot;,
+    &quot;eslint&quot;: &quot;^8.22.0&quot;,
+    &quot;eslint-plugin-vue&quot;: &quot;^9.3.0&quot;,
+    &quot;vite&quot;: &quot;^4.0.0&quot;
+  }
+}
+</code></pre>
+<hr>
+
+<h2 id="4">4. Запускаем проект</h2>
+<blockquote>
+<p><code>&gt;&gt; npm start</code></p>
+</blockquote>
+<p><img alt="Screenshot" src="../img/hw_5/start.png" /></p>
+<hr>
+
+<h2 id="_1">Вывод</h2>
+<p>В ходе работы я научился запускать vue проект, с помощью npm</p></div>
         
         
     </div>
@@ -179,15 +244,15 @@
     </footer>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/fontawesome-all.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/highlight.pack.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/fontawesome-all.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script>var base_url = "."</script>
+    <script>var base_url = ".."</script>
     
-    <script src="js/base.js"></script>
-    <script src="search/main.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
     aria-hidden="true">
