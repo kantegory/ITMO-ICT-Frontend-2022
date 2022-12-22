@@ -27,6 +27,7 @@
     transition: all 0.2s ease;
 }
 
+
 .iksweb_sell{ /*кнопка продать*/
     display: inline-block;
     cursor: pointer;
