@@ -1,0 +1,10 @@
+@media (prefers-color-scheme: dark) {
+    /* Инверсия элементов body */
+    body {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+
+    html {
+        background-color: #111111;
+    }
+}

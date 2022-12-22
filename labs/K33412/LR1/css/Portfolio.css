@@ -7,6 +7,26 @@
     border-radius: 0;
 }
 
+.iksweb_buy{ /*кнопка купить*/
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 20px;
+    color: #ffffff;
+    background: #d30909;
+    border-radius: 20px;
+    border: 2px solid #d30909;
+    margin-top: 0;
+}
+
+.iksweb_buy:hover{
+    background: #00d678;
+    color:#ffffff;
+    border:2px solid #00d678;
+    transition: all 0.2s ease;
+}
+
 .iksweb_sell{ /*кнопка продать*/
     display: inline-block;
     cursor: pointer;
