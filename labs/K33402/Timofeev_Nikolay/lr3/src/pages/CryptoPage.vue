@@ -22,7 +22,7 @@
         <hr class="opacity-100 m-0" />
 
         <section id="mainChart" class="container">
-            <canvas id="btcChart"></canvas>
+            <crypto-graph v-if="name" :data="graphData" />
         </section>
 
         <hr class="opacity-100 m-0" />
@@ -34,26 +34,7 @@
 
         <hr class="opacity-100 m-0" />
 
-        <section>
-            <p class="text-center lead py-5">Deals</p>
-            <span v-if="deals.length">
-                <ul class="list-group list-group-flush">
-                    <li
-                        v-for="deal in deals"
-                        :key="deal"
-                        class="mx-auto list-group-item d-flex justify-content-between col-6"
-                    >
-                        <span>{{ deal.seller_username }} selling {{ deal.count }}</span>
-                        <button @click="javascript.void()" class="text-white badge bg-success rounded-pill">
-                            Buy for {{ deal.price }}$
-                        </button>
-                    </li>
-                </ul>
-            </span>
-            <span v-else>
-                <p class="lead text-center">Seems that no one are selling {{ name }} now...</p>
-            </span>
-        </section>
+        <crypto-deals :name="name" :deals="deals" />
 
         <hr class="opacity-100 m-0" />
         <page-footer></page-footer>
@@ -63,9 +44,11 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import PageFooter from "@/components/PageFooter.vue";
+import CryptoGraph from "@/components/CryptoGraph.vue";
+import CryptoDeals from "@/components/CryptoDeals.vue";
 
 export default {
-    components: { NavBar, PageFooter },
+    components: { NavBar, PageFooter, CryptoGraph, CryptoDeals },
     name: "CryptoPage",
     data() {
         return {
@@ -75,6 +58,7 @@ export default {
             description: ``,
             label: ``,
             deals: [],
+            graphData: [],
         };
     },
     methods: {
@@ -86,6 +70,26 @@ export default {
                     this.description = res.data.description;
                     this.label = res.data.label;
                     this.price = res.data.last_price;
+
+                    // fields for bar chart
+                    const labels = [];
+                    const datasets = [];
+
+                    for (const obj of res.data.max_prices_last_month) {
+                        labels.push(obj.date);
+                        datasets.push(obj.max_total_price);
+                    }
+
+                    this.graphData = {
+                        labels,
+                        datasets: [
+                            {
+                                label: this.name,
+                                backgroundColor: "#f87979",
+                                data: datasets,
+                            },
+                        ],
+                    };
                 })
                 .catch(() => {
                     this.err = "Currency not listed in our market";

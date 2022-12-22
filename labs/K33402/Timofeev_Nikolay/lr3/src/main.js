@@ -22,6 +22,27 @@ const routes = [
     { path: "/:pathMatch(.*)*", component: PageNotFound },
 ];
 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js'
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+)
+
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
