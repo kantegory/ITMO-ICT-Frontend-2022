@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>TimofeevInvest | Home</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="scripts/crypto.js" defer></script>
+        <script src="scripts/auth.js" defer></script>
+    </head>
+
+    <header
+        class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4"
+    >
+        <a href="/" class="d-flex align-items-center col-md-auto mb-2 mb-md-0 text-dark text-decoration-none">
+            <img src="img/logo.svg" width="288" height="33" alt="TimofeevInvest" class="logo" />
+        </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 active link-dark">Home</a></li>
+            <li><a href="/btc" class="nav-link px-2 link-dark text-decoration-underline">Crypto</a></li>
+            <li><a href="/btc" class="nav-link px-2 link-dark">Stocks</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+            <li id="authUser"></li>
+            <li>
+                <a href="#" class="nav-link px-2 link-dark" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <i class="bi bi-search-heart"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/profile" id="secure" class="nav-link px-2 link-dark"> <i class="bi bi-wallet2"></i> </a>
+            </li>
+            <li id="loginIcon">
+                <a href="#" class="nav-link px-2 link-dark" data-bs-toggle="modal" data-bs-target="#loginModal"
+                    ><i class="bi bi-person-circle"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <body class="container">
+        <hr id='uncleSam' class="opacity-100 m-0" />
+
+        <section id="uncleSam" class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="img/unclesam.png" alt="" width="200" />
+            <h1 class="display-5 fw-bold">New here?</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Take a quick tour into investment world</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-lg px-4 gap-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal"
+                    >
+                        Join us now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="opacity-100 m-0" />
+        <section>
+            <h2 class="text-center lead my-5">
+                The global cryptocurrency market cap today is <span class="text-success">$949.09B</span>, a
+                <span class="text-success">+0.14%</span> change from 24 hours ago.
+            </h2>
+        </section>
+
+        <hr class="opacity-100 m-0" />
+        <section class="px-4 mt-0 py-2 my-5 text-center">
+            <h2 class="display-4 fw-bold">Trending positions:</h2>
+            <div class="row d-flex justify-content-around">
+                <div class="card border-success mb-3" style="max-width: 18rem">
+                    <span class="card-header bg-transparent border-success">
+                        <a href="/btc"><i class="bi bi-currency-bitcoin"></i>Bitcoin</a>
+                    </span>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">19821.5$</h5>
+                        <canvas id="btcChart"></canvas>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">Digital gold</div>
+                </div>
+                <div class="card border-success mb-3" style="max-width: 18rem">
+                    <span class="card-header bg-transparent border-success">
+                        <a href="/btc"><i class="bi bi-fire"></i>Ethereum</a>
+                    </span>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">1803.22$</h5>
+                        <canvas id="ethChart"></canvas>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">The future of POS</div>
+                </div>
+                <div class="card border-success mb-3" style="max-width: 18rem">
+                    <span class="card-header bg-transparent border-success"
+                        ><a href="/btc"><i class="bi bi-fire"></i>Tesla</a></span
+                    >
+                    <div class="card-body text-success">
+                        <h5 class="card-title">142.53$</h5>
+                        <canvas id="teslaChart"></canvas>
+                    </div>
+                    <div class="card-footer bg-transparent border-success">High potential</div>
+                </div>
+                <div class="card border-warning mb-3" style="max-width: 18rem">
+                    <span class="card-header bg-transparent border-warning"
+                        ><a href="/btc"><i class="bi bi-fire"></i>USDT</a></span
+                    >
+                    <div class="card-body text-warning">
+                        <h5 class="card-title">1.01$</h5>
+                        <canvas id="usdtChart"></canvas>
+                    </div>
+                    <div class="card-footer bg-transparent border-warning">1USDT=1$, stable as hell</div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="opacity-100 m-0" />
+        <section class="px-4 mt-0 py-2 my-5 text-center">
+            <h2 class="display-4 fw-bold">Worldwide currencies:</h2>
+            <div class="row d-flex justify-content-around">
+                <div class="card border-danger mb-3" style="max-width: 18rem">
+                    <div class="card-header bg-transparent text-danger">Russian Ruble</div>
+                    <div class="card-body text-error">
+                        <h5 class="card-title text-danger">0.018$</h5>
+                        <canvas id="rubChart"></canvas>
+                    </div>
+                </div>
+                <div class="card border-danger mb-3" style="max-width: 18rem">
+                    <div class="card-header bg-transparent text-danger">Turkish Lirasi</div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title text-danger">0.054$</h5>
+                        <canvas id="liraChart"></canvas>
+                    </div>
+                </div>
+                <div class="card border-success mb-3" style="max-width: 18rem">
+                    <div class="card-header bg-transparent border-success">Georgian Lari</div>
+                    <div class="card-body text-success">
+                        <h5 class="card-title">0.36$</h5>
+                        <canvas id="lariChart"></canvas>
+                    </div>
+                </div>
+                <div class="card border-danger mb-3" style="max-width: 18rem">
+                    <div class="card-header bg-transparent text-danger">European Euro</div>
+                    <div class="card-body text-danger">
+                        <h5 class="card-title">0.94$</h5>
+                        <canvas id="euroChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="opacity-100 m-0" />
+
+        <footer class="footer py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>TI LLC</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Stocks</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Crypto</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Legal</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Buy Crypto</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Buy Ethereum</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Buy Bitcoin</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Buy USDT</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-3"></div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address" />
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2022 TimofeevInvest INC INT LTD. All rights reserved.</p>
+            </div>
+        </footer>
+
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            const labels = ["January", "February", "March", "April", "May", "June"];
+
+            const BTCData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "BTC",
+                        backgroundColor: "rgb(0, 255, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [20000, 21000, 20100, 22000, 19001, 18902, 19821],
+                    },
+                ],
+            };
+            const ETHData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "ETH",
+                        backgroundColor: "rgb(0, 255, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [3200, 2900, 2800, 1800, 1200, 983, 1900],
+                    },
+                ],
+            };
+            const TeslaData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "TSL",
+                        backgroundColor: "rgb(0, 255, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [90, 95, 110, 180, 120, 100, 140],
+                    },
+                ],
+            };
+            const USDTData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "USDT",
+                        backgroundColor: "rgb(255, 255, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [0.95, 1, 0.98, 1.01, 1.02, 1, 1.01],
+                    },
+                ],
+            };
+
+            const RUBData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "RUB",
+                        backgroundColor: "rgb(255, 0, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [0.05, 0.008, 0.01, 0.02, 0.016, 0.015, 0.018],
+                    },
+                ],
+            };
+            const LIRAData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "TRY",
+                        backgroundColor: "rgb(255, 0, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [0.1, 0.1, 0.11, 0.09, 0.07, 0.06, 0.054],
+                    },
+                ],
+            };
+            const LARIData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "GEL",
+                        backgroundColor: "rgb(0, 255, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [0.3, 0.29, 0.33, 0.34, 0.33, 0.35, 0.36],
+                    },
+                ],
+            };
+            const EURData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "EUR",
+                        backgroundColor: "rgb(255, 0, 0)",
+                        borderColor: "rgb(0, 0, 0)",
+                        data: [1.2, 1.1, 1.12, 1.1, 1.05, 1, 0.94],
+                    },
+                ],
+            };
+
+            const BTCConfig = {
+                type: "line",
+                data: BTCData,
+                options: {},
+            };
+            const ETHConfig = {
+                type: "line",
+                data: ETHData,
+                options: {},
+            };
+            const TeslaConfig = {
+                type: "line",
+                data: TeslaData,
+                options: {},
+            };
+            const USDTConfig = {
+                type: "line",
+                data: USDTData,
+                options: {},
+            };
+
+            const RUBConfig = {
+                type: "line",
+                data: RUBData,
+                options: {},
+            };
+            const LIRAConfig = {
+                type: "line",
+                data: LIRAData,
+                options: {},
+            };
+            const LARIConfig = {
+                type: "line",
+                data: LARIData,
+                options: {},
+            };
+            const EURConfig = {
+                type: "line",
+                data: EURData,
+                options: {},
+            };
+        </script>
+        <script>
+            const btcChart = new Chart(document.getElementById("btcChart"), BTCConfig);
+            const ethChart = new Chart(document.getElementById("ethChart"), ETHConfig);
+            const teslaChart = new Chart(document.getElementById("teslaChart"), TeslaConfig);
+            const usdtChart = new Chart(document.getElementById("usdtChart"), USDTConfig);
+
+            const euroChart = new Chart(document.getElementById("euroChart"), EURConfig);
+            const rubChart = new Chart(document.getElementById("rubChart"), RUBConfig);
+            const liraChart = new Chart(document.getElementById("liraChart"), LIRAConfig);
+            const lariChart = new Chart(document.getElementById("lariChart"), LARIConfig);
+        </script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            id="closeLoginModal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Username"
+                                aria-label="Username"
+                                aria-describedby="basic-addon1"
+                                id="loginUsername"
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <input
+                                type="password"
+                                class="form-control"
+                                placeholder="Password"
+                                aria-label="Password"
+                                aria-describedby="basic-addon1"
+                                id="loginPass"
+                            />
+                        </div>
+                        <div class="text-center"><p id="loginErrorMessage" class="text-error"></p></div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                            <label class="form-check-label" for="flexSwitchCheckDefault"
+                                >Accept <a href="#">TOS</a></label
+                            >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-primary" id="loginButton">Login</button>
+                        <button
+                            type="button"
+                            class="btn btn-success"
+                            data-bs-toggle="modal"
+                            data-bs-target="#signUpModal"
+                        >
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                        <button
+                            type="button"
+                            id="closeSignUpModal"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="username-enter" class="form-label">Enter username</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="username-enter">@</span>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Username"
+                                aria-label="Username"
+                                aria-describedby="username-enter"
+                                id="signUpUsername"
+                                required
+                            />
+                        </div>
+                        <label for="email-enter" class="form-label">Enter your @Email</label>
+                        <div class="input-group mb-3">
+                            <input
+                                type="email"
+                                class="form-control"
+                                placeholder="example@gmail.com"
+                                aria-label="email-enter"
+                                aria-describedby="basic-addon1"
+                                id="signUpEmail"
+                                required
+                            />
+                        </div>
+                        <label for="email-enter" class="form-label">Enter password</label>
+                        <div class="input-group mb-3">
+                            <input
+                                type="password"
+                                class="form-control"
+                                placeholder="Password"
+                                aria-label="Password"
+                                aria-describedby="basic-addon1"
+                                id="signUpPass"
+                                required
+                            />
+                        </div>
+                        <div class="input-group mb-3">
+                            <input
+                                type="password"
+                                class="form-control"
+                                placeholder="Repeat password"
+                                aria-label="Repeat password"
+                                aria-describedby="basic-addon1"
+                                required
+                            />
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" required />
+                            <label class="form-check-label" for="flexSwitchCheckDefault"
+                                >Accept <a href="#">TOS</a></label
+                            >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                        <button type="button" id="signUpButton" class="btn btn-success">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group input-group-sm mb-3">
+                            <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm"
+                                placeholder="bitcoin, ethereum, aeroflot, apple etc."
+                            />
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Lookup</button>
+                        </div>
+                        <p>Search result:</p>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">BTCUSD</h5>
+                                    <small>19841.55$</small>
+                                </div>
+                                <p class="mb-1">Bitcoin to USD</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">BTCEUR</h5>
+                                    <small>20004.21€</small>
+                                </div>
+                                <p class="mb-1">Bitcoin to EUR</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="buyCryptoModal" tabindex="-1" aria-labelledby="buyCryptoModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p class="lead">Buy BTCUSD</p>
+                        <hr class="opacity-100 mb-3" />
+                        <div class="input-group input-group-sm mb-3">
+                            <input
+                                type="number"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-sm"
+                                placeholder="Amount"
+                                id="cryptoAmount"
+                            />
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                Max amount
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeBuyCrypto" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-success" id="buyCrypto">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

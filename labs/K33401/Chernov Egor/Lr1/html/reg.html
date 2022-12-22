@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF7E9">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B23498C">
+  <title>Coins</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles_reg.css">
+  <link rel="stylesheet" href="../css/styles/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="../css/styles/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header class="navbar navbar-expand-sm navbar-dark bd-navbar sticky-top header">
+    <nav class="container-xxl flex-wrap flex-sm-nowrap justify-content-center" aria-label="Main navigation">
+      <span class="navbar-brand title--span mywhite--text"><a class="headr--link" href="file:///C:/Users/krish/%D0%A3%D1%87%D0%B5%D0%B1%D0%B0/5%20%D1%81%D0%B5%D0%BC%D0%B5%D1%81%D1%82%D1%80/Frontend-dev/ITMO-ICT-Frontend-2022/labs/K33401/Chernov%20Egor/Lr1/index.html">Coins</a></span>
+    </nav>
+  </header>
+  <main class="main p-4">
+    <div class="form-container" id="container">
+        <section class="mb-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstName">
+        </section>
+        <section class="mb-3">
+            <label for="secondName" class="form-label">Second name</label>
+            <input type="text" class="form-control" id="secondName">
+        </section>
+        <section class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" aria-describedby="ageHelp">
+            <span id="ageHelp" class="form-text">The required age for trading is 18 years old.</span>
+        </section>
+        <section class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <span id="emailHelp" class="form-text">We'll never share your email with anyone else.</span>
+        </section>
+        <section class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password">
+        </section>
+        <button type="submit" class="btn btn-colors" onclick="register()">Submit</button>
+    </div>
+  </main>
+  <footer class="footer pt-4">
+    <section class="col-md-8 mx-auto text-center">
+      <h6 class="fw-semibold mywhite--text">Website creator <a href="https://t.me/chernovec" class="footer--link1">Egor Chernov</a></h6>
+      <p class="mywhite--text footer--text">Site under development. At the moment, only a site template was created. Stack of technologies that I used:</p>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://getbootstrap.com/">
+          <img class="d-block mb-2" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Bootstrap</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://canvasjs.com/">
+          <img class="d-block mb-2" src="../res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">CanvasJS</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://axios-http.com/ru/">
+          <img class="d-block mb-2" src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Axios</span>
+        </a>
+      </div>
+    </section>
+    <section class="text-center mt-4 py-4 footer__nav">
+      <h6 class="fw-semibold mywhite--text">Used API</h6>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get coins</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get specific coin</span>
+        </a>
+      </div>
+    </section>
+  </footer>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="../js/reg.js"></script>
+</html>

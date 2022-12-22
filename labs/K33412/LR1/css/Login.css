@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=NotoSansDisplay:wght@400&display=swap');
+
+html,
+body {
+    font-family: 'NotoSansDisplay', sans-serif;
+}
+
+.img-logo {
+     width: 35%;
+ }
+
+.container {
+    padding-top: 100px;
+}
+
+.form-control {
+    height: 60px;
+    border-radius: 1rem;
+}
+
+.btn {
+    height: 60px;
+    border-radius: 100px;
+}
+
+.password-forgot {
+    text-decoration: none;
+}
+
+.extra-link {
+    text-decoration: none;
+}
+.login-link{
+    width: 100%;
+}
+.registration-link{
+    width: 100%;
+}
+
+
+
+/*.overflowHidden {*/
+/*    overflow-x: hidden;*/
+/*    overflow-y: hidden;*/
+/*}*/
+
+/*.bg-color {*/
+/*    background-color: rgb(255, 255, 255);*/
+/*}*/
+
+/*.login_page {*/
+/*    height: 525px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.logo_table {*/
+/*    width: 250px;*/
+/*    height: 100px;*/
+/*    border: #818385 0 solid;*/
+/*    border-radius: 10px;*/
+/*    justify-content: center;*/
+/*    text-align: left;*/
+/*}*/
+
+/*.main_table {*/
+/*    width: 450px;*/
+/*    height: 500px;*/
+/*    border: #818385 1px solid;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.login_table {*/
+/*    width: 350px;*/
+/*    height: 450px;*/
+/*   !* border-color: #818385 0 solid;*!*/
+/*    justify-content: center;*/
+/*    !* text-align: center; *!*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin-top: 25px;*/
+/*}*/
+
+/*!*.e-mail_table {*/
+/*    width: 250px;*/
+/*    height: 50px;*/
+/*    border: #818385 1px solid;*/
+/*    border-radius: 10px;*/
+/*    justify-content: center;*/
+/*    text-align: left;*/
+/*}*!*/
+
+/*#email{*/
+/*    text-align: start;*/
+/*    min-width: 0;*/
+/*    color: #818385;*/
+/*    background-color: #fff;*/
+/*    flex-grow: 2;*/
+/*    font-size: 16px;*/
+/*    line-height: 24px;*/
+/*    font-weight: 400;*/
+/*    width: 100%;*/
+/*    padding: 1px;*/
+/*    position: relative;*/
+/*    border-radius: 10px;*/
+/*    height: 50px;*/
+/*    border-width: 1.2px;*/
+/*}*/
+
+/*#email:focus {*/
+/*    box-shadow: none;*/
+/*    border-color: blue;*/
+/*    outline-style:none;*/
+/*    border-width: 2px;*/
+/*}*/
+
+/*.iksweb1{ !*кнопка создать учётную запись*!*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    font-size:14px;*/
+/*    text-decoration:none;*/
+/*    !*padding: 15px 70px;*!*/
+/*    width: 215px;*/
+/*    text-align: center;*/
+/*    margin-top: 10px;*/
+/*    color:#000000;*/
+/*    background:#EEF0F3;*/
+/*    border-radius:20px;*/
+/*    border:2px solid #EEF0F3;*/
+/*    !*padding-right: 50px;*/
+/*    padding-left: 50px;*!*/
+/*}*/
+/*.iksweb1:hover{*/
+/*    background:#c9ccd1;*/
+/*    color:#000000;*/
+/*    border:2px solid #c9ccd1;*/
+/*    transition: all 0.2s ease;*/
+/*}*/
+
+/*.iksweb{ !*кнопка продолжить*!*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    font-size: 14px;*/
+/*    text-decoration: none;*/
+/*    !*padding:15px 140px;*!*/
+/*    color: #ffffff;*/
+/*    background: #0051ff;*/
+/*    border-radius: 20px;*/
+/*    border: 2px solid #0051ff;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.iksweb:hover{*/
+/*    background:#185abc;*/
+/*    color:#ffffff;*/
+/*    border:2px solid #185abc;*/
+/*    transition: all 0.2s ease;*/
+/*}*/
+
+/*.extra_links_table{*/
+/*    width: 350px;*/
+/*    height: 50px;*/
+/*    !*border-color: #818385 0 solid;*!*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*    !*margin-left: auto;*/
+/*    margin-right: auto;*!*/
+/*    margin-top: 20px;*/
+/*    color:#0052ff;*/
+/*    background: #ffffff;*/
+/*}*/
+
+/*.extra_links_text{*/
+/*    !*justify-content: center;*!*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin-top: 20px;*/
+/*    color:#0052ff;*/
+/*    background: #ffffff;*/
+/*}*/

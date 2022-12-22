@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+    }
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    }
+
+.card {
+    background-color: var(--bg-color);
+}
+nav {
+    background-color: var(--nav-color);
+    }
+
+section, .modal-content {
+    background-color: var(--section-color);
+}
+
+#nav a {
+    color: var(--text-color);
+}
+.card-body h5, .nav-link {
+    color: var(--text-color);
+}
+hr, h1, h3, h5, p, .form-label, .form-check-label {
+    color: var(--text-color);
+}
+

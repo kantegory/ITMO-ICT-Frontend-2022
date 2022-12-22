@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFF7E9">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B23498C">
+  <title>Coins</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <link rel="stylesheet" href="../css/styles_account.css">
+  <link rel="stylesheet" href="../css/styles/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="../css/styles/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+      <symbol id="optionsIcon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+      </symbol>
+
+      <symbol id="logoutIcon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+      </symbol>
+  </svg>
+  <header class="header navbar navbar-expand-sm navbar-dark bd-navbar sticky-top">
+    <nav class="container-xxl flex-wrap flex-sm-nowrap" aria-label="Main navigation">
+      <span class="navbar-brand title--span mywhite--text">Coins</span>
+      <div class="d-flex">
+        <button class="navbar-toggler d-flex d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
+<!--          <img src="https://icon-library.com/images/android-three-dots-icon/android-three-dots-icon-0.jpg" alt="..." class="bi" aria-hidden="true" height="24"/>-->
+            <svg class="icon">
+                <use xlink:href="#optionsIcon"></use>
+            </svg>
+        </button>
+      </div>
+      <div class="offcanvas-sm offcanvas-end flex-grow-1 header__section" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel"><span class="mywhite--text">Coins</span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+        </div>
+        <div class="offcanvas-body p-4 pt-0 p-sm-0">
+          <hr class="d-sm-none text-white-50">
+          <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+            <li class="nav-item col-4 col-sm-auto">
+              <a class="nav-link py-2 px-0 px-sm-2" href="#mycoins"><span class="mywhite--text">My coins</span></a>
+            </li>
+            <li class="nav-item col-4 col-sm-auto">
+              <a class="nav-link py-2 px-0 px-sm-2" href="#coins"><span class="mywhite--text">Market Cap</span></a>
+            </li>
+            <li class="nav-item col-4 col-sm-auto">
+              <a class="nav-link py-2 px-0 px-sm-2" href="#graph"><span class="mywhite--text">Graph</span></a>
+            </li>
+          </ul>
+
+          <hr class="d-sm-none text-white-50">
+
+          <ul class="navbar-nav flex-row flex-wrap ms-sm-auto">
+            <li class="nav-item col-4 col-sm-auto">
+              <a class="nav-link py-2 px-0 px-sm-2" href="index.html"><span class="mywhite--text">
+                  <svg class="icon">
+                      <use xlink:href="#logoutIcon"></use>
+                  </svg>
+                  Log out</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="main p-4 main--text-color">
+    <h3 class="fw-semibold text-center p-4 main--text-color" id="mycoins">My Coins by Market Cap</h3>
+    <section class="justify-content-center">
+      <div class="table-responsive-md">
+        <table class="table table-hover align-middle mytable">
+          <thead>
+            <tr>
+              <th class=""><img src="../res/binoculars-icons.png" width="20" height="20" alt="..."></th>
+              <td class="">№</td>
+              <th class="">Coin</th>
+              <th class="text-end">Price</th>
+              <th class="text-end">1h</th>
+              <th>
+                <div class="row align-items-end">
+                  <div class="col text-center d-none d-md-block">24h</div>
+                  <div class="col text-end d-none d-sm-block">Last 7 Days</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="gridMyCripto"></tbody>
+        </table>
+      </div>
+      
+
+      <div>
+        <nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#mycoins" aria-label="Previous" onclick="back('pageMyCripto')">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#mycoins" id="pageMyCripto">1</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#mycoins" aria-label="Next" onclick="next('pageMyCripto')">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section class="container p-2">
+      <h3 class="fw-semibold text-center main--text-color" id="coins">Top Coins by Market Cap</h3>
+      <div class="row">
+        <div class="dropdown col">
+          <button class="btn dropdown-toggle filter--color" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#coins" id="meme-token" onclick="filterList('meme-token')">Meme</a></li>
+            <li><a class="dropdown-item" href="#coins" id="non-fungible-tokens-nft" onclick="filterList('non-fungible-tokens-nft')">NFT</a></li>
+            <li><a class="dropdown-item" href="#coins" id="finance-banking" onclick="filterList('finance-banking')">Finance</a></li>
+          </ul>
+        </div>
+        <input class="form-control col" type="search" placeholder="Search" aria-label="Search" id="findCripto">
+        <button class="btn col filter--color" type="submit" onclick="searchCripto('findCripto')">Search</button>
+      </div>
+    </section>
+
+    <section class="justify-content-center">
+      <div class="table-responsive-md">
+        <table class="table table-hover align-middle mytable">
+          <thead>
+            <tr>
+              <th class=""><img src="../res/binoculars-icons.png" width="20" height="20" alt="..."></th>
+              <td class="">№</td>
+              <th class="">Coin</th>
+              <th class="text-end">Price</th>
+              <th class="text-end">1h</th>
+              <th>
+                <div class="row align-items-end">
+                  <div class="col text-center d-none d-md-block">24h</div>
+                  <div class="col text-end d-none d-sm-block">Last 7 Days</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="gridCripto"></tbody>
+        </table>
+      </div>
+      
+
+      <div>
+        <nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#coins" aria-label="Previous" onclick="back('pageCripto')">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#coins" id="pageCripto">1</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#coins" aria-label="Next" onclick="next('pageCripto')">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section>
+      <div class="container p-4">
+        <h3 class="fw-semibold text-center main--text-color" id="graph">Cryptocurrency Prices by Charts</h3>
+        <div class="row justify-content-center">
+          <p class="mw-75 text-center main--text-color">Below you can see an example of plotting currency price changes. The construction is based on fresh data. Using this graph, you can track how the coin price has changed over time.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="card p-2 m-2" style="width: 400px;">
+            <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+          </div>
+          <div class="card p-2 m-2" style="width: 400px;">
+            <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+          </div>
+          <div class="card p-2 m-2" style="width: 400px;">
+            <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <nav>
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item">
+              <a class="page-link" href="#graph" aria-label="Previous" onclick="back('pageChart')">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#graph" id="pageChart">1</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#graph" aria-label="Next" onclick="next('pageChart')">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <footer class="footer pt-4">
+    <section class="col-md-8 mx-auto text-center">
+      <h4 class="fw-semibold mywhite--text">Website creator <a href="https://t.me/chernovec" class="footer--link1">Egor Chernov</a></h4>
+      <p class="mywhite--text">Site under development. At the moment, only a site template was created. Stack of technologies that I used:</p>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://getbootstrap.com/">
+          <img class="d-block mb-2" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Bootstrap</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://canvasjs.com/">
+          <img class="d-block mb-2" src="../res/canvasjs.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">CanvasJS</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link1" href="https://axios-http.com/ru/">
+          <img class="d-block mb-2" src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png" alt="" width="50" height="50" loading="lazy">
+          <span class="footer--text">Axios</span>
+        </a>
+      </div>
+    </section>
+    <section class="text-center mt-4 py-4 footer__nav">
+      <h4 class="fw-semibold mywhite--text">Used API</h4>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-4">
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get coins</span>
+        </a>
+        <a class="d-flex flex-column align-items-center text-decoration-none footer--link2" href="https://www.coingecko.com/en/api/documentation">
+          <span class="footer--text">Get specific coin</span>
+        </a>
+      </div>
+    </section>
+  </footer>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="../js/account.js"></script>
+</html>

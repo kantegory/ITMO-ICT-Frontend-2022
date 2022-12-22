@@ -74,9 +74,11 @@ function renderProductsAfter(products, elem) {
                         src="${product.photo}"
                         class="card-img-top img-fluid"
                         alt="${product.name}"
+                        width="306"
+                        height="391"
                       >
                       <div class="card-body px-0">
-                        <h6 class="card-title">${product.name}</h6>
+                        <h4 class="card-title h6">${product.name}</h4>
                         <p class="card-text">${product.price}</p>
                       </div>
                     </div>

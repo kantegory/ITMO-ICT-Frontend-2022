@@ -1,0 +1,106 @@
+:root {
+  --background: #1d3557;
+  --background-alt: #457b9d;
+  --foreground: #f1faee;
+  --accent: #84a59d;
+  --main-bg-color: brown;
+  --bs-black: black;
+  --bs-gray-900: #212529;
+  }
+
+html,
+
+header {
+  background-color: var(--bs-black);
+  text-shadow: var(--foreground);
+}
+
+body {
+  height: 100%;
+  background-color: var(--bs-black);
+  color: var(--foreground);
+}
+
+.container input[placeholder="Research.."] {
+  background-color: var(--main-bg-color);
+}
+div.container {
+  background: var(--bs-black);
+
+
+}
+
+.bg-light {
+  --bs-bg-opacity: 1;
+  /* background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important; */
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: var(--bs-black);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[id="floatingInput"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--main-bg-color);
+  border-color: var(--main-bg-color);
+}
+
+.form-signin input[id="floatingPassword"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--main-bg-color);
+  border-color:  var(--main-bg-color);
+}
+
+.form-signin input[id="surname"] {
+    
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.categories_filter button{
+  margin-right: 10px;
+  white-space: nowrap;
+  background-color:  var(--main-bg-color);
+  border-color: var(--main-bg-color);
+}
+
+.card-photo{
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  color: var(--main-bg-color);
+}
+
+.avatar{
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+
+a {
+  text-decoration: none; /* no underline */
+}
+
+.bg-image{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Поиск по книгам, Искать книги, Читательский дневник">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../css/light.css" media="(prefers-color-scheme: light)">
+    <!-- Settings -->
+    <title>Читаемы</title>
+    <link type="image/x-icon" href="../res/rwe-colored.png" rel="shortcut icon">
+    <link type="image/x-icon" href="../res/rwe-colored.png" rel="icon">
+</head>
+
+<body class="d-flex flex-column min-vh-100 white-bg secondary-text">
+<header class="fixed-top">
+    <!-- NAVIGATION -->
+    <!-- Menu & login bar -->
+    <nav class="navbar navbar-dark black-bg navbar-expand-md justify-content-end">
+        <div class="container-fluid">
+            <a class="navbar-brand title-font text-white ms-2"
+               href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/index.html">
+                <h2>Читае<span class="text-danger">м</span>ы</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-1 mb-lg-0 mx-0 mx-lg-0 mx-sm-3" id="navbarTop">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                            href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/search.html">Библиотека</a>
+                    </li>
+                    <li class="nav-item" id="navLogin">
+                        <button class="btn btn-success" type="submit" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">Войти
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Genres & search -->
+    <nav class="navbar bg-focus">
+        <div class="container-fluid">
+            <div class="row w-100 align-items-center">
+                <div class="col col-lg-8 d-none d-lg-flex">
+                    <div class="d-flex flex-row flex-wrap justify-content-evenly" id="navGenres">
+                        <div class="p-1 mx-2"><a href="#"
+                                                 class="text-decoration-none text-main bg-accent p-1">Новинки</a>
+                        </div>
+                        <div class="p-1 mx-2"><a href="#"
+                                                 class="text-decoration-none text-white black-bg p-1">Топ-100</a></div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 p-2 text-end">
+                    <label for="textSearch" class="black m-1 p-1 text-white"><b>Поиск в библиотеке</b></label>
+                    <div class="d-flex">
+
+                        <input class="form-control flex-fill mx-3 white-bg" type="search" id="textSearch"
+                               placeholder="Название, автор, ключевые слова"
+                               aria-label="Название, автор, ключевые слова">
+                        <button class="btn bg-accent" aria-label="Искать" type="submit"
+                                onclick="searchTitle()">
+                            <svg class="icon icon--filled">
+                                <title>Search</title>
+                                <use xlink:href="../res/sprite.svg#search"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="white-bg">
+    <!-- login modal -->
+    <div class="modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <form onsubmit="login(event)">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginModalLabel">Вход</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="text-danger h6 text-center">
+                                <p id="mistakeLogin"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Адрес электронной почты</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль |
+                                    <a href="#" class="text-decoration-none align-self-end">
+                                        <small>забыли пароль?</small>
+                                    </a>
+                                </label>
+                                <input type="password" class="form-control" id="password" name="password">
+                                <div class="form-check my-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault"> Не выходить</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger mb-3">Войти</button>
+                        <a type="submit" class="btn btn-outline-danger mb-3"
+                           href="http://localhost:9999/f/labs/K33401/Kormanovskaya/website/pages/singup.html">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Spaces -->
+    <div class="empty-div-sm d-block d-lg-none"></div>
+    <div class="empty-div-lg d-none d-lg-block d-xl-none"></div>
+    <div class="empty-div-xl d-none d-xl-block"></div>
+    <!-- Registration -->
+    <div class="container w-75 mx-auto my-5">
+        <h1 class="text-center mb-5 text-main">Регистрация</h1>
+        <div class="text-danger text-center h6"><p id="mistakes"></p></div>
+
+        <form class="row g-3 justify-content-center" onsubmit="signup(event)" >
+            <div class="col-md-7">
+                <label for="login" class="form-label">Имя пользователя</label>
+                <input type="text" class="form-control" id="login" placeholder="Ву Пси">
+            </div>
+            <div class="col-md-3">
+                <label for="gender" class="form-label">Пол</label>
+                <select id="gender" class="form-select">
+                    <option selected>не указан</option>
+                    <option>женский</option>
+                    <option>мужской</option>
+                    <option>вертолет</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label for="emailSignUp" class="form-label">Эл. адрес</label>
+                <input type="email" class="form-control" id="emailSignUp">
+            </div>
+            <div class="col-md-5">
+                <label for="emailCopy" class="form-label">Подтвердите эл. адрес</label>
+                <input type="email" class="form-control" id="emailCopy">
+            </div>
+            <div class="col-md-5">
+                <label for="passwordSignUp" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="passwordSignUp">
+            </div>
+            <div class="col-md-5">
+                <label for="passwordCopy" class="form-label">Подтвердите пароль</label>
+                <input type="password" class="form-control" id="passwordCopy">
+            </div>
+
+            <div class="col-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="news" checked="checked">
+                    <label class="form-check-label" for="news">
+                        Подписаться на новостную рассылку
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rules" checked="checked">
+                    <label class="form-check-label" for="rules">
+                        Согласие с правилами бла-бла
+                    </label>
+                </div>
+            </div>
+            <div class="col-10">
+                <input type="submit" class="btn btn-success" value="Зарегистрироваться">
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer class="footer d-none d-md-block mt-auto white-bg">
+    <div class="container-fluid pt-3 px-5 mt-5 text-main">
+        <div class="row">
+            <div class="col-9 ">
+                <p class="h5">"Фронт-энд разработка", Университет ИТМО</p>
+                <p>Лабораторные работы №1, №2. Домашние работы №2, №3, №4</p>
+            </div>
+            <div class="col-3 border-start border-danger py-2">
+                <p class="h6"><strong>Кормановская Дарина</strong>, K33401</p>
+
+                <p class="h6 text-accent">
+                    <svg class="icon icon--filled">
+                        <title>Github</title>
+                        <use xlink:href="../res/sprite.svg#github"></use>
+                    </svg>
+                    <svg class="icon icon--filled">
+                        <title>Telegram</title>
+                        <use xlink:href="../res/sprite.svg#tg"></use>
+                    </svg>
+                    eispoohw
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/signup.js"></script>
+</body>
+</html>

@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/chart.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -15,26 +17,41 @@
 <header class="d-flex justify-content-center py-3">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a href="index.html" class="nav-link pt-1"><img class="nav-logo " src="assets/Coinbase-logo-1.svg"
-                                                            alt="coinbase logo">
+            <a href="index.html" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
             </a>
         </li>
         <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
         <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Графики</a></li>
-        <li class="nav-item"><a href="sign_in.html" class="nav-link">Вход</a></li>
-        <li class="nav-item"><a href="sign_up.html" class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="login" style="display: block"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
+                                                                     class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="logout" style="display: none">
+            <button class="logout-button" onclick="logout()"
+                    style="border: none; padding-top:5px;  background-color: #fff">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
+        </li>
     </ul>
 </header>
 <div class="container w-100 pt-4">
-    <div class="d-flex w-25 mb-5 justify-content-between" style="border: 1px solid lightgrey;">
+    <div class="d-flex w-25 mb-5 justify-content-between search-section" style="border: 1px solid;">
         <label class="w-100">
-            <input type="text" class="form-control" style="height: 45px;border: none" onchange="search()"
+            <input type="text" class="form-control" style="height: 45px;border: 2px solid var(--border-input)" onchange="search()"
                    placeholder="Поиск по названию">
         </label>
-        <button class="bg-light px-2" style="border:none; padding: 0"><img src="assets/icons8-close.svg"
-                                                                      alt="" class="bg-light"
-                                                                      onclick="clear_search()">
+        <button class="bg-light px-2 clear-search" style="border:2px solid var(--border-input); padding: 0" onclick="clear_search()">
+            <svg class="clear-icon" style="width: 30px; height: 30px">
+                <use xlink:href="sprite.svg#clear">
+                </use>
+            </svg>
         </button>
     </div>
 
@@ -65,7 +82,7 @@
 
     function getCoinHtml({image, name, symbol, id}) {
         return `
-            <button  id='${id}' class="btn btn-light justify-content-between" style="width: 250px" onclick="renderChart(event)">
+            <button  id='${id}' class="btn btn-light justify-content-between" style="width: 250px; border: 2px solid" onclick="renderChart(event)">
                     <div class="d-flex align-items-center ">
                         <img  src="${image}" alt="" style="width: 30px; height: 30px"
                              class="rounded-circle"/>
@@ -75,7 +92,10 @@
                         </div>
                     </div>
                     <div>
-                        <img id="${id}" src="assets/icons8-combo-chart-24.png">
+                        <svg id='${id}' class="draw-chart" style="width: 20px; height: 20px">
+                            <use xlink:href="sprite.svg#chart">
+                            </use>
+                        </svg>
                     </div>
             </button>
         `
@@ -225,6 +245,24 @@
     //
     // }
 
-    document.addEventListener('DOMContentLoaded', () => currencyList(url))
+    function logout() {
+        if (localStorage.user) {
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+
+    function checkAuth() {
+        if (localStorage.user) {
+            document.getElementById('login').style.display = 'none'
+            document.getElementById('register').style.display = 'none'
+            document.getElementById('logout').style.display = 'block'
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuth()
+        currencyList(url)
+    })
 </script>
 </html>

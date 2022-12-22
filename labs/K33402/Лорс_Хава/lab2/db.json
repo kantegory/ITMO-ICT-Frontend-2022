@@ -1,41 +1,6 @@
 {
   "users": [
     {
-      "email": "example@ex.com",
-      "password": "12345",
-      "id": 1
-    },
-    {
-      "email": "example@ex.com",
-      "password": "12345",
-      "id": 2
-    },
-    {
-      "email": "example@ex.com",
-      "password": "12345",
-      "id": 3
-    },
-    {
-      "email": "ex@ex.com",
-      "password": "12345",
-      "id": 4
-    },
-    {
-      "email": "ex@ex.com",
-      "password": "12345",
-      "id": 5
-    },
-    {
-      "email": "khava@gmail.com",
-      "password": "$2a$10$RNlW1NaNO.VbNZQJt2huPeuRqKqkrtKs7/Lf9BDdD7W3SJCBtPuHO",
-      "id": 6
-    },
-    {
-      "email": "ex@gmail.com",
-      "password": "$2a$10$PJsb.XfsPZdNCjcNy0F5ueAlEmz8DlDh.fNQJI9mG.Z3wmaGPYi7C",
-      "id": 7
-    },
-    {
       "email": "name@example.com",
       "password": "$2a$10$t5ngPlWs948CL3Me4S9MKev5uT0zCs.NeRD2e0LIoYChwQt6GkdG.",
       "name": "Khava",
@@ -77,6 +42,81 @@
       "birthday": "10/10/2000",
       "": "",
       "id": 12
+    },
+    {
+      "email": "alisa@gmail.com",
+      "password": "$2a$10$SDtaUwwIpN7FiLgSp0GA6uXoHSr7mITy1T6NrwRCWqsF5OnJ8WPJ2",
+      "name": "Alisa",
+      "lastname": "Alisaalisa",
+      "birthday": "10/10/2000",
+      "": "",
+      "id": 13
     }
+  ],
+  "clothes": [
+    {
+      "id": 1,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-16.jpg",
+      "description": "Silk Maxi Dress with Long Flared Sleeves",
+      "price": "1270 AED",
+      "collection": "city"
+    },
+    {
+      "id": 2,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-13.jpg",
+      "description": "Maxi Sleeveless Milk Dress",
+      "price": "890 AED",
+      "collection": "city"
+    },
+    {
+      "id": 3,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-28.jpg",
+      "description": "Purple Dress",
+      "price": "1300 AED",
+      "collection": "desert"
+    },
+    {  
+      "id": 4,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-34 — копия.jpg",
+      "description": "Midnight Blue Knitted Fabric Dress",
+      "price": "1500 AED",
+      "collection": "desert"
+    },
+    {
+      "id": 5,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-14.jpg",
+      "description": "Grey Sillk Dress",
+      "price": "1450 AED",
+      "collection": "city"
+    },
+    {
+      "id": 6,
+      "img": "images/prof/images for page with dresses/photo_2022-10-08_00-46-37 — копия.jpg",
+      "description": "Sleeveless Dress",
+      "price": "760 AED",
+      "collection": "desert"
+    },
+    {
+      "id": 7,
+      "img": "images/prof/images for page with shirts/photo_2022-10-08_00-46-35 — копия.jpg",
+      "description": "Accent Shoulder Shirt",
+      "price": "540 AED",
+      "collection": "desert"
+    },
+    {
+      "id": 8,
+      "img": "images/prof/images for page with skirts/photo_2022-10-08_00-46-30 — копия.jpg",
+      "description":"Midi Skirt with Fringe",
+      "price": "600 AED",
+      "collection": "desert"
+    },
+    {
+      "id": 9,
+      "img": "images/prof/images for page with skirts/photo_2022-10-08_00-46-23.jpg",  
+      "description": "Wrap Midi Skirt",
+      "price": "550 AED",
+      "collection": "desert"
+      
+    } 
   ]
 }

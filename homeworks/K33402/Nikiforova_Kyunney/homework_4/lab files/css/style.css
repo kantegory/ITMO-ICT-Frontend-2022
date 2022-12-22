@@ -1,0 +1,58 @@
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+/* header {
+	position: sticky;
+	z-index: 100;
+	top: 0;
+} */
+
+.btn2 {
+	background-color: var(--btn-bg-color);
+}
+
+.card, .event-title, .right-block, .btn-logout {
+	background-color: var(--card-bg-color);
+	border: var(--card-border);
+}
+
+.form-select, .form-control {
+	background-color: var(--form-bg-color);
+	color: var(--form-color);
+	border: var(--form-border);
+}
+
+.text-link {
+	color: var(--link-color);
+}
+
+.card-img-top {
+	height: 10rem;
+}
+
+.card-event-date {
+	color: #5c89ab;
+	font-weight: 600;
+}
+
+.card-event-location {
+	color: grey;
+}
+
+.right-block-sticky {
+	position: sticky;
+  	top: 5em;
+}
+
+.card2 {
+	width: 15rem;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+	margin: auto;
+}

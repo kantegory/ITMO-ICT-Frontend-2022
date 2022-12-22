@@ -28,7 +28,7 @@ filterBar.addEventListener('click', (e) => {
 
 const loadClothes = async () => {
     try {
-        const res = await fetch('clothes.json');
+        const res = await fetch('http://localhost:3000/clothes');
         Clothes = await res.json();
         displayClothes(Clothes);
         console.log(Clothes);
