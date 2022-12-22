@@ -1,0 +1,79 @@
+.personal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 90%;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: var(--card-color);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px #00000099;
+}
+
+.nav-list {
+    display: grid;
+    grid-template-columns: 100px 135px 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.list-elem {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 20px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    border-style: double;
+}
+
+.list-elem:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.list-item {
+    display: flex;
+    align-items: baseline;
+}
+
+.logout-box:hover {
+    background: #03e9f4 !important;
+    color: #fff !important;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.logout-icon:hover {
+    fill: white !important;
+}
+
+.btn-primary:hover {
+    color: white !important;
+    border-radius: 3px;
+    box-shadow: 0 0 5px blue,
+    0 0 25px blue,
+    0 0 50px blue,
+    0 0 100px blue;
+}
+
+.btn-danger:hover {
+    border-radius: 5px;
+    box-shadow: 0 0 5px red,
+    0 0 25px red,
+    0 0 50px red,
+    0 0 100px red;
+}

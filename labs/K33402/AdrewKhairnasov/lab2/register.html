@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOG IN, REGISTER OR GO AWAY</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="theme/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="theme/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+<div class="login-box">
+    <h2>Register</h2>
+    <form type="submit" onsubmit="register(event)">
+        <div class="user-box">
+            <input class="form-control" type="text" name="name" autocomplete="off" required>
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input class="form-control" type="email" name="email" autocomplete="off" required>
+            <label>Email</label>
+        </div>
+        <div class="user-box">
+            <input class="form-control" type="password" name="password" autocomplete="off" required>
+            <label>Password</label>
+        </div>
+        <div class="user-box">
+            <input class="" type="password" name="" autocomplete="off" required>
+            <label>Verify Password</label>
+        </div>
+        <div class="buttons-box">
+            <button class="btn" type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </button>
+            <button class="btn" onclick="redirect(event)">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Login
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    function redirect(event) {
+        event.preventDefault()
+        window.location.href = 'http://localhost:63342/frontLabs!/index.html'
+    }
+
+    function checkAuth() {
+        if (localStorage.user) {
+            window.location.href = 'http://localhost:63342/frontLabs!/personal.html'
+        }
+    }
+
+    async function register(event) {
+        event.preventDefault()
+
+        const inputs = Array.from(event.target.querySelectorAll('.form-control'))
+
+        const credentials = {}
+
+        for (const input of inputs) {
+
+            credentials[input.name] = input.value
+        }
+
+        credentials.coins = []
+
+        const response = await fetch('http://localhost:3000/users', {
+                method: 'POST',
+                body: JSON.stringify(credentials),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
+
+        const responseJson = await response.json()
+
+        const {id, email, password} = responseJson
+
+        let newUser = {
+            'id': id,
+            'email': email,
+            'password': JSON.stringify(password),
+        }
+
+        localStorage.setItem('user', JSON.stringify(newUser))
+
+        window.location.href = 'http://localhost:63342/frontLabs!/personal.html'
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth())
+</script>
+
+</body>
+</html>

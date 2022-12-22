@@ -1,0 +1,41 @@
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.table {
+    border: 2px solid;
+}
+
+.head-row {
+    border-bottom: 2px solid;
+    font-weight: normal;
+}
+
+.search-row {
+    height: 65px;
+}
+
+.btn-link {
+    width: 100px;
+}
+
+.logo-item {
+    padding-left: 15px;
+}
+
+.sort-arrow{
+    border: none;
+    background-color: white;
+    display: inline-block;
+}
+
+.btn-pagination{
+    border: none;
+    background-color: white;
+    margin-left: 15px;
+}

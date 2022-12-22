@@ -1,0 +1,8 @@
+:root {
+    --bg-color: linear-gradient(#141e30, #243b55);
+    --text-color: white;
+    --card-color: #0000007F;
+    --button-color: none;
+    --button-hover: #03e9f4;
+    --icon-color: white;
+}

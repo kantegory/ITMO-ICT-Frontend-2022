@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto list</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="theme/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="theme/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+<div class="list-box">
+    <header class="p-0">
+        <nav>
+            <ul class="nav-list d-flex p-0 m-0">
+                <li class="list-item">
+                    <a href="list.html" class="list-elem">List</a>
+                </li>
+                <li class="list-item">
+                    <a href="charts.html" class="list-elem">Charts</a>
+                </li>
+                <li class="list-item">
+                    <a href="personal.html" class="list-elem">Personal</a>
+                </li>
+                <li class="list-item" id="logout" style="display: none">
+                    <button style="background: none; border: 2px solid #03e9f4; width: 70px; height: 56px" class="list-elem logout-box d-flex justify-content-center align-items-center" onclick="logout()">
+                        <svg class="logout-icon" style="margin: 0; fill: #03e9f4">
+                            <use xlink:href="sprite.svg#logout"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="dataTable-wrapper justify-content-center mx-auto" style="color: #03e9f4">
+        <div class="table-head" style="padding-right: 20px">
+            <div class="search-row">
+                <div class="input-group w-50" style="padding-bottom: 30px">
+                    <label class="input-label w-50">
+                        <input type="text" class="form-control" style="height: 45px; border: 2px solid #03e9f4"
+                               onchange="search()"
+                               placeholder="Поиск по названию">
+                    </label>
+                    <button class="clear-btn"
+                            style="border: none; border-radius: 10px; width: 45px; height: 45px; padding:0;"
+                            onclick="clear_search()">
+                        <svg style="width: 45px; height: 45px">
+                            <use xlink:href="sprite.svg#clear" style="fill: #03e9f4"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="head-row d-flex border-light justify-content-between" style="height: 50px">
+                <div class="fw-normal d-block" style="width: 35%;">Название
+                    <button class="sort-arrow align-middle" onclick="sort_name()"
+                            style="background: none; border: none">
+                        <svg class="inner-pic">
+                            <use xlink:href="sprite.svg#sort"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="fw-normal" style="width: 20%;">Цена
+                    <button class="sort-arrow align-middle" onclick="sort_price()">
+                        <svg class="inner-pic">
+                            <use xlink:href="sprite.svg#sort"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="fw-normal" style="width: 15%">Изменение
+                    <button class="sort-arrow align-middle" onclick="sort_change()">
+                        <svg class="inner-pic">
+                            <use xlink:href="sprite.svg#sort"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="fw-normal" style="width: 20%">Дата добавления
+                    <button class="sort-arrow align-middle" onclick="sort_date()">
+                        <svg class="inner-pic">
+                            <use xlink:href="sprite.svg#sort"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="fw-normal" style="width: 10%">
+                </div>
+            </div>
+        </div>
+        <div class="coin-wrapper w-100" style="display: block; height: 500px; overflow-y: scroll; padding-top: 15px">
+        </div>
+    </section>
+    <script>
+        function logout() {
+            if (localStorage.user) {
+                localStorage.clear()
+                window.location.href = "http://localhost:63342/frontLabs!/"
+            }
+        }
+
+        function getCoinHtml({image, name, current_price, symbol, market_cap_change_percentage_24h, atl_date}) {
+            return `
+            <div class="" style="height: 60px ;display: block; padding: 0">
+            <div class="d-flex flex-row justify-content-start">
+                <div class="d-flex flex-row align-items-center logo-item" style="width: 35%;">
+                        <img src="${image}" alt="" style="width: 30px; height: 30px"
+                             class="rounded-circle"/>
+                        <div class="ms-2">
+                            <p class="fw-bold mb-0">${name}</p>
+                            <p class="text-muted mb-0">${symbol.toUpperCase()}</p>
+                        </div>
+                </div>
+                <div class="d-flex align-items-center" style="width: 20%">
+                    <p class="fw-normal mb-0">RUB ${current_price}</p>
+                </div>
+                <div class="d-flex align-items-center" style="width: 15%">
+                    ${changeHandler(market_cap_change_percentage_24h.toFixed(2))}
+                </div>
+                <div class="d-flex align-items-center" style="width: 20%">
+                    <span class="d-flex align-items-center start-date">${dateHandler(atl_date)}</span>
+                </div>
+                <div class="d-flex align-items-center" style="width: 10%;">
+                    <button type="button" class="btn btn-link rounded-pill text-white text-decoration-none" style="color: var(--text-color) !important; background: var(--bg-color)" value="${symbol}" onclick="buyCoin(event)">
+                        Купить
+                    </button>
+                </div>
+            </div>
+            </div>
+        `
+        }
+
+        let data;
+        let searchString = "";
+        let sortName = "";
+        let url = `http://localhost:3000/currency?${searchString}&${sortName}`;
+        let amount;
+
+        async function loadCoins(query) {
+            document.querySelector('.coin-wrapper').innerHTML = "";
+
+            if (query === undefined) {
+                query = url;
+            }
+
+            const response = await fetch(query)
+
+            data = await response.json()
+            amount = data.length
+
+            for (let i = 0; i < amount; i++) {
+                document.querySelector('.coin-wrapper').innerHTML += getCoinHtml(data[i])
+            }
+
+        }
+
+        function search() {
+            const searchValue = document.querySelector('input').value
+
+            const searchParams = new URLSearchParams()
+            searchParams.set('q', searchValue)
+
+            searchString = searchParams.toString()
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+        function clear_search() {
+            const searchValue = ''
+            document.querySelector('input').value = searchValue
+
+            const searchParams = new URLSearchParams()
+            searchParams.set('q', searchValue)
+
+            searchString = searchParams.toString()
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+        function changeHandler(market_cap_change) {
+            return market_cap_change < 0 ? `<span class="fw-normal text-danger">${market_cap_change}%</span>` : `<span class="fw-normal text-success">${market_cap_change}%</span>`
+        }
+
+        function dateHandler(date) {
+            let ruDate = new Date(date)
+            return formatDate(ruDate)
+        }
+
+        function formatDate(date) {
+            let dd = date.getDate();
+            if (dd < 10) dd = '0' + dd;
+
+            let mm = date.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+
+            let yy = date.getFullYear();
+
+            return dd + '.' + mm + '.' + yy;
+        }
+
+        let cnt_name = 1
+
+        function sort_name() {
+            switch (cnt_name % 3) {
+                case 0:
+                    sortName = ``
+                    cnt_name++
+                    break
+                case 1:
+                    sortName = `_sort=name&_order=desc`
+                    cnt_name++
+                    break
+                case 2:
+                    sortName = `_sort=name&_order=asc`
+                    cnt_name++
+                    break
+            }
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+        let cnt_price = 1
+
+        function sort_price() {
+            switch (cnt_price % 3) {
+                case 0:
+                    sortName = ``
+                    cnt_price++
+                    break
+                case 1:
+                    sortName = `_sort=current_price&_order=desc`
+                    cnt_price++
+                    break
+                case 2:
+                    sortName = `_sort=current_price&_order=asc`
+                    cnt_price++
+                    break
+            }
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+        let cnt_change = 1
+
+        function sort_change() {
+            switch (cnt_change % 3) {
+                case 0:
+                    sortName = ``
+                    cnt_change++
+                    break
+                case 1:
+                    sortName = `_sort=market_cap_change_percentage_24h&_order=desc`
+                    cnt_change++
+                    break
+                case 2:
+                    sortName = `_sort=market_cap_change_percentage_24h&_order=asc`
+                    cnt_change++
+                    break
+            }
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+        let cnt_date = 1
+
+        function sort_date() {
+            switch (cnt_date % 3) {
+                case 0:
+                    sortName = ``
+                    cnt_date++
+                    break
+                case 1:
+                    sortName = `_sort=atl_date&_order=desc`
+                    cnt_date++
+                    break
+                case 2:
+                    sortName = `_sort=atl_date&_order=asc`
+                    cnt_date++
+                    break
+            }
+            url = `http://localhost:3000/currency?${searchString}&${sortName}`
+
+            loadCoins(url)
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth()
+            setTimeout(loadCoins, 200)
+        })
+
+        async function buyCoin(event) {
+            checkAuth()
+
+            const symbol = event.target.value;
+            let url = `http://localhost:3000/currency?symbol=${symbol}`;
+
+            const response = await fetch(url);
+
+            data = await response.json();
+
+            const {id, current_price} = data[0];
+
+            let coin = {
+                'id': id,
+                'price': current_price,
+                'amount': 0,
+            }
+
+            let amount;
+            while (true) {
+                amount = prompt("Сколько хотите купить?")
+                if (amount === null) {
+                    break;
+                } else if (isNaN(amount)) {
+                    alert("Введите число")
+                } else if (amount <= 0) {
+                    alert("Количество должно быть положительным")
+                } else {
+                    break
+                }
+            }
+
+            if (amount !== null) {
+                amount = parseFloat(amount)
+                coin.amount = amount;
+            }
+
+            let currentUser = JSON.parse(localStorage.getItem('user'));
+
+            const user = await fetch(`http://localhost:3000/users?id=${currentUser.id}`);
+            const userJson = await user.json();
+
+            let dup = -1;
+            let i = 0;
+            while (i < userJson[0].coins.length) {
+                if (userJson[0].coins[i].id === coin.id) {
+                    dup = i;
+                }
+                i++;
+            }
+
+            if (dup === -1) {
+                userJson[0].coins.push(coin)
+            } else {
+                userJson[0].coins[dup].amount += amount;
+            }
+
+            await fetch(`http://localhost:3000/users/${currentUser.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(userJson[0]),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+        }
+
+        function checkAuth() {
+            if (!localStorage.user) {
+                window.location.href = 'http://localhost:63342/frontLabs!/'
+            } else {
+                document.getElementById('logout').style.display = 'block'
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
