@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import CardApi from '@/api/cards.js'
+import { cardApi } from '@/api'
 
 const useCardsStore = defineStore('cards', {
   state: () => ({
@@ -8,9 +8,11 @@ const useCardsStore = defineStore('cards', {
 
   actions: {
     async loadCards() {
-      const response = await CardApi.getAll();
+      const response = await cardApi.getAll();
 
-      console.log(response)
+      this.cards = response.data;
+
+      return response;
     }
   }
 })

@@ -47,6 +47,22 @@
       "lastname": "kulagina",
       "login": "svetik",
       "id": 6
+    },
+    {
+      "email": "lizamirmirmir@mail.com",
+      "password": "$2a$10$NV1Cy71JfSqlxZcu2iMkBOXOzyEZmgR/Whi169HUvKZvh3AOC7u8m",
+      "firstname": "Лиза",
+      "lastname": "Миронова",
+      "login": "lizalizaliza",
+      "id": 7
+    },
+    {
+      "email": "lizamirliza@mail.com",
+      "password": "$2a$10$WWViBtqQwQiHwbjBmD/0GOtmA8vAeXrVvrjl765qfExUdbSoKgttO",
+      "firstname": "Лиза",
+      "lastname": "Миронова",
+      "login": "mirmir",
+      "id": 8
     }
   ],
   "events": [
@@ -77,6 +93,20 @@
       "text": "Спорт",
       "src": "./image/cards/sportMoscow.webp",
       "id": 4
+    }
+  ],
+  "calendarEvents": [
+    {
+      "title": "Новый год",
+      "description": "Готовим мандарины",
+      "date": "2022-12-31",
+      "id": 1
+    },
+    {
+      "title": "Новый",
+      "description": "Готовим мандарины",
+      "date": "2022-12-31",
+      "id": 2
     }
   ],
   "userEvents": [

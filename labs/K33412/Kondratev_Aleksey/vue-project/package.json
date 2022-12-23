@@ -11,6 +11,10 @@
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
 	},
 	"dependencies": {
+		"@fullcalendar/core": "^6.0.1",
+		"@fullcalendar/daygrid": "^6.0.1",
+		"@fullcalendar/interaction": "^6.0.1",
+		"@fullcalendar/vue3": "^6.0.1",
 		"axios": "^1.2.1",
 		"bootstrap": "^5.2.3",
 		"pinia": "^2.0.28",
