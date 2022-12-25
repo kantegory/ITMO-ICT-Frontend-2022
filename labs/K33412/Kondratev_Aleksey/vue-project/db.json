@@ -68,31 +68,39 @@
   "events": [
     {
       "name": "Марафон",
-      "day": "Тверь",
-      "text": "Спорт",
-      "src": "./image/cards/sport.jfif",
-      "id": 1
+      "day": "15.11",
+      "text": "Ежегодный марафон",
+      "src": "./src/assets/image/cards/sport.jfif",
+      "id": 1,
+      "city": "Санкт-Петербург",
+      "mero": "Спорт"
     },
     {
       "name": "Новое выступление",
-      "day": "Москва",
-      "text": "Музыка",
-      "src": "./image/cards/musicMoscow.jpg",
-      "id": 2
+      "day": "01.01",
+      "text": "Приезжает PSY",
+      "src": "./src/assets/image/cards/musicMoscow.jpg",
+      "id": 2,
+      "city": "Москва",
+      "mero": "Музыка"
     },
     {
       "name": "Увлекательное шоу",
-      "day": "Санкт-Петербург",
-      "text": "Музыка",
-      "src": "./image/cards/musicSaint.jpg",
-      "id": 3
+      "day": "14.05",
+      "text": "Приезжают группы 80х",
+      "src": "./src/assets/image/cards/musicSaint.jpg",
+      "id": 3,
+      "city": "Санкт-Петербург",
+      "mero": "Музыка"
     },
     {
       "name": "К спорту вместе!",
-      "day": "Москва",
-      "text": "Спорт",
-      "src": "./image/cards/sportMoscow.webp",
-      "id": 4
+      "day": "24.05",
+      "text": "Присоединяйся к нашей борьбе",
+      "src": "./src/assets/image/cards/sportMoscow.webp",
+      "id": 4,
+      "city": "Москва",
+      "mero": "Спорт"
     }
   ],
   "calendarEvents": [
@@ -103,9 +111,9 @@
       "id": 1
     },
     {
-      "title": "Новый",
-      "description": "Готовим мандарины",
-      "date": "2022-12-31",
+      "title": "Отдых",
+      "description": "Отдыхаем на чилле",
+      "date": "2022-12-28",
       "id": 2
     }
   ],
