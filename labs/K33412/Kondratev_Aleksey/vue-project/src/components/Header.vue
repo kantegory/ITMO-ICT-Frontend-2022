@@ -36,7 +36,7 @@
       </div>
       <div>
         <button class="colors navbar-brand text-color fs-6" id="entry" @click="$router.push('/entry/')">Вход <svg class="icon-main"><use xlink:href="#entry-door"></use></svg></button>
-        <button class="colors navbar-brand text-color fs-6 button-logout" id="exit">Выход <svg class="icon-main"><use xlink:href="#exit-door"></use></svg></button>
+        <button class="colors navbar-brand text-color fs-6 button-logout" id="exit" @click="logout">Выход <svg class="icon-main"><use xlink:href="#exit-door"></use></svg></button>
         <button class="colors navbar-brand text-color fs-6" id="register" @click="$router.push('/registration/')">Регистрация <svg class="icon-main"><use xlink:href="#register-icon"></use></svg></button>
         <button class="colors navbar-brand text-color fs-5 p-2" id="lc" @click="$router.push('/personal/')">
           Личный кабинет
@@ -52,6 +52,36 @@
 <script>
 export default {
   name: 'HeaderBlock',
+
+  methods: {
+    check() {
+      const entryButton = document.querySelector('#entry');
+      const registerButton = document.querySelector('#register');
+      const exitButton = document.querySelector('#exit');
+
+      if (localStorage.accessToken) {
+        entryButton.classList.add('d-none');
+        registerButton.classList.add('d-none');
+        exitButton.classList.remove('d-none');
+      } else {
+        entryButton.classList.remove('d-none');
+        registerButton.classList.remove('d-none');
+        exitButton.classList.add('d-none');
+      }
+    },
+
+    logout() {
+      localStorage.clear();
+
+      document.querySelector('#entry').classList.remove('d-none');
+      document.querySelector('#register').classList.remove('d-none');
+      document.querySelector('#exit').classList.add('d-none');
+    }
+  },
+
+  mounted() {
+    this.check()
+  }
 }
 
 </script>
