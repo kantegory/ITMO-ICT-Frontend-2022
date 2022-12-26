@@ -14,7 +14,14 @@ const PhotoCard = ({ photo }) => {
         <Card
             cover={<Image src={`${photo.photo_image_url}?w=700`} preview={{ src: photo.photo_image_url }} />}
             actions={[
-                <div style={{ textOverflow: "ellipsis" }}>{getUsername(photo.photographer_username)}</div>,
+                <a
+                    target="_blank"
+                    href={`https://unsplash.com/@${photo.photographer_username}`}
+                    style={{ textOverflow: "ellipsis" }}
+                    rel="noreferrer"
+                >
+                    {getUsername(photo.photographer_username)}
+                </a>,
                 <HeartFilled style={{ fontSize: "20px" }} key="like" />,
                 <PlusSquareFilled style={{ fontSize: "20px" }} key="add" />,
             ]}

@@ -6,7 +6,7 @@ const CategoriesAlbum = ({ categories }) => {
     return (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {Object.entries(categories).map(([category, { photos, total }]) => (
-                <div style={{ width: "100%", aspectRatio: "1/1", position: "relative" }}>
+                <div key={category} style={{ width: "100%", aspectRatio: "1/1", position: "relative" }}>
                     <Link
                         to={`/search/${category}`}
                         style={{ width: "100%" }}
@@ -21,6 +21,7 @@ const CategoriesAlbum = ({ categories }) => {
                                     width: "100%",
                                     aspectRatio: "1/1",
                                 }}
+                                key={photo_image_url}
                             >
                                 <img
                                     style={{ width: "100%", objectFit: "cover", aspectRatio: "1/1" }}

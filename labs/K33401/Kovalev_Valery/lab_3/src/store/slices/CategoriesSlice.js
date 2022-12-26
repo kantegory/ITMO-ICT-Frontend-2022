@@ -6,20 +6,32 @@ const initialState = {
     isLoading: false,
     count: 0,
     offset: 0,
+    page: 1,
+    limit: 12,
     error: "",
 };
 
 export const categoriesSlice = createSlice({
     name: "categories",
     initialState,
+    reducers: {
+        changePage: (state, action) => {
+            state.offset = (action.payload - 1) * state.limit;
+            state.page = action.payload;
+        },
+        changeLimit: (state, action) => {
+            state.limit = action.payload.limit;
+            state.page = action.payload.page;
+            state.offset = (action.payload.page - 1) * action.payload.limit;
+        },
+    },
     extraReducers: {
         [fetchCategories.pending]: (state) => {
             state.isLoading = true;
         },
         [fetchCategories.fulfilled]: (state, action) => {
-            state.categories = { ...state.categories, ...action.payload.categories };
+            state.categories = action.payload.categories;
             state.isLoading = false;
-            state.offset += Object.keys(action.payload.categories).length;
             state.count = action.payload.count;
             state.error = "";
         },
@@ -31,4 +43,5 @@ export const categoriesSlice = createSlice({
 });
 
 export const authReducer = categoriesSlice.reducer;
+export const { changePage, changeLimit } = categoriesSlice.actions;
 export default authReducer;

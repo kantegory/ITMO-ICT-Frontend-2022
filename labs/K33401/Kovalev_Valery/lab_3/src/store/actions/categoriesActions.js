@@ -3,9 +3,9 @@ import { getCategories, getPhotosByKeywords } from "../../API/PhotosService";
 
 export const fetchCategories = createAsyncThunk(
     "categories/fetchCategories",
-    async ({ limit = 30 } = {}, { rejectWithValue, getState }) => {
+    async (_, { rejectWithValue, getState }) => {
         try {
-            const { offset } = getState().categories;
+            const { offset, limit } = getState().categories;
             const response = await getCategories({ limit, offset });
             const categories = {};
             for (const { keyword, total } of response.results) {
