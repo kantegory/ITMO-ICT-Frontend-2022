@@ -1,15 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect } from "react";
-import { getToken } from "./API/AuthService";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchToken } from "./store/actions/authActions";
-import { useAuth } from "./hooks/useAuth";
-import BasePage from "./pages/BasePage/BasePage";
-import { fetchCategories } from "./store/actions/categoriesActions";
 import MainPage from "./pages/MainPage";
+import { Route, Routes } from "react-router-dom";
+import React from "react";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
-  return <MainPage />;
+    return (
+        <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/search/:category?/:tone?" element={<SearchPage />} />
+        </Routes>
+    );
 }
+
 export default App;

@@ -1,31 +1,33 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchCategories } from '../store/actions/categoriesActions'
-import BasePage from './BasePage/BasePage'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../store/actions/categoriesActions";
+import BasePage from "./BasePage/BasePage";
+import CategoriesAlbum from "../components/CategoriesAlbum";
+import { useInView } from "react-intersection-observer";
 
 function MainPage() {
-    const dispatch = useDispatch()
-    const {categories} = useSelector(state=>state.categories)
-    useEffect(()=>{
-        dispatch(fetchCategories())
-    }, [dispatch])
+    const dispatch = useDispatch();
+    const { categories, isLoading, offset, count } = useSelector((state) => state.categories);
+    const { ref, inView } = useInView();
 
-    console.log(categories)
+    useEffect(() => {
+        if (!Object.keys(categories).length) {
+            dispatch(fetchCategories());
+        }
+    }, [dispatch]);
 
-    //TODO Сделать через antd карусель
+    // useEffect(() => {
+    //     if (inView && Object.keys(categories).length && offset < count) {
+    //         console.log("More");
+    //         dispatch(fetchCategories());
+    //     }
+    // }, [inView, isLoading]);
 
     return (
-        <BasePage>
-        {Object.entries(categories).map(
-            ([category, {photos, total}])=>(
-                <div key={category} className="flex items-center gap-2 capitalize">
-                    <h1>{category}</h1> 
-                    <span>{total}</span>
-                </div>
-            )
-        )}
+        <BasePage pageName="main">
+            <CategoriesAlbum categories={categories} />
         </BasePage>
-    )
+    );
 }
 
-export default MainPage
+export default MainPage;
