@@ -23,25 +23,19 @@ const routes = [
 ];
 
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js'
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -51,4 +45,20 @@ const router = createRouter({
 const app = createApp(App);
 app.use(router);
 app.use(VueAxios, axios);
+app.use(Toast, {
+    transition: "Vue-Toastification__slideBlurred",
+    maxToasts: 5,
+    newestOnTop: true,
+    position: "bottom-left",
+    timeout: 5000,
+    closeOnClick: true,
+    pauseOnFocusLoss: true,
+    pauseOnHover: true,
+    draggable: true,
+    draggablePercent: 0.6,
+    showCloseButtonOnHover: true,
+    hideProgressBar: true,
+    closeButton: "button",
+    icon: true,
+});
 app.mount("#app");
