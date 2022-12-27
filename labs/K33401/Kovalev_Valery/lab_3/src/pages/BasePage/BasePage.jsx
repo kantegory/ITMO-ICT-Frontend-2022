@@ -1,11 +1,12 @@
 import { Layout, Menu } from "antd";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FormOutlined, HomeOutlined, LoginOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import LoginModal from "../../components/modals/LoginModal";
 import RegisterModal from "../../components/RegisterModal";
 import { useAuth } from "../../hooks/useAuth";
 import { redirect, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLikes } from "../../store/actions/profileActions";
 
 function getItem(label, key, icon, children) {
     return {
@@ -58,12 +59,20 @@ const BasePage = ({ pageName, children, ref }) => {
             case "search":
                 navigate(searchLink);
                 break;
+            case "profile":
+                navigate("/profile");
+                break;
             default:
                 break;
         }
     };
 
     const { user, isAuth } = useAuth();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchLikes());
+    }, [dispatch]);
 
     return (
         <Layout className="min-h-screen" ref={ref}>
@@ -81,7 +90,7 @@ const BasePage = ({ pageName, children, ref }) => {
                         <Menu
                             theme="dark"
                             onClick={menuOnClick}
-                            defaultSelectedKeys={pageName}
+                            selectedKeys={[pageName]}
                             mode="inline"
                             items={LoggedNavigateItems}
                         />
@@ -92,7 +101,7 @@ const BasePage = ({ pageName, children, ref }) => {
                         <Menu
                             theme="dark"
                             onClick={menuOnClick}
-                            defaultSelectedKeys={pageName}
+                            selectedKeys={[pageName]}
                             mode="inline"
                             items={NavigateItems}
                         />

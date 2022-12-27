@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.2.1",
     "antd": "^5.0.7",
     "axios": "^1.2.1",
+    "framer-motion": "^8.0.2",
     "intersection-observer": "^0.12.2",
     "prettier-plugin-tailwindcss": "^0.2.1",
     "react": "^18.2.0",

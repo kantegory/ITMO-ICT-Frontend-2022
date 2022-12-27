@@ -38,7 +38,6 @@ export const searchSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchSearchPhotos.fulfilled, (state, action) => {
-                console.log(action);
                 state.photos = [...state.photos, ...action.payload.results];
                 state.count = action.payload.count;
                 state.offset += action.payload.results.length;

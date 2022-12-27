@@ -27,15 +27,7 @@ function MainPage() {
 
     return (
         <BasePage pageName="main">
-            <CategoriesAlbum categories={categories} />
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-                {Array(limit)
-                    .fill()
-                    .map(() => (
-                        <Skeleton.Image style={{ width: "100%", height: "350px" }} active={isLoading} />
-                    ))}
-            </div>
+            <CategoriesAlbum categories={categories} isLoading={isLoading} countOnPage={limit} />
             <Pagination
                 onShowSizeChange={onShowSizeChange}
                 hideOnSinglePage

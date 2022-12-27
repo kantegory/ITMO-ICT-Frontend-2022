@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getPhotosByKeywords } from "../../API/PhotosService";
 import { searchSlice } from "../slices/SearchSlice";
-// import { searchSlice } from "../slices/SearchSlice";
 
 export const fetchSearchPhotos = createAsyncThunk(
     "search/fetchSearchPhotos",

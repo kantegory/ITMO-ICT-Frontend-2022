@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BasePage from "./BasePage/BasePage";
 import { Input, Select } from "antd";
-import { clearSearch, fetchSearchPhotos, setKeywords, setTone } from "../store/actions/searchActions";
+import { fetchSearchPhotos, setKeywords, setTone } from "../store/actions/searchActions";
 import { useDispatch, useSelector } from "react-redux";
 import Album from "../components/Album";
-import { InView, useInView } from "react-intersection-observer";
-import { searchSlice } from "../store/slices/SearchSlice";
+import { useInView } from "react-intersection-observer";
 
 const { Search } = Input;
 
