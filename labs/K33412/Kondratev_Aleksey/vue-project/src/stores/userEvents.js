@@ -19,6 +19,12 @@ const useUserEventsStore = defineStore('userEvents', {
       this.userEvents = response.data
 
       return response
+    },
+
+    async deleteCardById(id) {
+      const response = await userEventsApi.deleteById(id);
+
+      return response
     }
   }
 })

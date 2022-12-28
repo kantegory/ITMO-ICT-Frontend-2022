@@ -4,11 +4,11 @@
     <h3 class="card-title">{{ name }}</h3>
     <p class="card-text">{{ text }}</p>
     <p class="card-data">{{ day }}</p>
-    <form action="" @submit.prevent="delete(id)">
-      <button type="submit" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Отписаться от мероприятия
-      </button>
-    </form>
+  <form action="" @submit.prevent="deleteCard(primaryId)">
+    <button type="submit" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Отписаться от мероприятия
+    </button>
+  </form>
   </div>
 </template>
 
@@ -19,9 +19,19 @@ import useUserEventsStore from "@/stores/userEvents.js"
 
 export default {
   name: 'PersonalCard',
-
+  
   computed: {
     ...mapState(useUserEventsStore, ['userEvents']),
+  },
+
+  methods: {
+    ...mapActions(useUserEventsStore, ['addUserEvents', 'deleteCardById']),
+
+    async deleteCard(id) {
+      this.deleteCardById(id)
+
+      location.reload()
+    }
   },
 
   props: {
@@ -41,15 +51,11 @@ export default {
       type: String,
       required: true
     },
-    id: {
+    primaryId: {
       type: Number,
       required: true
     },
   },
-
-  methods: {
-    ...mapActions(useUserEventsStore, ['addUserEvents']),
-  }
 }
 
 </script>

@@ -16,8 +16,10 @@ const useCardsStore = defineStore('cards', {
       return response;
     },
 
-    async loadCardById(id) {
-      const response = await cardApi.getById(id);
+    async loadCardById(eventId, id) {
+      const response = await cardApi.getById(eventId);
+
+      response.data.primaryId = id;
 
       this.personalCards.push(response.data)
 

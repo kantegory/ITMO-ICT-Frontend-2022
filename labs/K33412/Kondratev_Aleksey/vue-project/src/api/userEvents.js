@@ -17,7 +17,11 @@ export default class UserEventsApi {
 
   deleteById = async (id) => {
     return this.API({
-      url: `/userEvents/id`
+      url: `/userEvents/${id}`,
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   }
 
