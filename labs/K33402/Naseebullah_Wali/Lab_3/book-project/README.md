@@ -2,12 +2,12 @@
 
 Tech Used:
 
-Vue \n
-Vuex
-Swal aleart
-Firebase
-Firestore
-bootstrap
-axios
-jquery
-vue-router
+Vue    
+Vuex   
+Swal aleart   
+Firebase   
+Firestore   
+bootstrap   
+axios   
+jquery   
+vue-router   
