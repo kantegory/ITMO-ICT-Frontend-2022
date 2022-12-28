@@ -2,7 +2,7 @@
 
 Tech Used:
 
-Vue /n
+Vue \n
 Vuex
 Swal aleart
 Firebase
