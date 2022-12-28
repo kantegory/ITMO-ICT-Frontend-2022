@@ -3,7 +3,8 @@ import { cardApi } from '@/api'
 
 const useCardsStore = defineStore('cards', {
   state: () => ({
-    cards: []
+    cards: [],
+    personalCards: []
   }),
 
   actions: {
@@ -13,6 +14,18 @@ const useCardsStore = defineStore('cards', {
       this.cards = response.data;
 
       return response;
+    },
+
+    async loadCardById(id) {
+      const response = await cardApi.getById(id);
+
+      this.personalCards.push(response.data)
+
+      return response
+    },
+
+    async doClear() {
+      this.personalCards = []
     }
   }
 })

@@ -4,13 +4,11 @@
     <h3 class="card-title">{{ name }}</h3>
     <p class="card-text">{{ text }}</p>
     <p class="card-data">{{ day }}</p>
-  <a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
-  <form action="" @submit.prevent="subscribe(id)">
-    <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <svg class="icon-main"><use xlink:href="#register-icon"></use></svg>
-      Записаться
-    </button>
-  </form>
+    <form action="" @submit.prevent="delete(id)">
+      <button type="submit" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Отписаться от мероприятия
+      </button>
+    </form>
   </div>
 </template>
 
@@ -20,7 +18,7 @@ import { mapActions, mapState } from "pinia";
 import useUserEventsStore from "@/stores/userEvents.js"
 
 export default {
-  name: 'CardNote',
+  name: 'PersonalCard',
 
   computed: {
     ...mapState(useUserEventsStore, ['userEvents']),
@@ -51,19 +49,6 @@ export default {
 
   methods: {
     ...mapActions(useUserEventsStore, ['addUserEvents']),
-
-    async subscribe(id) {
-      const userEvents = {
-        "userId": JSON.parse(localStorage.user).id,
-        "eventId": id
-      }
-
-      console.log(userEvents)
-
-      const response = await this.addUserEvents(userEvents);
-
-      console.log(response)
-    }
   }
 }
 

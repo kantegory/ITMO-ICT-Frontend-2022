@@ -39,8 +39,8 @@
           </button>
         </form>
       </div>
-      <div class="row justify-content-center pt-5 pb-5">
-        <div class="card me-4 card-colors background text-color" style="width: 18rem;" data-event-id="{{ id }}" v-for="card in filteredCards" :key="card.id">
+      <div class="row justify-content-center pt-5">
+        <div class="card me-4 card-colors background text-color mb-3" style="width: 18rem;" data-event-id="{{ id }}" v-for="card in filteredCards" :key="card.id">
           <card-note :name="card.name" :src="card.src" :text="card.text" :day="card.day" :id="card.id"></card-note>
         </div>
       </div>

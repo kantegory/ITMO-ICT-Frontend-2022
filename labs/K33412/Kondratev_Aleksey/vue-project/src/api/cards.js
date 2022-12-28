@@ -8,5 +8,11 @@ export default class CardApi {
       url: '/events'
     })
   }
+
+  getById = async (id) => {
+    return this.API({
+      url: `/events/${id}`
+    })
+  }
 }
 

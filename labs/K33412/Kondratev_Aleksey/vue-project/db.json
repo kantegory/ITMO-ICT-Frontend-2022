@@ -70,7 +70,7 @@
       "name": "Марафон",
       "day": "15.11",
       "text": "Ежегодный марафон",
-      "src": "./src/assets/image/cards/sport.jfif",
+      "src": "/src/assets/image/cards/sport.jfif",
       "id": 1,
       "city": "Санкт-Петербург",
       "mero": "Спорт"
@@ -79,7 +79,7 @@
       "name": "Новое выступление",
       "day": "01.01",
       "text": "Приезжает PSY",
-      "src": "./src/assets/image/cards/musicMoscow.jpg",
+      "src": "/src/assets/image/cards/musicMoscow.jpg",
       "id": 2,
       "city": "Москва",
       "mero": "Музыка"
@@ -88,7 +88,7 @@
       "name": "Увлекательное шоу",
       "day": "14.05",
       "text": "Приезжают группы 80х",
-      "src": "./src/assets/image/cards/musicSaint.jpg",
+      "src": "/src/assets/image/cards/musicSaint.jpg",
       "id": 3,
       "city": "Санкт-Петербург",
       "mero": "Музыка"
@@ -97,7 +97,7 @@
       "name": "К спорту вместе!",
       "day": "24.05",
       "text": "Присоединяйся к нашей борьбе",
-      "src": "./src/assets/image/cards/sportMoscow.webp",
+      "src": "/src/assets/image/cards/sportMoscow.webp",
       "id": 4,
       "city": "Москва",
       "mero": "Спорт"
@@ -132,6 +132,16 @@
       "userId": 1,
       "eventId": 3,
       "id": 4
+    },
+    {
+      "userId": 1,
+      "eventId": 4,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": 6
     }
   ]
 }
