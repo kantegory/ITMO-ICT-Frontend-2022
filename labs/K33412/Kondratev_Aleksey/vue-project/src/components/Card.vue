@@ -1,9 +1,9 @@
 <template>
-  <img :src="src" class="card-img-top" width="262" :alt="text" style="height: 11rem;">
+  <img :src="src" class="card-img-top" width="262" :alt="description" style="height: 11rem;">
   <div class="card-body">
-    <h3 class="card-title">{{ name }}</h3>
-    <p class="card-text">{{ text }}</p>
-    <p class="card-data">{{ day }}</p>
+    <h3 class="card-title">{{ title }}</h3>
+    <p class="card-text">{{ description }}</p>
+    <p class="card-data">{{ date }}</p>
   <a href="./event.html" class="btn btn-primary">На сайт мероприятия</a>
   <form action="" @submit.prevent="subscribe(id)">
     <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -27,15 +27,15 @@ export default {
   },
 
   props: {
-    name: {
+    title: {
       type: String,
       required: true
     },
-    text: {
+    description: {
       type: String,
       required: true
     },
-    day: {
+    date: {
       type: String,
       required: true
     },

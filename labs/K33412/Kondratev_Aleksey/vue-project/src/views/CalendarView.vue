@@ -1,4 +1,5 @@
 <template>
+  <header-block />
   <base-layout>
     <h1>Календарь событий</h1>
 
@@ -25,7 +26,10 @@
             <p>{{ selectedEvent.formattedDate() }}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <form action="" @submit.prevent="deleteMero(selectedEvent.id)">
+              <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
           </div>
         </div>
       </div>
@@ -51,6 +55,7 @@
       </div>
     </div>
   </base-layout>
+  <footer-block />
 </template>
 
 <script>
@@ -59,14 +64,15 @@ import { Modal } from 'bootstrap'
 
 import useCalendarEventsStore from '@/stores/calendarEvents'
 
-
 import BaseLayout from '@/layouts/BaseLayout.vue'
+import HeaderBlock from '@/components/Header.vue'
 import FullCalendar from '@/components/FullCalendar.vue'
+import FooterBlock from '@/components/Footer.vue'
 
 export default {
   name: 'CalendarPage',
 
-  components: { BaseLayout, FullCalendar },
+  components: { BaseLayout, FullCalendar, HeaderBlock, FooterBlock},
 
   computed: {
     ...mapState(useCalendarEventsStore, {
@@ -96,7 +102,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(useCalendarEventsStore, ['loadCalendarEvents', 'loadEventById', 'createEvent']),
+    ...mapActions(useCalendarEventsStore, ['loadCalendarEvents', 'loadEventById', 'createEvent', 'deleteEvent']),
 
     handleEventChange(payload) {
       console.log('event change', payload)
@@ -126,6 +132,12 @@ export default {
       this.eventCreateModal.hide()
 
       await this.loadCalendarEvents()
+    },
+
+    async deleteMero(id) {
+      this.deleteEvent(id);
+
+      location.reload();
     }
   },
 

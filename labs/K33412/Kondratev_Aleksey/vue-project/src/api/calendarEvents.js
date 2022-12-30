@@ -15,6 +15,13 @@ class CalendarEventsApi {
     })
   }
 
+  deleteEv = async (id) => {
+    return this.API({
+      url: `/calendarEvents/${id}`,
+      method: 'DELETE'
+    })
+  }
+
   create = async (data) => {
     return this.API({
       url: '/calendarEvents',

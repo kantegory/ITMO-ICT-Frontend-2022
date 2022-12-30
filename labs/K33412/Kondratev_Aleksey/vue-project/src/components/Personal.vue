@@ -7,7 +7,7 @@
           <p class="p-0 m-2 text-color">Ваши записи</p>
           <div class="row justify-content-center pt-5 pb-5">
             <div class="card me-4 card-colors background text-color mb-3" style="width: 18rem;" data-event-id="{{ id }}" v-for="card in personalCards" :key="card.id">
-              <personal-card :name="card.name" :src="card.src" :text="card.text" :day="card.day" :primaryId="card.primaryId"></personal-card>
+              <personal-card :title="card.title" :src="card.src" :description="card.description" :date="card.date" :primaryId="card.primaryId"></personal-card>
             </div>
           </div>
         </div>

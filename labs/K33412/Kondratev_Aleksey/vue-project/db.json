@@ -67,36 +67,36 @@
   ],
   "events": [
     {
-      "name": "Марафон",
-      "day": "15.11",
-      "text": "Ежегодный марафон",
+      "title": "Марафон",
+      "date": "2022-12-15",
+      "description": "Ежегодный марафон",
       "src": "/src/assets/image/cards/sport.jfif",
       "id": 1,
       "city": "Санкт-Петербург",
       "mero": "Спорт"
     },
     {
-      "name": "Новое выступление",
-      "day": "01.01",
-      "text": "Приезжает PSY",
+      "title": "Новое выступление",
+      "date": "2022-01-01",
+      "description": "Приезжает PSY",
       "src": "/src/assets/image/cards/musicMoscow.jpg",
       "id": 2,
       "city": "Москва",
       "mero": "Музыка"
     },
     {
-      "name": "Увлекательное шоу",
-      "day": "14.05",
-      "text": "Приезжают группы 80х",
+      "title": "Увлекательное шоу",
+      "date": "2022-05-14",
+      "description": "Приезжают группы 80х",
       "src": "/src/assets/image/cards/musicSaint.jpg",
       "id": 3,
       "city": "Санкт-Петербург",
       "mero": "Музыка"
     },
     {
-      "name": "К спорту вместе!",
-      "day": "24.05",
-      "text": "Присоединяйся к нашей борьбе",
+      "title": "К спорту вместе!",
+      "date": "2022-05-24",
+      "description": "Присоединяйся к нашей борьбе",
       "src": "/src/assets/image/cards/sportMoscow.webp",
       "id": 4,
       "city": "Москва",
@@ -112,9 +112,15 @@
     },
     {
       "title": "Отдых",
-      "description": "Отдыхаем на чилле",
-      "date": "2022-12-28",
+      "description": "Леша рил отдохни ",
+      "date": "2022-12-29",
       "id": 2
+    },
+    {
+      "title": "мой так нравится",
+      "description": ":)",
+      "date": "2022-12-16",
+      "id": 3
     }
   ],
   "userEvents": [
