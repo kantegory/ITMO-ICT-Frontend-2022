@@ -3,6 +3,7 @@ import { HeartFilled, PlusSquareFilled } from "@ant-design/icons";
 import { Card, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { likePhoto, unlikePhoto } from "../store/actions/profileActions";
+import {openCollectionModal} from "../store/slices/CollectionModalSlice";
 
 const getUsername = (username) => {
     if (username.length > 8) {
@@ -27,6 +28,10 @@ const PhotoCard = ({ photo }) => {
         dispatch(unlikePhoto({ photo_id: photo.photo_id }));
     };
 
+    const addToCollection = () => {
+        dispatch(openCollectionModal({photo}))
+    }
+
     return (
         <Card
             cover={<Image src={`${photo.photo_image_url}?w=700`} preview={{ src: photo.photo_image_url }} />}
@@ -44,7 +49,7 @@ const PhotoCard = ({ photo }) => {
                     style={liked ? { fontSize: "20px", color: "red" } : { fontSize: "20px" }}
                     key="like"
                 />,
-                <PlusSquareFilled style={{ fontSize: "20px" }} key="add" />,
+                <PlusSquareFilled onClick={addToCollection} style={{ fontSize: "20px" }} key="add" />,
             ]}
             type="inner"
             size="small"

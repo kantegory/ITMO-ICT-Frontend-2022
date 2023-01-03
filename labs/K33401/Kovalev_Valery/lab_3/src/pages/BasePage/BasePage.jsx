@@ -7,6 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { redirect, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLikes } from "../../store/actions/profileActions";
+import CollectionModal from "../../components/modals/CollectionModal";
 
 function getItem(label, key, icon, children) {
     return {
@@ -78,6 +79,7 @@ const BasePage = ({ pageName, children, ref }) => {
         <Layout className="min-h-screen" ref={ref}>
             <LoginModal isLoginModalOpen={isLoginModalOpen} setIsLoginModalOpen={setIsLoginModalOpen} />
             <RegisterModal isRegisterModalOpen={isRegisterModalOpen} setIsRegisterModalOpen={setIsRegisterModalOpen} />
+            <CollectionModal/>
 
             <Sider
                 collapsible

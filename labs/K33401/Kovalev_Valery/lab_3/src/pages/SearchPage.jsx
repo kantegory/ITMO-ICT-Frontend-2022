@@ -100,7 +100,6 @@ const SearchPage = () => {
                 </div>
                 <h1>{category}</h1>
                 <h2>{tone}</h2>
-                {/*<h2 className="fixed z-10">{`Header inside viewport ${inView}.`}</h2>*/}
                 <div className="relative">
                     <Album photos={photos} />
                     <div

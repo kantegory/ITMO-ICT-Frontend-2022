@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../store/actions/categoriesActions";
 import BasePage from "./BasePage/BasePage";
 import CategoriesAlbum from "../components/CategoriesAlbum";
-import { useInView } from "react-intersection-observer";
-import { Pagination, Skeleton } from "antd";
+import { Pagination } from "antd";
 import { changeLimit, changePage } from "../store/slices/CategoriesSlice";
 
 function MainPage() {
@@ -35,6 +34,7 @@ function MainPage() {
                 onChange={onPaginate}
                 defaultCurrent={1}
                 total={count}
+                defaultPageSize={12}
                 pageSizeOptions={[12, 24, 36]}
             />
         </BasePage>

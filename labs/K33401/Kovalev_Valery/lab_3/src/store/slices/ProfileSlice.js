@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchLikes, likePhoto, unlikePhoto } from "../actions/profileActions";
+import {fetchCollections, fetchLikes, likePhoto, unlikePhoto, updateCollection} from "../actions/profileActions";
 
 const initialState = {
     likes: [],
     likedPhotos: [],
+    collections: [],
     isLoading: false,
     error: "",
 };
@@ -46,6 +47,25 @@ export const profileSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(unlikePhoto.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(fetchCollections.fulfilled, (state, action) => {
+            state.collections = action.payload;
+            state.isLoading = false;
+            })
+            .addCase(fetchCollections.pending, (state) => {
+                state.isLoading = true;
+            }).addCase(fetchCollections.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            }).addCase(updateCollection.fulfilled, (state, action) => {
+            state.collections = action.payload;
+            state.isLoading = false;})
+            .addCase(updateCollection.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(updateCollection.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
