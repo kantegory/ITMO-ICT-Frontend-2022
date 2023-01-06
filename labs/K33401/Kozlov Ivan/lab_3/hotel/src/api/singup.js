@@ -1,22 +1,22 @@
-class LoginApi {
+class SingupApi {
     constructor(instance) {
         this.API = instance
     }
 
-    login = async (data) => {
+    singup = async (data) => {
         return this.API({
             method: 'POST',
-            url: '/auth/token/login/',
+            url: '/api/auth/users/',
             data,
             headers: {
                 'Content-Type': 'application/json'
             }
         }).catch(function (error) {
             if (error.toJSON().message){
-                alert("Неверный пароль или логин")
+                alert("Невернные данные или слишком простой пароль, или такой пользователь уже существует, проверьте данные")
             }
         });
     };
 }
 
-export default LoginApi
+export default SingupApi

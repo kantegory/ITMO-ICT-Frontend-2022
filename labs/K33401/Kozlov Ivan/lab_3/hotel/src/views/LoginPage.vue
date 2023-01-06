@@ -69,8 +69,8 @@ export default {
 
         async loginPage() {
             await this.login(this.form)
-
-            this.$refs.loginForm.reset()
+            // this.$refs.loginForm.reset()
+            window.location.href = "/"
         }
     },
 

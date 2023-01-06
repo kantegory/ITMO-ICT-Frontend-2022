@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/login" style="color: #ffffff;">Войти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" style="color: #ffffff;">Регистрация</a>
+                        <a class="nav-link" href="/singup" style="color: #ffffff;">Регистрация</a>
                     </li>
                     <li>
                         <button type="button" class="btn btn-danger" @click="logout">
