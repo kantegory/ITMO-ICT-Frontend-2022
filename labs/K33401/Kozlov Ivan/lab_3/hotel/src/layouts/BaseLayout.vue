@@ -29,13 +29,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Постояльцы</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="chechkAuth" class="nav-item">
                         <a class="nav-link" href="/login" style="color: #ffffff;">Войти</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="chechkAuth" class="nav-item">
                         <a class="nav-link" href="/singup" style="color: #ffffff;">Регистрация</a>
                     </li>
-                    <li>
+                    <li v-if="!chechkAuth">
                         <button type="button" class="btn btn-danger" @click="logout">
                             Logout
                         </button>
@@ -51,15 +51,44 @@
 
 
 <script>
+import {checkTokenApi} from "@/api";
 
 export default {
+    data() {
+        return {
+            answerStatus: null
+        };
+    },
+
+    computed: {
+        chechkAuth() {
+            // eslint-disable-next-line vue/no-async-in-computed-properties
+            checkTokenApi.checkToken().catch( function(error) { localStorage.setItem("status_answer", error.response.status) });
+
+            if ( localStorage.status_answer === '401'){
+                localStorage.removeItem("status_answer")
+                return true
+            }
+
+            else{
+                localStorage.removeItem("status_answer")
+                return false
+            }
+
+        }
+
+    },
 
     methods: {
 
         async logout() {
             localStorage.clear()
             window.location.href = "/"
-        }
+        },
+
+
     },
+
+
 }
 </script>

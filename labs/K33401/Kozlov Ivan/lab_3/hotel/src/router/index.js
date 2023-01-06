@@ -19,6 +19,11 @@ const router = createRouter({
          name: 'singup',
          component: () => import('../views/SingupPage.vue')
      },
+     {
+         path: '/',
+         name: 'main',
+         component: () => import('../views/MainPage.vue')
+     },
  ]
 })
  

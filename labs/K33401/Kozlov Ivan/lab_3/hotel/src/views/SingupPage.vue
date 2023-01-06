@@ -57,7 +57,9 @@ export default {
         async singupPage() {
             await this.singup(this.form)
             // this.$refs.loginForm.reset()
-            window.location.href = "/login"
+            if (localStorage.token) {
+                window.location.assign("/login")
+            }
         }
     },
 
