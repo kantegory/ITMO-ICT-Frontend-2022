@@ -30,13 +30,13 @@
                         <a class="nav-link" href="" style="color: #ffffff;">Постояльцы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="l" style="color: #ffffff;">Войти</a>
+                        <a class="nav-link" href="/login" style="color: #ffffff;">Войти</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Регистрация</a>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-danger" onclick="logout()">
+                        <button type="button" class="btn btn-danger" @click="logout">
                             Logout
                         </button>
                     </li>
@@ -49,3 +49,17 @@
 
 </template>
 
+
+<script>
+
+export default {
+
+    methods: {
+
+        async logout() {
+            localStorage.clear()
+            window.location.href = "/"
+        }
+    },
+}
+</script>
