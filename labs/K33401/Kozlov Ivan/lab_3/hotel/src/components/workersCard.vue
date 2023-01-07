@@ -1,16 +1,17 @@
 <template>
-    <div class="card">
-        <div class="card-body">
-            <!-- отображение свойств в шаблоне можно сделать так: -->
-            <h5 class="card-title">{{ table_number }}</h5>
-            <p class="card-text">
-                {{ fio }}
-            </p>
-            <p class="card-text">
-                {{ phone_worker }}
-            </p>
-        </div>
-    </div>
+
+    <tbody class="workers">
+    <tr>
+        <td>{{ table_number }}</td>
+        <td>{{ fio }}</td>
+        <td>{{ phone_worker }}</td>
+        <td class="d-flex justify-content-start gap-2">
+            <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
+                    onclick="fill_forms(this)">Редактировать</button>
+            <button id="${id}" type="button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
+        </td>
+    </tr>
+    </tbody>
 </template>
     
 <script>
