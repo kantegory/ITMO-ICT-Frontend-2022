@@ -49,7 +49,6 @@ export const unlikePhoto = createAsyncThunk(
 export const fetchCollections = createAsyncThunk("profile/fetchCollections", async (_, { rejectedWithValue, getState }) => {
     try {
         const { token } = getState().auth;
-        console.log(await getCollections(token))
         return await getCollections(token);
     } catch (e) {
         return rejectedWithValue(e.massage);
