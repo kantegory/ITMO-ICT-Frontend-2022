@@ -14,19 +14,19 @@
                         <a class="nav-link" href="/" style="color: #ffffff;"> Главаня страница
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="/all_workers" style="color: #ffffff;">Сотрудники</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" style="color: #ffffff;">Номера</a>
+                        <a v-if="!chechkAuth" class="nav-link" href="" style="color: #ffffff;">Номера</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Графики продаж</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Бронирование</a>
                     </li>
-                    <li class="nav-item">
+                    <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Постояльцы</a>
                     </li>
                     <li v-if="chechkAuth" class="nav-item">

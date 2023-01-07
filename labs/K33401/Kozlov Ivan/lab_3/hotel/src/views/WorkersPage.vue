@@ -14,7 +14,7 @@
                 <th scope="col">Табельный номер</th>
                 <th scope="col">
                     <input class="form-control me-2" type="search" placeholder="Поиск по ФИО"
-                           id="myInput" onkeyup="findPosition()">
+                           id="myInput" @keypress="findPosition">
                     ФИО</th>
                 <th scope="col">Телефон</th>
 
@@ -38,14 +38,6 @@
             </tbody>
         </table>
 
-
-        <form ref="noteForm" class="d-flex flex-column my-5">
-            <input type="text" class="my-1">
-            <textarea cols="30" rows="10" class="my-1" />
-
-            <button type="submit" class="btn btn-primary">Отправить</button>
-
-        </form>
     </base-layout>
 </template>
 
@@ -61,11 +53,31 @@ export default {
     components: { BaseLayout, WorkerCard },
 
     computed: {
-        ...mapState(useWorkersStore, ['workers'])
+        ...mapState(useWorkersStore, ['workers']),
+
+
     },
 
     methods: {
-        ...mapActions(useWorkersStore, ['loadWorkers', 'createWorker'])
+        ...mapActions(useWorkersStore, ['loadWorkers', 'createWorker']),
+
+        findPosition() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
     },
 
     mounted() {

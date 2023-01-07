@@ -16,8 +16,6 @@ const useWorkersStore = defineStore('workers', {
 
      this.workers = response.data
 
-       console.log("Answer JSON!", response.data)
-
      return response
    },
  
