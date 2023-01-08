@@ -1,22 +1,29 @@
 <template>
-
     <tbody class="workers">
     <tr>
-        <td>{{ table_number }}</td>
+        <td id="table_id" >{{ table_number }}</td>
         <td>{{ fio }}</td>
         <td>{{ phone_worker }}</td>
         <td class="d-flex justify-content-start gap-2">
-            <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
-                    onclick="fill_forms(this)">Редактировать</button>
-            <button id="${id}" type="button" class="btn btn-danger" onclick="delete_row(this)">Удалить</button>
+            <button  v-bind:id="table_number" type="button" class="btn btn-warning"
+                     data-bs-toggle="modal" data-bs-target="#edit_workers"
+                     @click="getTableNumber"
+                    >Редактировать</button>
+            <button v-bind:id="table_number" type="submit" class="btn btn-danger" @click="getTableNumber">Удалить</button>
         </td>
     </tr>
     </tbody>
+
+
+
 </template>
     
 <script>
+import modalForEdit from "@/components/modalForEdit.vue";
+
 export default {
     name: 'WorkerCard',
+    components: modalForEdit,
 
     // свойства, которые принимает компонент
     props: {
@@ -32,6 +39,12 @@ export default {
             type: String,
             required: true
         }
+    },
+
+    methods:{
+        getTableNumber: function (event) {
+            localStorage.needed_table_number = event.originalTarget.id
+        },
     }
 }
 </script>
