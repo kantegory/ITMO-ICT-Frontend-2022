@@ -29,6 +29,11 @@ const router = createRouter({
          name: 'rooms',
          component: () => import('../views/RoomsPage.vue')
      },
+     {
+         path: '/room_book',
+         name: 'room_book',
+         component: () => import('../views/CurrentBooksForRoomPage.vue')
+     },
  ]
 })
  

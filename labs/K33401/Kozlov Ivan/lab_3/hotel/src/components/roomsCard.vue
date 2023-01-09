@@ -4,6 +4,11 @@
         <td>{{ room_number }}</td>
         <td>{{ count_places }}</td>
         <td>{{ facilities }}</td>
+        <td>
+            <a href="/room_book">
+                <button v-bind:id="room_number" type="button" class="btn btn-warning" @click="currRoom">Бронирования</button>
+            </a>
+        </td>
 
     </tr>
     </tbody>
@@ -26,7 +31,11 @@ export default {
             type: String,
             required: true
         },
-
+    },
+    methods:{
+        currRoom: function (event) {
+            localStorage.current_room = event.originalTarget.id
+        },
     }
 }
 </script>

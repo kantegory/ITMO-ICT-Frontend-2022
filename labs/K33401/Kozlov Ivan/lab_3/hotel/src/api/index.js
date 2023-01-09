@@ -4,12 +4,14 @@ import LoginApi from "@/api/login"
 import SingupApi from "@/api/singup";
 import CheckTokenApi from "@/api/checkToken";
 import RoomsApi from "@/api/rooms";
+import BookApi from "@/api/book";
  
 const workersApi = new WorkersApi(instance)
 const loginApi = new LoginApi(instance)
 const singupApi = new SingupApi(instance)
 const checkTokenApi = new CheckTokenApi(instance)
 const roomsApi = new RoomsApi(instance)
+const bookApi = new BookApi(instance)
 
  
 export {
@@ -17,5 +19,6 @@ export {
     loginApi,
     singupApi,
     checkTokenApi,
-    roomsApi
+    roomsApi,
+    bookApi,
 }
