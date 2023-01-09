@@ -9,7 +9,8 @@
                      data-bs-toggle="modal" data-bs-target="#edit_workers"
                      @click="getTableNumber"
                     >Редактировать</button>
-            <button v-bind:id="table_number" type="submit" class="btn btn-danger" @click="getTableNumber">Удалить</button>
+            <button v-bind:id="table_number" type="submit" class="btn btn-danger"
+                    @click="getTableNumber">Удалить</button>
         </td>
     </tr>
     </tbody>

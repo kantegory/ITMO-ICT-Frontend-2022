@@ -6,7 +6,6 @@
                 <button type="button" class="btn btn-dark p-2 flex-grow-1 rounded-0"
                         data-bs-target="#add_workers" data-bs-toggle="modal">Добавить сотрудника</button>
             </div>
-
             <form ref="deleteWorkerForm" @submit.prevent="deleteWorkerPage">
             <table class="table table-hover table-bordered" style="color: rgb(0, 0, 0)" id="myTable">
                 <thead>
@@ -14,19 +13,19 @@
                     <th scope="col">Табельный номер</th>
                     <th scope="col">
                         <input class="form-control me-2" type="search" placeholder="Поиск по ФИО"
-                               id="myInput" @keypress="findPosition">
+                               id="myInput" @keypress.enter.prevent="findPosition">
                         ФИО</th>
                     <th scope="col">Телефон</th>
 
                     <th scope="col">Действия</th>
                 </tr>
                 </thead>
-                <worker-card v-for="worker in workers.results"
-                             v-bind:key="worker.table_number"
-                             v-bind:fio="worker.fio"
-                             v-bind:phone_worker="worker.phone_worker"
-                             v-bind:table_number="worker.table_number">
-                </worker-card>
+                    <worker-card v-for="worker in workers.results"
+                                 v-bind:key="worker.table_number"
+                                 v-bind:fio="worker.fio"
+                                 v-bind:phone_worker="worker.phone_worker"
+                                 v-bind:table_number="worker.table_number">
+                    </worker-card>
             </table>
             </form>
         </div>
@@ -172,7 +171,6 @@ export default {
                 table_number: localStorage.needed_table_number
             }
 
-            console.log("sdads", form)
             await this.changeWorker(form)
             window.location.reload()
         },

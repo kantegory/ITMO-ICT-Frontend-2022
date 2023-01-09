@@ -18,7 +18,7 @@
                         <a class="nav-link" href="/all_workers" style="color: #ffffff;">Сотрудники</a>
                     </li>
                     <li class="nav-item">
-                        <a v-if="!chechkAuth" class="nav-link" href="" style="color: #ffffff;">Номера</a>
+                        <a v-if="!chechkAuth" class="nav-link" href="/rooms" style="color: #ffffff;">Номера</a>
                     </li>
                     <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Графики продаж</a>
@@ -76,22 +76,13 @@ export default {
             }
 
         }
-
     },
 
     methods: {
-
         async logout() {
             localStorage.clear()
-            window.location.reload()
             window.location.href = "/"
-
-
         },
-
-
     },
-
-
 }
 </script>
