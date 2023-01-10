@@ -52,7 +52,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'NotoSansDisplay', sans-serif
+    /*font-family: 'NotoSansDisplay', sans-serif*/
 }
 
 .nav-logo {
@@ -97,7 +97,7 @@
 
 .table thead th {
     padding: 30px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .container .table-wrap {
