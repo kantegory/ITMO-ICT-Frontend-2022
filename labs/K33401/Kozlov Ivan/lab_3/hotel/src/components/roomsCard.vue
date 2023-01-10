@@ -33,7 +33,7 @@ export default {
         },
     },
     methods:{
-        currRoom: function (event) {
+        currRoom: async function (event) {
             localStorage.current_room = event.originalTarget.id
         },
     }

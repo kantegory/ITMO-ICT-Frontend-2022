@@ -21,13 +21,10 @@
                         <a v-if="!chechkAuth" class="nav-link" href="/rooms" style="color: #ffffff;">Номера</a>
                     </li>
                     <li v-if="!chechkAuth" class="nav-item">
-                        <a class="nav-link" href="" style="color: #ffffff;">Графики продаж</a>
-                    </li>
-                    <li v-if="!chechkAuth" class="nav-item">
                         <a class="nav-link" href="" style="color: #ffffff;">Бронирование</a>
                     </li>
                     <li v-if="!chechkAuth" class="nav-item">
-                        <a class="nav-link" href="" style="color: #ffffff;">Постояльцы</a>
+                        <a class="nav-link" href="/client" style="color: #ffffff;">Постояльцы</a>
                     </li>
                     <li v-if="chechkAuth" class="nav-item">
                         <a class="nav-link" href="/login" style="color: #ffffff;">Войти</a>

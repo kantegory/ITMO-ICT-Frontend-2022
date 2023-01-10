@@ -24,10 +24,11 @@ class BookApi {
         });
     };
 
-    deleteBook = async (data) => {
+    updateBook = async (data, form) => {
         return this.API({
-            method: 'DELETE',
-            url: '/api/delete_book/' + data
+            method: 'PUT',
+            url: '/api/update_book/' + data,
+            data: form
         })
     }
 

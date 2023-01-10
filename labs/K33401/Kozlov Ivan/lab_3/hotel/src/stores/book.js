@@ -19,8 +19,8 @@ const useBooksStore = defineStore('books', {
             await bookApi.createBook(data)
         },
 
-        async DeleteBook(data) {
-            await bookApi.deleteBook(data)
+        async updateBook(data, form) {
+            await bookApi.updateBook(data, form)
         }
 
     }

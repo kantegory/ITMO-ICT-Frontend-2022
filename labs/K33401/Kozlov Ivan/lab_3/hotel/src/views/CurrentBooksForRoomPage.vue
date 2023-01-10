@@ -23,6 +23,7 @@
                 <th scope="col">Номер договора</th>
                 <th scope="col">Начало</th>
                 <th scope="col">Конец</th>
+                <th scope="col">Состояние</th>
                 <th scope="col">Действия</th>
             </tr>
             </thead>
@@ -32,7 +33,8 @@
             v-bind:room_number="book.room"
             v-bind:number_contract="book.number_contract"
             v-bind:data_end_living="book.data_end_living"
-            v-bind:data_start_living="book.data_start_living">
+            v-bind:data_start_living="book.data_start_living"
+            v-bind:status_move="book.status_move">
         </current-books>
         </table>
 
@@ -111,13 +113,16 @@ export default {
             let sep= '-'
             let newDate = split_date[2] + sep + split_date[1] + sep + split_date[0]
 
+            if(this.books.results){
+
             for (const book of this.books.results) {
-               if(newDate < book.data_end_living){
+               if((newDate < book.data_end_living) && (book.status_move === "не выселен")){
                    return false
                }
             }
             return true
-        },
+        }
+            },
 
         currRoom(){
             return localStorage.current_room
@@ -141,6 +146,7 @@ export default {
                 room: '',
                 identifier_worker: 7616,
                 passport_client: '',
+                status_move: 'не выселен',
 
             }
         }
