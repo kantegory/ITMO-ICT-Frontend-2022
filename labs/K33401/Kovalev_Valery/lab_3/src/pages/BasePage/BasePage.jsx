@@ -1,13 +1,14 @@
 import { Layout, Menu } from "antd";
 import React, { useEffect, useMemo, useState } from "react";
 import { FormOutlined, HomeOutlined, LoginOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
-import LoginModal from "../../components/modals/LoginModal";
-import RegisterModal from "../../components/RegisterModal";
+import LoginModal from "../../modals/LoginModal";
+import RegisterModal from "../../modals/RegisterModal";
 import { useAuth } from "../../hooks/useAuth";
 import { redirect, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLikes } from "../../store/actions/profileActions";
-import CollectionModal from "../../components/modals/CollectionModal";
+import CollectionModal from "../../modals/CollectionModal";
+import {useProfile} from "../../hooks/useProfile";
 
 function getItem(label, key, icon, children) {
     return {
@@ -68,12 +69,9 @@ const BasePage = ({ pageName, children, ref }) => {
         }
     };
 
-    const { user, isAuth } = useAuth();
-    const dispatch = useDispatch();
+    const { isAuth } = useAuth();
+    useProfile()
 
-    useEffect(() => {
-        dispatch(fetchLikes());
-    }, [dispatch]);
 
     return (
         <Layout className="min-h-screen" ref={ref}>

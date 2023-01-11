@@ -86,7 +86,7 @@ const SearchPage = () => {
     return (
         <BasePage pageName="search">
             <div>
-                <div className="flex">
+                <div className="flex mb-2">
                     <Search placeholder="Search" onSearch={onSearch} defaultValue={category} />
                     <Select
                         allowClear
@@ -98,8 +98,6 @@ const SearchPage = () => {
                         options={toneOptions}
                     />
                 </div>
-                <h1>{category}</h1>
-                <h2>{tone}</h2>
                 <div className="relative">
                     <Album photos={photos} />
                     <div

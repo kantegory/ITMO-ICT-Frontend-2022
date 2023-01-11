@@ -27,16 +27,18 @@ function MainPage() {
     return (
         <BasePage pageName="main">
             <CategoriesAlbum categories={categories} isLoading={isLoading} countOnPage={limit} />
-            <Pagination
-                onShowSizeChange={onShowSizeChange}
-                hideOnSinglePage
-                current={currentPage}
-                onChange={onPaginate}
-                defaultCurrent={1}
-                total={count}
-                defaultPageSize={12}
-                pageSizeOptions={[12, 24, 36]}
-            />
+            <div className="flex justify-center my-2">
+                <Pagination
+                    onShowSizeChange={onShowSizeChange}
+                    hideOnSinglePage
+                    current={currentPage}
+                    onChange={onPaginate}
+                    defaultCurrent={1}
+                    total={count}
+                    defaultPageSize={limit}
+                    pageSizeOptions={[12, 24, 36]}
+                />
+            </div>
         </BasePage>
     );
 }

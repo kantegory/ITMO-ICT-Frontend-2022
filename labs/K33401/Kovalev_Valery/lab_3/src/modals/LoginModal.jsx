@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
 import { Modal, Form, Input, Button, Spin } from "antd";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchToken, fetchUser } from '../../store/actions/authActions';
+import { login} from '../store/actions/authActions';
 
 function LoginModal({isLoginModalOpen, setIsLoginModalOpen}) {
 
   const dispatch = useDispatch()
 
   const onLogin = ({username, password}) => {
-    dispatch(fetchToken({username, password}))
-    dispatch(fetchUser())
+    dispatch(login({username, password}))
   }
 
   const {isLoading, user} = useSelector(state=>state.auth)
@@ -51,7 +50,7 @@ function LoginModal({isLoginModalOpen, setIsLoginModalOpen}) {
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                         <div className="flex gap-4 items-center">
                             <Button type="primary" htmlType="submit">
-                                Войти
+                                Log in
                             </Button>
                             {isLoading && <Spin/>}
                         </div>

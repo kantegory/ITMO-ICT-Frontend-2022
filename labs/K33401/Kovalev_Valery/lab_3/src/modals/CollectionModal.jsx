@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Input, Modal, Select} from "antd";
 import {useDispatch, useSelector} from "react-redux";
-import {closeCollectionModal} from "../../store/slices/CollectionModalSlice";
-import {createCollection, fetchCollections, updateCollection} from "../../store/actions/profileActions";
+import {closeCollectionModal} from "../store/slices/CollectionModalSlice";
+import {createCollection, fetchCollections, updateCollection} from "../store/actions/profileActions";
 
 const CollectionModal = () => {
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ const CollectionModal = () => {
     return (
         <Modal
             open={open}
-            title="Title"
+            title="Collections"
             onOk={close}
             onCancel={close}
             footer={[

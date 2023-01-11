@@ -1,7 +1,5 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
-import { Image } from "antd";
-import { useInView } from "react-intersection-observer";
 import PhotoCard from "./PhotoCard";
 
 const splitElements = (n, array) => {
