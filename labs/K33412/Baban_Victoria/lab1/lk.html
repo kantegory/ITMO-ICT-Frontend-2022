@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #20c997;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="logo.PNG" alt="Лого" width="30" height="24" class="d-inline-block align-text-top">
+            EventMap
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" href="index.html">Поиск мероприятий</a>
+                <a class="nav-link " href="calendar.html">Календарь мероприятий</a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a class="navbar-brand" href="lk.html">
+                <img src="https://e7.pngegg.com/pngimages/398/54/png-clipart-silhouette-graphics-male-silhouette-animals-hand.png" alt="" width="24" height="24" class="d-inline-block align-text-top">
+                Имя пользователя
+            </a>
+        </div>
+        <form class="justify-content-end">
+            <a class="btn btn-sm btn-outline-light" href="index.html" role="button">Выйти</a>
+        </form>
+    </div>
+</nav>
+<main class="p-5 container-fluid d-flex flex-row">
+    <aside  class="col-lg-3   d-flex flex-column justify-content-start">
+        <img src="https://e7.pngegg.com/pngimages/398/54/png-clipart-silhouette-graphics-male-silhouette-animals-hand.png" height="auto" alt="Фото профиля" class="img-fluid img-thumbnail">
+        <ul class="list-group col-12">
+            <li class="list-group-item">
+                <a class="text-decoration-none link-dark" href="#">Основные данные</a>
+            </li>
+            <li class="list-group-item list-group-item-secondary">
+                <a class="text-decoration-none link-dark active" aria-current="true" href="#">Мои мероприятия</a>
+            </li>
+            <li class="list-group-item">
+                <a class="text-decoration-none link-dark" href="#">Настройки профиля</a>
+            </li>
+            <li class="list-group-item">
+                <a class="text-danger text-decoration-none link-dark" href="index.html">Выйти</a>
+            </li>
+        </ul>
+    </aside>
+    <section class="col-lg-9   px-5">
+        <h2>Мои мероприятия</h2>
+        <div class="col row-1 col-12  g-4 py-3">
+            <div class="row g-0 mb-2 border">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="https://sun9-37.userapi.com/c840026/v840026794/40f4c/USAxOPZTkHo.jpg" class="img-fluid " alt="...">
+                </div>
+                <div class="col-md-8 d-flex flex-column justify-content-around">
+                    <div class="card-header d-flex justify-content-between">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Театры</a>
+                        <p class="card-text">2.11.2022 19:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around" style="background-color: white">
+                        <h5 class="card-title">Спектакль "Бешеные деньги"</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-location">Театр комедии им. Акимова</p>
+                            <p class="card-cost">от 500 руб</p>
+                        </div>
+                        <form class="flex-column justify-content-around">
+                            <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                            <a href="#" class="btn btn-danger col-5 align-self-center">Отменить запись</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-0 mb-2 border">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="https://urpc.ru/upload/Official/photo/9dVeEVlORZU.jpg" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-8 d-flex flex-column justify-content-around">
+                    <div class="card-header d-flex justify-content-between">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Карьера</a>
+                        <p class="card-text">26-27.11.2022</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around" style="background-color: white">
+                        <h5 class="card-title">Онлайн-форум YouLead 2022</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text card-location">Онлайн</p>
+                            <p class="card-text card-cost">Бесплатно</p>
+                        </div>
+                        <form class="flex-column justify-content-around">
+                            <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                            <a href="#" class="btn btn-danger col-5 align-self-center" >Отменить запись</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</main>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top navbar-expand-lg navbar-dark" style="background-color: #20c997;">
+    <p class="col-md-4 mb-0 text-white">© 2022 Company, Inc</p>
+
+    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-white text-decoration-none">
+        <img src="logo.PNG" alt="Лого" width="30" height="24" class="d-inline-block align-text-top ">
+        EventMap
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">About</a></li>
+    </ul>
+</footer>
+</body>
+</html>

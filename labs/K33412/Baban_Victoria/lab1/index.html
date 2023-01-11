@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск мероприятий</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #20c997;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="logo.PNG" alt="Лого" width="30" height="24" class="d-inline-block align-text-top">
+            EventMap
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="index.html">Поиск мероприятий</a>
+                <a class="nav-link" href="calendar.html">Календарь мероприятий</a>
+            </div>
+        </div>
+        <form class="justify-content-end">
+            <a class="btn btn-light me-2" href="log_in.html" role="button" >Вход</a>
+            <a class="btn btn-sm btn-outline-light" href="sign_up.html" role="button">Регистрация</a>
+        </form>
+    </div>
+</nav>
+<main>
+    <div class="container d-flex p-3 justify-content-center h2">Найди подходящее мероприятие</div>
+    <div class="container input-group mb-3">
+        <input type="text" class="form-control" placeholder="Поиск мероприятия" aria-label="Найди подходящее меропритие" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Поиск</button>
+    </div>
+    <div class="container d-grid gap-2 d-md-flex justify-content-center">
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="district" data-bs-toggle="dropdown" aria-expanded="true">
+                Район
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="district">
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="admiral">
+                        <label class="form-check-label" for="admiral">
+                            Адмиралтейский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="vasileostrov">
+                        <label class="form-check-label" for="vasileostrov">
+                            Василеостровский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="vyborg">
+                        <label class="form-check-label" for="vyborg">
+                            Выборгский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="kalininsk">
+                        <label class="form-check-label" for="kalininsk">
+                            Калининский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="kirov">
+                        <label class="form-check-label" for="kirov">
+                            Кировский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="kolpin">
+                        <label class="form-check-label" for="kolpin">
+                            Колпинский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="krasnogvard">
+                        <label class="form-check-label" for="krasnogvard">
+                            Красногвардейский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="krasnosel">
+                        <label class="form-check-label" for="krasnosel">
+                            Красносельский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="kronshtad">
+                        <label class="form-check-label" for="kronshtad">
+                            Кронштадский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="kyrort">
+                        <label class="form-check-label" for="kyrort">
+                            Курортный
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="moskov">
+                        <label class="form-check-label" for="moskov">
+                            Московский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="nevsk">
+                        <label class="form-check-label" for="nevsk">
+                            Невский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="petrograd">
+                        <label class="form-check-label" for="petrograd">
+                            Петроградский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="petrodvor">
+                        <label class="form-check-label" for="petrodvor">
+                            Петродворцовый
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="primorsk">
+                        <label class="form-check-label" for="primorsk">
+                            Приморский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pushkin">
+                        <label class="form-check-label" for="pushkin">
+                            Пушкинский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="frunsen">
+                        <label class="form-check-label" for="frunsen">
+                            Фрунзенский
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="center">
+                        <label class="form-check-label" for="center">
+                            Центральный
+                        </label>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="Category" data-bs-toggle="dropdown" aria-expanded="true">
+                Категории
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="Category">
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="theatre">
+                        <label class="form-check-label" for="theatre">
+                            Театры
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="concert">
+                        <label class="form-check-label" for="concert">
+                            Концерты
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="sport">
+                        <label class="form-check-label" for="sport">
+                            Спорт и фитнес
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="games">
+                        <label class="form-check-label" for="games">
+                            Игры
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="art">
+                        <label class="form-check-label" for="art">
+                            Исскуство и культура
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="career">
+                        <label class="form-check-label" for="career">
+                            Карьера
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="education">
+                        <label class="form-check-label" for="education">
+                            Образование
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="animals">
+                        <label class="form-check-label" for="animals">
+                            Животные
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="hobby">
+                        <label class="form-check-label" for="hobby">
+                            Хобби
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="nature">
+                        <label class="form-check-label" for="nature">
+                            Природа
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="price" data-bs-toggle="dropdown" aria-expanded="true">
+                Стоимость
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="price">
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="free">
+                        <label class="form-check-label" for="free">
+                            Бесплатно
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="less1000">
+                        <label class="form-check-label" for="less1000">
+                            До 1000 рублей
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="1-2">
+                        <label class="form-check-label" for="1-2">
+                            1000 - 2000
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="2-3">
+                        <label class="form-check-label" for="2-3">
+                            2000 - 3000
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="3-4">
+                        <label class="form-check-label" for="3-4">
+                            3000 - 4000
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="4-5">
+                        <label class="form-check-label" for="4-5">
+                            4000 - 5000
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="more5000">
+                        <label class="form-check-label" for="more5000">
+                            Больше 5000
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="type" data-bs-toggle="dropdown" aria-expanded="true">
+                Тип
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="type">
+                <li>
+                    <a class="dropdown-item" href="#">Любой тип</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">Очно</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#">Онлайн</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container p-3">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="http://sports-gorod.ru/wp-content/uploads/2019/06/hsTlCja_5Fk.jpg" class="card-img-top img-fluid" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Спорт и фитнес</a>
+                        <p class="card-text">16.10.2022 12:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">«Пока ты спал» | Йога в парках Петербурга</h5>
+                        <div class="card-text d-flex justify-content-around ">
+                            <p class="card-text">парк Сосновка</p>
+                            <p class="card-text text-success">Бесплатно</p>
+                        </div>
+                        <a href="promo.html" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://pln-pskov.ru/prptfiles/2019/10/29/big/15723522413.jpg" class="card-img-top" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Театры</a>
+                        <p class="card-text">2.11.2022 19:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">Спектакль "Бешеные деньги"</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text">Театр комедии им. Акимова</p>
+                            <p class="card-text text-success">от 500 руб</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://yesofcorsa.com/wp-content/uploads/2017/05/Hans-Zimmer-Photo.jpg" class="card-img-top img-fluid " alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Концерты</a>
+                        <p class="card-text">13.11.2022 19:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">Hans Zimmer’s Universe</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text">Ледовый дворец </p>
+                            <p class="card-text text-success">от 1200 руб</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://kuda-sochi.ru/uploads/34ec8784a300d82aca3a155a712fc33f.jpeg" class="card-img-top img-fluid" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Искусство и культура</a>
+                        <p class="card-text">12-13.11.2022 15:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">Уроки живописи</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text">Летний сад</p>
+                            <p class="card-text text-success">300 руб</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://yandex-images.clstorage.net/4fGCG7232/056750Yh/55eUhF0BqzsZElM2RM98PZY62xOv7gVI7kNCtDqPSUzRaLIDApQMRKQlACtQg0tl0GLMtpsoukCNg6ukFTpzIIbjoNR5kA5aTIaDYuDe_PiCGspyn5426pixsMaMjBuP5ypD84NEzAXAlVWNliLMMvTwmKIcW9zUSHV6pAaJdlMntKbi-QZIeShh4Qe06c58RgyZkx4exAvbsID0DE8oDTfLkzLw5qzGFTckPEa0jeHnAttgnEouNniG6JQ2O4ZAFaS2gKr2GxsKkEPUxvnv3weOeHHfb0doyJOTdAydGdyH2AADwgX81HTWxjykpF6h9sPogK8IvEWLpbs0dSumkTTkZDOZNvnoaHOCRzcLXN9mPMog_99VW-nQ8pWsPChs5TswoeIm3dQX9_WsNsWOs_RyWLMsCs8HigdLR9U65LAEx5fBKyWZWPoDAQdH2gyeVb060P-tdYj4gJKEPF3KDNQ4EtIDd54GVPbGHOX23NFVoftx7BvMdCuWuTa3mrRCZfTV46mnyQjLYYFXBmktjpd9KxGPj3aZ-YDCB66fqX8U6nKS0YW89DX11g13BY6wtaG7A17J_iRLpOjlZJhXkFZHpQDL5_kYS_NAV3fpjn0XTJsi7J436GhDUIUMXGh-BihQkfHU_wcm5dV8BrXMEJUz22Acab7EaAV5tBRoR5JV9YUgWsULWTtRIoRHWr2Ohx1ZoxyfNisKYUGVne_6nMc70LChxEx2NAYmLuRXTzC20miBXhmeR7vHaTYWiqRSZXbEgGj2a3hZs4HERri-vlac-nNPfzR766PR9749i790KAHgopZfVOcXd8xE9U0ydgGKAB_ZfWdLlXtHZHsUUSV2h2NrR4poK5NAhTWZbq6XTkoDj41HaVgBkjeOv0m-x5vAoYMkD3b05EfeNEQOEgSx6KOMCX43KPeoBjY45HGV5GVAWcVL6igDY2bkmtyfFE86sV1OlIlL8bFGLK5bA" class="card-img-top img-fluid" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Театры</a>
+                        <p class="card-text">2.11.2022 19:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">Балет "Лебединое озеро"</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text">Михайловский театр</p>
+                            <p class="card-text text-success">от 2000 руб</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="http://uosd.spbu.ru/images/news/banner-955x800.jpg" class="card-img-top img-fluid" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Карьера</a>
+                        <p class="card-text">15.10.2022 11:00</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">День карьеры СПбГУ</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text">Университетская наб., д. 7/9</p>
+                            <p class="card-text text-success">Бесплатно</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://urpc.ru/upload/Official/photo/9dVeEVlORZU.jpg" class="card-img-top img-fluid" alt="...">
+                    <div class="card-header d-flex justify-content-between align-content-center">
+                        <a class="btn btn-outline-secondary btn-sm"  role="button">Карьера</a>
+                        <p class="card-text">26-27.11.2022</p>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-around p-3">
+                        <h5 class="card-title">Онлайн-форум YouLead 2022</h5>
+                        <div class="card-text d-flex justify-content-around">
+                            <p class="card-text ">Онлайн</p>
+                            <p class="card-text text-success">Бесплатно</p>
+                        </div>
+                        <a href="#" class="btn col-5 align-self-center" style="background-color: #20c997;">Подробнее...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top navbar-expand-lg navbar-dark" style="background-color: #20c997;">
+    <p class="col-md-4 mb-0 text-white">© 2022 Company, Inc</p>
+
+    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-white text-decoration-none">
+        <img src="logo.PNG" alt="Лого" width="30" height="24" class="d-inline-block align-text-top ">
+        EventMap
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">About</a></li>
+    </ul>
+</footer>
+
+
+</body>
+</html>
+
