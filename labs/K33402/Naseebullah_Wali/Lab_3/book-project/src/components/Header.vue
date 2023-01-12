@@ -54,7 +54,7 @@ export default {
       let selectedValue = selectBox.options[selectBox.selectedIndex].value;
       if (selectedValue == 3) {
         firebase.auth().signOut();
-        window.location.reload()
+        this.$router.push({name: 'Home'});
       } else if (selectedValue == 2) {
         this.$router.push({name: 'Profile'});
       } else if (selectedValue == 1) {

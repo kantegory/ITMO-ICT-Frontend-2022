@@ -22,7 +22,7 @@
                   <button class="btn btn-secondary w-10 m-2">Description</button>
                 </router-link>
                 <a :href="volumeInfo.previewLink" target="_blank"><button class="btn btn-secondary w-10 m-2" >Read Now</button></a>
-                <button class="btn btn-secondary w-10 m-2" @click="AddToRead">Add to Read Later</button>
+                <button class="btn btn-secondary w-10 m-2" v-show="user" @click="AddToRead">Add to Read Later</button>
               </div>
             </div>
           </div>
@@ -50,7 +50,10 @@ export default {
   computed: {
     volumeInfo(){
       return this.book.volumeInfo
-    }
+    },
+      user(){
+          return this.$store.state.user;
+      }
   },
   methods: {
     async AddToRead(){

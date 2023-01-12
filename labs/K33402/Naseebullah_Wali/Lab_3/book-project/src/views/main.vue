@@ -77,7 +77,7 @@ export default {
                     icon: "error"
                   })
                 }else{
-                  this.dataFromAPI = response.data.items
+                  this.DataFromAPI = response.data.items
                 }
               })
                 console.log(this.dataFromAPI)
