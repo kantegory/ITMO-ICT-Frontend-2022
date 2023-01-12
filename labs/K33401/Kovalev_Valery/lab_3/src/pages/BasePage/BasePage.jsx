@@ -1,12 +1,11 @@
 import { Layout, Menu } from "antd";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { FormOutlined, HomeOutlined, LoginOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import LoginModal from "../../modals/LoginModal";
 import RegisterModal from "../../modals/RegisterModal";
 import { useAuth } from "../../hooks/useAuth";
-import { redirect, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchLikes } from "../../store/actions/profileActions";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CollectionModal from "../../modals/CollectionModal";
 import {useProfile} from "../../hooks/useProfile";
 
