@@ -1,9 +1,9 @@
 <template>
-  <section>
-    <navigation v-if="!nav"/>
-    <router-view />
-    <foot v-if="!nav"/>
-  </section>
+    <section>
+        <navigation v-if="!nav"/>
+        <router-view />
+        <foot v-if="!nav"/>
+    </section>
 </template>
 
 
