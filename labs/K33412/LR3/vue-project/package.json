@@ -20,7 +20,8 @@
     "pinia": "^2.0.28",
     "pinia-persists": "^1.2.0",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-tradingview-widgets": "^1.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

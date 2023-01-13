@@ -1,0 +1,75 @@
+/*@import url('https://fonts.googleapis.com/css2?family=NotoSansDisplay:wght@400&display=swap');*/
+
+html,
+body {
+    /*font-family: 'NotoSansDisplay', sans-serif;*/
+}
+
+.img-logo {
+     width: 35%;
+ }
+
+.container {
+    padding-top: 100px;
+}
+
+.form-control {
+    height: 60px;
+    border-radius: 1rem;
+}
+
+.btn {
+    height: 60px;
+    border-radius: 100px;
+}
+
+.password-forgot {
+    text-decoration: none;
+}
+
+.extra-link {
+    text-decoration: none;
+}
+.login-link{
+    width: 100%;
+}
+.registration-link{
+    width: 100%;
+}
+
+.img-logo {
+    width: 35%;
+}
+
+.container {
+    padding-top: 100px;
+}
+
+.form-control {
+    height: 60px;
+    border-radius: 1rem;
+}
+
+.continue{
+    border-radius: 100px;
+}
+
+.registration.btn{
+    height: 60px;
+    border-radius: 100px;
+    background-color: rgb(236, 236, 241);
+}
+
+.password-forgot {
+    text-decoration: none;
+}
+
+.extra-link {
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.login-link{
+    width: 100%;
+}

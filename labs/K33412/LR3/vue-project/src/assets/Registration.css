@@ -1,0 +1,181 @@
+html,
+body {
+    /*font-family: 'NotoSansDisplay', sans-serif;*/
+}
+
+.bg-color {
+    background-color: rgb(255, 255, 255);
+}
+
+.reg_page {
+    width: 100%;
+}
+
+.top_table{
+    height: 60px;
+    width: 100%;
+    border: #dadada 1px solid;
+    border-radius: 0;
+}
+
+.iksweb{ /*кнопка войти в систему*/
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 25px;
+    color: #ffffff;
+    background: #0051ff;
+    border-radius: 6px;
+    border: 2px solid #0051ff;
+    margin-top: 0;
+}
+
+.iksweb:hover{
+    background:#185abc;
+    color:#ffffff;
+    border:2px solid #185abc;
+    transition: all 0.2s ease;
+}
+
+.main_table {
+    height: 700px;
+    border: #818385 0 solid;
+    border-radius: 0;
+}
+
+.reg_table {
+    width: 95%;
+    height: 700px;
+    border: #818385 0 solid;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_table {
+    width: 90%;
+    height: 700px;
+    border: #818385 0 solid;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#first_name{
+    text-align: start;
+    min-width: 0;
+    color: #818385;
+    background-color: #fff;
+    flex-grow: 2;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    width: 100%;
+    text-padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    height: 63px;
+    border-width: 1.2px;
+}
+
+#first_name:focus {
+    box-shadow: none;
+    border-color: blue;
+    outline-style: none;
+    border-width: 2px;
+}
+
+#last_name{
+    text-align: start;
+    min-width: 0;
+    color: #818385;
+    background-color: #fff;
+    flex-grow: 2;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    width: 100%;
+    text-padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    height: 63px;
+    border-width: 1.2px;
+}
+
+#last_name:focus {
+    box-shadow: none;
+    border-color: blue;
+    outline-style: none;
+    border-width: 2px;
+}
+
+#email{
+    text-align: start;
+    min-width: 0;
+    color: #818385;
+    background-color: #fff;
+    flex-grow: 2;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    width: 100%;
+    text-padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    height: 63px;
+    border-width: 1.2px;
+}
+
+#email:focus {
+    box-shadow: none;
+    border-color: blue;
+    outline-style: none;
+    border-width: 2px;
+}
+
+#password{
+    text-align: start;
+    min-width: 0;
+    color: #818385;
+    background-color: #fff;
+    flex-grow: 2;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    width: 100%;
+    text-padding: 10px;
+    position: relative;
+    border-radius: 10px;
+    height: 63px;
+    border-width: 1.2px;
+}
+
+#password:focus {
+    box-shadow: none;
+    border-color: blue;
+    outline-style: none;
+    border-width: 2px;
+}
+
+.iksweb_2{ /*кнопка создать учетную запись*/
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    /*padding-bottom: ;*/
+    /*padding:15px 140px;*/
+    color: #ffffff;
+    height: 63px;
+    background: #0051ff;
+    border-radius: 30px;
+    border: 2px solid #0051ff;
+    /*margin-top: 30px;*/
+}
+
+.iksweb_2:hover{
+    background:#185abc;
+    color:#ffffff;
+    border:2px solid #185abc;
+    transition: all 0.2s ease;
+}

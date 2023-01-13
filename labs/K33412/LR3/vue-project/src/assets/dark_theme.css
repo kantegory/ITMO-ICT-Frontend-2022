@@ -1,0 +1,30 @@
+@media (prefers-color-scheme: dark) {
+    /* Инверсия элементов body */
+    body {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+
+    html {
+        background-color: #111111;
+    }
+
+    /* Обратно инвертируем медиа (картинки, видео) */
+    video, iframe {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+
+    /* Увеличиваем контрастность иконок */
+    .icon {
+        filter: invert(15%) hue-rotate(180deg);
+    }
+
+    /* Заново подключаем фон блоков кода */
+    pre {
+        filter: invert(6%);
+    }
+
+    /* Увеличиваем контрастность маркеров элементов списка */
+    li::marker {
+        color: #555555;
+    }
+}

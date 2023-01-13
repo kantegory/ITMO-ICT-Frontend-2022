@@ -1,4 +1,13 @@
 @import './base.css';
+@import './dark_main_page.css';
+@import './dark_portfolio_page.css';
+@import './dark_registration_page.css';
+@import './dark_theme.css';
+@import './Login.css';
+@import './Portfolio.css';
+@import './Registration.css';
+@import './MainPage.css';
+
 
 #app {
   max-width: 1280px;
