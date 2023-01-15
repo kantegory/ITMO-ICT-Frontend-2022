@@ -1,0 +1,21 @@
+site_name: Description API for the system of clinic
+nav:
+  - Doctors:
+    - Registration: Doctors/registration.md
+    - Profile: Doctors/profile.md
+    - All: Doctors/doctors_all.md
+    - Single: Doctors/doctors_single.md
+  - Cabinets:
+    - All: Cabinet/cabinets_all.md
+    - Single: Cabinet/cabinets_single.md
+    - Create: Cabinet/cabinets_create.md
+    - Update: Cabinet/cabinets_updte.md
+    - Delete: Cabinet/cabinets_delete.md
+  - Appointments:
+    - Single: Appointments/appointment_single.md
+    - Create: Appointments/appointment_create.md
+    - Update: Appointments/appointment_updte.md
+    - Delete: Appointments/appointment_delete.md
+
+theme:
+ name: 'material'
