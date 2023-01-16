@@ -8,7 +8,7 @@
                     :key="deal"
                     class="mx-auto list-group-item d-flex justify-content-between col-6"
                 >
-                    <span>@{{ deal.seller }} {{deal.type}} {{ deal.count }}</span>
+                    <span>@{{ deal.seller }} {{deal.type_offer}} {{ deal.count }}</span>
                     <button
                         @click="cancelDeal(deal.id)"
                         v-if="deal.my_request"
