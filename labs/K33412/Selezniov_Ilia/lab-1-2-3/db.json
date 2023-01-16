@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "email": "test@mail.ru",
+      "password": "$2a$10$k3cIzLK6y1vHwbdlnesDcuCddE9ymhLi8lgxRLGO4MYn5d/SJHjta",
+      "firstname": "Test",
+      "lastname": "Test",
+      "login": "Tetest",
+      "id": 10
+    },
+    {
+      "email": "ilia.seleznev2001@gmail.com",
+      "password": "$2a$10$LuvYCp5Gto8HvE2qoaRideR2RsqHiNs4xJb1SrhEtMDeLHS2uIgya",
+      "firstname": "ILIA",
+      "lastname": "SELEZNEV",
+      "login": "SeLeZniOFF",
+      "id": 11
+    }
+  ]
+}
