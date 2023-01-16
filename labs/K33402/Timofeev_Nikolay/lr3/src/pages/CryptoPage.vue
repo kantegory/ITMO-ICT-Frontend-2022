@@ -5,7 +5,7 @@
             <hr class="opacity-100 m-0" />
 
             <div class="container d-flex justify-content-between align-items-start py-3 align-baseline">
-                <h1 class="lead">New deal</h1>
+                <h1 class="lead">Asset management</h1>
                 <span>
                     <button
                         class="button badge bg-success rounded-pill"
@@ -20,14 +20,20 @@
 
             <hr class="opacity-100 m-0" />
 
-            <h1 class="lead text-center py-3">Buy {{ name }}</h1>
+            <h1 class="lead text-center py-3">Manage {{ name }}</h1>
 
             <div class="text-center">
                 <input :placeholder="'amount'" @input="(e) => (buyCount = e.target.value)" />
                 <input :placeholder="'price'" @input="(e) => (buyPrice = e.target.value)" />
             </div>
-            <div class="text-center">
-                <button class="btn btn-primary my-2" @click="createDeal">Buy</button>
+            <div class="row">
+
+                <div class="text-center">
+                    <button class="btn btn-primary my-2" @click="createDeal('b')">Buy</button>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-danger my-2" @click="createDeal('s')">Sell</button>
+                </div>
             </div>
         </section>
         <section v-else>
@@ -46,7 +52,7 @@
                         data-bs-target="#buyCryptoModal"
                         @click="showBuy = true"
                     >
-                        <i class="bi bi-currency-dollar"></i>New deal
+                        <i class="bi bi-currency-dollar"></i>Manage
                     </button>
                 </span>
             </div>
@@ -139,19 +145,16 @@ export default {
         },
         async getAllDeals() {
             this.axios
-                .get(
-                    `http://127.0.0.1:8088/market-requests/?entry=${this.$route.params.id}`,
-                    {
-                        headers: {
-                            Authorization: `Token ` + localStorage.getItem("token"),
-                        },
-                    }
-                )
+                .get(`http://127.0.0.1:8088/market-requests/?entry=${this.$route.params.id}`, {
+                    headers: {
+                        Authorization: `Token ` + localStorage.getItem("token"),
+                    },
+                })
                 .then((res) => {
                     this.deals = res.data;
                 });
         },
-        async createDeal() {
+        async createDeal(type) {
             this.axios
                 .post(
                     `http://localhost:8088/market-requests/`,
@@ -159,6 +162,7 @@ export default {
                         entry: this.$route.params.id,
                         count: this.buyCount,
                         price: this.buyPrice,
+                        type: type,
                     },
                     {
                         headers: {
@@ -169,7 +173,7 @@ export default {
                 .then((res) => this.toast.success(`Order ${res.data.id} created!`))
                 .catch(() => this.toast.error(`Insufficient balance!`));
             this.showBuy = false;
-        },
+        }
     },
     async mounted() {
         await this.getAssetInfo();

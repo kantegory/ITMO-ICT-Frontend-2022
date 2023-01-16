@@ -25,17 +25,19 @@ const routes = [
 import {
     Chart as ChartJS,
     CategoryScale,
+    ArcElement,
     LinearScale,
     PointElement,
     LineElement,
     Title,
     Tooltip,
-    Legend,
+    Legend
 } from "chart.js";
+import {Pie} from 'vue-chartjs'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -45,6 +47,7 @@ const router = createRouter({
 const app = createApp(App);
 app.use(router);
 app.use(VueAxios, axios);
+app.use(Pie);
 app.use(Toast, {
     transition: "Vue-Toastification__slideBlurred",
     maxToasts: 5,

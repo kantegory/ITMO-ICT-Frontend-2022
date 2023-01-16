@@ -4,7 +4,7 @@
         <body class="container">
             <hr class="opacity-100 m-0" />
 
-            <join-section></join-section>
+            <join-section v-if="!logged"></join-section>
 
             <hr class="opacity-100 m-0" />
             <section>
@@ -68,6 +68,11 @@ import CryptoCard from "@/components/CryptoCard.vue";
 import JoinSection from "@/components/JoinSection.vue";
 export default {
     components: { NavBar, PageFooter, CryptoCard, JoinSection },
+    computed: {
+        logged() {
+            return Boolean(localStorage.getItem('token'))
+        }
+    }
 };
 </script>
 
