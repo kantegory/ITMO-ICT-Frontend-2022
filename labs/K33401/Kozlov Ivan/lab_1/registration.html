@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Войти </title>
     <!-- Bootstrap CSS (jsDelivr CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
 </head>
 
 <body>
@@ -47,6 +48,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -60,62 +66,83 @@
                         <h4 class="card-title mt-2">Регистрация</h4>
                     </header>
                     <article class="card-body">
-                        <form>
-                            <div class="form-row">
-                                <div class="col form-group">
-                                    <label>Имя </label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div> <!-- form-group end.// -->
-                                <div class="col form-group">
-                                    <label>Фамилия </label>
-                                    <input type="text" class="form-control" placeholder=" ">
-                                </div> <!-- form-group end.// -->
-                            </div> <!-- form-row end.// -->
-                            <div class="form-group">
-                                <label>Email </label>
-                                <input type="email" class="form-control" placeholder="">
-                            </div> <!-- form-group end.// -->
-                            <div class="form-group">
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="option1">
-                                    <span class="form-check-label"> Муж </span>
-                                </label>
-                                <label class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" value="option2">
-                                    <span class="form-check-label"> Жен </span>
-                                </label>
-                            </div> <!-- form-group end.// -->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Страна</label>
-                                    <input type="text" class="form-control">
-                                </div> <!-- form-group end.// -->
-                                <div class="form-group col-md-6">
-                                    <label>Город</label>
-                                    <input type="text" class="form-control">
-                                </div> <!-- form-group end.// -->
-                            </div> <!-- form-row.// -->
-                            <div class="form-group">
-                                <label>Создать пароль</label>
-                                <input class="form-control" type="password">
-                            </div> <!-- form-group end.// -->
+                        <form onsubmit="reg(event)">
+
+                            <label>Имя </label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="name">
+
+                            <label>Фамилия </label>
+                            <input type="text" class="form-control" placeholder="" name="last_name" id="last_name">
+
+                            <label>Email </label>
+                            <input type="email" class="form-control" placeholder="" name="email" id="email">
+
+                            <label>Создать пароль</label>
+                            <input class="form-control" type="password" name="password" id="password">
+
                             <div class="form-group d-flex flex-column justify-content-start">
                                 <br>
-                                <button type="submit" class="btn btn-primary"> Регистрация
+                                <button type="" class="btn btn-primary">
+                                    Регистрация
                                 </button>
+
                             </div> <!-- form-group// -->
 
                         </form>
                     </article> <!-- card-body end .// -->
-                    <div class="border-top card-body text-center">Уже есть аккаунт? <a href="login.html">Войти</a></div>
+                    <div class=" border-top card-body text-center">Уже есть аккаунт? <a href="login.html">Войти</a>
+                    </div>
                 </div> <!-- card.// -->
             </div> <!-- col.//-->
 
         </div> <!-- row.//-->
 
-
     </div>
+    <!-- скрипт, который обработает нажатие на кнопку и отправит данные на сервер -->
+    <script>
+        // эта функция сработает при нажатии на кнопку
 
+        async function reg(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const reg_data = {}
+
+            for (const input of inputs) {
+                reg_data[input.name] = input.value
+            }
+
+            console.log('login data', reg_data)
+
+            const response = await fetch('http://localhost:3000/users', {
+                method: "POST",
+                body: JSON.stringify(reg_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+
+        function checkAuth() {
+            if (localStorage.accessToken) {
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+        })
+
+
+
+    </script>
 
 </body>
 

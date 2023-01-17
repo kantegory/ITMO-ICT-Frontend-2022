@@ -1,0 +1,86 @@
+html, body {
+    background: var(--main-background-color);
+  }
+
+  .mywhite--text {
+    color: var(--hfp-text-color);
+  }
+
+  .icon {
+      stroke: currentColor;
+      width: 24px;
+      height: 24px;
+      fill: none;
+  }
+
+  .header {
+    background: var(--nav-background-color);
+  }
+
+  .header__section {
+    background: var(--nav-background-color);
+  }
+
+  .filter--color {
+    background: var(--filter-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .filter--color:hover {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .filter--color:active { 
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .filter--color:focus { 
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .main--text-color {
+    color: var(--main-text-color);
+  }
+
+  .percent--up--color {
+    background: var(--per-up-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .percent--down--color {
+    background: var(--per-down-background-color);
+    color: var(--hfp-text-color);
+  }
+
+  .footer {
+    background: var(--footer-background-color);
+  }
+
+  .footer__nav {
+    background: var(--footer-nav-background-color);
+  }
+
+  .footer--link1{
+    color: var(--fn1-text-color);
+    text-decoration: none;
+  }
+
+  .footer--link2{
+    color: var(--fn2-text-color);
+    text-decoration: none;
+  }
+
+  .footer--link1:hover {
+    color: var(--hfp-text-color);
+  }
+
+  .footer--link2:hover {
+    color: var(--hfp-text-color);
+  }
+
+  .footer--text {
+    font-size: 12px;
+  }

@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "email": "konik.ftl@mail.ru",
+      "password": "$2a$10$.Pw/9PCJ/ygoexnH20qZEugQDzJW21LD6xsQPxg2ZXnjyrS9sFkjG",
+      "name": "Asya",
+      "lastname": "Konik",
+      "img": "https://placepic.ru/wp-content/uploads/2022/01/1-2.jpg",
+      "id": 1
+    },
+    {
+      "email": "david@ya.ru",
+      "password": "$2a$10$HfaJ14sPqi/tT0xnbqZCAOhXT.OrtfXrN79XxUaswRVrobpCr2aTG",
+      "name": "David",
+      "lastname": "Dobryakov",
+      "img": "src/img/default_user.png",
+      "id": 2
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Ballet Carmina Burana",
+      "address": "emb. Dvortsovaya, 34",
+      "short_description": "Premiere of a dance mystery by Mikhail Venshchikov to music by Carl Orff",
+      "img_src": "src/img/theater.jpg",
+      "district": "admiralteysky",
+      "type": "theater",
+      "date": "13.11.2022 19:00",
+      "website": "https://hermitagetheater.ru/theater",
+      "full_description": "The ballet by choreographer Mikhail Venshchikov is a series of colorful and romantic images of the Middle Ages and the Renaissance. Love, knightly courage, Christian humility united in the dance. Together they remind the viewer of the issues of being, the most important for a person in any country and in any era. When creating the ballet, the choreographer was inspired by the philosophy and aesthetics of the Renaissance with its uncompromising faith in human capabilities. In this performance, the artists face difficult tasks - both choreographic and acting. The dancers transform into characters in the paintings of the great artists of the Renaissance, perform in duets, trios, sextets, and large ensembles. The culmination of the performance will be the story of the Knight, as if descended from Durer's engraving \"Knight, Death and the Devil\".",
+      "event_page": "./theater.html"
+    },
+    {
+      "id": 2,
+      "title": "KOD Virtual Reality Festival",
+      "address": "Bolshoy prosp. V. O., d. 83",
+      "short_description": "At the festival it will be possible to test more than 50 glasses of virtual and augmented reality",
+      "img_src": "src/img/festival.jpg",
+      "district": "vasileostrovsky",
+      "type": "festival",
+      "date": "14.10.2022-13.11.2022 11:00-21:00",
+      "website": "https://vk.com/vrfestkod",
+      "full_description": "Many of the technologies presented at the festival are reminiscent of a science fiction movie - for example, self-lacing sneakers. Augmented reality glasses HoloLens allow you to interact with holograms, as with real people. Also on the program are the new GranTurismo 7 game on PlayStation 5, a Tesla Cybertruck electric car building workshop, new augmented reality digital art, an exciting performance by circus Du Soleil artists and much more.",
+      "event_page": "./theater.html"
+    },
+    {
+      "id": 3,
+      "title": "Drummatix concert at Aurora Concert Hall",
+      "address": "Pirogovskaya nab., d. 5/2",
+      "short_description": "Adherents of energy hip-hop will visit St. Petersburg with the presentation of a new album",
+      "img_src": "src/img/concert.jpg",
+      "district": "petrogradsky",
+      "type": "concert",
+      "date": "22.10.2022",
+      "website": "https://aurora.fm/drummatix",
+      "full_description": "DRUMMATIX: presentation of the NEW album!\n\nIn just three years, Katya DRUMMATIX has gone from debut to the main concert venues in the country. Now DRUMMATIX is taking it to a whole new level by assembling a team of talented musicians. They organically complemented the unique sound and immediately sunk into the heart of the listener. In October, the group will present a new album. The concert will feature both major hits from old albums and songs from the new disc.",
+      "event_page": "./theater.html"
+    },
+    {
+      "id": 4,
+      "title": "Yolki Farm",
+      "img_src": "src/img/camping.png",
+      "address": "Ruskeala, 61.910524, 30.607408",
+      "short_description": "Camping on a field surrounded by a spruce forest is located near the Ruskeala mountain park, waterfalls and other attractions of Karelia.",
+      "district": "Sortavala",
+      "type": "activity",
+      "date": "Whole year",
+      "website": "https://www.ruskeala-trip.ru/",
+      "full_description": "Yolki Farm is a spacious camping site located near the Tohmajoki River. From the campsite you can walk to the famous Ruskeala park, Ryumyakoski and Ahinkoski waterfalls and other places worth seeing. Active guests can rent kayaks and ATVs. The campsite is equipped with fire pits and gazebos, guests are provided with firewood and barbecue grills for picnics, tables and benches. There is also everything you need for living: washbasins, toilets and utility blocks, drinking water. Free parking is provided for those arriving by car.",
+      "event_page": "./theater.html"
+    }
+  ],
+  "user_enrolled_events": [
+    {
+      "user_id": 1,
+      "event_id": 1,
+      "id": 1
+    }
+  ]
+}

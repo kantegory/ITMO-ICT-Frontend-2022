@@ -16,17 +16,17 @@
   <header>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Intro</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Поиск" aria-label="Search">
+      <input class="form-control form-control-dark w-100" id="myInput" onkeyup="departmentFilter()" type="text" placeholder="Поиск" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="main_page.html">Выйти</a>
+          <a class="nav-link" onclick="logout()">Выйти</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="container-fluid row gx-0">
-    <aside class="col-lg-3 col-md-2 px-0 vh-100 pt-1 d-none d-md-flex" style="background-color: #f7f4ef ">
+    <aside class="col-lg-4 py-2 vh-100" style="background-color: #f7f4ef ">
       <ul class="list-group col-12">
         <li class="list-group-item">
             <a href="manage.html" class="text-decoration-none link-dark">Домашняя страница</a> 
@@ -41,10 +41,10 @@
         </li>
       </ul>
     </aside>
-    <section class="col-lg-9 col-md-10 px-4 py-3 vh-100" style="background-color: #f7f7f7d3">
+    <section class="col-lg-8 vh-100 py-2 px-3" style="background-color: #f7f7f7d3">
         <h2>Информация о сотрудниках компании</h2>
         <div class="table-responsive">
-          <table class="table table-striped table-sm">
+          <table id = "myTable" class="table table-striped table-sm">
             <thead>
               <tr>
                 <th>Табельный номер</th>
@@ -54,7 +54,7 @@
                 <th>Отдел</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id = "new_row">
               <tr>
                 <td>1,001</td>
                 <td>Иванов</td>
@@ -163,12 +163,70 @@
             </tbody>
           </table>
         </div>
+      </section>
       </main>
     </div>
   </div>
+    <script>
+      function departmentFilter() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+      
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[4];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+      function logout() {
+      localStorage.clear()
+      window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
+    }
+    function createTable (id, last_name, first_name, middle_name, department) {
+      return  `<tr>
+                    <td>${id}</td>
+                    <td>${last_name}</td>
+                    <td>${first_name}</td>
+                    <td>${middle_name}</td>
+                    <td>${department}</td>
+              </tr>` 
+    }
 
+    function getAuthToken() {
+      return localStorage.accessToken
+    }
 
-    </section>
+    async function getDataFromDb(){
+      const response = await fetch('http://localhost:3000/600/workers', {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${getAuthToken()}`
+          }
+        })
+      
+      responseJson = await response.json()
+      parcedData = JSON.parse(JSON.stringify(responseJson))
+
+      for (i = 0; i < Object.keys(responseJson).length; i++){
+        var id = responseJson[i].id
+        var last_name = responseJson[i].last_name
+        var name = responseJson[i].name
+        var middle_name = responseJson[i].middle_name
+        var department = responseJson[i].departure_name
+        document.querySelector("#new_row").innerHTML += createTable(id, last_name,name,middle_name,department)
+      }
+      }
+      document.addEventListener('DOMContentLoaded', () => { getDataFromDb()} )
+
+      </script>
   </main>
 </body>
 </html>

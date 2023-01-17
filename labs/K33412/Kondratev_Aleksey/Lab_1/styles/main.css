@@ -1,4 +1,25 @@
 .colors {
 	color: white;
-	background-color: #2f2f2f;
+	background-color: var(--bg-color);
+}
+
+.card-colors {
+	background-color: var(--bg-card) !important;
+}
+
+.background {
+	background-color: var(--bg-color) !important;
+}
+
+.background-main {
+	background-color: var(--bg-main);
+}
+
+.border-color {
+	border: 1px solid var(--border-color);
+}
+
+.text-color {
+	color: var(--color-text) !important;
+	border: none;
 }

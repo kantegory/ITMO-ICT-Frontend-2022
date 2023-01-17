@@ -1,0 +1,100 @@
+.navigation-bar {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 40px 8px 10px;
+    margin: 0;
+    border-bottom: 1px solid;
+    border-bottom-color: var(--border-bottom);
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bolder;
+    color: var(--link-color);
+}
+
+.nav-link:hover {
+    color: var(--link-hover);
+}
+
+.nav-logo {
+    width: 12%;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.form-control {
+    height: 70px;
+    border-radius: 8px;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+.btn-primary {
+    height: 70px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.form-control {
+    background-color: var(--bg-color);
+    border-color: var(--border-input);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+    color: var(--text-color)
+}
+
+.btn-primary {
+    background-color: var(--btn-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+}
+
+.form-check-input:checked {
+    background-color: var(--btn-hover);
+    color: var(--btn-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+    border-color: var(--btn-hover);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 10px var(--btn-hover);
+    border-color: var(--btn-hover);
+}
+
+.form-check-input {
+    border-color: var(--btn-hover);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+    .nav-logo {
+        filter: invert(10%);
+    }
+}

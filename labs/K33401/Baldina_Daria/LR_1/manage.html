@@ -19,14 +19,14 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Поиск" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="main_page.html">Выйти</a>
+          <a class="nav-link" onclick="logout()">Выйти</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="container-fluid row gx-0">
-    <aside class="col-lg-3 col-md-2 px-0 vh-100 pt-1 d-none d-md-flex" style="background-color: #f7f4ef ">
+    <aside class="col-md-4 py-2 vh-100" style="background-color: #f7f4ef ">
       <ul class="list-group col-12">
         <li class="list-group-item list-group-item-secondary" aria-current="true">Домашняя страница</li>
         <li class="list-group-item">
@@ -40,7 +40,7 @@
         </li>
       </ul>
     </aside>
-    <section class="col-lg-9 col-md-10 px-4 py-3 vh-100" style="background-color: #f7f7f7d3">
+    <section class="col-md-8 vh-100 py-2 px-3" style="background-color: #f7f7f7d3">
       <h1>
         Добро пожаловать в панель администратора
       </h1>
@@ -53,5 +53,11 @@
       </p>
     </section>
   </main>
+  <script>
+    function logout() {
+      localStorage.clear()
+      window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
+    }
+  </script>
 </body>
 </html>

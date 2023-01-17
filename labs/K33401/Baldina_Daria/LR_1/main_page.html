@@ -10,16 +10,16 @@
     </head>
 <body>
     
-    <section class="">
-        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <section class="section" style="background-color: hsl(0, 0%, 96%)">
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start">
           <div class="container">
             <div class="row gx-lg-5 align-items-center">
               <div class="col-lg-6 mb-5 mb-lg-0">
                 <h1 class="my-2 display-3 fw-bold ls-tight">
                   Администраторы<br />
-                  <span class="text-primary">магазина "Intro"</span>
+                  <span class="text text-primary">магазина "Intro"</span>
                 </h1>
-                <p style="color: hsl(217, 10%, 50.8%)">
+                <p class = "subtext" style="color: rgb(43, 47, 52)">
                   Удобный функционал для управления персоналом и учета товаров
                 </p>
               </div>
@@ -28,26 +28,19 @@
                 <div class="card">
                   <div class="card-body py-5 px-md-5">
                     <div class="card-title text-center">Вход в аккаунт</div>
-                    <form>
+                    <form onsubmit="login(event)">
                       <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control" />
+                        <input type="email" id="form3Example3" class="form-control" id="email" name="email">
                         <label class="form-label" for="form3Example3">Логин</label>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="password" id="form3Example4" class="form-control" />
+                        <input type="password" id="form3Example4" class="form-control" id="password" name="password">
                         <label class="form-label" for="form3Example4">Пароль</label>
                       </div>
       
-                      <div class="form-check d-flex justify-content-center mb-4">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                        <label class="form-check-label" for="form2Example33">
-                          Запомнить меня
-                        </label>
-                      </div>
-      
-                    <div class="form-group mb-4">
-                        <a href="manage.html" class="btn btn-primary d-flex justify-content-center btn-block">Войти</a>
+                    <div class="form-group mb-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
                     </div>
                   
                       <div class="border-top card-body text-center"> Еще нет профиля? <a href="registration.html">Зарегестрироваться</a></div>
@@ -59,6 +52,55 @@
             </div>
           </div>
       </section>
-      
+      <script>
+        function checkAuth(response) {
+            if (response == 'Incorrect password' || response == 'Password is too short') {
+                let div = document.createElement('div')
+                div.className = "alert alert-danger"
+                div.innerHTML = "<strong>Пароль неверный</strong>"
+                document.body.append(div)
+              } else if (localStorage.accessToken && response != 'Cannot find user') {
+                  window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/manage.html"
+              } else {
+                let div = document.createElement('div')
+                div.className = "alert alert-danger"
+                div.innerHTML = "<strong>Логин и пароль неверные</strong>"
+                document.body.append(div)
+              }
+            }
+
+        async function login(event) {
+              event.preventDefault()
+              
+              const inputs = Array.from(event.target.querySelectorAll('input'))
+
+              const loginData = {}
+
+              for (const input of inputs) {
+                loginData[input.name] = input.value
+              }
+
+              console.log('login data', loginData)
+
+              const response = await fetch('http://localhost:3000/login', {
+                method: "POST",
+                body: JSON.stringify(loginData),
+                headers: {
+                  'Content-Type': 'application/json',
+                }
+              })
+
+              const responseJson = await response.json()
+
+              const { accessToken, user } = responseJson
+
+              localStorage.accessToken = accessToken
+              localStorage.user = JSON.stringify(user)
+
+              console.log('response', responseJson)
+
+              checkAuth(responseJson)
+            }
+      </script>
 </body>
 </html>

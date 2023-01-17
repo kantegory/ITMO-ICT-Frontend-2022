@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/chart.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css"/>
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
+            </a>
+        </li>
+        <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="my_portfolio.html" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Графики</a></li>
+        <li class="nav-item" id="login" style="display: block"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
+                                                                     class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="logout" style="display: none">
+            <button class="logout-button" onclick="logout()"
+                    style="border: none; padding-top:5px;  background-color: #fff">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</header>
+<div class="container w-100 pt-4">
+    <div class="d-flex w-25 mb-5 justify-content-between search-section" style="border: 1px solid;">
+        <label class="w-100">
+            <input type="text" class="form-control" style="height: 45px;border: 2px solid var(--border-input)" onchange="search()"
+                   placeholder="Поиск по названию">
+        </label>
+        <button class="bg-light px-2 clear-search" style="border:2px solid var(--border-input); padding: 0" onclick="clear_search()">
+            <svg class="clear-icon" style="width: 30px; height: 30px">
+                <use xlink:href="sprite.svg#clear">
+                </use>
+            </svg>
+        </button>
+    </div>
+
+    <div class="chart-section d-flex">
+        <div class="wrapper d-block" style="height: 500px; width: fit-content; overflow-y: scroll; padding-top: 20px">
+
+        </div>
+        <div class="chart-wrapper w-75"></div>
+    </div>
+
+</div>
+</body>
+<script>
+    let data;
+    let searchString = "";
+    let url = `http://localhost:3000/currency?${searchString}`;
+
+    async function currencyList(query) {
+        document.querySelector('.wrapper').innerHTML = "";
+
+        const response = await fetch(query)
+        data = await response.json()
+
+        for (let i = 0; i < data.length; i++) {
+            document.querySelector('.wrapper').innerHTML += getCoinHtml(data[i])
+        }
+    }
+
+    function getCoinHtml({image, name, symbol, id}) {
+        return `
+            <button  id='${id}' class="btn btn-light justify-content-between" style="width: 250px; border: 2px solid" onclick="renderChart(event)">
+                    <div class="d-flex align-items-center ">
+                        <img  src="${image}" alt="" style="width: 30px; height: 30px"
+                             class="rounded-circle"/>
+                        <div  class="ms-2 d-flex flex-column">
+                            <p  class="fw-bold mb-0 d-flex">${name}</p>
+                            <p  class="text-muted d-flex mb-0">${symbol.toUpperCase()}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <svg id='${id}' class="draw-chart" style="width: 20px; height: 20px">
+                            <use xlink:href="sprite.svg#chart">
+                            </use>
+                        </svg>
+                    </div>
+            </button>
+        `
+    }
+
+
+    function search() {
+        const searchValue = document.querySelector('input').value
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}`
+
+        currencyList(url)
+    }
+
+    function clear_search() {
+        const searchValue = ''
+        document.querySelector('input').value = searchValue
+
+        const searchParams = new URLSearchParams()
+        searchParams.set('q', searchValue)
+
+        searchString = searchParams.toString()
+        url = `http://localhost:3000/currency?${searchString}`
+
+        currencyList(url)
+    }
+
+    async function renderChart(event) {
+        document.querySelector('.chart-wrapper').innerHTML = ''
+        response = await fetch(`http://localhost:3000/charts?id=${event.target.id}`)
+        let chartData = await response.json()
+
+        document.querySelector('.chart-wrapper').innerHTML +=
+            `
+                     <canvas style="width: 100%; height: 100%" class="${chartData[0].id}"></canvas>
+            `;
+
+        let ctx = document.querySelector(`.${chartData[0].id}`)
+        let timeSet = []
+        let dataSet = []
+
+        for (let i = 0; i < chartData[0].prices.length; i++) {
+            timeSet.push(chartData[0].prices[i][0])
+            dataSet.push(chartData[0].prices[i][1])
+        }
+
+        new Chart(ctx, {
+            type: "line",
+            options: {
+                responsive: true,
+            },
+            data: {
+                labels: timeSet,
+                datasets: [
+                    {
+                        label: chartData[0].id,
+                        data: dataSet,
+                        backgroundColor: "rgba(0, 0, 0, 0)",
+                        borderColor: "rgb(14,96,249)",
+                        tension: 0,
+                    },
+                ],
+            },
+        });
+    }
+
+
+    // async function loadCharts() {
+    //     document.querySelector('.wrapper').innerHTML = "";
+    //     let wrapper = document.querySelector('.wrapper')
+    //
+    //     let response = await fetch('http://localhost:3000/charts')
+    //     let chartData = await response.json()
+    //
+    //     console.log(chartData[0])
+    //
+    //     let canvas = []
+    //
+    //     for (let i = 0; i < 4; i++) {
+    //         canvas[i] = `<canvas style="width: 400px; height: 400px" id=${chartData[i].id}></canvas>`
+    //         wrapper.innerHTML += canvas[i]
+    //         let ctx = document.querySelector(`#${chartData[i].id}`)
+    //         let timeSet = []
+    //         let dataSet = []
+    //
+    //         for (let j = 0; j < chartData[i].prices.length; j++) {
+    //             timeSet.push(chartData[i].prices[j][0])
+    //             dataSet.push(chartData[i].prices[j][1].toFixed(2))
+    //         }
+    //
+    //         new Chart(ctx, {
+    //             type: "line",
+    //             // options: {
+    //             //     responsive: true,
+    //             // },
+    //             data: {
+    //                 labels: timeSet,
+    //                 datasets: [
+    //                     {
+    //                         label: chartData[i].id,
+    //                         data: dataSet,
+    //                         backgroundColor: "rgba(0, 0, 0, 0)",
+    //                         borderColor: "rgba(249, 105, 14, 1)",
+    //                         tension: 0,
+    //                     },
+    //                 ],
+    //             },
+    //         });
+    //
+    //     }
+    //
+    //
+    // }
+
+    // function renderCharts(chartData, index) {
+    //     let currId = chartData[index].id
+    //     let ctx = document.querySelector(`#${currId}`)
+    //     let timeSet = []
+    //     let dataSet = []
+    //
+    //     for (let i = 0; i < chartData[index].prices.length; i++) {
+    //         timeSet.push(chartData[index].prices[i][0])
+    //         dataSet.push(chartData[index].prices[i][1].toFixed(2))
+    //     }
+    //     new Chart(ctx, {
+    //         type: "line",
+    //         // options: {
+    //         //     responsive: true,
+    //         // },
+    //         data: {
+    //             labels: timeSet,
+    //             datasets: [
+    //                 {
+    //                     label: chartData[index].id,
+    //                     data: dataSet,
+    //                     backgroundColor: "rgba(0, 0, 0, 0)",
+    //                     borderColor: "rgba(249, 105, 14, 1)",
+    //                     tension: 0,
+    //                 },
+    //             ],
+    //         },
+    //     });
+    //
+    // }
+
+    function logout() {
+        if (localStorage.user) {
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+
+    function checkAuth() {
+        if (localStorage.user) {
+            document.getElementById('login').style.display = 'none'
+            document.getElementById('register').style.display = 'none'
+            document.getElementById('logout').style.display = 'block'
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuth()
+        currencyList(url)
+    })
+</script>
+</html>

@@ -1,0 +1,82 @@
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-color: var(--card-color) !important;
+}
+
+.search-section {
+    border-color: var(--border-bottom) !important;
+}
+
+.form-control {
+    background-color: var(--bg-color);
+    border-color: var(--border-input);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+    color: var(--text-color)
+}
+
+.btn-light {
+    background-color: var(--card-color) !important;
+    color: var(--text-color);
+    border-color: var(--bg-color) !important;
+
+}
+
+.btn-light:hover{
+    color: var(--text-color);
+    border-color: var(--btn-hover) !important;
+    box-shadow: none;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bolder;
+    color: var(--link-color);
+}
+
+.nav-link:hover {
+    color: var(--link-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+    .logout-button {
+        filter: invert(88.5%);
+    }
+
+    .clear-search {
+        filter: invert(88.5%);
+    }
+
+    .draw-chart{
+        filter: invert(88.5%);
+    }
+
+    .nav-logo {
+        filter: invert(10%);
+    }
+
+    .clear-icon{
+        filter: invert(60%);
+    }
+}

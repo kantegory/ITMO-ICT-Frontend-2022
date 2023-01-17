@@ -1,0 +1,16 @@
+body{
+    /* background-image: url('Img/back.svg');  */
+    /* color: whitesmoke !important; */
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+
+}
+
+h1,h2{
+    font-family: 'Righteous', sans-serif;
+
+}
+.book-list{
+    visibility: hidden;
+    /* color: black; */
+}

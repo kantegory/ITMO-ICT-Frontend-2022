@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sing up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="src/styling/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <meta name="color-scheme" content="light dark">
+
+    <script>
+        if (matchMedia('(prefers-color-scheme:dark)').media === 'not all') {
+            document.documentElement.style.display = 'none';
+            document.head.insertAdjacentHTML(
+                'beforeend',
+                '<link href="src/styling/light.css" rel="stylesheet" onload="document.documentElement.style.display=\'\'">'
+            );
+        }
+    </script>
+
+    <link href="src/styling/styles.css" rel="stylesheet">
+    <link href="src/styling/light.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+    <link href="src/styling/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
+    <script src="src/js/menu.js"></script>
+    <script src="src/js/auth.js"></script>
+</head>
+
+<body>
+<header class="container-fluid">
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <button class="navbar-toggler custom-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" id="Menu_btn" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./main.html">Main</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="sign_in.html">Sign in</a>
+                    </li>
+                    <li class="nav-item signinup_link">
+                        <a class="nav-link active" href="./sign_up.html">Sign up</a>
+                    </li>
+                    <li class="nav-item profile_link">
+                        <a class="nav-link active" href="./profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./calendar.html">Calendar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container-xl p-5 mb-5">
+    <h1 class="row mb-3 justify-content-center">Sign up</h1>
+    <form onsubmit="signup(event)">
+        <div class="row mb-2 justify-content-center">
+            <label for="name" class="col-sm-1 col-form-label">Name</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="text" id="name" name="name" aria-label="Name" required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="lastname" class="col-sm-1 col-form-label">Last name</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="text" id="lastname" name="lastname" aria-label="Lastname"  required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="email" class="col-sm-1 col-form-label">Email</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="email" id="email" name="email" placeholder="example@email.com" aria-label="Email"  required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="password" class="col-sm-1 col-form-label">Password</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input type="password" id="password" name="password" aria-label="Password"  required>
+            </div>
+        </div>
+        <div class="row mb-2 justify-content-center">
+            <label for="user_image" class="col-sm-1 col-form-label">Profile image</label>
+            <div class="col-sm-3 col-md-4 text-center">
+                <input name="img" aria-label="Profile image"  type='text' />
+                <br><img id="user_image" class="mt-2" src="" alt="" style="max-height: 200px; max-width: 200px">
+            </div>
+        </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 text-center">
+                <button type="submit" class="btn btn-primary" aria-pressed="true">Register</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <p>&copy 2022, Konik Anastasia</p>
+</footer>
+
+</body>
+</html>

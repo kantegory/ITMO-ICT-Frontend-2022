@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my_portfolio.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="index.html" class="nav-link pt-1">
+                <svg class="nav-logo" style=" height: 27px">
+                    <use xlink:href="sprite.svg#logo">
+                    </use>
+                </svg>
+            </a>
+        </li>
+        <li class="nav-item"><a href="search.html" class="nav-link">Поиск</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Мой портфель</a></li>
+        <li class="nav-item"><a href="chart.html" class="nav-link">Графики</a></li>
+        <li class="nav-item" id="login" style="display: block"><a href="sign_in.html" class="nav-link">Вход</a></li>
+        <li class="nav-item" id="register" style="display: block"><a href="sign_up.html"
+                                                                     class="nav-link">Регистрация</a></li>
+        <li class="nav-item" id="logout" style="display: none">
+            <button class="logout-button" onclick="logout()"
+                    style="border: none; background-color: white; padding-top:5px">
+                <svg class="logout-img" style="width: 27px; height: 27px">
+                    <use xlink:href="sprite.svg#logout">
+                    </use>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</header>
+<section class="container">
+    <div class="dataTable-wrapper d-flex justify-content-center">
+        <table class="table align-middle border-light mt-5 w-100">
+            <thead>
+            <tr class="head-row border-light fw-normal">
+                <th class="align-middle">Название
+                    <button class="sort-arrow px-1" onclick="sort_name()">
+                        <svg style="width: 15px; height: 15px">
+                            <use xlink:href="sprite.svg#sort">
+                            </use>
+                        </svg>
+                    </button>
+                </th>
+                <th class="align-middle">Цена
+                    <button class="sort-arrow px-1" onclick="sort_price()">
+                        <svg style="width: 15px; height: 15px">
+                            <use xlink:href="sprite.svg#sort">
+                            </use>
+                        </svg>
+                    </button>
+                </th>
+                <th>Количество</th>
+                <th>Итого</th>
+                <th class="fw-normal">
+                    <div class="">
+                        <div class="pagination d-flex justify-content-around">
+                            <button class="btn-pagination btn-prev m-0" onclick="prev_page()">
+                                <svg style="width: 27px; height: 27px">
+                                    <use xlink:href="sprite.svg#arrow">
+                                    </use>
+                                </svg>
+                            </button>
+                            <p class="page-number m-0 px-2" style="border: 1px solid; border-radius: 20px"></p>
+                            <button class="btn-pagination btn-next m-0" onclick="next_page()">
+                                <svg style="width: 27px; height: 27px; transform: rotate(180deg)">
+                                    <use xlink:href="sprite.svg#arrow">
+                                    </use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <p class="balance m-0">
+                        </p>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+            <tbody class="coin-wrapper">
+
+            </tbody>
+        </table>
+    </div>
+</section>
+<script>
+    function logout() {
+        if (localStorage.user) {
+            localStorage.clear()
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+
+    function checkAuth() {
+        if (localStorage.user) {
+            document.getElementById('login').style.display = 'none'
+            document.getElementById('register').style.display = 'none'
+            document.getElementById('logout').style.display = 'block'
+        } else {
+            window.location.href = "http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/sign_in.html"
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth())
+
+    function getCoinHtml({image, name, current_price, symbol}, amount) {
+        return `
+            <tr class="">
+                <td>
+                    <div class="d-flex align-items-center logo-item p-0">
+                        <img src="${image}" alt="" style="width: 30px; height: 30px"
+                             class="rounded-circle"/>
+                        <div class="ms-2">
+                            <p class="fw-bold mb-0">${name}</p>
+                            <p class="text-muted mb-0">${symbol.toUpperCase()}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-0">RUB ${priceHandler(current_price)}</p>
+                </td>
+                <td class="amount">
+                    ${amount}
+                </td>
+                <td>
+                    <span class="total">
+                    RUB ${priceHandler((amount * current_price))}
+                    </span>
+                </td>
+                <td class="">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="buyCoin(event)">
+                            Купить
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-danger btn-link rounded-pill text-white text-decoration-none" value="${symbol}" onclick="sellCoin(event)">
+                            Продать
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `
+    }
+
+    let url = 'http://localhost:3000/currency'
+    let data, currCoins;
+    let currentPage = 1;
+    let coinsPerPage = 4;
+    let amount = [];
+    let sortName = "";
+
+    const btnPrev = document.querySelector('.btn-prev')
+    const btnNext = document.querySelector('.btn-next')
+
+    function prev_page() {
+        if (currentPage > 1) {
+            currentPage--;
+            loadCoins()
+        }
+    }
+
+    function next_page() {
+        if (currentPage < Math.ceil(currCoins / coinsPerPage)) {
+            currentPage++;
+            loadCoins()
+        }
+
+    }
+
+    async function loadCoins(query) {
+        document.querySelector('.coin-wrapper').innerHTML = "";
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        const {coins} = userJson[0];
+
+        if (query === undefined) {
+            query = url;
+        }
+
+        const response = await fetch(query);
+
+        data = await response.json();
+        currCoins = coins.length;
+
+
+        btnPrev.style.visibility = currentPage === 1 ? "hidden" : "visible"
+        btnNext.style.visibility = currentPage === Math.ceil(currCoins / coinsPerPage) ? "hidden" : "visible"
+
+        let renderQuery = [];
+
+        if (coins.length !== null) {
+            for (let i = 0; i < data.length; i++) {
+                for (let j = 0; j < currCoins; j++) {
+                    if (coins[j].id === data[i].id) {
+                        amount.push(coins[j].amount);
+                        renderQuery.push(data[i])
+                    }
+                }
+            }
+        }
+
+        if (coins.length !== null) {
+            for (let k = (currentPage - 1) * coinsPerPage; k < (currentPage * coinsPerPage); k++) {
+                if (k > currCoins - 1) {
+                    break
+                }
+
+                if (currCoins < coinsPerPage) {
+                    btnPrev.style.visibility = "hidden"
+                    btnNext.style.visibility = "hidden"
+                }
+
+                document.querySelector('.coin-wrapper').innerHTML += getCoinHtml(renderQuery[k], amount[k])
+
+            }
+            let page = document.querySelector('.page-number')
+            page.innerHTML = currentPage;
+            let money = document.querySelector('.balance')
+            money.innerHTML = balance(coins)
+        }
+    }
+
+    async function buyCoin(event) {
+        checkAuth()
+
+        const symbol = event.target.value;
+        let url = `http://localhost:3000/currency?symbol=${symbol}`;
+
+        const response = await fetch(url);
+
+        data = await response.json();
+
+        const {id, current_price} = data[0];
+
+        let coin = {
+            'id': id,
+            'price': current_price,
+            'amount': 0,
+        }
+
+        let amount;
+        while (true) {
+            amount = prompt("Сколько хотите купить?")
+            if (amount === null) {
+                break
+            } else if (amount <= 0) {
+                alert("Количество должно быть положительным")
+                amount = 0
+            } else {
+                break
+            }
+        }
+        if (amount !== null) {
+            amount = parseFloat(amount)
+            coin.amount = amount;
+        }
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        let dup = -1;
+        let i = 0;
+        while (i < userJson[0].coins.length) {
+            if (userJson[0].coins[i].id === coin.id) {
+                dup = i;
+            }
+            i++;
+        }
+
+        if (dup === -1) {
+            userJson[0].coins.push(coin)
+        } else {
+            userJson[0].coins[dup].amount += amount;
+        }
+
+        await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify(userJson[0]),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        await loadCoins()
+        location.reload()
+    }
+
+    async function sellCoin(event) {
+        checkAuth()
+
+        let currentUser = JSON.parse(localStorage.getItem('user'));
+
+        const user = await fetch(`http://localhost:3000/users?id=${currentUser[0].id}`);
+        const userJson = await user.json();
+
+        const symbol = event.target.value;
+        let url = `http://localhost:3000/currency?symbol=${symbol}`;
+        const response = await fetch(url);
+        data = await response.json();
+        const {id} = data[0];
+
+        let index;
+        let i = 0;
+        while (i < userJson[0].coins.length) {
+            if (userJson[0].coins[i].id === id) {
+                index = i;
+            }
+            i++;
+        }
+
+        let currentAmount = userJson[0].coins[index].amount;
+
+        let amount
+        let ok
+        let f
+        while (true) {
+            amount = prompt("Сколько хотите продать?")
+            if (amount === null) {
+                break;
+            } else if (amount <= 0) {
+                alert("Количество должно быть положительным")
+            } else if (amount > currentAmount) {
+                alert("У вас нет столько")
+            } else if (amount == currentAmount) {
+                ok = confirm("Хотите продать все?")
+                if (ok) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+
+        if (amount !== null) {
+            amount = parseFloat(amount)
+            currentAmount -= amount
+        }
+
+
+        if (currentAmount == 0) {
+            userJson[0].coins.splice(index, 1)
+        } else {
+            userJson[0].coins[index].amount = currentAmount;
+        }
+
+        await fetch(`http://localhost:3000/users/${currentUser[0].id}`, {
+            method: 'PUT',
+            body: JSON.stringify(userJson[0]),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        await loadCoins()
+        location.reload()
+    }
+
+    function balance(coins) {
+        let sum = 0;
+        for (let i = 0; i < coins.length; i++) {
+            sum += coins[i].price * coins[i].amount
+        }
+
+        sum = priceHandler(sum)
+
+        return `<b>Баланс: </b>${sum}`
+    }
+
+    let cnt_name = 1
+
+    function sort_name() {
+        switch (cnt_name % 3) {
+            case 0:
+                sortName = ``
+                cnt_name++
+                break
+            case 1:
+                sortName = `_sort=name&_order=desc`
+                cnt_name++
+                break
+            case 2:
+                sortName = `_sort=name&_order=asc`
+                cnt_name++
+                break
+        }
+        url = `http://localhost:3000/currency?${sortName}`
+        loadCoins(url)
+    }
+
+    let cnt_price = 1
+
+    function sort_price() {
+        switch (cnt_price % 3) {
+            case 0:
+                sortName = ``
+                cnt_price++
+                break
+            case 1:
+                sortName = `_sort=current_price&_order=desc`
+                cnt_price++
+                break
+            case 2:
+                sortName = `_sort=current_price&_order=asc`
+                cnt_price++
+                break
+        }
+        url = `http://localhost:3000/currency?${sortName}`
+
+        loadCoins(url)
+    }
+
+    function priceHandler(number) {
+        number.toFixed(6)
+        let newNum = number.toString().split('.')
+        let res = ''
+        res += newNum[0].replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+
+        if (newNum[1] !== undefined) {
+            res += ','
+        }
+
+        if (newNum[1] !== undefined && newNum[1].length % 3 !== 0) {
+            for (let i = 0; i < newNum[1].length % 3; i++) {
+                newNum[1] += '0';
+            }
+            if (newNum[1].length === 3) {
+                res += newNum[1]
+            }
+        }
+
+        if (newNum[1] !== undefined && newNum[1].length > 3) {
+            let j = 0;
+            let str = ''
+            while (j < newNum[1].length) {
+                str += newNum[1].slice(j, j + 3) + ' '
+                j += 3
+            }
+            str.slice(0, -1)
+            res += str
+        }
+        return res
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuth()
+        loadCoins()
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+{
+  "users": [
+    {
+      "email": "test@mail.ru",
+      "password": "$2a$10$Qf/da36.0MX8IreRqb.p5uT3OrofOlZRgH3XORylRyyEQDp9YuRRy",
+      "username": "evlko",
+      "likes": [
+        3
+      ],
+      "id": 1
+    },
+    {
+      "email": "test@mail.com",
+      "password": "$2a$10$jJhICYnwwCjkEumjCy40MudEqaJA7p1SoHEmk7j6n16htI.TQQWGq",
+      "username": "oklve",
+      "likes": [],
+      "id": 2
+    },
+    {
+      "email": "test@mail.au",
+      "password": "$2a$10$IQbDXEPjoWdMVJAZSXKcHeq4hM.zZqGrytfeYb3jJP4XQhmY07oYW",
+      "username": "johndoe",
+      "likes": [
+        8
+      ],
+      "id": 3
+    }
+  ],
+  "scenarios": [
+    {
+      "id": 1,
+      "name": "Mom's friend's son",
+      "description": "The scariest horror you could ever imagine. Come face to face with the nightmare from under the bed — your mother's friend's son.",
+      "tags": [
+        1,
+        4,
+        2
+      ],
+      "likes": 4,
+      "system": 1,
+      "finished": 1,
+      "adult": 0,
+      "author": 1,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Cult of the Cat",
+      "description": "Start your own cult in a land of false prophets, venturing out into diverse and mysterious regions to build a loyal community of woodland worshippers and spread your Word to become the one true cult.",
+      "tags": [
+        16,
+        17,
+        18
+      ],
+      "likes": 0,
+      "system": 1,
+      "finished": 1,
+      "adult": 0,
+      "author": 2,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-2.png"
+    },
+    {
+      "id": 3,
+      "name": "Saturday's Morning",
+      "description": "You wake up in a strange place, a dead hagiwagi lies next to you, and you remember nothing. The doorbell rings.",
+      "tags": [
+        15,
+        14,
+        6
+      ],
+      "likes": 3,
+      "system": 1,
+      "finished": 1,
+      "adult": 0,
+      "author": 1,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-3.png"
+    },
+    {
+      "id": 4,
+      "name": "Guests from the city \"K\"",
+      "description": "Every month a woman has guests coming in from Krasnodar, can you break the loop?",
+      "tags": [
+        13,
+        14,
+        7
+      ],
+      "likes": 101,
+      "system": 1,
+      "finished": 1,
+      "adult": 0,
+      "author": 2,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-4.png"
+    },
+    {
+      "id": 5,
+      "name": "Edgerunner",
+      "description": "You're on the verge of CYB3RPSYCH0IC3, are you ready to become a CYB3RPSYCH0ICE or N0? The RUN begins.",
+      "tags": [
+        11,
+        12
+      ],
+      "likes": 2077,
+      "system": 1,
+      "finished": 1,
+      "adult": 0,
+      "author": 1,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-5.png"
+    },
+    {
+      "id": 6,
+      "name": "Golden Shower",
+      "description": "Suddenly, smth splashes in your face. Uh... You are reviving! Is this some sort of golden rain?",
+      "tags": [
+        10,
+        7,
+        5
+      ],
+      "likes": 96,
+      "system": 1,
+      "finished": 0,
+      "adult": 1,
+      "author": 2,
+      "release": "2020-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-6.png"
+    },
+    {
+      "id": 7,
+      "name": "Peacehammer 40k",
+      "description": "It is the 41st Millennium. For more than a hundred centuries the Emperor of Mankind has sat immobile on the Golden Throne of Earth.",
+      "tags": [
+        8,
+        3,
+        9
+      ],
+      "likes": 40000,
+      "system": 2,
+      "finished": 0,
+      "adult": 0,
+      "author": 2,
+      "release": "2019-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-7.png"
+    },
+    {
+      "id": 8,
+      "name": "Loop Amogus",
+      "description": "It's kind of like the movie Nolan's Inception but with toilet jokes from the Simpsons and monsters from the Kikoriki.",
+      "tags": [
+        5,
+        6,
+        7
+      ],
+      "likes": 1,
+      "system": 2,
+      "finished": 1,
+      "adult": 0,
+      "author": 1,
+      "release": "2021-10-10",
+      "image": "https://raw.githubusercontent.com/evlko/ITMO-ICT-Frontend-2022/main/labs/K33401/Kobelev/LR1/img/image-8.png"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "2-4 Players"
+    },
+    {
+      "id": 2,
+      "name": "Short"
+    },
+    {
+      "id": 3,
+      "name": "GURPS"
+    },
+    {
+      "id": 4,
+      "name": "Horror"
+    },
+    {
+      "id": 5,
+      "name": "Party"
+    },
+    {
+      "id": 6,
+      "name": "Comedy"
+    },
+    {
+      "id": 7,
+      "name": "18+"
+    },
+    {
+      "id": 8,
+      "name": "Warhammer"
+    },
+    {
+      "id": 9,
+      "name": "War"
+    },
+    {
+      "id": 10,
+      "name": "Fantasy"
+    },
+    {
+      "id": 11,
+      "name": "Cyberpunk 2077"
+    },
+    {
+      "id": 12,
+      "name": "Long"
+    },
+    {
+      "id": 13,
+      "name": "Solo"
+    },
+    {
+      "id": 14,
+      "name": "Call of Cthulhu"
+    },
+    {
+      "id": 15,
+      "name": "For Beginners"
+    },
+    {
+      "id": 16,
+      "name": "Cats"
+    },
+    {
+      "id": 17,
+      "name": "D&D 5E"
+    },
+    {
+      "id": 18,
+      "name": "Hard"
+    }
+  ],
+  "systems": [
+    {
+      "id": 1,
+      "name": "D&D"
+    },
+    {
+      "id": 2,
+      "name": "GURPS"
+    }
+  ]
+}

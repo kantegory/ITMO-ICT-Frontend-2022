@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sign_in.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
+</head>
+
+<body>
+<section class="vh-100">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-start h-100">
+            <div class="col-5">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="card-body p-4">
+
+                        <div class="row p-3">
+                            <svg class="img-logo" style="height: 80px">
+                                <use xlink:href="sprite.svg#logo">
+                                </use>
+                            </svg>
+                        </div>
+
+                        <div class="row py-5 px-3">
+                            <h3 class="mb-0">Войдите в систему Coinbase</h3>
+                        </div>
+                        <form type="submit" onsubmit="login(event)">
+                            <div class="row mb-4 px-3">
+                                <div class="form-outline col-12 ">
+                                    <label class="form-label fw-bolder" for="typeEmailX">Электронная почта</label>
+                                    <input type="email" id="typeEmailX" class="form-control input form-control-lg"
+                                           placeholder="Ваш адрес электронной почты" name="email" autocomplete="off"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4 px-3">
+                                <div class="form-outline col-12  ">
+                                    <label class="form-label fw-bolder" for="typePasswordX">Пароль</label>
+                                    <input type="password" id="typePasswordX" class="form-control input form-control-lg"
+                                           placeholder="Ваш пароль" name="password" autocomplete="off" required/>
+                                </div>
+                            </div>
+
+
+                            <div class="row px-3">
+                                <p class=" mb-4">
+                                    <a class="password-forgot" href="#">Не помните пароль?</a>
+                                </p>
+                            </div>
+
+                            <div class="row px-3">
+                                <a href="" class="login-link">
+                                    <button class="btn btn-primary col-12 mb-3" type="submit">Войти</button>
+                                </a>
+                            </div>
+                        </form>
+
+                        <div class="row px-3 mb-4">
+                            <a href="sign_up.html" class="">
+                                <button class="btn btn-light col-12" type="submit">Создать учетную запись</button>
+                            </a>
+                        </div>
+
+                        <div class="row col-md-5 mx-auto">
+                            <a href="#" class="extra-link">Войти в бизнес аккаунт</a>
+                        </div>
+
+                        <div class="row col-md-7 mx-auto mb-2">
+                            <a href="https://www.coinbase.com/legal/privacy" class="extra-link">Политика
+                                конфеденциальности</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function checkAuth() {
+        if (localStorage.user) {
+            window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/index.html'
+        }
+    }
+
+    let url = 'http://localhost:3000/users'
+    let data
+
+    async function login(event) {
+        event.preventDefault()
+
+        const inputs = Array.from(event.target.querySelectorAll('.input'))
+
+        const credentials = {}
+
+        for (const input of inputs) {
+            credentials[input.name] = input.value
+        }
+
+        const response = await fetch(url)
+
+        const responseJson = await response.json()
+        const amount = responseJson.length
+
+        for (let i = 0; i < amount; i++) {
+            let {id, email, password} = responseJson[i]
+            if (email === credentials.email && password === credentials.password) {
+                let oldUsers = JSON.parse(localStorage.getItem('user')) || []
+
+                let newUser = {
+                    'id': id,
+                    'email': email,
+                    'password': JSON.stringify(password),
+                }
+
+                oldUsers.push(newUser)
+                localStorage.setItem('user', JSON.stringify(oldUsers))
+                window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/index.html'
+                break
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth())
+</script>
+</body>
+</html>

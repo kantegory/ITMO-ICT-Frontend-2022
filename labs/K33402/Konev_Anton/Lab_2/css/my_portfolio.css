@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif
+}
+
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.table {
+    border: 2px solid;
+}
+
+.head-row {
+    border-bottom: 2px solid;
+    font-weight: normal;
+}
+
+.search-row {
+    height: 65px;
+}
+
+.btn-link {
+    width: 100px;
+}
+
+.logo-item {
+    padding-left: 15px;
+}
+
+.pic {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.head-row {
+    font-weight: normal;
+}
+
+.table thead th {
+    padding: 30px;
+    font-weight: normal;
+}
+
+.container .table-wrap {
+
+    margin: 20px auto;
+    overflow-x: auto
+}
+
+.input {
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    border: none;
+}
+
+::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+
+.table tbody td {
+    padding: 30px;
+    margin: 0;
+}
+
+.btn-pagination {
+    border: none;
+    background-color: white;
+    margin-left: 15px;
+}
+
+.sort-arrow {
+    border: none;
+    background-color: white;
+    display: inline-block;
+}
+
+.sort-arrow {
+    border: none;
+    background-color: white;
+    display: inline-block;
+}
+
+.btn-pagination {
+    border: none;
+    background-color: white;
+    margin-left: 15px;
+}
+
+body, thead, tbody {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-color: var(--card-color) !important;
+}
+
+tbody {
+    border-top: var(--card-color);
+}
+
+.page-number {
+    border-color: var(--text-color);
+}
+
+tr {
+    border-color: var(--card-color);
+}
+
+.search-row {
+    background-color: var(--bg-color) !important;
+}
+
+.form-control {
+    background-color: var(--bg-color);
+    border-color: var(--border-input);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+    color: var(--text-color)
+}
+
+.btn-primary {
+    background-color: var(--btn-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--link-hover);
+    box-shadow: 0 0 10px var(--btn-hover);
+}
+
+.nav-link {
+    font-family: Tahoma, sans-serif;
+    font-weight: bolder;
+    color: var(--link-color);
+}
+
+.nav-link:hover {
+    color: var(--link-hover);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .logout-button, .sort-arrow, .btn-pagination {
+        filter: invert(88.5%);
+    }
+
+    .nav-logo {
+        filter: invert(10%);
+    }
+}

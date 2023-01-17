@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=NotoSansDisplay:wght@400&display=swap');
+
+.top_table{
+    height: 60px;
+    width: 100%;
+    border: #dadada 1px solid;
+    border-radius: 0;
+}
+
+.iksweb_sell{ /*кнопка продать*/
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #ffffff;
+    background: #d30909;
+    border-radius: 20px;
+    border: 2px solid #d30909;
+    margin-top: 0;
+}
+
+.iksweb_sell:hover{
+    background: #00d678;
+    color:#ffffff;
+    border:2px solid #00d678;
+    transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NotoSansDisplay', sans-serif
+}
+
+.nav-logo {
+    width: 40%;
+}
+
+.nav-link {
+    font-family: NotoSansDisplay, sans-serif;
+    font-weight: bold;
+}
+
+.table {
+    border: 2px solid;
+}
+
+.head-row {
+    border-bottom: 2px solid;
+    font-weight: normal;
+}
+
+.search-row {
+    height: 65px;
+}
+
+.btn-link {
+    width: 100px;
+}
+
+.logo-item {
+    padding-left: 15px;
+}
+
+.pic {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.head-row {
+    font-weight: normal;
+}
+
+.table thead th {
+    padding: 30px;
+    font-weight: normal;
+}
+
+.container .table-wrap {
+
+    margin: 20px auto;
+    overflow-x: auto
+}
+
+.input {
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    border: none;
+}
+
+::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+
+.table tbody td {
+    padding: 30px;
+    margin: 0;
+}

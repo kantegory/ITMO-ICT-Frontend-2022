@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sign_up.css">
+    <link rel="stylesheet" href="css/dark/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="css/light/light.css" media="(prefers-color-scheme: light)">
+</head>
+<body>
+
+<header class="d-flex justify-content-center px-10">
+    <ul class="navigation-bar">
+        <li class="nav-item">
+            <a class="nav-link pt-1" href="#">
+                <svg class="nav-logo" height="35px">
+                    <use xlink:href="sprite.svg#small-logo">
+                    </use>
+                </svg>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="sign_in.html" class="nav-link">Вход</a>
+        </li>
+    </ul>
+</header>
+<section class="registration-page">
+    <div class="container py-5 ">
+        <div class="row justify-content-center align-items-center">
+            <div class="col">
+                <div class="card-registration">
+                    <div class="card-body">
+                        <p class="mb-10">Обязательные поля отмечены звездочкой: *</p>
+                        <form type="submit" onsubmit="register(event)">
+                            <div class="row">
+                                <div class="col-3 mb-3 ">
+                                    <div class="form-outline">
+                                        <label class="form-label fw-bolder" for="firstName">Имя*</label>
+                                        <input type="text" id="firstName" class="form-control form-control-lg"
+                                               placeholder="Имя" name="firstName" autocomplete="off" required/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <div class="form-outline">
+                                        <label class="form-label fw-bolder" for="lastName">фамилия*</label>
+                                        <input type="text" id="lastName" class="form-control form-control-lg"
+                                               placeholder="фамилия" name="lastName" autocomplete="off" required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-11 mb-4 d-flex align-items-center">
+                                    <div class="form-outline w-100">
+                                        <label class="form-label fw-bolder" for="emailAddress">Электронная
+                                            почта*</label>
+                                        <input type="email" id="emailAddress" class="form-control form-control-lg"
+                                               placeholder="Электронная почта" name="email" autocomplete="off"
+                                               required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-11 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label fw-bolder" for="password">Пароль*</label>
+                                        <input type="password" id="password" class="form-control form-control-lg"
+                                               placeholder="Выберите пароль" name="password" autocomplete="off"
+                                               required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-11 mb-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Я подтверждаю, что мне исполнилось 18, и принимаю положения следующих
+                                        документов: <a class="card-link"
+                                                       href="https://www.coinbase.com/legal/user_agreement">Пользовательское
+                                        Соглашение</a> и <a class="card-link m-0"
+                                                            href="https://www.coinbase.com/legal/privacy">Политика
+                                        конфеденциальности</a>.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-11">
+                                    <div class="d-grid gap-2 mt-20">
+                                        <button class="btn btn-primary fw-bolder" type="submit">Создать учетную запись
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function checkAuth() {
+        if (localStorage.user) {
+            window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/index.html'
+        }
+    }
+
+    async function register(event) {
+        event.preventDefault()
+
+        const inputs = Array.from(event.target.querySelectorAll('.form-control'))
+
+        const credentials = {}
+
+        for (const input of inputs) {
+            credentials[input.name] = input.value
+        }
+
+        credentials.coins = []
+
+        const response = await fetch('http://localhost:3000/users', {
+                method: 'POST',
+                body: JSON.stringify(credentials),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
+
+        const responseJson = await response.json()
+
+        const {id, email, password} = responseJson
+
+        let oldUsers = JSON.parse(localStorage.getItem('user')) || []
+
+        let newUser = {
+            'id': id,
+            'email': email,
+            'password': JSON.stringify(password),
+        }
+
+        oldUsers.push(newUser)
+        localStorage.setItem('user', JSON.stringify(oldUsers))
+
+        window.location.href = 'http://localhost:63342/ITMO-ICT-Frontend-2022/labs/K33402/Konev_Anton/Lab_2/index.html'
+    }
+
+    document.addEventListener('DOMContentLoaded', () => checkAuth())
+</script>
+</body>
+</html>

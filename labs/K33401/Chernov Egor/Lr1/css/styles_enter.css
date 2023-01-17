@@ -1,0 +1,87 @@
+html, body {
+    background: var(--main-background-color);
+  }
+
+.header {
+    background: var(--nav-background-color);
+}
+
+.headr--link{
+    color: var(--hfp-text-color);
+    text-decoration: none;
+}
+
+
+.headr--link:hover {
+    color: var(--hfp-text-color);
+}
+
+.mywhite--text {
+    color: var(--hfp-text-color);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    color: var(--main-text-color);
+}
+
+.main__form {
+    width: 60%;
+}
+
+.btn-colors {
+    background: var(--filter-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:hover {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:active {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.btn-colors:focus {
+    background: var(--filter-act-background-color);
+    color: var(--hfp-text-color);
+}
+
+.card-text-color {
+    color: var(--card-text-color);
+}
+
+.footer {
+    background: var(--footer-background-color);
+}
+
+.footer__nav {
+    background: var(--footer-nav-background-color);
+}
+
+.footer--link1{
+    color: var(--fn1-text-color);
+    text-decoration: none;
+}
+
+.footer--link2{
+    color: var(--fn2-text-color);
+    text-decoration: none;
+}
+
+.footer--link1:hover {
+    color: var(--hfp-text-color);
+}
+
+.footer--link2:hover {
+    color: var(--hfp-text-color);
+}
+
+.footer--text {
+    font-size: 12px;
+}

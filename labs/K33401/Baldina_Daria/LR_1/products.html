@@ -20,23 +20,21 @@
   
 </head>
 
-
-
 <body>
   <header>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Intro</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Поиск" aria-label="Search">
+      <input class="form-control form-control-dark w-100" type="text" id="myInput" onkeyup="categoryFilter()" placeholder="Поиск" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="main_page.html">Выйти</a>
+          <a class="nav-link" onclick="logout()">Выйти</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="container-fluid row gx-0">
-    <aside class="col-lg-3 col-md-2 px-0 vh-100 pt-1 d-none d-md-flex" style="background-color: #f7f4ef ">
+    <aside class="col-md-4 py-2 vh-100" style="background-color: #f7f4ef ">
       <ul class="list-group col-12">
         <li class="list-group-item">
           <a href="manage.html" class="text-decoration-none link-dark">Домашняя страница</a> 
@@ -52,52 +50,71 @@
         </li>
       </ul>
     </aside>
-    <section class="col-lg-9 col-md-10 px-4 py-3 vh-100" style="background-color: #f7f7f7d3">
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="https://static.re-store.ru/upload/iblock/adc/adcb229afe64a22d4ead531082b882ec.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">McBook Pro</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                      <p class="card-text">Цена: 215900 руб.</p> 
-                    <small class="text-muted">Остаток: 50шт.</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-2 box-shadow">
-                <img  class="card-img-top" src="https://media.croma.com/image/upload/v1662703416/Croma%20Assets/Communication/Mobiles/Images/261991_hhfa33.png" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">IPhone 14 </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                      <p class="card-text">Цена: 95999 руб.</p> 
-                   <small class="text-muted">Остаток: 255шт.</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-2 box-shadow">
-                <img  class="card-img-top" src="https://cdn1.ozone.ru/s3/multimedia-z/c1000/6025013699.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">Apple Watch Series 6 </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                      <p class="card-text">Цена: 35699 руб.</p> 
-                   <small class="text-muted">Остаток: 128шт.</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-    </section>
+    <section class="col-md-8 vh-100 py-2 px-3" style="background-color: #f7f7f7d3">
+      <h2>Товар</h2>
+      <div class="table-responsive">
+        <table id = "myTable" class="table table-hover table-sm  table-bordered">
+          <thead>
+            <tr>
+              <th>Артикул</th>
+              <th>Категория</th>
+              <th>Название</th>
+              <th style=" width: 150px">Внешний вид</th>
+              <th>Стоимость</th>
+              <th>Остаток(шт.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>22489</td>
+              <td>Ноутбуки</td>
+              <td>McBook Pro</td>
+              <td> <img  style = "width: 50%; height: 50%;"  src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-space-gray-select-201810?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1633027804000" alt="Card image cap"></td>
+              <td>215900</td>
+              <td>215</td>
+            </tr>
+            <tr>
+              <td>22790</td>
+              <td>Телефоны</td>
+              <td>IPhone 14</td>
+              <td><img style = "width: 50%; height: 50%;" src="https://media.croma.com/image/upload/v1662703416/Croma%20Assets/Communication/Mobiles/Images/261991_hhfa33.png" alt="Card image cap"></td>
+              <td>99900</td>
+              <td>553</td>
+            </tr>
+            <tr>
+              <td>33478</td>
+              <td>Часы</td>
+              <td>Apple Watch Series 6 </td>
+              <td> <img style = "width: 50%; height: 50%;" src="https://cdn1.ozone.ru/s3/multimedia-z/c1000/6025013699.jpg" alt="Card image cap"></td>
+              <td>32999</td>
+              <td>326</td>
+            </tr>
   </main>
+  <script>
+    function categoryFilter() {
+      // Declare variables
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    function logout() {
+      localStorage.clear()
+      window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
+    }
+    </script>
 </body>
 </html>
-
-
-
-
-

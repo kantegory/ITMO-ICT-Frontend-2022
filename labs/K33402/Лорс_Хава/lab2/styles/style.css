@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+
+
+}
+.title-h1{
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+}
+.title-h6{
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+
+}
+.title-carddes{
+    font-family: 'Lora', serif;
+    font-size: 11px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    fill: none;
+}
+

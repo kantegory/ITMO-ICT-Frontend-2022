@@ -7,6 +7,8 @@
     <title> Войти </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -43,61 +45,248 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registration.html" style="color: #ffffff;">Регистрация</a>
                     </li>
+                    <li>
+                        <button type="button" class="btn btn-danger" onclick="logout()">
+                            Logout
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="d-flex justify-content-end ">
-        <button type="button" class="btn-dark p-2 flex-grow-1">Добавить товар</button>
-    </div>
+    <a href="add_goods.html" style="text-decoration: none;">
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn-dark p-2 flex-grow-1">
+                <svg width="20px" height="25px" fill="#ffffff">
+                    
+                    <use xlink:href="sprite.svg#add">
+                        
+                    </use>
+                </svg>
+                Добавить товар
+            </button>
+        </div>
+    </a>
 
-    <div class="table-responsive">
+
+    <div class="table-responsive" id="myTable">
         <table class="table table-hover table-bordered " style="color: rgb(0, 0, 0)">
             <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Артикул</th>
-                    <th scope="col">Наименование</th>
-                    <th scope="col">Тип</th>
+                    <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по наимнованию"
+                            id="myInput" onkeyup="findName()"> Наименование</th>
+                    <th scope="col"> <input class="form-control me-2" type="search" placeholder="Поиск по типу"
+                            id="myInput_2" onkeyup="findType()"> Тип </th>
                     <th scope="col">Количество</th>
                     <th scope="col">Действия</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Obj1</td>
-                    <td>1</td>
-                    <td>32</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Obj2</td>
-                    <td>10</td>
-                    <td>423</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Obj3</td>
-                    <td>5</td>
-                    <td>12</td>
-                    <td class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-warning">Редактировать</button>
-                        <button type="button" class="btn btn-danger">Удалить</button>
-                    </td>
-                </tr>
+
+            <tbody id="my_table_rows">
+
             </tbody>
         </table>
     </div>
 
+    <div class=" modal fade" id="edit_workers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Изменить товар</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <article class="card-body">
+                        <form onsubmit="update_goods(event)">
+
+                            <label>Артикул </label>
+                            <input type="text" class="form-control" placeholder="" name="articul" id="articul" value="">
+
+                            <label>Наименование </label>
+                            <input type="text" class="form-control" placeholder="" name="name" id="name" value="">
+
+                            <label>Тип</label>
+                            <input required type="text" class="form-control" name="type" id="type" value="">
+
+                            <label>Количество</label>
+                            <input required type="number" class="form-control" placeholder="" name="count" id="count"
+                                value="">
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="" class="btn btn-primary">Сохранить изменения</button>
+                            </div>
+
+                        </form>
+                    </article> <!-- card-body end .// -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function findType() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput_2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function findName() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        async function fill_forms(obj) {
+
+            var link = "http://localhost:3000/goods_monitor/" + obj.id
+
+            window.needed_id = obj.id
+
+            const response = await fetch(link, {
+                method: "GET"
+            })
+
+            const responseJson = await response.json()
+
+            document.getElementById('articul').value = responseJson.articul
+            document.getElementById('name').value = responseJson.name
+            document.getElementById('type').value = responseJson.type
+            document.getElementById('count').value = responseJson.count
+
+
+        }
+
+        async function delete_row(obj) {
+
+            var link = 'http://localhost:3000/goods_monitor/' + obj.id
+
+            if (confirm("Вы уверены, что хотите удалить этот товар?\nЭта операция не восстановима.")) {
+                const response = await fetch(link, {
+                    method: "DELETE"
+                })
+            };
+
+
+        }
+
+        async function update_goods(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+
+            const up_data = {}
+
+            for (const input of inputs) {
+                up_data[input.name] = input.value
+            }
+
+            console.log('update data', up_data)
+
+            var link = 'http://localhost:3000/goods_monitor/' + needed_id
+
+            const response = await fetch(link, {
+                method: "PUT",
+                body: JSON.stringify(up_data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+
+        function get_field_table({ id, articul, name, type, count }) {
+            return `
+            <tr>
+                <th>${id}</th>
+                <td>${articul}</td>
+                <td>${name}</td>
+                <td>${type}</td>
+                <td>${count}</td>
+                <td class="d-flex justify-content-start gap-2">
+                    <button id="${id}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_workers"
+                        onclick="fill_forms(this)">
+                        <svg width="20px" height="25px">
+                            <use xlink:href="sprite.svg#pencil"></use>
+                          </svg>
+                        Редактировать</button>
+                    <button id="${id}" type=" button" class="btn btn-danger" onclick="delete_row(this)">
+                        <svg width="13px" height="16px">
+                            <use xlink:href="sprite.svg#trash"></use>
+                          </svg>
+                        Удалить</button>
+            </td>
+            </tr>
+
+            `
+        }
+
+        async function load_table() {
+            const response = await fetch("http://localhost:3000/goods_monitor", {
+                method: "GET"
+            })
+            const responseJson = await response.json()
+
+
+            console.log('response', responseJson)
+            console.log('response99', responseJson[0].name)
+
+            for (const row of responseJson) {
+                console.log('response*1', row)
+                document.querySelector("#my_table_rows").innerHTML += get_field_table(row)
+            }
+        }
+
+        function logout() {
+            localStorage.clear()
+            window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+        }
+
+        function checkAuth() {
+            if (localStorage.accessToken) {
+            }
+            else {
+                alert("У вас нет доступа к запршиваему ресурсу")
+                window.location.href = "http://127.0.0.1:5501/lab_1/index.html"
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            load_table();
+            checkAuth();
+        })
+
+
+    </script>
 
 </body>
 

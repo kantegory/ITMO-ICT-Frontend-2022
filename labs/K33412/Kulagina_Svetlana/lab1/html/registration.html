@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="description" content="Регистрация">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -9,37 +9,77 @@
 	</head>
 	<body>
 		<main class="container pt-5">
-				<div class="form-row">
+			<form onsubmit = "signup(event)">
+				<div class="form-row" >
 					<div class="col-md-4 mb-3">
-						<label for="validationDefault01">Имя</label>
-						<input type="text" class="form-control" id="validationDefault01" placeholder="Светлана" required>
+						<label for="first_name">Имя</label>
+						<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Светлана" required>
 					</div>
 					<div class="col-md-4 mb-3">
-						<label for="validationDefault02">Фамилия</label>
-						<input type="text" class="form-control" id="validationDefault02" placeholder="Кулагина" required>
+						<label for="last_name">Фамилия</label>
+						<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Кулагина" required>
 					</div>
 					<div class="col-md-4 mb-3">
-						<label for="validationDefaultUsername">Имя пользователя</label>
+						<label for="email">Почта</label>
+						<input type="email" class="form-control" id="email" name="email" placeholder="kulagina@mail.com" required>
+					</div>
+					<div class="col-md-4 mb-3">
+						<label for="username">Имя пользователя</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="inputGroupPrepend2">@</span>
 							</div>
-							<input type="text" class="form-control" id="validationDefaultUsername" placeholder="ras_svet" aria-describedby="inputGroupPrepend2" required>
+							<input type="text" class="form-control" id="username" name="username" placeholder="ras_svet" aria-describedby="inputGroupPrepend2" required>
 						</div>
 					</div>
 					<div class="col-md-4 mb-3">
-						<label for="exampleInputPassword1">Пароль</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" required>
+						<label for="password">Пароль</label>
+						<input type="password" class="form-control" id="password" name="password" required>
 					</div>
 				</div>
-				<div class="form-check">
+				<!-- <div class="form-check">
 					<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
 					<label class="form-check-label" for="invalidCheck2">
 						Согласен(на) на обработку персональных данных
 					</label>
-				</div>
-				<a class="btn btn-primary" role="button" href="./main.html">Зарегистрироваться</a>
+				</div> -->
+				<button class="btn btn-primary" type="submit" id="reg">Зарегистрироваться</for>
 			</form>
 		</main>
+		<script>
+			async function signup(event) {
+				event.preventDefault()
+
+				const inputs = Array.from(event.target.querySelectorAll('input'))
+
+				const signupData = {}
+
+				for (const input of inputs) {
+					signupData[input.name] = input.value
+				}
+
+				console.log('sign up data', signupData)
+
+				const response = await fetch('http://localhost:3000/signup', {
+					method: "POST",
+					body: JSON.stringify(signupData),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+
+				const responseJson = await response.json()
+
+				const { accessToken, user } = responseJson
+
+				console.log('response', responseJson)
+
+				localStorage.accessToken = accessToken
+				localStorage.user = JSON.stringify(user)
+
+				window.location.href = "http://localhost:8000/html/entrance.html"
+			}
+		</script>
 	</body>
 </html>	
+

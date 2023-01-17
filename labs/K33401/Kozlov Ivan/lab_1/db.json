@@ -1,0 +1,88 @@
+{
+  "workers": [
+    {
+      "name": "Антон",
+      "last_name": "Калашников",
+      "phone": "+79888888888",
+      "email": "ex@ex.ru",
+      "position": "455",
+      "id": 1
+    },
+    {
+      "name": "Наталья",
+      "last_name": "Ростова",
+      "phone": "+79888888888",
+      "email": "sadsad@sadas.ru",
+      "position": "12",
+      "id": 2
+    }
+  ],
+  "goods_monitor": [
+    {
+      "articul": "3",
+      "name": "Очки",
+      "type": "Аксессуары",
+      "count": "520",
+      "id": 1
+    },
+    {
+      "articul": "2",
+      "name": "Кофта",
+      "type": "Одежда",
+      "count": "100",
+      "id": 2
+    },
+    {
+      "articul": "1",
+      "name": "Зонтик",
+      "type": "Аксессуары ",
+      "count": "200",
+      "id": 3
+    },
+    {
+      "articul": "45",
+      "name": "Шорты",
+      "type": "Одежда",
+      "count": "120",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "lbvfzx@gmail.com",
+      "password": "$2a$10$.nafdfoFen5wAZWpo7i4yeK7KNsmMjBD.8gyLLdj0O4dtyQCPvTEm",
+      "name": "Ivan",
+      "last_name": "Kozlov",
+      "id": 1
+    },
+    {
+      "email": "sd@Esad.ru",
+      "password": "$2a$10$zG9yZFYVYYlQDzCbR5yp4uiMNhlIiefcFZDXx4UYqnl6Rt6z/XEG.",
+      "name": "sad",
+      "last_name": "sds",
+      "id": 2
+    },
+    {
+      "email": "admin@admin.ru",
+      "password": "$2a$10$RZy.Zx7AHAhvIrT2a3Per.m56EEyjqhB30YX68SNeyNIHDXrf9OaC",
+      "name": "dasd",
+      "last_name": "sddasdsa",
+      "id": 3
+    },
+    {
+      "email": "lab2@ex.com",
+      "password": "$2a$10$QuzhIeorn0q8fWmp57CcQuCI0P4z04f0G3HxdxtXBVRM93GYvxqgm",
+      "name": "lab2",
+      "last_name": "lab2",
+      "id": 4
+    },
+    {
+      "email": "test@r.ru",
+      "password": "$2a$10$z8E3lEHvaBJiqojvn0Z2LOJo4XyQOh1uNtJH/77xEPmOxWwA/swra",
+      "name": "ewqe",
+      "last_name": "sda",
+      "id": 5
+    }
+  ],
+  "login": []
+}

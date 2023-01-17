@@ -1,98 +1,142 @@
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" name="description" content="Личный кабинет">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Bootstrap demo</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-		<link href="../css/lk.css" rel="stylesheet">
+		<link href="../css/main.css" rel="stylesheet">
+		<link href="../css/light.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+		<link href="../css/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<header class="colors">
-			<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-light" style="background-color:#1f4e60">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+			
+		</svg>
+
+		<header class="header">
+			<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-light" >
 				<div class="container">
-					<a class="navbar-brand text-white" href="./main.html">Главная</a>
+					<a class="navbar-brand text-white nav-text" href="./main.html">Главная</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a class="nav-link active text-white" href="./entrance.html">Вход</a>
-							</li>
-							<li>
-								<a class="nav-link active text-white" href="./calendar.html">Календарь мероприятий</a>
-							</li>
-						</ul>
+						<div class="navbar-nav me-auto mb-2 mb-lg-0">
+								<a class="nav-link active text-white nav-text" id="logout" href="#">Выход</a>
+								<a class="nav-link active text-white nav-text" href="./calendar.html">Календарь мероприятий</a>
+						</div>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<main class="container row mx-auto d-flex pt-5">
+		<main class=" row mx-auto d-flex pt-5 color-main">
 			<section class="container row mx-auto">
 				<div class="row d-flex justify-content-start col-md-5 col-lg-5 col-xl-3 col-12 col-sm-12">
-					<img src="./я.jpg">
+					<img src="./я.jpg" alt="..." style="padding: 0;">
 				</div>
 				<div class="row d-flex justify-content-start col-xl-6 col-lg-7 col-md-7 col-9 col-sm-12">
 					<ul>
-						<h1 class="text mt-1">Светлана Кулагина</h1>
-						<h5 class="text mt-2">Участник с Марта 2022г</h5>
-						<h4 class="text mt-2">Предпочтения: театры/выставки/искусство</h4>
-						<h4 class="text mt-4">Страница вк:<a href="https://vk.com/pacsvet">https://vk.com/pacsvet</a></h4>
-						<button type="button" class="btn btn-primary mt-5" style="background-color:#1f4e60">Редактировать профиль</button>
+						<h1 class="text mt-1 custom-colored-h1">Светлана Кулагина</h1>
+						<h2 class="text mt-2 h5 custom-colored-h1">Участник с Марта 2022г</h2>
+						<h3 class="text mt-2 h4 custom-colored-h1">Предпочтения: театры/выставки/искусство</h3>
+						<h3 class="text mt-4 h4 custom-colored-h1">Страница вк:<a href="https://vk.com/pacsvet">https://vk.com/pacsvet</a></h3>
+						<button type="button" class="btn btn-primary mt-5 button-color">Редактировать профиль</button>
 					</ul>
 				</div>
 			</section>
-			<section class="container row mx-auto">
-				<h4 class="text mt-5">Выбранные мероприятия:</h4>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Каток</h5>
-							<p class="card-text">27.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">Парк Александрийский,д.4</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Дворец культуры им.Ленсовета</h5>
-							<p class="card-text">30.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">пр. Каменноостровский, д. 42</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская, Петроградская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Мюзик холл</h5>
-							<p class="card-text">01.12.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">Парк Александрийский,д.4</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">GorillaPark</h5>
-							<p class="card-text">05.01.2023</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">л. Долгоозерная, д. 14, к.2</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Комендантский проспект, Пионерская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
-					<div class="card" style="width: 18rem;">
-						<div class="card-body">
-							<h5 class="card-title">Кино</h5>
-							<p class="card-text">06.01.2023</p>
-							<p class="card-text">27.09.2022</p>
-							<p class="card-text"><img src="./location_53876-25530.jpg" width="20px">ТЦ "Великан Парк"</p>
-							<p class="card-text"><img src="./new-teaser-1200x900-2.png" width="20px">Горьковская</p>
-							<a href="#" class="btn btn-primary" style="background-color:#1f4e60">Отписаться</a>
-						</div>
-					</div>
+			<section class="container row mx-auto" id="container">
+				<h3 class="text mt-5 h4 custom-colored-h1">Выбранные мероприятия:</h3>
+
 			</section>
 		</main>
+		<script>
+			const idLogOut = document.querySelector('#logout')
+			const userId = JSON.parse(localStorage.user).id; 
+			let users = []; 
+			let events = []; 
+			const myUsersEvents = []; 
+			const myEvents = []; 
+			const mainId = []
+			
+			async function getUsers() { 
+				const response = await fetch('http://localhost:3000/userEvents', { 
+					headers: { 
+						'Content-Type': 'application/json' 
+					} 
+				}) 
+				const jsonResponse = await response.json(); 
+				console.log('response', jsonResponse); 
+				jsonResponse.forEach(user => { 
+					if (user.userId === userId) { 
+						myUsersEvents.push(user.eventId); 
+						mainId.push(user);
+					} 
+				}) 
+			} 
+			
+			async function getEvents() { 
+				const response = await fetch('http://localhost:3000/notes', { 
+					headers: { 
+					'Content-Type': 'application/json' 
+					} 
+				}) 
+				const jsonResponse = await response.json(); 
+				console.log('response', jsonResponse); 
+				events = jsonResponse; 
+				console.log(events) 
+				events.forEach(item => { 
+					if (myUsersEvents.includes(item.id)) {
+						myEvents.push(item) 
+					} 
+				})
+				console.log("myevents", myEvents)
+				console.log("myeventsuser", myUsersEvents)
+				console.log("main", mainId) 
+				for (let i = 0; i < myEvents.length; i++ ) { 
+					document.querySelector("#container").innerHTML += getCardHtml(myEvents[i].id, myEvents[i].mero, myEvents[i].data, myEvents[i].metro, myEvents[i].address, myEvents[i].id); 
+				} 
+			}
+
+			async function deleteCard(event, id) { 
+				for (let i = 0; i < mainId.length; i++) {
+					if (id === mainId[i].eventId && userId === mainId[i].userId) {
+						const link = 'http://localhost:3000/userEvents/' + mainId[i].id;
+						console.log(link);
+						const response = await fetch(link, {
+							method: "DELETE",
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						})
+					}
+				}
+			}
+
+			function getCardHtml(id, mero, data, metro, address) {
+				return `
+				<div class="card card-color" data-card-id=${id} style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title text-card">${mero}</h5>
+							<p class="card-text text-card">${data}</p>
+							<p class="card-text text-card"><img src="./location_53876-25530.jpg" width="20px" alt="...">${address}</p>
+							<p class="card-text text-card"><img src="./new-teaser-1200x900-2.png" width="20px" alt="...">${metro}</p>
+							<form onsubmit="deleteCard(event, ${id})">
+								<button type="submit" class="btn btn-primary button-color">Отписаться</button>
+							</form>
+						</div>
+					</div> `
+			}
+
+			function logout() {
+				localStorage.clear();
+				window.location.href = "http://localhost:8000/html/entrance.html";
+			}
+			idLogOut.addEventListener('click', logout)
+
+			getUsers();
+			getEvents();
+		</script>
 	</body>
 </html>

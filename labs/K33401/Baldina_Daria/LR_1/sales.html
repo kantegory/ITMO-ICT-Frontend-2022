@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
 
 
 
@@ -20,14 +21,14 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Поиск" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="main_page.html">Выйти</a>
+          <a class="nav-link" onclick="logout()">Выйти</a>
         </li>
       </ul>
     </nav>
   </header>
 
   <main class="container-fluid row gx-0">
-    <aside class="col-lg-3 col-md-2 px-0 vh-100 pt-1 d-none d-md-flex" style="background-color: #f7f4ef ">
+    <aside class="col-lg-4 py-2 vh-100" style="background-color: #f7f4ef ">
       <ul class="list-group col-12">
         <li class="list-group-item">
             <a href="manage.html" class="text-decoration-none link-dark">Домашняя страница</a> 
@@ -43,30 +44,171 @@
         </li>
       </ul>
     </aside>
-    <section class="col-lg-9 col-md-10 px-4 py-3 vh-100" style="background-color: #f7f7f7d3">
-        <div id="curve_chart" style="width: 900px; height: 500px">
-        <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+    <section class="col-lg-8 vh-100 py-2 px-3" style="background-color: #f7f7f7d3">
+      <form onsubmit="filterDate(event)">
+      <div class = "mb-3">
+        <label for="start">Начальная дата: </label>
+        <input type="date" class="" id="start" name="start">
+      </div>
+      <div class = "mb-3">
+        <label for="end">Конечная дата: </label>
+        <input type="date" class="" id="end" name="end">
+      </div>
+      <button type = "submit" class = "btn btn-primary col-lg-3">Искать</button>
+    </form>
+   <button id = "clear" type = "submit" class = "btn btn-danger col-lg-3"> Cброс </button>
+        <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.min.js"></script>
+        <script>
+          function needData(event){
+            event.preventDefault()
+            var firstDate = new Date (document.getElementById("start").value)
+            var secondDate = new Date (document.getElementById("end").value)
+            const filterDates = [firstDate, secondDate]
+            return filterDates
+          }
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-            ['Год', 'Продажи', 'Траты'],
-            ['2019',  1000,      400],
-            ['2020',  1170,      460],
-            ['2021',  660,       1120],
-            ['2022',  1030,      540]
-            ]);
+          function filterDate(event){
+            var dates = needData(event)
+            var arr = ['январь','февраль','март','апрель','май','июнь','июль','aвгуст','cентябрь', 'октябрь', 'ноябрь', 'декабрь']
+            var month = [arr[dates[0].getMonth()], arr[dates[1].getMonth()]]
+            var days = []
+            var values = []
 
-            var options = {
-            title: 'Графики продаж и трат компании',
-            curveType: 'function',
-            legend: { position: 'bottom' }
-            };
+            if (month[0] == month [1]) {
+              for (i = dates[0].getDate(); i <= dates[1].getDate(); i++){
+                days.push(i)
+                min = Math.ceil(10000);
+                max = Math.floor(30000);
+                values.push(Math.floor(Math.random() * (max - min) + min))
+            }
+            } else {  
+              let thirtyOne = ['январь', 'март', 'май', 'июль', 'aвгуст', 'октябрь', 'декабрь']
+              let thirty = ['апрель','июнь','cентябрь', 'ноябрь']
+              console.log(thirtyOne.indexOf(month[0]))
+              console.log(thirty.indexOf(month[0]))
+              console.log(arr.indexOf(month[0]))
+              if (thirtyOne.indexOf(month[0]) != -1 ){
+                for (var i = dates[0].getDate(); i <= 31; i++){
+                  days.push(i)
+                  min = Math.ceil(10000);
+                  max = Math.floor(30000);
+                  values.push(Math.floor(Math.random() * (max - min) + min))
+                } 
+                for (var i = 1; i <= dates[1].getDate(); i++){
+                days.push(i)
+                min = Math.ceil(10000);
+                max = Math.floor(30000);
+                values.push(Math.floor(Math.random() * (max - min) + min))   
+              }
+            } else if (thirty.indexOf(month[0]) != -1){
+              for (var i = dates[0].getDate(); i < 31; i++){
+                  days.push(i)
+                  min = Math.ceil(10000);
+                  max = Math.floor(30000);
+                  values.push(Math.floor(Math.random() * (max - min) + min))
+                } 
+                for (var i = 1; i <= dates[1].getDate(); i++){
+                days.push(i)
+                min = Math.ceil(10000);
+                max = Math.floor(30000);
+                values.push(Math.floor(Math.random() * (max - min) + min))  
 
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            }
+          } else {
+            for (var i = dates[0].getDate(); i <= 28; i++){
+                  days.push(i)
+                  min = Math.ceil(10000);
+                  max = Math.floor(30000);
+                  values.push(Math.floor(Math.random() * (max - min) + min))
+                } 
+                for (var i = 1; i <= dates[1].getDate(); i++){
+                days.push(i)
+                min = Math.ceil(10000);
+                max = Math.floor(30000);
+                values.push(Math.floor(Math.random() * (max - min) + min))  
+          }
+        }
+      }
+            clear .insertAdjacentHTML('afterend', tittleGraph(month))
+            drawGraph(days,values)
+          }
 
-            chart.draw(data, options);
+          function tittleGraph(month){
+            if (month[0] == month[1]){
+              return `<h2> Продажи за ${month[0]}</h2>` 
+            } else {
+              return `<h2> Продажи за ${month[0]} - ${month[1]}</h2>` 
+            }
+          }
+        
+          function drawGraph(days, val){
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: days,
+              datasets: [{
+                data: val,
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: false
+                  }
+                }]
+              },
+              legend: {
+                display: false,
+              }
+            }
+          })
+        }
+
+        document.querySelector("#clear").onclick = function(){
+            window.location.reload()
+        }
+
+        function Graph(){
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Июнь', 'Июль', 'Август', 'Сентябрь'],
+              datasets: [{
+                data: [22225,17890, 15000, 24890, 11986, 13890, 22045, 12900],
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: false
+                  }
+                }]
+              },
+              legend: {
+                display: false,
+              }
+            }
+          })
+        }
+        document.addEventListener('DOMContentLoaded', () => { Graph()} )
+        function logout() {
+          localStorage.clear()
+          window.location.href = "http://127.0.0.1:5500/labs/K33401/Baldina_Daria/LR_1/main_page.html"
         }
         </script>
     </div>
