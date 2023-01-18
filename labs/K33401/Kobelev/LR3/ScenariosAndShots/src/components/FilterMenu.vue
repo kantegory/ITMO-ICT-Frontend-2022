@@ -44,7 +44,6 @@
                 <!-- Search and Random Buttons -->
                 <div class="col-12 d-flex justify-content-between mt-3">
                     <button type="button" class="btn btn-primary" @click="FilterScenarios">Search</button>
-                    <button type="button" class="btn btn-danger" @click="SortScenarios">Random</button>
                 </div>
             </div>
             <hr>
@@ -91,13 +90,13 @@ export default {
                 id: 'finished'
             }],
             ascendingSorting: true,
-            currentSortingKey: 'name'
+            currentSortingKey: 'name',
         }
     },
 
     computed: {
         ...mapState(useGameSystemsStore, ['gameSystems']),
-        ...mapState(useTagsStore, ['tags'])
+        ...mapState(useTagsStore, ['tags']),
     },
 
     methods: {

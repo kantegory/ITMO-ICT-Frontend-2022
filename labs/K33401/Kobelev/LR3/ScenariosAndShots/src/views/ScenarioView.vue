@@ -4,7 +4,7 @@
             <div class="text-center">
                 <h1> {{ selectedScenario.name }} </h1>
             </div>
-            <div class="d-flex flex-row justify-content-center">
+            <div class="d-flex flex-row justify-content-center mb-2">
                 <TagCapsule v-for="tag in selectedScenario.tags" :key="tag.id" :name="tag.name"/>
             </div>
             <div class="row">
@@ -21,7 +21,7 @@
             <div class="d-grid gap-3">
                 <ReviewCard v-for="review in selectedScenario.reviews" :key="review.id" :text="review.text"
                             :author="review.author" :date="review.publish_date"/>
-                <ReviewForm v-on:PostReview="PostScenarioReview" />
+                <ReviewForm v-if="username" v-on:PostReview="PostScenarioReview" />
             </div>
         </scenario-layout>
     </main>
