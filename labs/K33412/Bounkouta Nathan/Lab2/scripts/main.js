@@ -1,5 +1,5 @@
-import {renderAlbum, renderFilters, photos, searchBar, downloadButton} from "./app.js";
+import {renderAlbum, renderFilters, photos, searchBar, likeButton} from "./app.js";
 
-renderAlbum(photos, downloadButton)
+renderAlbum(photos, likeButton)
 renderFilters()
 searchBar()
