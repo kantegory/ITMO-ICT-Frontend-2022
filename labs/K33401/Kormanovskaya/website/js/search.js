@@ -1,5 +1,5 @@
 const LIMIT = 12
-const params = new URLSearchParams(window.location.search)
+let params = new URLSearchParams(window.location.search)
 
 /*
  * FILTRATION
