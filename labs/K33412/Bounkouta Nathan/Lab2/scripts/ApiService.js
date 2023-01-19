@@ -2,7 +2,7 @@ import {fetchHandler} from "./utils.js";
 
 export class ApiService{
     constructor() {
-        this.api_key = "RcTUFytOS2YUHSqsgEg3oL62hOFbB3Vq6I_qHi8qFls"
+        this.api_key = "BOkeOE9NuQ8QFpfoIXnu0zC7gD-FgG7ocyZynYSC4hA"
         this.base_url = "https://api.unsplash.com"
     }
 
@@ -17,11 +17,11 @@ export class ApiService{
     }
 
     async fetchRandomPhotos(){
-        return await fetchHandler(this.url("/photos/random", {count:30}))
+        return await fetchHandler(this.url("/photos/random", {count:27}))
     }
 
     async fetchPhotosByQuery(query){
-        const response = await fetchHandler(this.url("/search/photos", {query:query, per_page:30}))
+        const response = await fetchHandler(this.url("/search/photos", {query:query, per_page:27}))
         return response.results
     }
 }
