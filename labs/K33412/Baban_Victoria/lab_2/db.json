@@ -1,0 +1,161 @@
+{
+  "users": [
+    {
+      "email": "torry@m.ru",
+      "password": "$2a$10$rN0G85.dRZylfio8Q9KtSOqnT3OT7yUV9e4etJxyqnBLDfXoR1pGK",
+      "name": "torry",
+      "id": 1
+    },
+    {
+      "email": "ivanov75@m.ru",
+      "password": "$2a$10$FsmRXbr.DNJR0wYrZPfF7O/MV8dzdxY304eXey/g5WhUWR1qESKp2",
+      "name": "Ivan Ivanov",
+      "id": 2
+    },
+    {
+      "email": "miak@t.ru",
+      "password": "$2a$10$Y2kpF7Sf/C4RUGPZJe0fsOj.c7NeNRBfcNgm0JuT0HFfrjQOMw7du",
+      "name": "Mia Kloch",
+      "id": 3
+    },
+    {
+      "email": "baban@mail.ru",
+      "password": "$2a$10$K2DdwhSHv5botP0YZmYwvO37wiKhhVpFg755F7bt2DF09JzBvsDCy",
+      "name": "Бабан Виктория",
+      "id": 4
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "«Пока ты спал» | Йога в парках Петербурга",
+      "date": "2022-10-16",
+      "time": "15:00",
+      "place": "парк Сосновка",
+      "img": "http://sports-gorod.ru/wp-content/uploads/2019/06/hsTlCja_5Fk.jpg",
+      "price": "Бесплатно",
+      "event-type": "offline",
+      "category": "sport",
+      "category_name": "Спорт и фитнес",
+      "district": "vyborg",
+      "description": "Дорогие друзья, хотим сообщить вам, что это последнее занятие в этом году!\n Мы ждем вас на последнем занятии йогой на открытом воздухе 16 октября в 15:00. Сбор начинается в 14:50. Коврики есть, но можете взять свой. Одевайтесь по погоде. \nЕсли погода ухудшится и занятие отменится, то мы сообщим вам об этом.",
+      "contact_number": "+7 (921) 123-45-67",
+      "contact_name": "Иванов Иван Иванович",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Ac36459710953f2aa0d5ddaebd0bdedcff1180bf0688514cfb643d3ccdfc4225a&amp;source=constructor"
+    },
+    {
+      "id": 2,
+      "title": "Спектакль \"Бешеные деньги\"",
+      "category": "theatre",
+      "category_name": "Театры",
+      "place": "Театр комедии им. Акимова",
+      "date": "2022-11-02",
+      "time": "19:00",
+      "price": "от 500 руб",
+      "img": "https://pln-pskov.ru/prptfiles/2019/10/29/big/15723522413.jpg",
+      "event-type": "offline",
+      "district": "center",
+      "description": "У красавицы Лидии Чебоксаровой, привыкшей жить на широкую ногу, масса поклонников, но никто из них не готов сделать предложение придирчивой охотнице за богатым мужем, пока на горизонте не появляется скромный влюблённый провинциал Васильков. Приятели Чебоксаровых, желая разыграть Лидию, выдают Василькова за золотопромышленника-«миллионщика». Лидия принимает предложение Василькова,  но оказывается жестоко обманута…",
+      "contact_number": "88123124555",
+      "contact_name": "",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Af2a47cb9c942b049618515b988a3d09cf5458bee155d35e50c9948c0da22d8de&amp;source=constructor"
+    },
+    {
+      "id": 3,
+      "title": "Hans Zimmer’s Universe",
+      "category": "concert",
+      "category_name": "Концерты",
+      "place": "Ледовый дворец",
+      "date": "2022-11-26",
+      "time": "19:00",
+      "price": "от 1200 руб",
+      "img": "https://yesofcorsa.com/wp-content/uploads/2017/05/Hans-Zimmer-Photo.jpg",
+      "event-type": "offline",
+      "district": "krasnogvard",
+      "description": "Hans Zimmer's Universe - новое симфоническое шоу саундтреков - трибьют великому композитору современности - Хансу Циммеру!\r\n\r\nКаждая работа Ханса Циммера - это откровение, простота и лаконичность. Не имея музыкального образования, композитор разрушил все стереотипы и стал самым успешным создателем саундтреков в Голливуде! Ханс Циммер не просто пишет музыку, он создает всю атмосферу фильма, наполняя ленту удивительными музыкальными мотивами и звуками.",
+      "contact_number": "+78122195000",
+      "contact_name": "",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Af2a47cb9c942b049618515b988a3d09cf5458bee155d35e50c9948c0da22d8de&amp;source=constructor"
+    },
+    {
+      "id": 4,
+      "title": "Уроки живописи",
+      "category": "art",
+      "category_name": "Искусство и культура",
+      "place": "Летний сад",
+      "date": "2022-11-12",
+      "time": "13:00",
+      "price": "300 руб",
+      "img": "https://kuda-sochi.ru/uploads/34ec8784a300d82aca3a155a712fc33f.jpeg",
+      "event-type": "offline",
+      "district": "center",
+      "description": "",
+      "contact_number": "+79119875126",
+      "contact_name": "Миленко Анастасия",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Af2a47cb9c942b049618515b988a3d09cf5458bee155d35e50c9948c0da22d8de&amp;source=constructor"
+    },
+    {
+      "id": 5,
+      "title": "Балет \"Лебединое озеро\"",
+      "category": "theatre",
+      "category_name": "Театры",
+      "place": "Михайловский театр",
+      "date": "2022-11-02",
+      "time": "19:00",
+      "price": "от 2000 руб",
+      "img": "https://mikhailovsky.ru/upload/iblock/30c/q0534.jpg",
+      "event-type": "offline",
+      "district": "center",
+      "description": "«Лебединое озеро» — это балет, в котором живёт душа русского искусства. Синтез гениальной музыки и хореографии создает особую магию. Именно это имел ввиду великий хореограф ХХ века Джордж Баланчин, когда произнес знаменитую фразу: «Чтобы театральный зал всегда был полон, надо каждый балет называть ‟Лебединое озеро‟».\r\n\r\nМихайловский театр представляет уникальную версию балета, которую сегодня невозможно увидеть где-либо на другой сцене. Это воссозданный спектакль Большого театра, который долгие годы во всем мире считался визитной карточкой советского балета. «Михайловское» «Лебединое озеро» в свою очередь успело собрать коллекцию восторженных оценок. Рецензенты в разных странах мира называли спектакль «светлым, легко льющимся», «пропевающим все детали», отмечали «неизъяснимую прелесть» и грациозность хореографических построений, «тревогу, душевные колебания, неодинаковость лебедей в одинаковой вроде бы стае». Но зрителю не обязательно быть взыскательным знатоком, способным оценить тончайшие нюансы постановки: потому что воспринимают «Лебединое озеро», прежде всего, сердцем.",
+      "contact_number": "+78125954305",
+      "contact_name": "",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Af2a47cb9c942b049618515b988a3d09cf5458bee155d35e50c9948c0da22d8de&amp;source=constructor"
+    },
+    {
+      "id": 6,
+      "title": "День карьеры СПбГУ",
+      "category": "career",
+      "category_name": "Карьера и образование",
+      "place": "Университетская наб., д. 7/9",
+      "date": "2022-10-15",
+      "time": "11:00",
+      "price": "Бесплатно",
+      "img": "http://uosd.spbu.ru/images/news/banner-955x800.jpg",
+      "event-type": "offline",
+      "district": "vasileostrov",
+      "description": "Подробнее по ссылке: https://events.spbu.ru/events/career2022",
+      "contact_number": "+78123636044",
+      "contact_name": "",
+      "map": "https://yandex.ru/map-widget/v1/?um=constructor%3Af2a47cb9c942b049618515b988a3d09cf5458bee155d35e50c9948c0da22d8de&amp;source=constructor"
+    },
+    {
+      "id": 7,
+      "title": "Онлайн-форум YouLead 2022",
+      "category": "career",
+      "category_name": "Карьера и образование",
+      "place": "Онлайн",
+      "date": "2022-11-27",
+      "time": "11:00",
+      "price": "Бесплатно",
+      "img": "https://urpc.ru/upload/Official/photo/9dVeEVlORZU.jpg",
+      "event-type": "online",
+      "district": "any",
+      "description": "YouLead – это пространство лидерского опыта, где студенты осознают свой потенциал и получают импульс к его реализации через воркшопы, решение кейсов, сессии и командную работу.\r\n\r\nОнлайн-форум создается экспертом в области развития молодежного лидерства – международной некоммерческой организацией AIESEC.\r\n\r\nУчастие бесплатно, но все кандидаты проходят тщательный отбор по анкете регистрации",
+      "contact_number": "",
+      "contact_name": "",
+      "map": ""
+    }
+  ],
+  "userEvents": [
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "eventId": 2,
+      "id": 3
+    }
+  ]
+}
