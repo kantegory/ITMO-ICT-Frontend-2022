@@ -1,44 +1,42 @@
-@import './base.css';
-@import './dark_main_page.css';
-@import './dark_portfolio_page.css';
-@import './dark_registration_page.css';
-@import './dark_theme.css';
-@import './Login.css';
-@import './Portfolio.css';
-@import './Registration.css';
-@import './MainPage.css';
-
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+.nav-logo {
+  width: 40%;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.nav-link {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  color: var(--link-color);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+.nav-link:hover {
+  color: var(--link-hover);
+}
+
+html, body {
+  height: 100%;
+}
+
+section {
+  background-color: var(--bg-color);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logout-button {
+    filter: invert(88.5%);
+  }
+
+  .nav-logo {
+    filter: invert(10%);
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
+
+

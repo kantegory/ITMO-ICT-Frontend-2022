@@ -1,35 +1,26 @@
-import {createApp} from 'vue'
+import { createApp } from 'vue'
+
 import App from '@/App.vue'
 import router from '@/router'
-import pinia from '@/stores/index.js'
+import store from "@/stores";
+import components from '@/components/UI'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
-// import '@/assets/style/main.css'
-// import '@/assets/style/light.css'
-// import '@/assets/style/dark.css'
+import '@/assets/main.css'
+import '@/assets/dark.css'
+import '@/assets/light.css'
+import VueApexCharts from "vue3-apexcharts";
 
 const app = createApp(App)
 
-app.use(pinia)
+components.forEach(component => {
+    app.component(component.name, component)
+})
+
+app.component('apexchart', VueApexCharts)
+
+app.use(store)
 app.use(router)
 
 app.mount('#app')
-
-
-
-
-// import { createApp } from 'vue'
-// import { createPinia } from 'pinia'
-//
-// import App from './App.vue'
-// import router from './router'
-//
-// import './assets/main.css'
-//
-// const app = createApp(App)
-//
-// app.use(createPinia())
-// app.use(router)
-//
-// app.mount('#app')

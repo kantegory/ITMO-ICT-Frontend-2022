@@ -1,20 +1,12 @@
 <template>
-    <router-view />
+  <div id="app">
+    <BaseLayout>
+      <router-view/>
+    </BaseLayout>
+  </div>
 </template>
 
-<script>
-export default {
-    name: "App"
-}
+<script setup>
+import BaseLayout from '@/layouts/BaseLayout.vue'
+
 </script>
-
-<style scoped>
-
-</style>
-
-
-
-
-
-
-
