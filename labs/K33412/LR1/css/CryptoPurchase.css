@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=NotoSansDisplay:wght@400&display=swap');
+
+.iksweb_buy { /*кнопка купить*/
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 20px;
+    color: #ffffff;
+    background: #d30909;
+    border-radius: 20px;
+    border: 2px solid #d30909;
+    margin-top: 0;
+}
+
+.iksweb_buy:hover{
+    background: #00d678;
+    color:#ffffff;
+    border:2px solid #00d678;
+    transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'NotoSansDisplay', sans-serif*/
+}
+
+::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+.table tbody td {
+    padding: 25px;
+    margin: 0;
+}
+
+.green_triangle {
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom: 12px solid #69bb64;
+}
+
+.red_triangle {
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom: 12px solid #be343c;
+    transform: rotate(180deg); /*также можно сделать без transform, заменив border-bottom на border-top*/
+}
+

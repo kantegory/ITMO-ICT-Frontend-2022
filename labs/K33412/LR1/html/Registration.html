@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/Registration.css">
+    <link rel="stylesheet" type="text/css" href="../css/dark_registration_page.css">
     <title>Регистрация</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,9 +18,9 @@
         <table class="top_table">
             <tr>
                 <td>
-                    <a href="Main.html"><img style ="width:120px; height:20px" src="../img/Coinbase.png"></a>
+                    <a href="Main.html"><img style ="width:120px; height:20px" src="../img/Coinbase.png" alt="Coinbase"></a>
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: right">
                     <a class="iksweb" href="Login.html">Войти в систему</a>
                 </td>
             </tr>
@@ -32,38 +33,36 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="container">
-                                    <h1> Создать учетную запись</h1>
-                                    <label style="color: #050000; margin-top: 15px"> Обязательные поля отмечены звездочкой: *</label>
-                                    <div class="row">
-                                        <div class="col d-flex flex-column input-group">
-                                            <label>Имя*</label>
-                                            <form action="#" method="POST">
-                                                <input class="form-control" id="first_name" type="text" name="first_name" placeholder="Имя">
-                                            </form>
-                                        </div>
-                                        <div class="col d-flex flex-column input-group">
-                                            <label>Фамилия*</label>
-                                            <form action="#" method="POST">
-                                                <input class="form-control" id="last_name" type="text" name="last_name" placeholder="Фамилия">
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-column input-group mt-4">
-                                        <label>Электронная почта*</label>
+                                <h1> Создать учетную запись</h1>
+                                <label style="color: #050000; margin-top: 15px"> Обязательные поля отмечены звездочкой: *</label>
+                                <div class="row">
+                                    <div class="col d-flex flex-column input-group">
+                                        <label>Имя*</label>
                                         <form action="#" method="POST">
-                                            <input class="form-control" id="email" type="text" name="email" placeholder="Электронная почта">
+                                            <input class="form-control" id="first_name" type="text" name="first_name" placeholder="Имя">
                                         </form>
                                     </div>
-                                    <div class="d-flex flex-column input-group mt-4">
-                                        <label>Пароль*</label>
+                                    <div class="col d-flex flex-column input-group">
+                                        <label>Фамилия*</label>
                                         <form action="#" method="POST">
-                                            <input class="form-control" id="password" aria-invalid="false" type="password" name="password" placeholder="Минимум 8 символов">
+                                            <input class="form-control" id="last_name" type="text" name="last_name" placeholder="Фамилия">
                                         </form>
                                     </div>
-                                    <div class="d-flex flex-column mt-4">
-                                        <a class="iksweb_2" style="text-align: center; font-weight: bold;  line-height: 63px" href="Login.html">Создать учетную запись</a>
-                                    </div>
+                                </div>
+                                <div class="d-flex flex-column input-group mt-4">
+                                    <label>Электронная почта*</label>
+                                    <form action="#" method="POST">
+                                        <input class="form-control" id="email" type="text" name="email" placeholder="Электронная почта">
+                                    </form>
+                                </div>
+                                <div class="d-flex flex-column input-group mt-4">
+                                    <label>Пароль*</label>
+                                    <form action="#" method="POST">
+                                        <input class="form-control" id="password" aria-invalid="false" type="password" name="password" placeholder="Минимум 8 символов">
+                                    </form>
+                                </div>
+                                <div class="d-flex flex-column mt-4">
+                                    <a class="iksweb_2" style="text-align: center; font-weight: bold;  line-height: 63px" href="Login.html">Создать учетную запись</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -74,8 +73,8 @@
                                     удостоверением с фотографией.
                                 </label>
                                 <img
-                                    style="height: 30%; margin-top: 30px; margin-left: 140px"
-                                    src="../img/Crypto-1.svg">
+                                        style="height: 30%; margin-top: 30px; margin-left: 140px"
+                                        src="../img/Crypto-1.svg" alt="">
                             </div>
                         </div>
                     </div>

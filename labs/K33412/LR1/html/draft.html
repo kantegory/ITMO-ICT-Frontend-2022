@@ -1,0 +1,197 @@
+Второй вариант страницы Portfolio
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" type="text/css" href="../css/Portfolio.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="../css/dark_portfolio_page.css">-->
+<!--    <title>Валютный портфель</title>-->
+
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+
+
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">-->
+<!--    <div class="container-fluid" style="padding-right: 40px;padding-left: 40px;">-->
+<!--        <div class="navbar-header">-->
+<!--            <a href="Main.html"><img src="https://images.ctfassets.net/q5ulk4bp65r7/3TBS4oVkD1ghowTqVQJlqj/2dfd4ea3b623a7c0d8deb2ff445dee9e/Consumer_Wordmark.svg" height="20" width="112" alt="Логотип Coinbase"></a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <a href="CryptoPurchase.html" class="pull-right to_portfolio" style="margin-right: 10px; color: black; display: flex; align-items: center;">Купить криптовалюту</a>-->
+<!--                <a href="Main.html" class="pull-right loginOut" style="margin-right: 10px; color: black; display: flex; align-items: center;">Выйти</a>-->
+
+<!--                <style>-->
+<!--                    .loginOut{-->
+
+<!--                        /*font-family: 'NotoSansDisplay', sans-serif;*/-->
+<!--                        font-size: 16px;-->
+<!--                        font-weight: bold;-->
+<!--                    }-->
+<!--                    .loginOut:hover{-->
+<!--                        color:#0051ff;-->
+<!--                    }-->
+<!--                </style>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+<!--<section class="container">-->
+<!--    <br>-->
+<!--    <div class="table-wrapper-scroll-y my-custom-scrollbar">-->
+<!--        <table class="table table-bordered table-striped">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Название</th>-->
+<!--                <th>Цена</th>-->
+<!--                <th>Количество</th>-->
+<!--                <th>Итого</th>-->
+<!--                <th>&nbsp</th>-->
+<!--            </tr>-->
+<!--            <style>-->
+<!--                .titles{-->
+
+<!--                    /*font-family: 'NotoSansDisplay', sans-serif;*/-->
+<!--                    font-size: 16px;-->
+<!--                    font-weight: bold;-->
+<!--                }-->
+<!--            </style>-->
+<!--            </thead>-->
+<!--            <tbody id="myTable">-->
+<!--            <tr>-->
+<!--                <td class="d-flex align-items-center">-->
+<!--                    <img class="pic rounded-circle"-->
+<!--                         src="../img/bitcoin-btc-logo.svg"-->
+<!--                         style="width: 30px; height: 30px"-->
+<!--                         alt="">-->
+<!--                    <div class="ms-2">-->
+<!--                        <p class="m-0 fw-bold">Bitcoin</p>-->
+<!--                        <p class="m-0 text-muted">BTC</p>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p class="fw-normal mb-0 price">RUB 1,069,941.60</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p>5</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <div class="fw-normal mb-0 result">-->
+<!--                        RUB 5,349,708.00-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_buy">-->
+<!--                        Купить-->
+<!--                    </button>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_sell">-->
+<!--                        Продать-->
+<!--                    </button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr class="align-middle alert border-light" role="alert">-->
+<!--                <td class="d-flex align-items-center ">-->
+<!--                    <img class="pic rounded-circle"-->
+<!--                         src="../img/ethereum-eth-logo.svg"-->
+<!--                         style="width: 30px; height: 30px"-->
+<!--                         alt="">-->
+<!--                    <div class="ms-2">-->
+<!--                        <p class="m-0 fw-bold">Ethereum</p>-->
+<!--                        <p class="m-0 text-muted">ETH</p>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p class="fw-normal mb-0 price">RUB 79,091.46</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p>21.006</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <div class="fw-normal mb-0 result">-->
+<!--                        RUB 1,661,395.208-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_buy">-->
+<!--                        Купить-->
+<!--                    </button>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_sell">-->
+<!--                        Продать-->
+<!--                    </button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr class="align-middle border-light" role="alert">-->
+<!--                <td class="d-flex align-items-center">-->
+<!--                    <img class="pic rounded-circle"-->
+<!--                         src="../img/tether-usdt-logo.svg"-->
+<!--                         style="width: 30px; height: 30px"-->
+<!--                         alt="">-->
+<!--                    <div class="ms-2">-->
+<!--                        <p class="m-0 fw-bold">Tether</p>-->
+<!--                        <p class="m-0 text-muted">USDT</p>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p class="fw-normal mb-0 price">RUB 63.00</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p>10000</p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <div class="fw-normal mb-0 result">-->
+<!--                        RUB 630,000.00-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_buy">-->
+<!--                        Купить-->
+<!--                    </button>-->
+<!--                <td>-->
+<!--                    <button type="button" class="iksweb_sell">-->
+<!--                        Продать-->
+<!--                    </button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</section>-->
+<!--<br>-->
+<!--&lt;!&ndash; TradingView Widget BEGIN &ndash;&gt;-->
+<!--<div class="tradingview-widget-container">-->
+<!--    <div id="tradingview_ffb3e"></div>-->
+<!--    <div class="tradingview-widget-copyright"><a href="https://ru.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">График BTCUSDT</span></a> от TradingView</div>-->
+<!--    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        new TradingView.widget(-->
+<!--            {-->
+<!--                "width": 640,-->
+<!--                "height": 640,-->
+<!--                "symbol": "BINANCE:BTCUSDT",-->
+<!--                "interval": "D",-->
+<!--                "timezone": "Etc/UTC",-->
+<!--                "theme": "light",-->
+<!--                "style": "1",-->
+<!--                "locale": "ru",-->
+<!--                "toolbar_bg": "#f1f3f6",-->
+<!--                "enable_publishing": false,-->
+<!--                "allow_symbol_change": true,-->
+<!--                "container_id": "tradingview_ffb3e"-->
+<!--            }-->
+<!--        );-->
+<!--    </script>-->
+
+<!--</div>-->
+<!--&lt;!&ndash; TradingView Widget END &ndash;&gt;-->
+
+<!--</body>-->
+<!--</html>-->
