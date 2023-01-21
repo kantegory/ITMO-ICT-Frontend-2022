@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <link rel="icon" href="images/icon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/styles/style.css">
+
     <title>Front-end</title>
     <style>
         body {
-            color: #FFFFFF;
+            color: var(--text-color);
             font-family: 'Nunito', sans-serif;
-            background-color: #5A5D67;
         }
 
         table, tr, td {
             padding: 0px;
+            color: var(--visited-link-color);
         }
 
         #main-table {
@@ -22,8 +26,8 @@
         }
 
         #header {
-            background-color: #202225;
-            color: whitesmoke;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-size: 17px;
         }
 
@@ -49,7 +53,7 @@
         }
 
         .result-header {
-            background-color: #202225;
+            background-color: var(--bg-color);
         }
 
         .result-header-title {
@@ -70,15 +74,15 @@
             padding-bottom: 4px;
             width: 100%;
             overflow-y: scroll;
-            background-color: #36393F;
+            background-color: var(--bg-color);
         }
 
         #result-content-table tr:nth-child(2n-1) {
-            background-color: #666666;
+            background-color: var(--bg-color);
         }
 
         #result-content-table tr:nth-child(2n) {
-            background-color: #a0a0a0;
+            background-color: var(--bg-color);
         }
 
         .coords {
@@ -90,7 +94,7 @@
         }
 
         .graph-header {
-            background-color: #202225;
+            background-color: var(--bg-color);
         }
 
         .graph-header-title {
@@ -115,7 +119,7 @@
         }
 
         .values-header {
-            background-color: #202225;
+            background-color: var(--bg-color);
         }
 
         .values-header-title {
@@ -124,7 +128,7 @@
         }
 
         .values-container {
-            background-color: #36393F;
+            background-color: var(--bg-color);
         }
 
 
@@ -163,12 +167,12 @@
 
         div.sub-res-buttons {
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
             padding-top: 7px;
             border-top: solid whitesmoke 3px;
         }
 
-        div.sub-res-buttons input {
+        div.sub-res-buttons {
             font-family: 'Nunito', sans-serif;
             font-size: 14px;
             font-weight: bold;
@@ -221,6 +225,17 @@
     </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+    <symbol id ="submit" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+    </symbol>
+    <symbol id ="reset" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+    </symbol>
+
+</svg>
+
 <table id='main-table'>
     <tr>
         <td id='header' colspan="2">
@@ -251,7 +266,7 @@
                 <h2 class='graph-header-title'>Graph</h2>
             </div>
             <div class='image-container'>
-                <img src='images/areas.png' class='graph-image'>
+                <img src='images/areas.png' class='graph-image' alt="">
             </div>
         </td>
     </tr>
@@ -319,10 +334,23 @@
                             </td>
                         </tr>
                         <tr>
+
                             <td colspan='2'>
                                 <div class='sub-res-buttons'>
-                                    <input id='submit-button' type="submit" value="Submit">
-                                    <input type="reset" value="Reset">
+<!--                                    <input id="submit" type="submit" value="Submit">-->
+                                    <button class="btn btn-primary">
+                                        <svg class="icon">
+                                            <use xlink:href="#submit"></use>
+                                        </svg>
+                                        Submit
+                                    </button>
+<!--                                    <input id='reset' type="reset" value="Reset">-->
+                                    <button class="btn btn-primary">
+                                        <svg class="icon">
+                                            <use xlink:href="#reset"></use>
+                                        </svg>
+                                        Reset
+                                    </button>
                                 </div>
                             </td>
                         </tr>
