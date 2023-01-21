@@ -1,0 +1,119 @@
+{
+  "users": [
+    {
+      "email": "example@ya.ru",
+      "password": "$2a$10$MjC0AIzXeyi.W9EK/1vnZex.w1Scsqcoue9H1vqNSJuSQab9WM8qm",
+      "username": "Sveta",
+      "id": 1
+    },
+    {
+      "email": "kulagina@ya.ru",
+      "password": "$2a$10$1S1y6.6yPD4OjRRapkkHDOrFTqaqKieZV5Y0.JX9CaEGqC.ASjW8.",
+      "first_name": "Sveta",
+      "last_name": "Kulagina",
+      "username": "SvetOOO",
+      "id": 2
+    },
+    {
+      "email": "Kirill1111@mail",
+      "password": "$2a$10$MgmZHRZp5G4c/vreE5yS/ushMxMzh1JqEEymSr8sNNn2R1PW6Ku76",
+      "first_name": "Kirill",
+      "last_name": "Бандит",
+      "username": "Kiry",
+      "id": 3
+    },
+    {
+      "email": "neverov.iv@gmail.com",
+      "password": "$2a$10$nQE86aJz2.slx0sT4FDuo.gH9LOF.TFnNJ5C5PQ9HQyYGfU9BiXle",
+      "first_name": "Lesha",
+      "last_name": "Kondratiev ",
+      "username": "qwerfgh",
+      "id": 4
+    },
+    {
+      "email": "nat@mail.com",
+      "password": "$2a$10$lZh2ZG3Nd5P4gfzI.y88eOl1NjmAEU6HEtT/pLR.peQcSTWwR9mL.",
+      "first_name": "Наталья",
+      "last_name": "Кулагина",
+      "username": "nat13",
+      "id": 5
+    },
+    {
+      "email": "sveta@ya.ru",
+      "password": "$2a$10$9t8ThhtEx5DTLBpbvkAe9uRwMzUPYrku/eHG2DEHsDPQMoYfMq1rC",
+      "first_name": "Светлана",
+      "last_name": "Кулагина",
+      "username": "rassvet",
+      "id": 6
+    },
+    {
+      "email": "kulaginanata@mail.com",
+      "password": "$2a$10$cI80Z4Ca3V3GY12N16vz2u3siOplT1fNVHVbhnShKlxwky5RzXSOa",
+      "first_name": "Наталья",
+      "last_name": "Кулагина",
+      "username": "nata11",
+      "id": 7
+    },
+    {
+      "email": "arina@mail.com",
+      "password": "$2a$10$bLxIt2sBlxwNfAp5Is734.fpVkRQqbPYKUwZPCgbQLxwC3F39nMb6",
+      "first_name": "Арина",
+      "last_name": "Еремеева",
+      "username": "ariii",
+      "id": 8
+    },
+    {
+      "email": "ivanov@mail.ru",
+      "password": "$2a$10$AKmLQyLwh9LW70Kmqm54fuPhXgN0B0lw2xhthXJccybKv0.5xsR8y",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "username": "ivan2000",
+      "": "",
+      "id": 9
+    },
+    {
+      "email": "9788134@mail.ru",
+      "password": "$2a$10$78VMyj/v1JqCDxUQrLHFUeSANuuJVCW4kBU5l9bzUdLdXB1NJJKUS",
+      "first_name": "Юлия",
+      "last_name": "Еремеева",
+      "username": "iuliiathebest",
+      "": "",
+      "id": 10
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "mero": "Фотовыставка «Фотопоход»",
+      "data": "12.12.2022",
+      "address": "Москва, Саввинская набережная, 23 стр. 1",
+      "metro": "Очно"
+    },
+    {
+      "id": 2,
+      "mero": "Портфолио-ревью и «ФотоНОЧЬ»",
+      "data": "24.12.2022",
+      "address": "Москва, Саввинская набережная, 23 стр. 1",
+      "metro": "Очно"
+    },
+    {
+      "id": 3,
+      "mero": "Выставка CPS-2023",
+      "data": "29.03.2023",
+      "address": "Москва, Новоостаповская ул., 5, стр. 3",
+      "metro": "Очно + дистанционно"
+    },
+    {
+      "id": 4,
+      "mero": "«Андрей Прохоров. Маленькая девочка и Том»",
+      "data": "04.12.2022",
+      "address": "Санкт-Петербург, 29-я линия В. О., д. 2",
+      "metro": "Очно"
+    }
+  ],
+  "userEvents": [
+    {
+      "id": 1
+    }
+  ]
+}
