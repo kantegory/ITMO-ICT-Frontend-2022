@@ -1,0 +1,47 @@
+.navbar{
+	background-color: var(--nav-color) !important;
+}
+
+.color-main{
+	background-color: var(--bac-color) !important;
+}
+
+.form-color{
+	background-color: var(--form-body-color) !important;
+	color: var(--color-text) !important
+}
+
+.text{
+	color: var(--color-text) !important
+}
+
+.btn-success {
+	background-color: var(--button-color) !important;
+}
+
+
+.my-btn-outline-secondary {
+    --bs-btn-color: var(--my-btn-secondary) !important;
+    --bs-btn-border-color: var(--my-btn-secondary) !important;
+    --bs-btn-hover-color: var(--my-btn-active-color);
+    --bs-btn-hover-bg: var(--my-btn-secondary);
+    --bs-btn-hover-border-color: var(--my-btn-secondary);
+    --bs-btn-focus-shadow-rgb: var(--my-btn-focus-shadow-rgb);
+    --bs-btn-active-color: var(--my-btn-active-color);
+    --bs-btn-active-bg: var(--my-btn-secondary);
+    --bs-btn-active-border-color: var(--my-btn-secondary);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--my-btn-secondary);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--my-btn-secondary);
+    --bs-gradient: none;
+}
+
+
+.icon{
+	stroke: currentColor;
+	fill: none;
+	width: 20px;
+	height: 20px
+}
+
