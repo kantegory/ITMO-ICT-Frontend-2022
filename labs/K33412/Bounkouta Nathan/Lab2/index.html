@@ -1,65 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Pictures</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="shortcut icon" type="image/png" href="photo.png" />
+  <link rel="stylesheet" href="style.css">
+  <title>Photos API</title>
 </head>
-<body background="https://png.pngtree.com/background/20210711/original/pngtree-small-fresh-beach-background-promotion-main-map-picture-image_1111541.jpg" >
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" style="display: none;">
-        <symbol id="logo" viewBox="0 0 16 16">
-            <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
-            <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-        </symbol>
-    </svg>
+<body>
 
-    <header class="p-3">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="./index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#logo"/></svg>
-                </a>
+  <main>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="./index.html" class="nav-link px-2 link-secondary">MyPic</a></li>
-                </ul>
+    <header>
+      <div class="container">
+        <div id="header">
+          <h2><i class="fas fa-camera" style="color: rgb(87, 5, 58);"></i> Photos Generator
+          </h2>
+          <div id="search_box">
+            <input id="input" type="text" placeholder="Search..."><i id="search" class="fas fa-search"></i>
+          </div>
 
-                <div class="col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control col-12 col-lg-6 mb-3 mb-lg-0 me-lg-3" placeholder="Tap the name.." aria-label="Search">
-                </div>
+        
+          <a href="./auth.html"><button class="button-64" role="button"><span class="text">Logout</span></button></a>
 
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://sun9-34.userapi.com/impg/WrmvWIDQ_sjgVb_HsWFjlOn81eRMbE5e-tXVzQ/yNsHGeK0C08.jpg?size=1280x1280&quality=96&sign=750b0237fdf2b737d1ca80bf9789b2a3&type=album" alt="avatar" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="./account.html">Account</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="./unauthorized.html">Sign out</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="categories_filter my-3"></div>
+
         </div>
+      </div>
     </header>
-    <div class="myModal"></div>
-    <section id="album"></section>
-    <footer>
-        <div class="container">
-            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-muted">&copy; 2022 MyPic</p>
+    
+    <section>
+      <div class="container">
+        <div id="grid"></div>
+      </div>
+    </section>
 
-                <a href="./index.html" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#logo"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
+  </main>
+
+  
+  <script src="script.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script type="module" src="./scripts/main.js"></script>
 </html>
