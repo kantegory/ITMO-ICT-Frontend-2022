@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-direction: row;
+}
+.side-menu-lk {
+  background-color: rgba(0, 51, 0, 0.5);
+}
+.menu-title {
+  color: white;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: #333300;
+}
+.main-lk {
+
+}
+.menu-lk {
+  display: flex;
+  flex-direction: column;
+}
