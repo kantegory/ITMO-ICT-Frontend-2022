@@ -1,0 +1,21 @@
+{
+  "short_name": "M&C",
+  "name": "M&C CRM (Customer relationship management)",
+  "icons": [
+    {
+      "src": "C:\\Users\\Никита\\Desktop\\mnc_crm\\mnc_frontend_crm\\src\\components\\img\\logo.svg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "C:\\Users\\Никита\\Desktop\\mnc_crm\\mnc_frontend_crm\\src\\components\\img\\logo.svg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "C:\\Users\\Никита\\Desktop\\mnc_crm\\mnc_frontend_crm\\src\\components\\img\\logo.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

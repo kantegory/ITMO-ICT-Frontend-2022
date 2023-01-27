@@ -1,0 +1,44 @@
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errMsg {
+    background-color: lightpink;
+    color: firebrick;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 7px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.instructions {
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    border: 1px solid #4d4d4d;
+    box-shadow: 0 0 6px #4d4d4d;
+    color: #000;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}

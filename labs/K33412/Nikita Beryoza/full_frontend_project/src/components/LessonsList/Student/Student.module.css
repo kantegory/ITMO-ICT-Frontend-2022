@@ -1,0 +1,84 @@
+.student {
+    min-width: 285px;
+    min-height: 100px;
+    background-color: #fafafa;
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.studentAction {
+    width: 100%;
+    text-align: inherit;
+}
+.studentAction:hover, .studentAction:focus {
+    text-decoration: none;
+    background-color: #e7e7e7;
+}
+.studentAction:active {
+    color: #212529;
+    background-color: #e9ecef;
+}
+
+.studentProfileImage {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.studentProfileImageSrc {
+    width: 128px;
+    height: 128px;
+    border: #606060 solid 1px;
+    border-radius: 100px;
+}
+
+.studentInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 19px;
+}
+
+.studentLessonInfo {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.lessonWorkListItem {
+    margin-bottom: 10px;
+}
+
+.lessonWorkList {
+    font-size: 14px;
+    margin-left: -25px;
+    overflow-wrap: break-word;
+}
+
+.lessonWorkTitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .studentInfo{
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .lessonWorkList {
+        font-size: 16px;
+    }
+    .studentInfo{
+        font-size: 22px;
+    }
+    .lessonWorkTitle {
+        display: block;
+    }
+}
