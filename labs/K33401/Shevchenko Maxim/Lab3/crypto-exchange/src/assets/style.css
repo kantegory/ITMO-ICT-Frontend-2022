@@ -1,0 +1,83 @@
+html,
+body {
+    background-color: var(--main-bg);
+    height: 100%;
+}
+
+.navbar-main {
+    --bs-navbar-color: var(--navbar-color);
+    --bs-navbar-hover-color: var(--navbar-hover-color);
+    --bs-navbar-active-color: var(--navbar-active-color);
+    --bs-navbar-brand-color: var(--navbar-brand-color);
+    --bs-navbar-brand-hover-color: var(--navbar-brand-hover-color);
+}
+
+.text-main {
+    --bs-text-opacity: 1;
+    color: var(--main-text-color) !important
+}
+
+.link-main {
+    color: var(--main-text-color) !important
+}
+
+.card-text-main {
+    --bs-text-opacity: 1;
+    color: var(--card-main-text-color) !important
+}
+
+.button-main {
+    --bs-btn-color: var(--btn-color);
+    --bs-btn-bg: var(--btn-bg);
+    --bs-btn-border-color: var(--btn-border-color);
+    --bs-btn-hover-color: var(--btn-hover-color);
+    --bs-btn-hover-bg: var(--btn-hover-bg);
+    --bs-btn-hover-border-color: var(--btn-hover-border-color);
+    --bs-btn-focus-shadow-rgb: 211, 212, 213;
+    --bs-btn-active-color: var(--btn-active-color);
+    --bs-btn-active-bg: var(--btn-active-bg);
+    --bs-btn-active-border-color: var(--btn-active-border-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--btn-disabled-color);
+    --bs-btn-disabled-bg: var(--btn-disabled-bg);
+    --bs-btn-disabled-border-color: var(--btn-disabled-border-color);
+}
+
+.button-outline {
+    --bs-btn-color: var(--outline-btn-color);
+    --bs-btn-border-color: var(--btn-border-color);
+    --bs-btn-hover-color: var(--btn-hover-color);
+    --bs-btn-hover-bg: var(--btn-hover-bg);
+    --bs-btn-hover-border-color: var(--btn-hover-border-color);
+    --bs-btn-focus-shadow-rgb: 248, 249, 250;
+    --bs-btn-active-color: var(--btn-active-color);
+    --bs-btn-active-bg: var(--btn-active-bg);
+    --bs-btn-active-border-color: var(--btn-active-border-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--btn-disabled-color);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--btn-disabled-border-color);
+    --bs-gradient:none
+}
+
+.icon {
+    fill: currentColor;
+    width: 32px;
+    height: 32px;
+}
+
+.arrow {
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+}
+
+.open-arrow {
+    width: 16px;
+    height: 16px;
+}
+
+.sign-form {
+    max-width: 350px;
+    padding: 15px;
+}
