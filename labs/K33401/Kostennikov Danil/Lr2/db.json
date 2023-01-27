@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$F4.eZVB5y3CLBg8o3rcCqeqk8b2DRXM8jyOl6CP7oI5wZT2q25gT6",
+      "firstName": "FirstName",
+      "LastName": "LastName",
+      "id": 1
+    },
+    {
+      "email": "341329@niuitmo.ru",
+      "password": "$2a$10$m1t53UttVLJ9CZKdvp1hDe6f9u/iYT/tp0yolYNdQvbRGY9kz.CX6",
+      "firstName": "Danil",
+      "lastName": "Kostennikov",
+      "id": 2
+    },
+    {
+      "email": "kostennikov.danil@gmail.com",
+      "password": "$2a$10$dnhqP4vvWJgcqkP85E9h7.Q6v8HJCXT9wEp2PnhA2xTs6FT1IQYym",
+      "firstName": "Данил",
+      "lastName": "Костенников",
+      "id": 3
+    },
+    {
+      "email": "kostennikov.danill@gmail.com",
+      "password": "$2a$10$gyUI3hNNmpN6QjnO7a2o3es/HyWiGOf/jZt4Ak3YLntXfSCPLeak6",
+      "firstName": "Данил",
+      "lastName": "Костенников",
+      "id": 4
+    }
+  ],
+  "events": [
+    {
+      "photoPath": "./images/1.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 1
+    },
+    {
+      "photoPath": "./images/2.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 2
+    },
+    {
+      "photoPath": "./images/3.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 3
+    },
+    {
+      "photoPath": "./images/4.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 4
+    },
+    {
+      "photoPath": "./images/5.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 5
+    },
+    {
+      "photoPath": "./images/6.jpg",
+      "title": "Some conference",
+      "date": "September 1, 18:00",
+      "location": "Online",
+      "id": 6
+    }
+  ],
+  "userEvents": [
+    {
+      "id": 1,
+      "eventId": 1,
+      "userId": 3
+    },
+    {
+      "eventId": 2,
+      "userId": 3,
+      "id": 2
+    },
+    {
+      "eventId": 3,
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "eventId": 1,
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "eventId": 2,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "eventId": 6,
+      "userId": 2,
+      "id": 6
+    }
+  ]
+}

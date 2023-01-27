@@ -17,7 +17,6 @@
 .footer {
     text-align: center;
     --bs-bg-opacity: 1;
-    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
