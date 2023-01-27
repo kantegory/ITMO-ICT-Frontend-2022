@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coin</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-main border-bottom" tabindex="0">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+                <svg class="icon">
+                    <use xlink:href="assets/sprite.svg#icon"></use>
+                </svg>
+                <span class="ms-md-1 mt-1 fw-bolder me-md-5">CryptoExchange</span>
+            </a>
+
+            <ul class="navbar-nav mx-auto list-group col-12 col-md-auto list-group-horizontal justify-content-center">
+            </ul>
+
+            <a href="./profile.html" class="btn button-outline">
+                <small>Профиль</small>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main class="bg-main">
+    <section class="min-vh-100">
+        <div class="container py-5">
+
+            <div class="row row-cols-2">
+                <div class="col-12 pb-3">
+                    <div style="height:560px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid rgb(94, 94, 94); border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; box-shadow: inset 0 -20px 0 0 rgb(94, 94, 94); padding:1px; margin: 0; width: 100%;">
+                        <div style="height:540px; padding:0; margin:0; width: 100%;" id="coin">
+                            <iframe src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=859&pref_coin_id=1505"
+                                    width="100%" height="536px" border="0"
+                                    style="border:0; margin:0; padding:0; line-height:14px;"></iframe>
+                        </div>
+                        <div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+                            <a href="https://coinlib.io" target="_blank"
+                               style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">
+                                Coin Price
+                            </a>&nbsp;by Coinlib
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-success" type="button" onclick="transaction('b')">Покупка</button>
+                    <button class="btn btn-danger" type="button" onclick="transaction('s')">Продажа</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">CryptoExchange</strong>
+                    <small>Just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="toast_body">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    let userId
+    let coin
+    let token
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadChart()
+    })
+
+    function makeCoinlibChart() {
+        return `<iframe title="График роста ${coin["name"]}" src="https://widget.coinlib.io/widget?type=chart&theme=light&coin_id=${coin["coinlib_id"]}&pref_coin_id=1505" width="100%" height="536px" border="0" style="border:0; margin:0; padding:0; line-height:14px;"></iframe>`
+    }
+
+    function checkAuth() {
+        if (!localStorage.accessToken) {
+            window.location.href = "login.html"
+        } else {
+            token = localStorage.accessToken
+            userId = localStorage.getItem("userId")
+        }
+    }
+
+    function showToast() {
+        if (document.querySelector("#toast_body").innerHTML) {
+            const toastElement = document.getElementById('liveToast')
+            const toast = new bootstrap.Toast(toastElement)
+
+            toast.show()
+        }
+    }
+
+    function makeTransactionPatchRequest(type, ownership) {
+        const patchURL = `http://127.0.0.1:8000/possessions/change_count/${ownership["id"]}/`
+        let patchData = {}
+
+        if (type === "b") {
+            patchData["count"] = ownership["count"] + 1
+            document.querySelector("#toast_body").innerHTML = `-$${parseFloat(coin['price'])}: Покупка 1 ${coin['abbreviation']}`
+        } else if (type === "s") {
+            if (ownership["count"] > 0) {
+                patchData["count"] = ownership["count"] - 1
+                document.querySelector("#toast_body").innerHTML = `+$${parseFloat(coin['price'])}: Продажа 1 ${coin['abbreviation']}`
+            } else {
+                document.querySelector("#toast_body").innerHTML = `У вас нет ${coin['abbreviation']}, чтобы продать`
+            }
+        }
+
+        return [patchURL, patchData]
+    }
+
+    function makeTransactionPostRequest(type) {
+        let postURL = `http://127.0.0.1:8000/possessions/create/`
+        let postData = {}
+
+        if (type === "b") {
+            postData = {
+                "currency": coin.id,
+                "count": 1,
+            }
+            document.querySelector("#toast_body").innerHTML = `-$${parseFloat(coin['price'])}: Покупка 1 ${coin['abbreviation']}`
+        } else if (type === "s") {
+            postURL = ""
+            document.querySelector("#toast_body").innerHTML = ""
+        }
+
+        return [postURL, postData]
+    }
+
+    async function loadOwnership() {
+        let url = `http://127.0.0.1:8000/possessions/coin/${coin['id']}`
+
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        })
+
+        if (response.status !== 200) {
+            return ""
+        }
+
+        return await response.json()
+    }
+
+    async function loadChart() {
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const id = urlParams.get('id')
+
+        const url = `http://127.0.0.1:8000/coins/${id}/`
+
+        const response = await fetch(url)
+        coin = await response.json()
+
+        document.querySelector("#coin").innerHTML = makeCoinlibChart()
+    }
+
+    async function transaction(type) {
+        await checkAuth()
+        const ownership = await loadOwnership()
+
+        let requestUrl = ""
+        let requestData = {}
+        let method = ""
+
+        if (ownership) {
+            [requestUrl, requestData] = makeTransactionPatchRequest(type, ownership)
+            method = "PATCH"
+        } else {
+            [requestUrl, requestData] = makeTransactionPostRequest(type)
+            if (requestUrl) {
+                method = "POST"
+            }
+        }
+
+        if (method) {
+            const response = await fetch(requestUrl, {
+                method: method,
+                body: JSON.stringify(requestData),
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (response.status === 200 || response.status === 201) {
+                await showToast()
+            }
+        }
+    }
+</script>
+
+<footer class="border-top">
+    <div class="container text-main d-flex justify-content-center py-3">
+        <p class="px-3">support@company.com</p>
+        <p class="px-3">(123) 456-7890</p>
+    </div>
+</footer>
+</body>
+</html>
+

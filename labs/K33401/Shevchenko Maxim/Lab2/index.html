@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CryptoExchange</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-main border-bottom">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+                <svg class="icon">
+                    <title>Логотип в виде растущего цветка</title>
+                    <use xlink:href="assets/sprite.svg#icon"></use>
+                </svg>
+                <span class="ms-md-1 mt-1 fw-bolder me-md-5">CryptoExchange</span>
+            </a>
+
+            <ul class="navbar-nav mx-auto list-group col-12 col-md-auto list-group-horizontal justify-content-center">
+            </ul>
+
+            <a href="./profile.html" class="btn button-outline">
+                <small>Профиль</small>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main class="text-main">
+    <section class="min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="container text-center py-4">
+            <div class="row d-flex align-items-center justify-content-center py-vh-5">
+                <div class="col-12 col-xl-10">
+                    <h1 class="display-huge mt-3 mb-3 lh-1">Добро пожаловать на нашу криптовалютную биржу!</h1>
+                </div>
+                <div class="col-12 col-xl-8">
+                    <p class="lead text-secondary">Тут вы можете безопасно и удобно покупать, продавать и обменивать
+                        свои любимые криптовалюты. Мы предлагаем широкий спектр цифровых активов, конкурентоспособные
+                        обменные курсы и удобную платформу, чтобы лишить вашу торговлю проблем. Независимо от того,
+                        являетесь ли вы новичком в мире криптовалют или опытным трейдером, мы здесь, чтобы поддержать
+                        вас на каждом этапе пути!</p>
+                </div>
+                <div class="col-12 text-center">
+                    <a href="./index.html" class="btn btn-xl button-main">Начать
+                        <svg class="arrow">
+                            <title>Стрелка вперед</title>
+                            <use xlink:href="assets/sprite.svg#right-arrow"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="d-flex justify-content-center pb-5">
+            <h2>Найти валюту</h2>
+        </div>
+
+        <div class="container">
+            <form class="d-flex" role="search" onsubmit="search(event)">
+                <input class="form-control me-2" type="search" placeholder="Поиск по названию"
+                       aria-label="Поиск по названию">
+                <button class="btn button-outline" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="container pt-3">
+            <div class="form-floating card-text-main">
+                <select class="form-select" id="floatingSelect" aria-label="Выберите сортировку" onchange="sort(this.value)">
+                    <option selected>Выбрать</option>
+                    <option value="price">Цена по возрастанию</option>
+                    <option value="-price">Цена по убыванию</option>
+                    <option value="date_added">Дата по возрастанию</option>
+                    <option value="-date_added">Дата по убыванию</option>
+                </select>
+                <label for="floatingSelect">Сортировка</label>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <div class="row" id="coins"></div>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        loadCoins()
+    })
+
+    async function loadCoins(searchString="", sortString="") {
+        let url = "http://127.0.0.1:8000/coins/"
+        document.querySelector("#coins").innerHTML = ""
+
+        if (searchString) {
+            url = addSearchParam(url, 'search', searchString)
+        }
+
+        if (sortString) {
+            url = addSearchParam(url, 'ordering', sortString)
+        }
+
+        const response = await fetch(url)
+        const responseJSON = await response.json()
+
+        for (const coin of responseJSON) {
+            document.querySelector("#coins").innerHTML += makeCard(coin)
+        }
+    }
+
+    async function search(event) {
+        event.preventDefault()
+
+        const searchString = event.target.querySelector('input').value
+        await loadCoins(searchString)
+    }
+
+    async function sort(sortString) {
+        await loadCoins("", sortString)
+    }
+
+    function makeCard({id, name, price, weekly_changes, image}) {
+        let coinChange = ''
+        if (weekly_changes >= 0) {
+            coinChange = `
+                <svg width="21" height="14" viewBox="0 0 21 14" fill="none">
+                    <title>Возрастающий график</title>
+                    <use xlink:href="assets/sprite.svg#chart-up"></use>
+                </svg>
+                <span class="text-success me-1">${weekly_changes}%</span> This week
+            `
+        } else {
+            coinChange = `
+                <svg width="21" height="14" viewBox="0 0 21 14" fill="none">
+                    <title>Убывающий график</title>
+                    <use xlink:href="assets/sprite.svg#chart-down"></use>
+                </svg>
+                <span class="text-danger me-1">${weekly_changes}%</span> This week
+            `
+        }
+
+        return `
+                <div class="col-xl-3 col-xxl-6 col-sm-6">
+                    <div class="card shadow-sm my-3">
+                        <a href="./coin.html?id=${id}" class="btn btn-light card-bg-color text-left">
+                            <div class="card-body d-flex">
+                                <div class="px-3">
+                                    <img src=${image} style="max-height:70px; max-width:70px;" class="img rounded-start" alt="${name}">
+                                </div>
+
+                                <div>
+                                    <h2 class="card-text-main">$${parseFloat(price)}</h2>
+                                    <p class="mb-0 card-text-main">
+                                        ${coinChange}
+                                    </p>
+                                </div>
+
+                                <div class="my-auto ms-auto">
+                                    <svg class="open-arrow">
+                                        <use xlink:href="assets/sprite.svg#open-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            `
+    }
+
+    function addSearchParam(url, key, value) {
+        let newUrl = new URL(url)
+        newUrl.searchParams.set(key, value)
+
+        return newUrl.toString()
+    }
+</script>
+
+<footer class="border-top">
+    <div class="container text-main d-flex justify-content-center py-3">
+        <p class="px-3">support@company.com</p>
+        <p class="px-3">(123) 456-7890</p>
+    </div>
+</footer>
+</body>
+</html>
