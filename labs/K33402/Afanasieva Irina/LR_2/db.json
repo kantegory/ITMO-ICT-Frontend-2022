@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "email": "test@mail.com",
+      "password": "$2a$10$0/5eZitae8A0IvNvpnDeweCNjL9o2R.YcFrNtfm9jUiPZKWCLZqaC",
+      "id": 1
+    },
+    {
+      "email": "test1@mail.com",
+      "password": "$2a$10$KHOvgChVaDWvRfu6aVfJju6cCQCFU7m6ZYLn89v4KOhy9MbqNkcO2",
+      "id": 2
+    },
+    {
+      "email": "mama@mail.com",
+      "password": "$2a$10$YyGnBmYe9pytFi6h.9LoXO6OgF9PCvweOGWAU3xehlPbXJIS1glJi",
+      "id": 3
+    },
+    {
+      "email": "mami@mail.com",
+      "password": "$2a$10$HTkSIxla05AydYFrRlUAVOHiAC6IS8s21tKTVx6tDOycmpZDEVrKG",
+      "id": 4
+    },
+    {
+      "email": "rut@mail.ru",
+      "password": "$2a$10$Q6K23urR7snB6RUk8iE5.ezPHfMPncATZvUTU9PndEWaC/LOewY2.",
+      "id": 5
+    },
+    {
+      "email": "lalala@mail.ru",
+      "password": "$2a$10$ZNaP5bnetPrqunV2RlOouOLJlqmxcrjXjQDSVLpqLZSUIeOnDyB7u",
+      "id": 6
+    }
+  ],
+  "houses": [
+    {
+      "id": 1,
+      "title": "Домик поменьше",
+      "price": 1900,
+      "people": 4,
+      "terrace": false,
+      "kitchen": false,
+      "imgUrl": "./images/small-house.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Домик побольше",
+      "price": 2900,
+      "people": 6,
+      "terrace": false,
+      "kitchen": true,
+      "imgUrl": "./images/house2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Домик большой",
+      "price": 3900,
+      "people": 8,
+      "terrace": true,
+      "kitchen": false,
+      "imgUrl": "./images/house4.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Домик огромный",
+      "price": 4900,
+      "people": 10,
+      "terrace": true,
+      "kitchen": true,
+      "imgUrl": "./images/house3.jpg"
+    }
+  ]
+}

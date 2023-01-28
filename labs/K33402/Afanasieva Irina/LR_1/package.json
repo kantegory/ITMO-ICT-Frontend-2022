@@ -1,0 +1,20 @@
+{
+  "name": "lr1_afanasieva_irina",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "axios": "^1.2.5",
+    "bootstrap": "5.2.3"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.1",
+    "json-server-auth": "^2.1.0"
+  }
+}
