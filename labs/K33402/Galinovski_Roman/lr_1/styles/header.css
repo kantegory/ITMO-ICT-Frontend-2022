@@ -1,0 +1,12 @@
+header {
+    background-color: #efd67d;
+    height: 8%;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid black;
+}
+
+body {
+    background-color: #FFF7E9;
+}
