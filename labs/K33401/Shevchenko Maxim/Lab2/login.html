@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+</head>
+<body class="text-center d-flex align-items-center py-4">
+<main class="sign-form w-100 m-auto">
+    <form method="post" onsubmit="login(event)">
+        <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center text-main" href="index.html">
+            <div class="container pb-4">
+                <svg class="icon">
+                    <use xlink:href="assets/sprite.svg#icon"></use>
+                </svg>
+                <span class="ms-md-1 mt-1 fw-bolder me-md-5">CryptoExchange</span>
+            </div>
+        </a>
+
+        <div id="alertPlaceholder"></div>
+
+        <div class="form-floating mb-2">
+            <input name="username" class="form-control" id="floatingInput" placeholder="Username">
+            <label for="floatingInput">Username</label>
+        </div>
+
+        <div class="form-floating pb-5">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-100 btn btn-lg button-outline mb-3" type="submit">Войти</button>
+
+        <p class="text-main">Если еще нет аккаунта, можно <a href="register.html" class="link-main">зарегистрироваться</a></p>
+    </form>
+
+    <script>
+        const alert = (alertPlaceholder, message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = `
+                    <div class="alert alert-${type} alert-dismissible" role="alert">
+                        <div>${message}</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `
+
+            alertPlaceholder.append(wrapper)
+        }
+
+        async function login(event) {
+            event.preventDefault()
+
+            const inputs = Array.from(event.target.querySelectorAll('input'))
+            const loginData = {}
+
+            for (const input of inputs) {
+                loginData[input.name] = input.value
+            }
+
+            const response = await fetch('http://127.0.0.1:8000/auth/token/login', {
+                method: "POST",
+                body: JSON.stringify(loginData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const responseJson = await response.json()
+
+            if (response.status !== 200) {
+                const alertPlaceholder = document.getElementById('alertPlaceholder')
+                alert(alertPlaceholder, responseJson, "danger")
+            } else {
+                localStorage.accessToken = responseJson["auth_token"]
+
+                window.location.href = "http://127.0.0.1:3000/index.html"
+            }
+        }
+    </script>
+</main>
+</body>
+</html>

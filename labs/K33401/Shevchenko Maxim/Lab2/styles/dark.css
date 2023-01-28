@@ -1,0 +1,26 @@
+:root {
+    --main-bg: #000;
+
+    --navbar-color: rgba(255, 255, 255, 0.55);
+    --navbar-hover-color: rgba(255, 255, 255, 0.75);
+    --navbar-active-color: #fff;
+    --navbar-brand-color: #fff;
+    --navbar-brand-hover-color: #fff;
+
+    --btn-color: #000;
+    --outline-btn-color: #fff;
+    --btn-bg: #fff;
+    --btn-border-color: #fff;
+    --btn-hover-color: #000;
+    --btn-hover-bg: #fff;
+    --btn-hover-border-color: #fff;
+    --btn-active-color: #000;
+    --btn-active-bg: #fff;
+    --btn-active-border-color: #fff;
+    --btn-disabled-color: #fff;
+    --btn-disabled-bg: #fff;
+    --btn-disabled-border-color: #fff;
+
+    --main-text-color: #fff;
+    --card-main-text-color: #000;
+}
