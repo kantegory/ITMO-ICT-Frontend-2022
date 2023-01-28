@@ -1,6 +1,8 @@
-html, body {
+body {
     width: 100%;
     height: 100%;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
 }
 
 header {
@@ -54,4 +56,12 @@ header {
 }
 .table-color {
     background-color: #c9a079;
+}
+.filterDiv {
+  display: table-row;
+}
+
+
+.hide {
+  display: none;
 }

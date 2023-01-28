@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Cosmo</title>
+    <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="./js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+<body class="body-background">
+    <div class="column mx-5">
+        <div id='search-result' class="col">
+            <div class="card card-header" style="background-image: url('pictures/enter.jpg');">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="pt-3 d-flex justify-content-left text-index">
+                <div style="font-size:50px">
+                    AdminCosmo
+                </div>
+            </div>
+            <div class="login-form d-flex justify-content-left">
+                <form id="auth-form">
+                    <div id="auth-wrong-message" style="display:none" class="alert alert-danger" role="alert">
+                        Auth failed!
+                    </div>
+                    <div class="input-field"> <span><i class="bi bi-envelope"></i></span>
+                        <input class="form-control" size="50em" type="email" name="email" placeholder="Enter email"
+                            required />
+                    </div>
+                    <div class="input-field"> <span><i class="bi bi-envelope"></i></span>
+                        <input class="form-control" size="50em" type="password" name="password"
+                            placeholder="Enter password" required />
+                    </div>
+
+                    <small class="text-muted">Haven't got an acc yet? <a href="register.html" aria-label="Registration" > Then registrate </a> </small>
+                    <div class="row mt-2 d-flex justify-content-left">
+                        <button class="btn button-back mb-2" type="submit"> Enter </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            const authWrongMessageElement = document.getElementById("auth-wrong-message");
+            function showWrongAuthAlert() {
+                authWrongMessageElement.style.display = "block";
+            }
+            const acc = new Account();
+            acc.isAuth()
+                .then(() => window.location = new URL("/personnel_management.html", window.location).toString())
+                .catch(() => console.log("not authed"));
+
+            const authFormElement = document.getElementById("auth-form");
+            const loginElement = authFormElement.querySelector("[name=email]");
+            const passwordElement = authFormElement.querySelector("[name=password]");
+            const submitElement = authFormElement.querySelector("[type=submit]");
+
+            authFormElement.addEventListener("submit", onAuthSubmit);
+            function onAuthSubmit(e) {
+                e.preventDefault();
+                const login = loginElement.value;
+                const password = passwordElement.value;
+                submitElement.innerHTML = "AUTH IN PROCESS";
+                acc.authWithCreds(login, password)
+                    .then(() => window.location = new URL("/personnel_management.html", window.location).toString())
+                    .catch(showWrongAuthAlert)
+                    .finally(submitElement.innerHTML = "Enter");
+            }
+        </script>
+</body>
+
+</html>
