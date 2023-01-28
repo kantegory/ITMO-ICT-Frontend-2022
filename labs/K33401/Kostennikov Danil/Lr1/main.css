@@ -1,0 +1,34 @@
+.header {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+.main {
+    padding: 1.5em;
+}
+.intro {
+    margin: 20px;
+    padding: 20px;
+}
+.filter {
+    border: 1em;
+}
+.footer {
+    text-align: center;
+    --bs-bg-opacity: 1;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: white;
+}
+#form_sign_in {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+}
+.container {
+    width: 30%;
+}

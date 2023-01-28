@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="main.html">MeetUp</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="calendar.html">Calendar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item auth_link">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signIn" href="#">SignIn</a>
+                        </li>
+                        <li class="nav-item auth_link">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signUp" href="#">SignUp</a>
+                        </li>
+                        <li class="nav-item profile_link">
+                            <a class="nav-link" href="profile.html">Profile</a>
+                        </li>
+                        <li class="nav-item profile_link">
+                            <a class="nav-link" onclick="logout()" href="#">LogOut</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main">
+            <section class="intro">
+                <h1>
+                    Чем бы вы ни планировали заняться в этом году, вы всегда можете рассчитывать на помощь Meetup. Вот
+                    уже 20 лет люди организуют встречи с помощью Meetup, приобретают друзей, обращаются за поддержкой,
+                    развивают свой бизнес и находят людей с общими интересами. Каждый день проводятся тысячи мероприятий
+                    — присоединяйтесь!
+                </h1>
+            </section>
+            <section class="filter">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search an event" aria-label="Search" />
+                    <select class="btn btn-outline-success me-2" name="membership" id="membership">
+                        <option value="date">By date</option>
+                        <option value="relevance" selected>By relevance</option>
+                    </select>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </section>
+            <section class="row mt-5" id="events"></section>
+        </main>
+
+        <footer class="footer">
+            <p class="mb-0">
+                Author: Hege Refsnes<br />
+                <a href="mailto:hege@example.com">hege@example.com</a>
+            </p>
+        </footer>
+
+        <!-- The SignIn Modal -->
+        <form class="modal" onsubmit="signIn(event)" id="signIn">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sign In</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="emailIn"
+                                placeholder="Enter email"
+                                name="email"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="pwdIn"
+                                placeholder="Enter password"
+                                name="password"
+                            />
+                        </div>
+                        <button type="submit" id="buttonIn" onsubmit="signIn(event)" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- The SignUp Modal -->
+        <form class="modal" onsubmit="signUp(event)" id="signUp">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sign Up</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="emailUp"
+                                placeholder="Enter email"
+                                name="email"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">Firs name:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="firstName"
+                                placeholder="Enter first name"
+                                name="firstName"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last name:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="lastName"
+                                placeholder="Enter first name"
+                                name="lastName"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="pwdUp"
+                                placeholder="Enter password"
+                                name="password"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="confPwd" class="form-label">Confirm password:</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="confPwd"
+                                placeholder="Enter password"
+                                name="confPwd"
+                            />
+                        </div>
+                        <button type="submit" id="buttonUp" onsubmit="signUp(event)" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="menu.js"></script>
+</html>

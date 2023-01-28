@@ -1,0 +1,56 @@
+@host = http://localhost:3000/
+
+###
+POST {{host}}register
+Content-Type: application/json
+
+{
+    "email":"test@gmail.com",
+    "password":"pass",
+    "firstName": "FirstName",
+    "LastName": "LastName"
+}
+
+###
+# @name loginReq
+POST {{host}}login
+Content-Type: application/json
+
+{
+    "email":"test@gmail.com",
+    "password":"pass"
+}
+
+###
+POST {{host}}660/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjc0NDkyMDkyLCJleHAiOjE2NzQ0OTU2OTIsInN1YiI6IjEifQ.g59hZpCOcsm3iMx9nIRuyDsxCde5HhP2PqUrT6twvvU
+
+{
+    "photoPath": "./images/6.jpg",
+    "title": "Some conference",
+    "date": "September 1, 18:00",
+    "location" : "Online"
+}
+
+###
+POST {{host}}644/userEvents
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjc0NzUxOTk3LCJleHAiOjE2NzQ3NTU1OTcsInN1YiI6IjEifQ.59lETQn7nMZCUjauxfnzCgDGy8Mm4CP-sTbt6byKr_M
+
+{
+    "eventId": 2,
+    "userId": 1
+}
+
+###
+GET {{host}}440/userEvents
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjc0NzUxOTk3LCJleHAiOjE2NzQ3NTU1OTcsInN1YiI6IjEifQ.59lETQn7nMZCUjauxfnzCgDGy8Mm4CP-sTbt6byKr_M
+
+
+###
+GET {{host}}events
+Content-Type: application/json
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNjc0NDg4OTY4LCJleHAiOjE2NzQ0OTI1NjgsInN1YiI6IjEifQ.uej59FNHliypp7isP2ZACNO1RRM0MqlgR5T5eecQQrk
+
