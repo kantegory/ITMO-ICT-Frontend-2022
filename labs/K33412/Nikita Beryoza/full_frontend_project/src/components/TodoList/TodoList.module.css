@@ -1,0 +1,25 @@
+.todoItem {
+    min-width: 285px;
+    min-height: 100px;
+    background-color: #fafafa;
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.todoAction {
+    width: 100%;
+    text-align: inherit;
+}
+.todoAction:hover, .todoAction:focus {
+    z-index: 1;
+    text-decoration: none;
+    background-color: #e7e7e7;
+}
+.todoAction:active {
+    color: #212529;
+    background-color: #e9ecef;
+}

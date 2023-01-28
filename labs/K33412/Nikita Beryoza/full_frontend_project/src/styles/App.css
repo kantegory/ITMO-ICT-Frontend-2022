@@ -1,0 +1,166 @@
+html{
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: #fff;
+}
+
+p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #606060;
+}
+
+.btn-nav{
+    width: 100px;
+    height: 40px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px 5px;
+}
+
+.formBackground{
+    background: linear-gradient(to left bottom, #8D99AE 0%, #EDF2F4 40%);
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 111;
+}
+
+.auth-form{
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+    padding: 1.5rem 2rem;
+}
+
+.form-container{
+    max-width: 22.5rem;
+    width: 100%;
+    margin: 4px;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.logo {
+    margin: 40px 0;
+    scale: 2;
+}
+
+.btn-rounded {
+    border-radius: 100px;
+}
+
+.profile-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.profile-personal-info {
+    width: 500px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.profile-info-text {
+    margin: 10px 40px 15px;
+}
+
+.overflowHide {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.active{
+    color: #000;
+    background: white;
+}
+
+.icon{
+    font-size: 26px;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.notFound {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.notFoundLogo {
+    scale: 2.5;
+    margin-bottom: 50px;
+    margin-right: 10px;
+}
+
+.unAuthorized {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.unAuthorizedLogo {
+    scale: 2.5;
+    margin-bottom: 50px;
+    margin-right: 10px;
+}
+
+.ItemList {
+    max-height: 77vh;
+    min-width: 200px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.calendarDay {
+    padding: 4px 8px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.calendarDay:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.calendarDay.selected {
+    border: 2px solid dodgerblue;
+}
+
+.calendarDay.today {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.calendarDay.today:hover {
+    background-color: #0081ff;
+}
+
+.calendarDay.today.selected {
+    border: 2px solid lightgray;
+}
