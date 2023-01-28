@@ -1,0 +1,15 @@
+.help {
+	color: #950740 !important;
+	background-color:#1A1A1D;
+	padding-bottom: 10px;
+}
+
+.information {
+	background-color:#1A1A1D;
+	color: #950740;
+}
+
+.quit {
+	margin-left: 71%;
+	float: left;
+}

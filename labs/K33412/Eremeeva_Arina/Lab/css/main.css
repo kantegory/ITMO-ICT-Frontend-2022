@@ -1,0 +1,82 @@
+.custom-colored-h1
+{
+	color: var(	--color-text-h1) !important;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 55px;
+
+}
+
+.quit{
+	margin-left: 71%;
+	float: left;
+}
+
+.header{
+	background-color: var(--nav-color) !important;
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+
+
+.color-main{
+	background-color: var(--bac-color) !important;
+}
+
+.card-color{
+	background-color: var(--nav-color) !important;
+}
+
+.text-card{
+	color: var(--color-text) !important;
+}
+
+.nav-text {
+ 	color: var(--color-text) !important;
+}
+
+.button-color{
+	background-color: var(--button-color) !important;
+	color: var(--color-text-btn) !important
+}
+
+.footer-color{
+	background-color: var(--nav-color) !important;
+}
+
+.footer-text{
+	color: var(--color-text) !important;
+	min-height: 150px;
+}
+
+.form-select-lg {
+	border-color: #fff !important;
+	color:rgb(58, 58, 58) !important;
+	margin-top: 50px;
+}
+
+.btn-info {
+	border-color:#fc5e49 !important;
+	color: #fff;
+	margin-top: 50px;
+}
+
+.card-img-top {
+	width: 100%;
+}
+
+.icon-main{
+	stroke: currentColor;
+	fill: none;
+	width: 16px;
+	height: 16px
+}
+
+.img{
+	width: 35%
+}
+
+.card-colors {
+	background-color: var(--bg-color) !important;
+}
