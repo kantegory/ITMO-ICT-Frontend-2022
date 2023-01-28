@@ -46,6 +46,7 @@
                                 class="rounded-circle mt-5"
                                 width="150px"
                                 src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                                alt="profile pic"
                             />
                             <div class="row row-cols-1" id="userInfo"></div>
                         </div>
@@ -64,131 +65,6 @@
                 <a href="mailto:hege@example.com">hege@example.com</a>
             </p>
         </footer>
-
-        <!-- The SignIn Modal -->
-        <div class="modal" id="signIn">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Sign In</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="Enter email"
-                                name="email"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="pwd"
-                                placeholder="Enter password"
-                                name="pswd"
-                            />
-                        </div>
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember" /> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" onclick="onSubmit()" id="button" class="btn btn-primary">Submit</button>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- The SignUp Modal -->
-        <div class="modal" id="signUp">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Sign Up</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="Enter email"
-                                name="email"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="firstName" class="form-label">Firs name:</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="firstName"
-                                placeholder="Enter first name"
-                                name="firstName"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="lastName" class="form-label">Last name:</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="lastName"
-                                placeholder="Enter first name"
-                                name="lastName"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="pwd" class="form-label">Password:</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="pwd"
-                                placeholder="Enter password"
-                                name="pswd"
-                            />
-                        </div>
-                        <div class="mb-3">
-                            <label for="confPwd" class="form-label">Confirm password:</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="confPwd"
-                                placeholder="Enter password"
-                                name="confPwd"
-                            />
-                        </div>
-                        <div class="form-check mb-3">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember" /> Remember me
-                            </label>
-                        </div>
-                        <button type="submit" onclick="onSubmit()" id="button" class="btn btn-primary">Submit</button>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
 
     <script type="text/javascript" src="index.js"></script>

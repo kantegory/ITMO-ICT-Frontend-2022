@@ -103,6 +103,16 @@
       "eventId": 6,
       "userId": 2,
       "id": 6
+    },
+    {
+      "eventId": 3,
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "eventId": 5,
+      "userId": 2,
+      "id": 8
     }
   ]
 }

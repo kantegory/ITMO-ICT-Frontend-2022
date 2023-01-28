@@ -32,7 +32,7 @@ function getCardHtml({ photoPath, title, date, location, id }) {
     return `
         <div class="col">
                     <div class="card">
-                        <img src=${photoPath} class="card-img-top" />
+                        <img src=${photoPath} alt="alt="event img"" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title">${title}</h5>
                             <p class="card-event-date">${date}</p>
