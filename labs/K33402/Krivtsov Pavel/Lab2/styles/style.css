@@ -12,10 +12,6 @@ body {
     background-color: var(--secondary-bg-color);
 }
 
-.filter-logo {
-    filter: var(--logo-filter);
-}
-
 .h3-text-color {
     color: var(--text-headers-color);
 }
@@ -126,4 +122,10 @@ body {
 .sign-form {
     max-width: 350px;
     padding: 15px;
+}
+
+.icon {
+    fill: currentColor;
+    width: 32px;
+    height: 32px;
 }
