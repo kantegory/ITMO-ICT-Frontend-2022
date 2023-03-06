@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="form-screen">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аналитика Судебного Бота</title>
+
+  <link rel="stylesheet" href="../../static/main.css">
+  <link href="../../static/light.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+  <link href="../../static/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../../static/icon.png"/>
+
+
+</head>
+<body>
+
+<div id="app">
+
+  <section class="section main-section">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-lock"></i></span>
+          Вход в систему аналитики Судебного Бота
+        </p>
+{#          {% for message in get_flashed_messages() %}#}
+{#            <p class="card-header-title"> <div class="flash">{{ message}}</div> </p>#}
+{#          {% endfor %}#}
+      </header>
+      <div class="card-content">
+        <form method="post">
+
+          <div class="field spaced">
+            <label class="label" for="username">Логин</label>
+            <div class="control icons-left">
+              <input class="input" type="text" placeholder="Логин" autocomplete="username" name="username" id="username" oninvalid="this.setCustomValidity('Пожалуйста заполните данное поле')" oninput="setCustomValidity('')" required="">
+              <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
+            </div>
+            <p class="help">
+              Пожалуйста введите ваш логин
+            </p>
+          </div>
+
+          <div class="field spaced">
+            <label class="label" for="password">Пароль</label>
+            <p class="control icons-left">
+              <input class="input" type="password" name="password" id="password" placeholder="Пароль" oninvalid="this.setCustomValidity('Пожалуйста заполните данное поле')" oninput="setCustomValidity('')" required="">
+              <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+            </p>
+            <p class="help">
+              Пожалуйста введите пароль
+            </p>
+          </div>
+
+
+          <hr>
+
+          <div class="field grouped">
+            <div class="control">
+              <button type="submit" class="button blue" value="Log In">
+                Авторизоваться
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+
+</body>
+</html>
