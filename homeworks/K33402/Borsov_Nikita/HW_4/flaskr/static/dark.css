@@ -1,0 +1,11 @@
+:root {
+    --back-color: #232020;
+    --body-back-color: #2a2a2a;
+    --body-color: #fafafa;
+
+    --form-color: #ffffff;
+    --form-bg-color: #252525;
+
+    --border-color: #363535;
+    --theme-type: dark;
+}

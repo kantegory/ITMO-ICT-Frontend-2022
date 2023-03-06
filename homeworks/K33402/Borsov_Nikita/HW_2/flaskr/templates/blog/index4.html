@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аналитика Судебного Бота</title>
+
+  <link rel="stylesheet" href="../../static/main.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../../static/icon.png"/>
+
+</head>
+<body>
+
+<script type="text/javascript" {{ url_for('static', filename='chart.sample.js')}}></script>
+<script type="text/javascript">
+    function myFunc(vars) {return vars}
+    myVar = myFunc({{data|tojson}});
+</script>
+
+
+
+<div id="app">
+
+<nav id="navbar-main" class="navbar is-fixed-top">
+  <div class="navbar-brand">
+    <a class="navbar-item mobile-aside-button">
+      <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+    </a>
+
+  </div>
+  <div class="navbar-brand is-right">
+    <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
+      <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
+    </a>
+  </div>
+  <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item dropdown has-divider">
+        <div class="navbar-dropdown">
+        </div>
+      </div>
+      <div class="navbar-item has-divider has-user-avatar">
+        <a class="navbar-link">
+            {% if g.user %}
+                <div class="is-user-name">{{ g.user['username'] }}</div>
+            {% endif %}
+
+        </a>
+        <a>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <a href="{{ url_for('auth.logout') }}">
+                    <button class="button blue">Выйти из аккаунта</button>
+                </a>
+            </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="is-hero-bar">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <h1 class="title">
+      Панель Администрирования "{{ g.user['login_name'] }}"
+    </h1>
+  </div>
+</section>
+
+  <section class="section main-section">
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+                Количество запросов
+              </h2>
+              <h1>
+                  {{ analytics_data["count_of_redirected_requests"] }}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-green-500"><i class="mdi mdi-mixcloud mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+                Средняя оценка по ответу оператора
+              </h2>
+              <h1>
+                {{ analytics_data["get_average_rating_by_users"] }}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-blue-500"><i class="mdi mdi-star-circle mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+                Среднее время ответа оператора быстрого реагирования
+              </h2>
+              <h1>
+                  {{ analytics_data["average_time_of_operator_reaction"] }}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-red-500"><i class="mdi mdi-timer-sand mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+                Среднее время работы сессии оператора
+              </h2>
+              <h1>
+                {{ analytics_data["average_time_of_operator_dialogue"] }}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-green-500"><i class="mdi mdi-timer mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+                Количество перенаправленных вопросов от районного суда к областному
+              </h2>
+              <h1>
+                {{ analytics_data["count_of_redirected_requests"] }}
+              </h1>
+            </div>
+            <span class="icon widget-icon text-blue-500"><i class="mdi mdi-share mdi-48px"></i></span>
+          </div>
+        </div>
+      </div>
+      {%for i in level_link%}
+      <div class="card">
+        <div class="card-content">
+          <div class="flex items-center justify-between">
+            <div class="widget-label">
+              <h2>
+               Информация о Подведомственных Учреждениях
+              </h2>
+              <h1>
+                <a href="{{ url_for(i) }}">
+                    <button class="button blue small textual">Узнать больше >></button>
+                </a>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+
+    <div class="card mb-6">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-finance"></i></span>
+          График принятых и непринятых запросов от пользователей
+        </p>
+          <p class="card-header-title">
+                <input type="date" id="inputDateFrom">
+          </p>
+          <p class="card-header-title">
+                <input type="date" id="inputDateTo">
+          </p>
+
+        <a class="card-header-icon" id="updateChart1">
+          <span class="icon" onclick="updateScale(chrt1);updateScale(chrt2);updateScale(chrt3); return false;"><i class="mdi mdi-reload"></i></span>
+        </a>
+      </header>
+
+      <div class="card-content">
+        <div class="chart-area">
+          <div class="h-full">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+            <canvas id="big-line-chart" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-6">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-finance"></i></span>
+          График принятых и непринятых запросов от пользователей
+        </p>
+        <a class="card-header-icon">
+          <span class="icon" onclick="updateScale(chrt2); return false;"><i class="mdi mdi-reload"></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div class="h-full">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+            <canvas id="big-line-chart2" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-6">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-finance"></i></span>
+          График принятых и непринятых запросов от пользователей
+        </p>
+        <a class="card-header-icon">
+          <span class="icon" onclick="updateScale(chrt3); return false;"><i class="mdi mdi-reload"></i></span>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="chart-area">
+          <div class="h-full">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div></div>
+              </div>
+            </div>
+            <canvas id="big-line-chart3" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<footer class="footer">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+    <div class="flex items-center justify-start space-x-3">
+      <div>
+        © 2022, Sailet LLP
+      </div>
+    </div>
+  </div>
+</footer>
+  </section>
+<!-- Scripts below are for demo only -->
+<script type="text/javascript" src="../../static/main.js?v=1628755089081"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+<script type="text/javascript" src="../../static/chart.sample.js"></script>
+
+
+<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+</div>
+</body>
+</html>
