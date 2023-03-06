@@ -13,10 +13,10 @@
 
     <link rel="stylesheet" href="dtsel/dtsel.css" />
     <script src="dtsel/dtsel.js"></script>
+    <script src="scripts/index.js"></script>
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand navbar-light">
             <div class="container">
@@ -81,29 +81,18 @@
         <div class="d-flex title justify-content-center">
             <h3>Заказать мероприятие</h3>
         </div>
-        <div class="container d-flex main-search justify-content-center">
-            <form class="col-9">
-                <input type="search" class="form-control " placeholder="Начните вводить ключевые слова"
-                    aria-label="Search">
-            </form>
-        </div>
         <div class="container d-flex search-params justify-content-center">
             <form class="col-3">
-                <label for="numberOfGuests" class="form-label">Количество людей</label>
-                <input type="number" class="form-control small-input" id="numberOfGuests">
-            </form>
-            <form class="col-3">
-                <label for="city" class="form-label">Город</label>
-                <input type="text" class="form-control small-input" id="city">
+                <label for="country" class="form-label">Страна</label>
+                <input type="text" class="form-control small-input" id="country">
             </form>
             <form class="col-3">
                 <label for="arrival-datetime" class="form-label">Время мероприятия</label>
-                <input type="datetime" class="form-control small-input" id="arrival-datetime" name="dateTimePicker">
+                <input type="datetime" class="form-control small-input" id="arrival-datetime">
             </form>
         </div>
-
         <div class="container d-flex search-button justify-content-center">
-            <button class="btn" type="submit">Найти</button>
+            <button class="btn" type="submit" onclick="searchResults()">Найти</button>
         </div>
     </section>
     </main>
@@ -114,10 +103,8 @@
     </footer>
 
     <script>
-        instance = new dtsel.DTS('input[name="dateTimePicker"]', {
-            showTime: true,
-            timeFormat: "HH:MM",
-            dateFormat: "dd-mm-yyyy",
+        arrival_instance = new dtsel.DTS('input[id="arrival-datetime"]', {
+            dateFormat: "yyyy-mm-dd",
         });
     </script>
 
