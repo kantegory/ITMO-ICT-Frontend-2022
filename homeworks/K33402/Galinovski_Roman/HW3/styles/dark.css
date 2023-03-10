@@ -1,0 +1,15 @@
+:root {
+    --accent-color: #97790a;
+    --button-color: #0c4568;
+    --accent-on-hover: #0b224a;
+    --background-color: #2c2e30;
+    --nav-link-on-hover: #000000;
+    --text-color: #f5f5f5;
+    --accent-text: #f5f5f5;
+    --form-background: #56595e;
+    --form-border-color: #070b36;
+    --link-color: #1672ab;
+}
+.nav-link:hover {
+    border-bottom: 2px solid black;
+}

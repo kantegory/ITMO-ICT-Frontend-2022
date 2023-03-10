@@ -1,0 +1,39 @@
+
+.hotel-item {
+    padding: 10px;
+    border: 2px solid #4263a2;
+    margin: 15px;
+    border-radius: 7px;
+}
+
+h1 {
+    margin: 20px;
+}
+
+h2 {
+    margin: 0;
+}
+
+img {
+    width: initial;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .content {
+    flex: 1 0 auto;
+  }
+.footer {
+    flex: 0 0 auto;
+  }
