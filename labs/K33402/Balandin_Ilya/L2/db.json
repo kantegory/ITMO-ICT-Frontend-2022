@@ -1,0 +1,121 @@
+{
+  "genre": [
+    {
+      "id": 1,
+      "name": "Shooter"
+    },
+    {
+      "id": 2,
+      "name": "RPG"
+    },
+    {
+      "id": 3,
+      "name": "Indie"
+    }
+  ],
+  "platform": [
+    {
+      "id": 1,
+      "name": "PC"
+    },
+    {
+      "id": 2,
+      "name": "XBOX"
+    },
+    {
+      "id": 3,
+      "name": "STEAM"
+    }
+  ],
+  "game": [
+    {
+      "id": 1,
+      "name": "Atomic Heart",
+      "description": "Atomic Heart is a first-person shooter developed by Mundfish and published by Focus Entertainment and 4Divinity.",
+      "image": "res/Atomic_Heart_cover_.jpg",
+      "genreId": 1
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "gameId": "1",
+      "platformId": "1",
+      "price": 1000,
+      "count": 5
+    },
+    {
+      "id": 2,
+      "gameId": "1",
+      "platformId": "1",
+      "price": 3000,
+      "count": 4
+    },
+    {
+      "id": 3,
+      "gameId": "1",
+      "platformId": "1",
+      "price": 5000,
+      "count": 10
+    },
+    {
+      "id": 4,
+      "gameId": "1",
+      "platformId": "1",
+      "price": 300,
+      "count": 0
+    },
+    {
+      "gameId": "1",
+      "platformId": "2",
+      "price": 4000,
+      "count": 20,
+      "id": 5
+    }
+  ],
+  "sell": [
+    {
+      "date": "01/01/2023",
+      "productId": 1,
+      "username": "user1"
+    },
+    {
+      "date": "01/02/2023",
+      "productId": 1,
+      "username": "user4"
+    },
+    {
+      "date": "01/02/2023",
+      "productId": 2,
+      "username": "user5"
+    },
+    {
+      "date": "01/04/2023",
+      "productId": 3,
+      "username": "user2"
+    },
+    {
+      "date": "01/05/2023",
+      "productId": 1,
+      "username": "user1"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gamebazzar.com",
+      "password": "$2a$10$JgaKztHKFTUTGs3V/Cg2ju5xHlOWUadPz6x0oAtHjy1KKwqYqmm5K",
+      "name": "Admin",
+      "surname": "Adminov",
+      "position": "moderator",
+      "id": 1
+    },
+    {
+      "email": "ivan@gamebazzar.com",
+      "password": "$2a$10$qcpBEm8FHcoEFWbOd//YHObnXK92ojRF4Dhw5ob2vlqDFZsqIrGu.",
+      "name": "Ivan",
+      "surname": "Ivanov",
+      "position": "support",
+      "id": 2
+    }
+  ]
+}
