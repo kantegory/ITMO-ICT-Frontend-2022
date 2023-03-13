@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Picterest - Home</title>
+  <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container-fluid my-navbar sticky-top">
+  <nav class="navbar navbar-light">
+    <div>
+      <a class="navbar-brand" href="/picterest/pages/dashboard.html">
+        <img src="/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Picterest
+      </a>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <section class="settings mt-4">
+        <h4 class="mb-4">Profile</h4>
+        <div class="form-group row mb-3">
+          <div class="col-6">
+            <label class="label" for="first-name">First Name</label>
+            <input id="first-name" type="text" class="form-control" placeholder="First Name" required>
+          </div>
+          <div class="col-6">
+            <label class="label" for="last-name">Last Name</label>
+            <input id="last-name" type="text" class="form-control" placeholder="Last Name" required>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label class="label" for="name">Username</label>
+          <input id="name" type="text" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="form-group mb-3">
+          <label class="label" for="email">Email</label>
+          <input id="email" type="text" class="form-control" placeholder="Email" required="">
+        </div>
+        <div class="form-group mb-3">
+          <label class="label" for="description">Bio</label>
+          <textarea id="description" type="text" class="form-control" placeholder="Enter a Bio"></textarea>
+        </div>
+        <div class="form-group d-flex justify-content-end">
+          <button type="submit" class="btn btn-secondary px-3 mr-2">Cancel</button>
+          <button type="submit" class="btn btn-primary px-3">Save</button>
+        </div>
+      </section>
+    </div>
+    <div class="col-6">
+      <h4 class="mt-4">Liked pictures</h4>
+      <div class="pinterest-grid-profile">
+        <img class="main-image" src="/img/logo-photo.jpeg"/>
+        <img class="main-image" src="/img/photo1.jpeg"/>
+        <img class="main-image" src="/img/logo.png"/>
+        <img class="main-image" src="/img/logo.png"/>
+        <img class="main-image" src="/img/photo1.jpeg"/>
+        <img class="main-image" src="/img/logo-photo.jpeg"/>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/jquery-3.6.3.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Picterest - Home</title>
+  <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container-fluid my-navbar sticky-top pb-1">
+  <nav class="navbar navbar-light">
+    <div class="d-flex">
+      <a class="navbar-brand" href="#">
+        <img src="/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span>Picterest</span>
+      </a>
+      <div class="input-group align-items-center search-input-group">
+        <div class="input-group-prepend">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+               fill="currentColor"
+               class="bi bi-search"
+               viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </div>
+        <input placeholder="Search" class="search-input" aria-label="search" aria-describedby="search-icon">
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center">
+      <button type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+              aria-controls="collapse"
+              class="btn-secondary btn-sm mr-3">
+        Filters
+      </button>
+      <a href="/picterest/pages/profile.html"><img src="/img/avatar.png" width="30" height="28"/></a>
+    </div>
+  </nav>
+
+  <section class="collapse filters mt-2 ml-4" id="collapse">
+    <h5>Filters</h5>
+    <div class="row mt-3">
+      <div class="col-4">
+        <h6>Order By</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="orderRadios" id="orderRadios1" value="Latest" checked>
+          <label class="form-check-label" for="orderRadios1">
+            Latest
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="orderRadios" id="orderRadios2" value="Popular">
+          <label class="form-check-label" for="orderRadios2">
+            Popular
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="orderRadios" id="orderRadios3" value="Oldest">
+          <label class="form-check-label" for="orderRadios3">
+            Oldest
+          </label>
+        </div>
+      </div>
+      <div class="col-4">
+        <h6>Color</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="any" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Any
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="yellow">
+          <label class="form-check-label" for="exampleRadios2">
+            Yellow
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="teal">
+          <label class="form-check-label" for="exampleRadios3">
+            Teal
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="bw">
+          <label class="form-check-label" for="exampleRadios4">
+            Black and white
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="purple">
+          <label class="form-check-label" for="exampleRadios5">
+            Purple
+          </label>
+        </div>
+      </div>
+      <div class="col-4">
+        <h6>Content Filter</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="filterRadios" id="filterRadios1" value="low" checked>
+          <label class="form-check-label" for="filterRadios1">
+            Low
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="filterRadios" id="filterRadios2" value="high">
+          <label class="form-check-label" for="filterRadios2">
+            High
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container-fluid">
+  <section class="photos mt-4">
+    <div class="pinterest-grid">
+      <a href="/picterest/pages/post.html">
+        <img class="main-image" alt="dashboard-photo-1" src="/img/photo1.jpeg"/>
+      </a>
+      <img class="main-image" alt="dashboard-photo-2" src="/img/logo-photo.jpeg"/>
+      <img class="main-image" alt="dashboard-photo-logo" src="/img/logo.png"/>
+      <img class="main-image" alt="dashboard-photo-2" src="/img/logo-photo.jpeg"/>
+      <img class="main-image" alt="dashboard-photo-1" src="/img/photo1.jpeg"/>
+      <img class="main-image" alt="dashboard-photo-logo" src="/img/logo.png"/>
+      <img class="main-image" alt="dashboard-photo-logo" src="/img/logo.png"/>
+      <img class="main-image" alt="dashboard-photo-1" src="/img/photo1.jpeg"/>
+      <img class="main-image" alt="dashboard-photo-2" src="/img/logo-photo.jpeg"/>
+    </div>
+  </section>
+</div>
+<script src="/js/jquery-3.6.3.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
