@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проведение мероприятий</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="styles/dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+        <nav class="menu">
+            <ul>
+                <li class="menu-item">
+                    <a href="#">Главная</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#events">Мероприятия</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#price">Запланировать событие</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+</header>
+
+<section class="main">
+    <div class="container">
+        <div class="main-info">
+            <h1 class="main-title">Празднуйте вместе с нами!</h1>
+            <div class="main-text">Хотите отметить какое-то событие? Наша компания поможет вам в организации и
+                проведении вашего мероприятия!
+                Мы органищовываем мероприятия всех форматов: детские праздники, аниматоры, тематические вечеринки и
+                party в
+                ресторанах и ночных клубах, загородных домах, день рождения, предложения руки и сердца,
+                выписки из роддома, мальчишники, девичники, юбилеи, тимбилдинги, кофе брейки, конференции и т.д. У нас
+                Вы сможете
+                выбрать зрелищные шоу на любой вкус и бюджет. Яркие впечатления ждут Вас и Ваших гостей!
+                Обратившись однажды к нам, мы уверены, что Вы останетесь довольны!
+            </div>
+            <div class="main-action">
+                <button class="button" id="main-action">Посмотреть мероприятия</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="event" id="events">
+    <div class="container">
+        <h2 class="sub-title">Выберите мероприятие</h2>
+
+        <div class="event-items">
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/1.png" alt="Image 1">
+                </div>
+                <div class="event-item-title">
+                    День рождения
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/2.png" alt="Image 2">
+                </div>
+                <div class="event-item-title">
+                    Корпоратив
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/3.png" alt="Image 3">
+                </div>
+                <div class="event-item-title">
+                    Свадьба
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/4.png" alt="Image 4">
+                </div>
+                <div class="event-item-title">
+                    Выпускной
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/5.png" alt="Image 5">
+                </div>
+                <div class="event-item-title">
+                    Новый год
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-item-image">
+                    <img src="images/6.png" alt="Image 6">
+                </div>
+                <div class="event-item-title">
+                    Вечеринка
+                </div>
+
+                <div class="event-item-action">
+                    <button class="button event-button"> запланировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="price" id="price">
+    <div class="container">
+        <h2 class="sub-title">
+            Узнать цену и запланировать
+        </h2>
+        <div class="price-text">
+            Заполните данные, и мы перезвоним вам для уточнения всех деталей мероприятия
+        </div>
+        <form action="" class="price-form">
+            <input type="text" class="price-input" id="name" placeholder="Ваше имя">
+            <input type="text" class="price-input" id="phone" placeholder="Ваш телефон">
+            <input type="text" class="price-input" id="event" placeholder="Мероприятие, который вас интересует">
+            <button class="button" type="button" id="price-action">Узнать цену</button>
+        </form>
+        <img src="images/rolls.png" alt="Rolls" class="price-image">
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="logo">
+            <img src="images/logo.png" alt="logo">
+        </div>
+        <div class="rights">Все права защищены</div>
+    </div>
+</footer>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>
