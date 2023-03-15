@@ -1,0 +1,47 @@
+.navbar {
+  /* background-color: #13242A; */
+  --main-background: #13242A;
+  background-color: var(--main-background);
+}
+
+.navbar-brand {
+  --text-color: #ffffff;
+  color: var(--text-color) !important;
+}
+
+.out-button {
+  --main-background: #E24D28;
+  --text-color: #ffffff;
+  background-color: var(--main-background);
+  color: var(--text-color) !important;
+}
+
+.sec-button {
+  --main-background: #E9C46A;
+  --text-color: #000000;
+  background-color: var(--main-background);
+  color: var(--text-color) !important;
+}
+
+.other-button {
+  --main-background: #2A9D8F;
+  --text-color: #ffffff;
+  background-color: var(--main-background);
+  color: var(--text-color) !important;
+}
+
+body {
+  background-color: var(--main-background);
+  color: var(--text-color);
+}
+
+h5, h6, p {
+  background-color: var(--main-background);
+  color: var(--text-color);
+}
+
+.card, .card-body, .list-group-item, .form, .accordion-body, .accordion-button{
+  background-color: var(--main-background) !important;
+  color: var(--text-color) !important;
+  border-color: var(--borders) !important;
+}
