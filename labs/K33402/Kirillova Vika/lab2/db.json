@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "email": "example@mail.com",
+      "password": "$2a$10$8xtuXfIAg62kNIB7ZcLGVevATj2VlraLav2FEzX2aUi7Roo8o66fO",
+      "firstname": "test",
+      "lastname": "testtest",
+      "age": "20",
+      "id": 1
+    }
+  ],
+  "cards": [
+    {
+      "name": "Pottery studio",
+      "event": "Master class",
+      "place": "Zvenigorodskaya",
+      "image": "./image/pottery.jpg",
+      "id": 1
+    },
+    {
+      "name": "'Мастер и Маргарита'",
+      "event": "Show",
+      "place": "Zvenigorodskaya",
+      "image": "./image/master.jpg",
+      "id": 2
+    },
+    {
+      "name": "Culinary Studio",
+      "event": "Master class",
+      "place": "Gorkovskaya",
+      "image": "./image/kitchen.jpg",
+      "id": 3
+    },
+    {
+      "name": "'Взрослые игры'",
+      "event": "Show",
+      "place": "Spasskaya",
+      "image": "./image/games.png",
+      "id": 4
+    }
+  ],
+  "userCard": [
+    {
+      "userId": 1,
+      "cardId": 3,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "cardId": 1,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "cardId": 2,
+      "id": 8
+    }
+  ]
+}

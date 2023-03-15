@@ -1,0 +1,16 @@
+{
+  "name": "db.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "py -m http.server 8000",
+    "server": "json-server db.json -m ./node_modules/json-server-auth"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.17.2",
+    "json-server-auth": "^2.1.0"
+  }
+}

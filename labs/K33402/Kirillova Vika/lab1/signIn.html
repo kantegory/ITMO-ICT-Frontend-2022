@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Login">
+  <title>Login</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+  <header class="container-fluid colors pb-2 pt-2">
+    <nav class="navbar navbar-expand-md d-flex justify-content-between">
+      <div>
+        <a class="colors navbar-brand text-color fs-4 p-2" href="./main.html">Main</a>
+        <a class="colors navbar-brand text-color fs-5 p-2" href="./lk.html">Personal area</a>
+        <a class="colors navbar-brand text-color fs-6 p-2" href="./calendar.html">Calendar</a>
+      </div>
+      <div>
+        <a class="colors navbar-brand text-color fs-6" href="./signIn.html">Entry</a>
+        <a class="colors navbar-brand text-color fs-6 button-logout" href="#">Exit</a>
+        <a class="colors navbar-brand text-color fs-6" href="./registration.html">Register</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-xl p-5 mb-5">
+    <form class="d-flex-column">
+      <h1 class="row mb-5 justify-content-center">Login</h1>
+      <div class="row mb-3 justify-content-center">
+        <label for="email" class="col-sm-1 col-form-label">Email</label>
+        <div class="col-sm-3 col-md-4">
+          <input type="text" class="form-control" name="email" id="email" autocomplete="off" placeholder="vika@gmail.com">
+        </div>
+      </div>
+      <div class="row mb-3 justify-content-center">
+        <label for="password" class="col-sm-1 col-form-label">Password</label>
+        <div class="col-sm-3 col-md-4">
+          <input type="password" class="form-control" name="password" id="password" autocomplete="off" placeholder="vika1234">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-4 col-md-5">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+          <a class="btn btn-primary" href="./registration.html">Sign up</a>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="container-fluid colors">
+    <div class="d-flex justify-content-between py-4 my-4 mb-0 text-color">
+      <p>Made by Vika Kirillova</p>
+      <p>Frontend 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

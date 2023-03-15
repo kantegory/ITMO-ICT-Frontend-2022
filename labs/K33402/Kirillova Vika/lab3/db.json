@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "email": "example@mail.com",
+      "password": "$2a$10$8xtuXfIAg62kNIB7ZcLGVevATj2VlraLav2FEzX2aUi7Roo8o66fO",
+      "firstname": "test",
+      "lastname": "testtest",
+      "age": "20",
+      "id": 1
+    },
+    {
+      "email": "example@mail.ru",
+      "password": "$2a$10$pfbsXJdgxyG1aqGDetxL9./FPyFns6CxYK/de1j6u.Qy54/W/YpOK",
+      "firstname": "test",
+      "lastname": "testtest",
+      "age": "20",
+      "id": 2
+    },
+    {
+      "email": "testik@gmail.com",
+      "password": "$2a$10$LYzSWGCt.x0N7IQ4RIxf1.zNzoMNpnizkqJ1t7YZ8GauDA.345Yym",
+      "firstname": "testik",
+      "lastname": "testiktestik",
+      "age": "18",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
+      "name": "Pottery studio",
+      "event": "Master-class",
+      "place": "Zvenigorodskaya",
+      "image": "/src/assets/image/pottery.jpg",
+      "id": 1
+    },
+    {
+      "name": "'Мастер и Маргарита'",
+      "event": "Show",
+      "place": "Zvenigorodskaya",
+      "image": "/src/assets/image/master.jpg",
+      "id": 2
+    },
+    {
+      "name": "Culinary Studio",
+      "event": "Master-class",
+      "place": "Gorkovskaya",
+      "image": "/src/assets/image/kitchen.jpg",
+      "id": 3
+    },
+    {
+      "name": "'Взрослые игры'",
+      "event": "Show",
+      "place": "Spasskaya",
+      "image": "/src/assets/image//games.png",
+      "id": 4
+    }
+  ],
+  "calendarEvents": [
+    {
+      "title": "иду в парк",
+      "description": "",
+      "date": "2023-03-15",
+      "id": 1
+    },
+    {
+      "title": "пью джус",
+      "description": "много джуса",
+      "date": "2023-03-16",
+      "id": 2
+    }
+  ],
+  "userCard": [
+    {
+      "userId": 1,
+      "cardId": 3,
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "cardId": 4,
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "cardId": 2,
+      "id": 19
+    }
+  ]
+}
