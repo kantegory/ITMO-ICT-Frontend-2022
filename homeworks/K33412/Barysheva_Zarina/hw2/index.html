@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Платформа для поиска мероприятий</title>
+  </head>
+  <body>
+    <header class="sticky-top">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-calendar-check d-inline-block align-text-bottom" viewBox="0 0 16 16" role=”img” aria-label=”Календарь”>
+                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                </svg>
+                <h2 class="d-inline-block">Мерофонд</h2>
+            </a>
+            <div class="d-grid gap-4 d-md-flex justify-content-md-end">
+              <a href="user.html" class="btn other-button">
+                  Личный кабинет
+            </a>
+            <button type="button" class="btn out-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Выйти
+            </button>
+            </div>
+        </div>
+    </nav>
+  </header>
+  <div class="main-page">
+    <div class="m-3 text-center">
+    <h3 class="main-text">Календарь мероприятий</h3>
+    </div>
+    <div class="position-fixed top-10 end-0 mx-3">
+        <div class="row">
+            <div class="col">
+              <a href="#"  class="btn text-center other-button" alt="Добавить мероприятие" style="width: 60px; height: 60px;">
+                    <h2>+</h2>
+              </a>
+            </div>
+        </div>
+      </div>
+    <div class="container">
+        <h3 class="d-inline-block main-text">Фильтры: </h3>
+        <div class="dropdown d-inline-block mx-3">
+            <button class="btn dropdown-toggle sec-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Тип мероприятия
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Вечеринка</a></li>
+              <li><a class="dropdown-item" href="#">Конференция</a></li>
+              <li><a class="dropdown-item" href="#">Собрание</a></li>
+              <li><a class="dropdown-item" href="#">Концерт</a></li>
+            </ul>
+        </div>
+        <div class="dropdown d-inline-block mx-3">
+            <button class="btn dropdown-toggle sec-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Место проведения
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Театр</a></li>
+              <li><a class="dropdown-item" href="#">Университет</a></li>
+              <li><a class="dropdown-item" href="#">Бизнес-центр</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+          <script>
+            const events = {
+              '1': {
+                'title': 'Ромео и Джульетта',
+                'description': 'Балетная постановка, основанная на пьесе Шекспира.',
+                'data': '10.03',
+                'type': 'Концерт',
+                'location': 'Театр',
+              },
+              '2': {
+                'title': 'Эйлеровские чтения',
+                'description': 'Международная конференция, посвященная 250-летию со дня сметри Леонарда Эйлера.',
+                'data': '14.03',
+                'type': 'Конференция',
+                'location': 'Университет',
+              },
+              '3': {
+                'title': 'Вечеринка в честь окончания семестра',
+                'description': 'Студенты устраивают большую вечеринку. Праздник: конец семестра.',
+                'data': '20.03',
+                'type': 'Вечеринка',
+                'location': 'Университет',
+              },
+              '4': {
+                'title': 'Лекция о тайм-менеджменте',
+                'description': 'Selectel устраивает собрание для всех желающих. В программе: лекция, экскурсия по офису и викторина.',
+                'data': '22.03',
+                'type': 'Собрание',
+                'location': 'Бизнес-центр',
+              }
+            }
+
+            for (let id in events){
+              document.write('<div class="col">');
+              document.write('<div class="card" style="width: 100%; height: 45rem;">');
+              document.write('<img src="img/Photo_for_card_lab1.jpg" class="card-img-top" alt="Изображение мероприятия: Театр">');//
+              document.write('<div class="card-body" style="height: 100%;">');
+              document.write('<h4 class="card-title main-text">' + events[id]['title'] + '</h4>');
+              document.write('<p class="card-text main-text">' + events[id]['description'] + '</p>');
+              document.write('</div>');
+              document.write('<ul class="list-group list-group-flush" style="height: 30%;">');
+              document.write('<li class="list-group-item">');
+              document.write('<h5 main-text> Дата: ' + events[id]['data'] + '</h5>');
+              document.write('</li>');
+              document.write('<li class="list-group-item">');
+              document.write('<h6 class="main-text"> Тип мероприятия:</h6> <p class="main-text">' + events[id]['type'] + '</p>');
+              document.write('</li>');
+              document.write('<li class="list-group-item">');
+              document.write('<h6 class="main-text"> Место проведения:</h6> <p class="main-text">' + events[id]['location']) + '</p>';
+              document.write('</li>');
+              document.write('</ul>');
+              document.write('<div class="card-body" style="height: auto;">');
+              document.write('<a href="mero.html" class="btn other-button" style="width:100%;">Перейти на страницу мероприятия</a>');
+              document.write('</div>');
+              document.write('</div>');
+              document.write('</div>');
+            }
+          </script>
+            </div>
+      </div>
+    </div>
+
+
+   
+
+
+  <!-- Модальное окно -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Выход</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          Точно хотите выйти?
+        </div>
+        <div class="modal-footer">
+          <a href="login.html" class="btn out-button">Выйти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <script>
+        const myModal = document.getElementById("myModal");
+        const myInput = document.getElementById("myInput");
+    
+            myModal.addEventListener("shown.bs.modal", function () {
+                myInput.focus();
+            });
+    </script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.navbar {
+    background-color: #13242A;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+}
+
+.out-button {
+    background-color: #E24D28;
+    color: #ffffff !important;
+}
+
+.sec-button {
+    background-color: #E9C46A;
+}
+
+.other-button {
+    background-color: #2A9D8F;
+    color: #ffffff !important;
+}
