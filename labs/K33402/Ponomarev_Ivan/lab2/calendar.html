@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="text/css" rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+    <title>Document</title>
+</head>
+<body class="body">
+    <nav class="navbar navbar-expand-lg" data-bs-toggle="white">
+        <div class="container-fluid justify-content-between">
+            <a class="navbar-brand me-2" href="index.html">
+                <img src="./src/logo.png" alt="Events" width="58" height="58">
+              </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-tabs mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="events.html">Мероприятия</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="calendar.html">
+                  Календарь
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex align-items-center">
+            <button type="button" class="btn px-3 btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal" id="login_button">
+              Войти
+              </button>
+            <a class="profile_button" href="profile.html" id="profile_button">
+              <img src="src/icon-prof.png">
+            </a>
+            <button onclick="log_out(event)"type="button" class="btn px-3 btn-dark m-3" id="logout_button">
+              Выйти
+              </button>
+          </div>
+        </div>
+      </nav>
+      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+          <div class="modal-content" style="border-radius: 2rem;">
+            <div class="modal-body">
+              <div class="mb-md-2 mt-md-1 pb-5">
+                <div class="h-modal d-flex justify-content-between mb-2">
+                  <h2 class="fw-bold mb-3 text-uppercase a">вход</h2>
+                  <button type="button" class="btn-close  mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <form onsubmit="loginSubmit(event)">
+
+                <div class="form-outline form-white mb-4">
+                  <label for="username" class="form-label">Введите свой username:</label>
+                  <input type="username" class="form-control" id="username" name="username">
+                </div>
+  
+                <div class="form-outline form-white">
+                  <label for="password" class="form-label">Введите пароль:</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center flex-column">
+              <button type="submit" class="btn btn-success mb-3">Войти</button>
+              <em>Не зарегестрированы?</em>
+              <a href="sign_up.html" type="button" class="btn btn-dark">Регистрация</a>
+            </div>
+          </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    <div class="container">
+      <section class="d-flex justify-content-center mt-5">
+        <iframe src="https://calendar.yandex.ru/embed/week?&layer_ids=20200207&tz_id=Europe/Moscow&layer_names=events" width="900" height="500" frameborder="0" style="border: 1px solid #eee"></iframe>
+    </section>
+    </div>
+    
+    <script src="js/UserManager.js"></script>
+
+</body>
+</html>
