@@ -1,0 +1,29 @@
+<template>
+    <div class="container d-flex search-params justify-content-center">
+      <index-small-form
+        labelText="Город"
+        inputId="country"
+        inputType="string"
+      />
+      <index-small-form
+        labelText="Время мероприятия"
+        inputId="arrivalDatetime"
+        inputType="date"
+      />
+    </div>
+  </template>
+  
+  <script>
+  import IndexSmallForm from "../components/IndexSmallForm.vue"
+  export default {
+    components: { IndexSmallForm },
+    name: "IndexSmallForms"
+  }
+  </script>
+  
+  <style>
+  .search-params {
+    position: relative;
+    top: 35%;
+  }
+  </style>
