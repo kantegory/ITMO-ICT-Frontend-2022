@@ -53,17 +53,22 @@ export default {
             ...mapActions(enrollmentStore,['makeUserEnrollment']),
             
             async enrollEvent(){
-                const userId = parseInt(localStorage.user)
-                const eventId = this.id
-                const data = {}
-                data['user'] = userId
-                data['event'] = eventId
-                const response = await this.makeUserEnrollment(data)
-                if (response.data.err){
-                    alert("Вы уже зарегистрированы на данное мероприятие")
-                }else{
-                    alert("Вы зарегистрировались на мероприятие")
+                if(localStorage.user!=null){
+                    const userId = parseInt(localStorage.user)
+                    const eventId = this.id
+                    const data = {}
+                    data['user'] = userId
+                    data['event'] = eventId
+                    const response = await this.makeUserEnrollment(data)
+                    if (response.data.err){
+                        alert("Вы уже зарегистрированы на данное мероприятие")
+                    }else{
+                        alert("Вы зарегистрировались на мероприятие")
+                 }
                 }
+                 else {
+                    alert("Вы не вошли в систему. Залогиньтесь/зарегистрируйтесь для регистрации на мероприятие")
+                 }
             }
         }
     }

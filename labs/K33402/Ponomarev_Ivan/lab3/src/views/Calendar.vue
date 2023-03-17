@@ -1,18 +1,35 @@
 <template>
     <Head />
-    <Calendar />
+    <fullCalendar :options="{
+      events: events
+    }"/>
 </template>
 
 <script>
 
-import Calendar from "@/components/Calendar.vue"
+import FullCalendar from "@/components/FullCalendar.vue"
 import Head from "@/components/Head.vue"
+import eventsStore from "@/store/event_store";
+import { mapActions, mapState } from "pinia";
 
 export default {
-  name: 'EventsView',
+  name: 'Calendar',
   components: {
-    Calendar,
+    FullCalendar,
     Head
+  },
+  computed: {
+    ...mapState(eventsStore, ['events']),
+    getEvents(){
+      return this.events
+    }
+  },
+  methods: {
+    ...mapActions(eventsStore,['getEvents'])
+  
+  },
+  mounted() {
+    this.getEvents()
   }
 }
 </script>

@@ -18,17 +18,16 @@ const userStore = defineStore('users', {
             return response
         },
 
-        async addUser(data) {
-            const response = await user_api.registartion(data)
+        async addNewUser(data) {
+            const response = await user_api.sign_up(data)
+            console.log(response.data)
+            this.user = response.data
+            localStorage.setItem('user', response.data.id)
             return response
         },
 
         async logout() {
-            localStorage.removeItem("authToken")
-            this.authToken = null
             try{
-            console.log(this.authToken)
-            console.log(localStorage.authToken)
             const response = await user_api.logout(this.authToken)
             }catch(e){
                 console.log(e.response)
@@ -37,6 +36,7 @@ const userStore = defineStore('users', {
             this.authToken = null
             this.userEnrollments = []
             localStorage.removeItem("authToken")
+            localStorage.removeItem("user")
         },
 
         async get_user(authToken) {

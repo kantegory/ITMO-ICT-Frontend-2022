@@ -24,9 +24,9 @@ class userApi {
         })
     }
 
-    registration = async (data) => {
+    sign_up = async (data) => {
         return this.API({
-            url: `api/user/new`,
+            url: `api/auth/users/`,
             method: 'POST',
             data,
             headers: {

@@ -7,13 +7,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-tabs mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+                <a class="nav-link" aria-current="page" href="/">Главная</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="events.html">Мероприятия</a>
+                <a class="nav-link" aria-current="page" href="/">Мероприятия</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="calendar.html">
+                <a class="nav-link " aria-current="page" href="/calendar">
                   Календарь
                 </a>
               </li>
@@ -23,10 +23,10 @@
             <button v-if="AuthToken==null" type="button" class="btn px-3 btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal" id="login_button">
               Войти
               </button>
-            <a v-if="AuthToken!=null" class="profile_button" href="profile.html" id="profile_button">
+            <a v-if="AuthToken!=null" class="profile_button" href="/profile" id="profile_button">
               <img src="@/assets/icon-prof.png">
             </a>
-            <button v-if="AuthToken!=null" @click="logout()" type="button" class="btn px-3 btn-dark m-3" id="logout_button">
+            <button v-if="AuthToken!=null" @click="logOut()" type="button" class="btn px-3 btn-dark m-3" id="logout_button">
               Выйти
               </button>
           </div>
@@ -39,7 +39,7 @@
               <div class="mb-md-2 mt-md-1 pb-5">
                 <div class="h-modal d-flex justify-content-between mb-2">
                   <h2 class="fw-bold mb-3 text-uppercase a">вход</h2>
-                  <button type="button" class="btn-close  mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close  mt-1" data-bs-dismiss="modal" aria-label="Close" id="closeButton" ref="closeButton"></button>
                 </div>
 
                 <div class="form-outline form-white mb-4">
@@ -55,7 +55,7 @@
             <div class="modal-footer justify-content-center flex-column">
               <button @click="sign_in(this)" type="submit" class="btn btn-success mb-3">Войти</button>
               <em>Не зарегестрированы?</em>
-              <a href="sign_up.html" type="button" class="btn btn-dark">Регистрация</a>
+              <a href="/signup" type="button" class="btn btn-dark">Регистрация</a>
             </div>
           </div>
           </div>
@@ -100,10 +100,22 @@
               const data = {}
               data["username"]=this.username
               data["password"]=this.password
-                const send_data = JSON.stringify(data)
-                const response = await this.login(send_data)
+              try{
+                const response = await this.login(data)
                 await this.get_user(localStorage.authToken)
-                this.$router.push("/profile")
+                this.$refs.closeButton.click()
+              }
+              catch(e){
+                if (e.response.status==400){
+                  alert("Пароль/логин неправильные! Попробуйте снова!")
+                  this.username=""
+                  this.password=""
+              }
+              }
+            },
+            async logOut(){
+                const response=await this.logout()
+                this.$router.push('/')
             }
         }
     }
