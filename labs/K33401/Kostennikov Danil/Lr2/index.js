@@ -118,7 +118,10 @@ function getCardHtml({ photoPath, title, date, location, id }) {
                             <h5 class="card-title">${title}</h5>
                             <p class="card-event-date">${date}</p>
                             <p class="card-event-location">${location}</p>
-                            <a href="#" onclick="addEventToUser(event, ${id})" class="btn btn-dark mt-3">Add event</a>
+                            <a href="#" onclick="addEventToUser(event, ${id})" class="btn btn-dark mt-3">Add event <svg class="icon">
+                                    <use xlink:href="sprite.svg#addIcon"></use></svg
+                            ></a>
+                            
                         </div>
                     </div>
                 </div>

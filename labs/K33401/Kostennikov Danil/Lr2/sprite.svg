@@ -1,0 +1,152 @@
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none">
+            <!-- иконка календаря -->
+            <symbol id="calendar" viewBox="0 0 24 24">
+                <rect
+                    x="2.99625"
+                    y="2.99625"
+                    width="18.0075"
+                    height="18.0075"
+                    rx="3"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path d="M21.0037 7.99832H2.99625" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M17.3022 11.4998C17.3022 11.5274 17.2798 11.5498 17.2522 11.5498C17.2246 11.5498 17.2022 11.5274 17.2022 11.4998C17.2022 11.4722 17.2246 11.4498 17.2522 11.4498"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M17.2522 11.4498C17.2798 11.4498 17.3022 11.4722 17.3022 11.4998"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7997 11.4998C13.7997 11.5274 13.7773 11.5498 13.7497 11.5498C13.7221 11.5498 13.6997 11.5274 13.6997 11.4998C13.6997 11.4722 13.7221 11.4498 13.7497 11.4498"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7497 11.4498C13.7773 11.4498 13.7997 11.4722 13.7997 11.4998"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2983 11.4998C10.2983 11.5274 10.2759 11.5498 10.2483 11.5498C10.2206 11.5498 10.1982 11.5274 10.1982 11.4998C10.1982 11.4722 10.2206 11.4498 10.2483 11.4498"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2483 11.4498C10.2759 11.4498 10.2983 11.4722 10.2983 11.4998"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M6.79683 14.501C6.79683 14.5287 6.77443 14.5511 6.74681 14.5511C6.71918 14.5511 6.69678 14.5287 6.69678 14.501C6.69678 14.4734 6.71918 14.451 6.74681 14.451"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M6.7468 14.451C6.77443 14.451 6.79683 14.4734 6.79683 14.501"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2983 14.501C10.2983 14.5287 10.2759 14.5511 10.2483 14.5511C10.2206 14.5511 10.1982 14.5287 10.1982 14.501C10.1982 14.4734 10.2206 14.451 10.2483 14.451"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2483 14.451C10.2759 14.451 10.2983 14.4734 10.2983 14.501"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7997 14.501C13.7997 14.5287 13.7773 14.5511 13.7497 14.5511C13.7221 14.5511 13.6997 14.5287 13.6997 14.501C13.6997 14.4734 13.7221 14.451 13.7497 14.451"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7497 14.451C13.7773 14.451 13.7997 14.4734 13.7997 14.501"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M17.3022 14.501C17.3022 14.5287 17.2798 14.5511 17.2522 14.5511C17.2246 14.5511 17.2022 14.5287 17.2022 14.501C17.2022 14.4734 17.2246 14.451 17.2522 14.451"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M17.2522 14.451C17.2798 14.451 17.3022 14.4734 17.3022 14.501"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M17.3022 17.5023C17.3022 17.5299 17.2798 17.5523 17.2522 17.5523C17.2246 17.5523 17.2022 17.5299 17.2022 17.5023C17.2022 17.4747 17.2246 17.4523 17.2522 17.4523"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M17.2522 17.4523C17.2798 17.4523 17.3022 17.4747 17.3022 17.5023"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7997 17.5023C13.7997 17.5299 13.7773 17.5523 13.7497 17.5523C13.7221 17.5523 13.6997 17.5299 13.6997 17.5023C13.6997 17.4747 13.7221 17.4523 13.7497 17.4523"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13.7497 17.4523C13.7773 17.4523 13.7997 17.4747 13.7997 17.5023"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2983 17.5023C10.2983 17.5299 10.2759 17.5523 10.2483 17.5523C10.2206 17.5523 10.1982 17.5299 10.1982 17.5023C10.1982 17.4747 10.2206 17.4523 10.2483 17.4523"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M10.2483 17.4523C10.2759 17.4523 10.2983 17.4747 10.2983 17.5023"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M6.79683 17.5023C6.79683 17.5299 6.77443 17.5523 6.74681 17.5523C6.71918 17.5523 6.69678 17.5299 6.69678 17.5023C6.69678 17.4747 6.71918 17.4523 6.74681 17.4523"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M6.7468 17.4523C6.77443 17.4523 6.79683 17.4747 6.79683 17.5023"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+
+            <symbol id="addIcon" viewBox="0 0 24 24">
+            <path d="M15 12H12M12 12H9M12 12V9M12 12V15M17 21H7C4.79086 21 3 19.2091 3 17V7C3 4.79086 4.79086 3 7 3H17C19.2091 3 21 4.79086 21 7V17C21 19.2091 19.2091 21 17 21Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            </symbol>
+        </svg>
