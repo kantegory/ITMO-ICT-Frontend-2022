@@ -27,6 +27,9 @@ async function loginSubmit(event) {
     })
 
     let responseJson = await response.json()
+    if (responseJson.status==400){
+        alert("Неверный пароль/юзернэйм")
+    }else{
     localStorage.authToken = responseJson['auth_token']
 
     response = await fetch('http://localhost:8000/api/auth/users/me/',{
@@ -39,6 +42,7 @@ async function loginSubmit(event) {
     responseJson = await response.json()
     localStorage.user = responseJson['id']
     location.replace("/index.html")
+}
 }
 
 async function regSubmit(event) {
