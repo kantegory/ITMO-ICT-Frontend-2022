@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="style/main.css" rel="stylesheet">
+    <title>Cryptfest</title>
+    <link rel="shortcut icon" href="res/layers.png" type="image/png">
+</head>
+<body>
+<nav class="navbar sticky-top own--bg-main">
+    <div class="container-fluid ps-5 py-3">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                 class="bi bi-grid-fill h3" viewBox="0 0 16 16">
+                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+            </svg>
+            <a class="h3 text-decoration-none ms-3" href="index.html">
+                <b>Crypt</b>fest
+            </a>
+        </div>
+        <div>
+            <a class="text-decoration-none ms-3 own--text-accent-2 h3" href="profile.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd"
+                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container w-100 mx-auto mt-5">
+    <div class="own--container p-5 own--bg-secondary">
+        <p class="text-end"><a class="text-decoration-none own--text-accent-2 h6 fw-bold" href="#">Logout</a></p>
+        <h2 class=" text-center my-5">Your portfolio, <span class="own--text-accent-1">username</span></h2>
+        <table class="table own--text-main">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Currency</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">24h Change</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Amount * Price</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row"><img src="res/bitcoin.png" class="img table-img"></th>
+                <td><a class="text-decoration-none fw-bold h5" href="currency.html">Bitcoin</a> <span
+                        class="own--text-secondary ms-3">BTC</span>
+                </td>
+                <td>$27,573.71</td>
+                <td><span class="own--text-accent-2">-1.22%</span></td>
+                <td>0.22</td>
+                <td>$27,573.71</td>
+                <td class="row">
+                    <div class="col col-7"><input type="number" class="form-control own--bg-secondary own--text-main">
+                    </div>
+                    <div class="col col-4">
+                        <button class="btn" style="background-color: var(--own-accent-2)">Sell</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><img src="res/ethereum.png" class="img table-img"></th>
+                <td><a class="text-decoration-none fw-bold h5" href="currency.html">Ethereum</a> <span
+                        class="own--text-secondary ms-3">ETH</span>
+                </td>
+                <td>$27,573.71</td>
+                <td><span class="own--text-accent-2">-1.22%</span></td>
+                <td>0.1</td>
+                <td>$27,573.71</td>
+                <td class="row">
+                    <div class="col col-7"><input type="number" class="form-control own--bg-secondary own--text-main">
+                    </div>
+                    <div class="col col-4">
+                        <button class="btn" style="background-color: var(--own-accent-2)">Sell</button>
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

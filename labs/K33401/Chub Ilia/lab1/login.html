@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <link href="style/main.css" rel="stylesheet">
+    <title>Cryptfest</title>
+    <link rel="shortcut icon" href="res/layers.png" type="image/png">
+</head>
+<body>
+<nav class="navbar sticky-top own--bg-main">
+    <div class="container-fluid ps-5 py-3">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                 class="bi bi-grid-fill h3" viewBox="0 0 16 16">
+                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+            </svg>
+            <a class="h3 text-decoration-none ms-3" href="index.html">
+                <b>Crypt</b>fest
+            </a>
+        </div>
+        <div>
+            <a class="text-decoration-none ms-3 own--text-accent-2 h3" href="login.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-door-open fw-bold"
+                     viewBox="0 0 16 16">
+                    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container w-75 mx-auto mt-5">
+    <div class="own--container p-5 own--bg-secondary">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="btn own--nav-link active mx-3" id="pills-login-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-login"
+                        type="button" role="tab" aria-controls="pills-login" aria-selected="true">Login
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="btn own--nav-link mx-3" id="pills-signup-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-signup"
+                        type="button" role="tab" aria-controls="pills-signup" aria-selected="false">Signup
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content pt-3" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab"
+                 tabindex="0">
+                <div class="mx-3">
+                    <div class="mb-3 w-100 w-md-50">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control own--bg-accent own--border-accent-1" id="loginEmail" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control own--bg-accent own--border-accent-1" id="loginPassword">
+                    </div>
+                    <button type="submit" class="mt-2 btn fw-bold" style="background-color: var(--own-accent-1)">Login</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-signup" role="tabpanel" aria-labelledby="pills-signup-tab"
+                 tabindex="0">
+                <div class="mx-3">
+                    <div class="mb-3 w-100 w-md-50">
+                        <label for="signupName" class="form-label">Name</label>
+                        <input type="email" class="form-control own--bg-accent own--border-accent-2" id="signupName" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 w-100 w-md-50">
+                        <label for="signupEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control own--bg-accent own--border-accent-2" id="signupEmail" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control own--bg-accent own--border-accent-2" id="signupPassword">
+                    </div>
+                    <button type="submit" class="mt-2 btn fw-bold own--text-main" style="background-color: var(--own-accent-2)">Join Cryptfest</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+</body>
+</html>
