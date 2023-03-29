@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    background-color: var(--own-bg-main);
+    color: var(--own-text-main);
+}
+
+.own--bg-main {
+    background-color: var(--own-bg-main);
+}
+
+.own--bg-secondary {
+    background-color: var(--own-bg-secondary);
+}
+
+.own--bg-accent {
+    background-color: var(--own-bg-accent);
+}
+
+.own--btn-color {
+    background-color: var(--own-btn-color);
+}
+
+.own--bg-accent-1 {
+    background-color: var(--own-accent-1);
+}
+
+.own--bg-accent-2 {
+    background-color: var(--own-accent-2);
+}
+
+.own--text-accent-1 {
+    color: var(--own-accent-1);
+}
+
+.own--text-accent-2 {
+    color: var(--own-accent-2);
+    text-shadow: 0 0 10px var(--own-bg-main), 0 0 10px var(--own-bg-main);
+}
+
+.own--text-main {
+    color: var(--own-text-main);
+}
+
+.own--text-secondary {
+    color: var(--own-text-secondary);
+}
+
+a:hover {
+    color: var(--own-accent-1);
+}
+
+.own--container {
+    border-radius: 25px;
+}
+
+a {
+    color: var(--own-text-main);
+}
+
+button.own--nav-link {
+    color: var(--own-text-main);
+}
+
+input.own--border-accent-1 {
+    border-color: var(--own-accent-1);
+}
+
+input.own--border-accent-2 {
+    border-color: var(--own-accent-2);
+}
+
+.form-control {
+    background-color: var(--own-bg-secondary);
+    color: var(--own-text-main);
+}
+
+.form-control:focus {
+    background-color: var(--own-bg-secondary);
+    color: var(--own-text-main);
+}
+
+.table-img {
+    width: 32px;
+    height: 32px;
+}
+
+.page-img {
+    width: 28px;
+    height: 28px;
+}
