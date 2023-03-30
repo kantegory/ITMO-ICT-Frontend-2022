@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="style/main.css" rel="stylesheet">
+    <title>Cryptfest</title>
+
+    <link rel="shortcut icon" href="res/layers.png" type="image/png">
+</head>
+<body>
+<nav class="navbar sticky-top own--bg-main">
+    <div class="container-fluid ps-5 py-3">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                 class="bi bi-grid-fill h3" viewBox="0 0 16 16">
+                <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+            </svg>
+            <a class="h3 text-decoration-none ms-3" href="index.html">
+                <b>Crypt</b>fest
+            </a>
+        </div>
+        <div>
+            <a class="text-decoration-none ms-3 own--text-accent-2 h3" href="login.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-door-open fw-bold"
+                     viewBox="0 0 16 16">
+                    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container w-100 mx-auto mt-5">
+    <div class="own--container p-5 own--bg-secondary">
+        <div class="row mb-5 align-items-end">
+            <div class="col col-12 col-sm-6 col-lg-4">
+                <label for="sortingField" class="col-form-label">Sort by</label>
+                <select id="sortingField" class="form-select own--bg-accent own--text-main">
+                    <option value="1">Price</option>
+                    <option value="2">24h Change</option>
+                    <option value="3">Volume</option>
+                </select>
+            </div>
+            <div class="col col-12 col-sm-6 col-lg-4">
+                <button class="btn fw-bold mx-3" style="background-color: var(--own-accent-1)">ASC</button>
+                <button class="btn fw-bold mx-3" style="background-color: var(--own-accent-2)">DESC</button>
+            </div>
+        </div>
+        <div>
+            <table class="table own--text-main">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h Change</th>
+                    <th scope="col">Volume</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><img src="res/bitcoin.png" class="img table-img"></th>
+                    <td><a class="text-decoration-none fw-bold h5" href="currency.html">Bitcoin</a> <span
+                            class="own--text-secondary ms-3">BTC</span>
+                    </td>
+                    <td>$27,573.71</td>
+                    <td><span class="own--text-accent-2">-1.22%</span></td>
+                    <td>$1,975,511,224</td>
+                </tr>
+                <tr>
+                    <th scope="row"><img src="res/ethereum.png" class="img table-img"></th>
+                    <td><a class="text-decoration-none fw-bold h5" href="currency.html">Etherium</a> <span
+                            class="own--text-secondary ms-3">ETH</span>
+                    </td>
+                    <td>$27,573.71</td>
+                    <td><span class="own--text-accent-2">-1.22%</span></td>
+                    <td>$1,975,511,224</td>
+                </tr>
+                <tr>
+                    <th scope="row"><img src="res/bitcoin.png" class="img table-img"></th>
+                    <td><a class="text-decoration-none fw-bold h5" href="currency.html">Bitcoin</a> <span
+                            class="own--text-secondary ms-3">BTC</span>
+                    </td>
+                    <td>$27,573.71</td>
+                    <td><span class="own--text-accent-1">+5.22%</span></td>
+                    <td>$1,975,511,224</td>
+                </tr>
+                <tr>
+                    <th scope="row"><img src="res/bitcoin.png" class="img table-img"></th>
+                    <td><a class="text-decoration-none fw-bold h5" href="currency.html">Bitcoin</a> <span
+                            class="own--text-secondary ms-3">BTC</span>
+                    </td>
+                    <td>$27,573.71</td>
+                    <td><span class="own--text-accent-1">+5.22%</span></td>
+                    <td>$1,975,511,224</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

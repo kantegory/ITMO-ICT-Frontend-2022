@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="style/light.css" media="(prefers-color-scheme: light)">
+
+    <title>Cryptfest</title>
+    <link rel="shortcut icon" href="res/layers.png" type="image/png">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+<nav class="navbar sticky-top own--bg-main">
+    <div class="container-fluid ps-5 py-3">
+        <div>
+            <svg width="24" height="24" fill="currentColor" class="h3">
+                <use xlink:href="res/sprite.svg#logoicon"></use>
+                <title>Logo</title>
+                <desc>This is the logo picture</desc>
+            </svg>
+            <a class="h3 text-decoration-none ms-3" href="index.html">
+                <b>Crypt</b>fest
+            </a>
+        </div>
+        <div id="navProfile"></div>
+    </div>
+</nav>
+<div class="container w-100 mx-auto mt-5">
+    <div class="own--container p-5 own--bg-secondary">
+        <div class="row justify-content-between">
+            <div class="col col-2 text-end">
+                <h1 id="currencyName">Bitcoin</h1>
+                <img id="currencyImg" src="res/bitcoin.png" class="img page-img h3"><span id="currencyShortname"
+                                                                                          class="own--text-secondary ms-3 h4">BTC</span>
+            </div>
+            <div class="col col-7 mx-4">
+                <table class="table own--text-main">
+                    <thead>
+                    <tr>
+                        <th scope="col">Price</th>
+                        <th scope="col">24h Change</th>
+                        <th scope="col">Volume</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td id="currencyPrice">$27,573.71</td>
+                        <td id="currencyChange"></td>
+                        <td id="currencyVolume">$1,975,511,224</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="m-4 own--text-main" id="curve_chart" style="height: 500px"></div>
+        <div class="row my-5 justify-content-center">
+            <div class="col col-4 own--container own--bg-accent p-5">
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" class="form-control own--bg-secondary own--text-main" id="amount">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <p id="price" class="fw-bold h3">$0</p>
+                </div>
+                <button type="submit" class="btn" onclick="buyCurrency()" style="background-color: var(--own-accent-1)">
+                    Purchase
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/navbar.js"></script>
+<script src="js/currency.js"></script>
+</body>
+</html>

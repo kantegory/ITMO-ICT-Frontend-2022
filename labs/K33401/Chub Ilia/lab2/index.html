@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="style/main.css" rel="stylesheet">
+    <title>Cryptfest</title>
+    <link rel="shortcut icon" href="res/layers.png" type="image/png">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="style/light.css" media="(prefers-color-scheme: light)">
+</head>
+<body>
+<nav class="navbar sticky-top own--bg-main">
+    <div class="container-fluid ps-5 py-3">
+        <section>
+            <svg width="24" height="24" fill="currentColor" class="h3">
+                <use xlink:href="res/sprite.svg#logoicon"></use>
+                <title>Logo</title>
+                <desc>This is the logo picture</desc>
+            </svg>
+            <a id="sitename" class="h3 text-decoration-none ms-3" href="index.html">
+                <b>Crypt</b>fest
+            </a>
+        </section>
+        <div id="navProfile"></div>
+    </div>
+</nav>
+<div class="container w-100 mx-auto mt-5">
+    <div class="own--container p-5 own--bg-secondary">
+        <div class="row mb-5 align-items-end">
+            <div class="col col-12 col-sm-6 col-lg-4">
+                <label for="sortingField" class="col-form-label">Sort by</label>
+                <select id="sortingField" class="form-select own--bg-accent own--text-main">
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                    <option value="change">24h Change</option>
+                    <option value="volume">Volume</option>
+                </select>
+            </div>
+            <div class="col col-12 col-sm-6 col-lg-4">
+                <button class="btn fw-bold mx-3" onclick="sortTable('asc')"
+                        style="background-color: var(--own-accent-1)">ASC
+                </button>
+                <button class="btn fw-bold mx-3" onclick="sortTable('desc')"
+                        style="background-color: var(--own-accent-2); color: var(--own-text-main)">DESC
+                </button>
+            </div>
+        </div>
+        <div>
+            <table class="table own--text-main">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="2">Currency</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h Change</th>
+                    <th scope="col">Volume</th>
+                </tr>
+                </thead>
+                <tbody id="tablebody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="js/navbar.js"></script>
+<script src="js/table.js"></script>
+</body>
+</html>
