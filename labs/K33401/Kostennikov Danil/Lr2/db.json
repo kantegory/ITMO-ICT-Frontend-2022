@@ -27,46 +27,60 @@
       "firstName": "Данил",
       "lastName": "Костенников",
       "id": 4
+    },
+    {
+      "email": "3413210@niuitmo.ru",
+      "password": "$2a$10$qYDfU6phFXzuKb2a2Gfvx.r1PFctPs4g0A6kt0R/GF7xkMsoIPC2K",
+      "lastName": "Kostennikov",
+      "firstName": "Danil",
+      "id": 5
+    },
+    {
+      "email": "3413@niuitmo.ru",
+      "password": "$2a$10$GLPmrGwk6DI1.P9cBLfp5uQapf1q3jF0c1IjcXuMUJ8fODlIDqT9a",
+      "lastName": "Kostennikov",
+      "firstName": "Danil",
+      "id": 6
     }
   ],
   "events": [
     {
-      "photoPath": "./images/1.jpg",
+      "photoPath": "src/images/1.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
       "id": 1
     },
     {
-      "photoPath": "./images/2.jpg",
+      "photoPath": "src/images/2.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
       "id": 2
     },
     {
-      "photoPath": "./images/3.jpg",
+      "photoPath": "src/images/3.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
       "id": 3
     },
     {
-      "photoPath": "./images/4.jpg",
+      "photoPath": "src/images/4.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
       "id": 4
     },
     {
-      "photoPath": "./images/5.jpg",
+      "photoPath": "src/images/5.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
       "id": 5
     },
     {
-      "photoPath": "./images/6.jpg",
+      "photoPath": "src/images/6.jpg",
       "title": "Some conference",
       "date": "September 1, 18:00",
       "location": "Online",
@@ -113,6 +127,31 @@
       "eventId": 5,
       "userId": 2,
       "id": 8
+    },
+    {
+      "eventId": 1,
+      "userId": 5,
+      "id": 9
+    },
+    {
+      "eventId": 1,
+      "userId": 6,
+      "id": 10
+    },
+    {
+      "eventId": 2,
+      "userId": 6,
+      "id": 11
+    },
+    {
+      "eventId": 6,
+      "userId": 6,
+      "id": 12
+    },
+    {
+      "eventId": 5,
+      "userId": 6,
+      "id": 13
     }
   ]
 }
