@@ -1,0 +1,40 @@
+@import "./base.css";
+a,
+.green {
+    text-decoration: none;
+    color: hsla(160, 100%, 37%, 1);
+    transition: 0.4s;
+}
+
+@media (hover: hover) {
+    a:hover {
+        background-color: hsla(160, 100%, 37%, 0.2);
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.full-width {
+    width: 100%;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
