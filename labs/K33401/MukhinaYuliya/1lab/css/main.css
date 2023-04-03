@@ -1,0 +1,36 @@
+.colors {
+	color: #fff !important;
+}
+
+.nav.navbar-nav a:hover {
+color:#fff;
+}
+
+.custom-colored-h1
+{
+	color:#B22222 !important;
+}
+
+.form-select-sm {
+	border-color:#8B0000 !important;
+	color:#B22222 !important;
+}
+
+.btn-info {
+	border-color:#FF0000 !important
+}
+
+.card-img-top {
+	width: 100%;
+	object-fit:cover;
+}
+
+.card-img-crop-top {
+	width: 100%;
+	object-fit:cover;
+	object-position: top;
+}
+
+.img{
+	width: 70%
+}

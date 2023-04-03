@@ -1,0 +1,12 @@
+.help {
+	color:#B22222 !important;
+	padding-bottom: 10px;
+}
+
+.information {
+	color:#8B0000
+}
+
+.card-img-top {
+	object-fit:cover !important;
+}
