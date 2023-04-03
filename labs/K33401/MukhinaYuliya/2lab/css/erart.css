@@ -1,0 +1,14 @@
+
+.img{
+	width: 70%;
+	object-fit:cover
+}
+
+.help {
+	color:#B22222 !important;
+	padding-bottom: 10px;
+}
+
+.information {
+	color:#8B0000
+}

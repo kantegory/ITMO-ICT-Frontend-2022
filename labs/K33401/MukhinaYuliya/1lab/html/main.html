@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>lab1</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<link href="../css/main.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header class="colors">
+			<nav class="navbar navbar-expand-lg navbar-expand-xl navbar-dark" style="background-color:#F08080">
+				<div class="container">
+					<a class="navbar-brand text-white" href="./calendar.html">Календрь мероприятий</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active text-white" href="./entrance.html">Вход</a>
+							</li>
+							<li>
+								<a class="nav-link active text-white" href="./lk.html">Личный кабинет</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="container pt-5">
+			<style>
+				.fig {
+				 text-align: center;
+				}
+			 </style>
+			<h1 class="custom-colored-h1">Смотри самые актуальные мероприятия своего города!</h1>
+			<h4 class="custom-colored-h1">Можно выбрать мероприятия по категориям или посмотреть мероприятия ниже:</h4>
+			<section class="filtration">
+				<div class="container justify-content-start">
+					<div class="row mt-5 row mx-auto">
+						<div class="form col-12 col-sm-6 col-lg-4 col-md-5 col-xl-3">
+							<select class="form-select-sm" aria-label=".form-select-lg example">
+								<option selected>Какой вид занятий вам нужен?</option>
+								<option value="1">Походы</option>
+								<option value="2">Спортивные мероприятия</option>
+								<option value="3">Искусство</option>
+							</select>
+							</div>
+							<div class="form col-12 col-sm-6 col-lg-4 col-md-5 col-xl-3">
+								<select class="form-select-sm" aria-label=".form-select-lg example">
+									<option selected>Выберите станцию метро</option>
+									<option value="1">Петроградская</option>
+									<option value="2">Московские ворота</option>
+									<option value="3">Приморская</option>
+									<option value="4">Пионерская</option>
+									<option value="5">Академическая</option>
+								</select>
+							</div>
+							<div class="d-flex col-12 col-sm-2 col-lg-4 col-xl-3">
+								<button type="button" class="btn btn-info btn-sm " style="background-color: #F08080">Поиск</button>
+							</div>
+						</div>
+					</div>
+			</section>
+			<section class="container justify-content-space-between wrap mt-5 row mx-auto">
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card">
+					<img src="./pic/orang.jpeg" class="card-img-top" height="75" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Музыка в Оранжерее Таврического сада</h5>
+						<p class="card-text"><img src="./pic/location.png" width="20px"> Потёмкинская, 2, лит.Г</p>
+						<p class="card-text"><img src="./pic/metro.webp" width="20px"> Чернышевская</p>
+						<p class="card-text">23 марта прекрасная оранжерея тропических растений наполнится мелодиями новой классической 
+							музыки талантливых композиторов Азии. Их композиции звучат в любимых мультфильмах и кинофильмах: «Ходячий замок», 
+							«Унесенные Призраками», «Наруто» и д.р.</p>
+						<a href="#" class="btn btn-dark" style="background-color:#B22222">Узнать больше</a>
+					</div>
+				</div>
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card ">
+					<img src="./pic/zoomus.jpg" class="card-img-crop-top" height="75" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Юбилейная фотовыставка клуба фотоохотников</h5>
+						<p class="card-text"><img src="./pic/location.png" width="20px"> Биржевая площадь, 2</p>
+						<p class="card-text"><img src="./pic/metro.webp" width="20px"> Адмиралтейская, Спортивная, Гостиный двор,  Василеостровская</p>
+						<p class="card-text">С 18 марта по 30 августа 2023 г. в Зоологическом музее ЗИН РАН работает «Юбилейная фотовыставка», 
+							посвященная 60-летию Санкт-Петербургского клуба фотоохотников, где представлены лучшие фотографии, сделанные за последние годы.</p>
+						<a href="#" class="btn btn-dark" style="background-color:#B22222">Узнать больше</a>
+					</div>
+				</div>
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card ">
+					<img src="./pic/erarte.jpg" class="card-img-crop-top" height="75" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Талисман в дорогу</h5>
+						<p class="card-text"><img src="./pic/location.png" width="20px"> Васильевский остров, 29-я линия, дом 2, Выставочное крыло, 2 этаж </p>
+						<p class="card-text"><img src="./pic/metro.webp" width="20px"> Спортивная, Приморская, Василеостровская</p>
+						<p class="card-text">Музей современного искусства Эрарта представляет выставку «Талисман в дорогу»<br>
+							Миниатюрные скульптуры, украшавшие капоты и радиаторы автомобилей на протяжении более чем полувека
+							</p>
+						<a href="./erart.html" class="btn btn-dark" style="background-color:#B22222">Узнать больше</a>
+					</div>
+				</div>
+				<div class="col-12 col-xl-3 col-md-5 col-lg-5 card ">
+					<img src="./pic/600_475396018.webp" class="card-img-top" height="75" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Coffee Break: Microsoft BI/Data Platform online session</h5>
+						<p class="card-text"><img src="./pic/location.png" width="20px">Online</p>
+						<p class="card-text">Coffee Break - это еженедельный 15 минутный  информационный брейк.
+							Никаких демонстраций, никакой рекламы, но каждую неделю гарантированно будет актуальная информация.
+							Спикеров, как основных, так и запасных всегда много!
+							Для кого: для всех заинтересованных Microsoft Data Platformista.</p>
+						<a href="#" class="btn btn-dark" style="background-color:#B22222">Узнать больше</a>
+					</div>
+				</div>
+				</div>
+			</section>
+		</main>
+		<footer class="text-center text-white row mt-5" style="background-color:#F08080;">
+			<div class="container pt-3">
+				<section class="mb-4">
+					<a
+						class="btn btn-link btn-floating btn-lg text-dark m-1"
+						href="#!"
+						role="button"
+						data-mdb-ripple-color="dark"
+						><img src="./pic/icons8-твиттер-24.png" width="30" height="30">
+					</a>
+					<a
+						class="btn btn-link btn-floating btn-lg text-dark m-1"
+						href="#!"
+						role="button"
+						data-mdb-ripple-color="dark"
+						><img  src="./pic/icons8-instagram-24.png" width="30" height="30"></a>
+					<a
+						class="btn btn-link btn-floating btn-lg text-dark m-1"
+						href="#!"
+						role="button"
+						data-mdb-ripple-color="dark"
+						><img src="./pic/icons8-телеграмма-app-24.png" width="30" height="30"></a>
+					<a
+						class="btn btn-link btn-floating btn-lg text-dark m-1"
+						href="#!"
+						role="button"
+						data-mdb-ripple-color="dark"
+						><img src="./pic/icons8-facebook-новый-24.png" width="30" height="30"
+					></a>
+				</section>
+			</div>
+		</footer>
+	</body>
+</html>
