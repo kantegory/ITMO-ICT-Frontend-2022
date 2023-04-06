@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Main </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link href="custom.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg" style="background-color:#F5D0A9;">  
+            <div class="container">
+                <a class="navbar-brand" href="#"><b>LiveEvent</b></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-item nav-link active" href="calendar.html">Calendar </a>
+                      <a class="nav-item nav-link" href="events.html">My events</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <section class="">
+            <div class="text-center" style="background-color:bisque;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="thumbnail relative">
+                            <img src="5.jpeg" class="img-fluid" alt="">
+                            <div class="thumbnail-text font-weight-bold" style="color:azure;"><h1>ALL EVENTS</h1></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container py-4">
+                    <div class="row gy-5">
+                        <div class="com-12 justify-content-center">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>City</option>
+                                <option value="1">Moskow</option>
+                                <option value="2">Saint-Petersburg</option>
+                                <option value="3">Vladimer</option>
+                                <option value="4">Kazan</option>
+                                <option value="5">Vologda</option>
+                            </select>
+                            <br>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Type</option>
+                                <option value="1">tour</option>
+                                <option value="2">exhibition</option>
+                                <option value="3">performance</option>
+                                <option value="4">masterclass</option>
+                                <option value="5">concert</option>
+                            </select>
+                            <br>
+                            <button class="btn btn-primary">Search</button> 
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-4 align-self-center" >
+                            <div class="card" >
+                                <img class="card-img-top" src="6.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some text about a concert of extra famouse band.</p>
+                                    <p class="card-text">Place: Moscow</p>
+                                    <p class="card-text">Type: concert</p>
+                                    <a href="detaled.html" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 align-self-center" >
+                            <div class="card">
+                                <img class="card-img-top" src="8.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some text about a tour at the beautiful museum.</p>
+                                    <p class="card-text">Place: Saint-Petersburg</p>
+                                    <p class="card-text">Type: tour</p>
+                                    <a href="#" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 align-self-center" >
+                            <div class="card">
+                                <img class="card-img-top" src="9.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some text about an exhibition of modern art.</p>
+                                    <p class="card-text">Place: Kazan</p>
+                                    <p class="card-text">Type: exhibition</p>
+                                    <a href="#" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 align-self-center">
+                            <div class="card">
+                                <img class="card-img-top" src="7.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some text about a performance in new genro.</p>
+                                    <p class="card-text">Place: Vladimer</p>
+                                    <p class="card-text">Type: performance</p>
+                                    <a href="#" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 align-self-center">
+                            <div class="card">
+                                <img class="card-img-top" src="10.jpeg" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text">Some text about a masterclass.</p>
+                                    <p class="card-text">Place: Vologda</p>
+                                    <p class="card-text">Type: masterclass</p>
+                                    <a href="#" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
