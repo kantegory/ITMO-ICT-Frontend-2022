@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "image": "assets/img/cards/card1.jpg",
+        "title": "Худи оливкового цвета",
+        "price": "7.000 ₽",
+        "category": "Худи"
+    },
+    {
+        "id": 2,
+        "image": "assets/img/cards/card2.jpg",
+        "title": "Пальто свободного стиля",
+        "price": "15.000 ₽",
+        "category": "Пальто"
+    },
+    {
+        "id": 3,
+        "image": "assets/img/cards/card3.jpg",
+        "title": "Футболка зеленого цвета",
+        "price": "2.500 ₽",
+        "category": "Футболки"
+    },
+    {
+        "id": 4,
+        "image": "assets/img/cards/card4.jpg",
+        "title": "Пиджак рыжего цвета",
+        "price": "12.000 ₽",
+        "category": "Пиджаки"
+    },
+    {
+        "id": 5,
+        "image": "assets/img/cards/card5.jpg",
+        "title": "Худи белого цвета",
+        "price": "7.000 ₽",
+        "category": "Худи"
+    },
+    {
+        "id": 6,
+        "image": "assets/img/cards/card6.jpg",
+        "title": "Худи черного цвета",
+        "price": "12.000 ₽",
+        "category": "Худи"
+    },
+    {
+        "id": 7,
+        "image": "assets/img/cards/card7.jpg",
+        "title": "Пиджак черного цвета",
+        "price": "12.000 ₽",
+        "category": "Пиджаки"
+    },
+    {
+        "id": 8,
+        "image": "assets/img/cards/card8.jpg",
+        "title": "Футболка желтого цвета",
+        "price": "2.500 ₽",
+        "category": "Футболки"
+    },
+    {
+        "id": 9,
+        "image": "assets/img/cards/card9.jpg",
+        "title": "Пиджак черного цвета",
+        "price": "12.000 ₽",
+        "category": "Пиджаки"
+    },
+    {
+        "id": 10,
+        "image": "assets/img/cards/card10.jpg",
+        "title": "Пиджак синего цвета",
+        "price": "12.000 ₽",
+        "category": "Пиджаки"
+    },
+    {
+        "id": 11,
+        "image": "assets/img/cards/card11.jpg",
+        "title": "Футболка белого цвета",
+        "price": "3.500 ₽",
+        "category": "Футболки"
+    },
+    {
+        "id": 12,
+        "image": "assets/img/cards/card12.jpg",
+        "title": "Худи серого цвета",
+        "price": "12.000 ₽",
+        "category": "Худи"
+    },
+    {
+        "id": 13,
+        "image": "assets/img/cards/card13.jpg",
+        "title": "Футболка серого цвета",
+        "price": "3.500 ₽",
+        "category": "Футболки"
+    },
+    {
+        "id": 14,
+        "image": "assets/img/cards/card14.jpg",
+        "title": "Кроссовки белого цвета",
+        "price": "8.000 ₽",
+        "category": "Обувь"
+    },
+    {
+        "id": 15,
+        "image": "assets/img/cards/card15.jpg",
+        "title": "Ботинки рыжего цвета",
+        "price": "8.000 ₽",
+        "category": "Обувь"
+    },
+    {
+        "id": 16,
+        "image": "assets/img/cards/card16.jpg",
+        "title": "Туфли черные",
+        "price": "10.000 ₽",
+        "category": "Обувь"
+    }
+]
