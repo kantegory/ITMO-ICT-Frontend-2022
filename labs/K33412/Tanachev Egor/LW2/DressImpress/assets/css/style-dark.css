@@ -9,3 +9,17 @@
     --always-white-color: #fff;
     --active-color: #f31d1d;
 }
+
+svg{
+    --red-color: #f31d1d;
+    --black-color: #fff;
+}
+
+svg:hover{
+    --red-color: #f31d1d;
+    --black-color: #fff;
+}
+
+.footer__menu-social svg:hover{
+    --always-white-color: #f31d1d;
+}

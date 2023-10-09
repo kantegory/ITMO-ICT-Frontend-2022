@@ -16,15 +16,16 @@ const btn__close_registration = document.querySelector('.modal__registration .mo
 // Получаем кнопку "Войти" (submit)
 const btn__account_page = document.querySelector('.modal__account input[type="submit"]');
 
-// Получаем body
-const body = document.querySelector('body');
-
 // Открытие модального окна с входом
 btn__open_account.addEventListener('click', function(e) {
     e.preventDefault(); // Предотвращаем переход по ссылке
 
-    modal__account.classList.toggle('active');
-    body.classList.toggle('modal');
+    if (localStorage.accessToken) {
+        window.location.href = "./../../account.html"
+    } else {
+        modal__account.classList.toggle('active');
+        body.classList.toggle('modal');
+    }
 });
 
 // Открытие модального окна с регистрацией из входа
@@ -56,33 +57,74 @@ btn__close_registration.addEventListener('click', function(e) {
 });
 
 
+// АВТОРИЗАЦИЯ
 
-// Получаем форму и её элементы
-const form = document.getElementById('accountForm');
-const emailInput = form.querySelector('input[type="email"]');
-const passwordInput = form.querySelector('input[type="password"]');
+async function login(event) {
+    event.preventDefault();
 
-// Обработка события отправки формы
-form.addEventListener('submit', (e) => {
-e.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    const inputs = Array.from(event.target.querySelectorAll('input'));
 
-// Получаем данные из JSON
-fetch('https://egota1n.github.io/DressImpress/data.json')
-    .then((response) => response.json())
-    .then((data) => {
-    const users = data.users;
+    const loginData = {};
 
-    // Проверяем данные из формы с данными из JSON
-    const user = users.find((user) => user.email === emailInput.value && user.password === passwordInput.value);
-
-    if (user) {
-        // Если данные совпадают, переходим на страницу product.js
-        window.location.href = 'account.html';
-    } else {
-        alert('Неправильный email или пароль');
+    for (const input of inputs) {
+        loginData[input.name] = input.value;
     }
-    })
-    .catch((error) => {
-    console.error('Ошибка при загрузке данных из JSON', error);
+
+    const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        body: JSON.stringify(loginData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
-});
+
+    const responseJson = await response.json();
+
+    if (response.status === 200) {
+        // Авторизация успешна
+        const { accessToken, user } = responseJson;
+
+        localStorage.accessToken = accessToken;
+        localStorage.user = JSON.stringify(user);
+
+        window.location.href = './../../account.html';
+    } else {
+        // Ошибка авторизации
+        alert('Ошибка авторизации. Пожалуйста, проверьте введенные данные.');
+    }
+}
+
+
+// РЕГИСТРАЦИЯ
+
+async function registration(event) {
+    event.preventDefault()
+
+    const inputs = Array.from(event.target.querySelectorAll('input'))
+
+    const registerData = {}
+
+    for (const input of inputs) {
+        registerData[input.name] = input.value
+    }
+
+    const response = await fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        body: JSON.stringify(registerData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    const responseJson = await response.json()
+
+    if (response.status === 201) {
+        // Регистрация успешна
+        const { accessToken, user } = responseJson;
+
+        localStorage.accessToken = accessToken;
+        localStorage.user = JSON.stringify(user);
+
+        window.location.href = "./../../account.html"
+    }
+}

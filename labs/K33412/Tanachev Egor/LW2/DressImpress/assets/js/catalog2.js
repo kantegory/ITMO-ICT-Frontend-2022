@@ -1,4 +1,4 @@
-// ВЫВОД ТОВАРОВ В КАТАЛОГ
+// ВЫВОД ПОХОЖИХ ТОВАРОВ В КАТАЛОГ
 
 document.addEventListener('DOMContentLoaded', function () {
     const catalogElement = document.getElementById('catalog');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then((response) => response.json())
             .then((data) => {
                 let hoodieCount = 0; // Переменная для отслеживания количества худи
-                const maxHoodies = 4; // Максимальное количество худи
+                const maxHoodies = 4; // Максимальное количество
 
                 // Генерируем карточки товаров из данных
                 data.products.forEach((item) => {

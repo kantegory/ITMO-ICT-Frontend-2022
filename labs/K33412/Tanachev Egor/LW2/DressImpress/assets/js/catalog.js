@@ -6,6 +6,8 @@ const links = document.querySelectorAll('.header__categories-type');
 // Получаем элемент, содержимое которого мы будем изменять
 const catalogName = document.querySelector('.section__catalog-name');
 
+localStorage.catalogName = catalogName.textContent;
+
 // Добавляем обработчик события для каждой ссылки
 links.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -32,7 +34,6 @@ links.forEach(link => {
 });
 
 
-
 // ФИЛЬТРЫ 
 
 const section__catalog_size_btn = document.querySelector('.section__catalog-size-btn');
@@ -57,43 +58,58 @@ section__catalog_sort_btn.addEventListener('click', function(e) {
 
 // ВЫВОД ТОВАРОВ В КАТАЛОГ
 
-document.addEventListener('DOMContentLoaded', function () {
-    const catalogElement = document.getElementById('catalog');
+document.addEventListener('DOMContentLoaded', async function () {
+  const catalogElement = document.querySelector('#catalog');
 
-    // Функция для загрузки данных из data.json
-    function loadData() {
-        fetch('https://egota1n.github.io/DressImpress/data.json')
-            .then((response) => response.json())
-            .then((data) => {
-                // Генерируем карточки товаров из данных
-                data.products.forEach((item) => {
-                    const card = document.createElement('div');
-                    card.classList.add('section__catalog-card');
-                    
-                    const img = document.createElement('img');
-                    img.classList.add('section__catalog-card-img');
-                    img.src = item.image;
+  function getCardHtml({ id, title, price, image }) {
+      return `
+          <div class="section__catalog-card" data-card-id="${id}">
+              <img class="section__catalog-card-img" src="${image}" alt="${title}">
+              <h3 class="section__catalog-card-title">${title}</h3>
+              <p class="section__catalog-card-price">${price}</p>
+              <button class="section__catalog-card-btn" onclick="addCardFavorite(event);" data-btn-id="${id}">Нравится</button>
+          </div>
+      `;
+  }
 
-                    const title = document.createElement('h3');
-                    title.classList.add('section__catalog-card-title');
-                    title.textContent = item.title;
+  async function loadAndDisplayCards(category = "Все товары") {
+      try {
+          // Формируем URL для запроса на сервер с учетом выбранной категории
+          const url = category === "Все товары"
+              ? 'http://localhost:3000/products'
+              : `http://localhost:3000/products?category=${encodeURIComponent(category)}`;
 
-                    const price = document.createElement('p');
-                    price.classList.add('section__catalog-card-price');
-                    price.textContent = item.price;
+          // Загружаем данные из JSON-сервера
+          const response = await fetch(url);
+          if (!response.ok) {
+              throw new Error('Ошибка загрузки данных');
+          }
 
-                    card.appendChild(img);
-                    card.appendChild(title);
-                    card.appendChild(price);
+          const data = await response.json(); // Получаем данные JSON
 
-                    catalogElement.appendChild(card);
-                });
-            })
-            .catch((error) => {
-                console.error('Ошибка загрузки данных:', error);
-            });
-    }
+          // Очищаем контейнер перед загрузкой новых карточек
+          catalogElement.innerHTML = '';
 
-    // Вызываем функцию загрузки данных
-    loadData();
+          // Генерируем карточки товаров из данных
+          data.forEach((item) => { // Обращаемся к массиву data
+              const cardHtml = getCardHtml(item);
+              catalogElement.insertAdjacentHTML('beforeend', cardHtml);
+          });
+      } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+      }
+  }
+
+  // Загрузка и отображение карточек товаров при загрузке страницы
+  loadAndDisplayCards();
+
+  // Добавляем обработчик события для выбора категории
+  const categoryLinks = document.querySelectorAll('.header__categories-type');
+  categoryLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault(); // Предотвращаем переход по ссылке
+          const selectedCategory = this.textContent;
+          loadAndDisplayCards(selectedCategory);
+      });
+  });
 });
