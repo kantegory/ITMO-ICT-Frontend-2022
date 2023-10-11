@@ -1,0 +1,139 @@
+/* ACCOUNT */
+
+.section__accout{
+    display: block;
+    margin-top: 133px;
+}
+
+.section__accout-title{
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--red-color);
+    line-height: 140%;
+    margin-bottom: 24px;
+}
+
+.section__accout-info1, .section__accout-info2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.section__accout-info2{
+    margin-bottom: 116px;
+}
+
+.section__accout-name{
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black-color);
+    line-height: 140%;
+}
+
+.section__accout-phone, .section__accout-mail{
+    font-size: 18px;
+    color: var(--black-color);
+    line-height: 140%;
+}
+
+.section__accout-bonus{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--red-color);
+    line-height: 140%;
+}
+
+.section__accout-adress{
+    margin-bottom: 19px;
+}
+
+.section__accout-adress-title, .section__accout-pay-title{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black-color);
+    line-height: 140%;
+    margin-bottom: 12px;
+}
+
+.section__accout-adress input{
+    display: block;
+    width: 100%;
+    height: 44px;
+    border: 0;
+    background: var(--grey-color);
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.section__accout-adress input::-webkit-input-placeholder,
+.section__accout-adress input::-moz-placeholder,
+.section__accout-adress input:-moz-placeholder,
+.section__accout-adress input:-ms-input-placeholder{
+    color: var(--darkgrey-color);
+}
+
+.section__accout-pay input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.section__accout-pay label{
+    display: block;
+    font-size: 16px;
+    color: var(--darkgrey-color);
+    line-height: 140%;
+    margin-bottom: 14px;
+    margin-left: 26px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.section__accout-pay label::before{
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: -26px;
+    transform: translateY(-50%);
+    border: 1px solid var(--darkgrey-color);
+    border-radius: 100px;
+    transition: border 0.4s ease;
+}
+
+.section__accout-pay label:last-child{
+    margin-bottom: 0;
+}
+
+.section__accout-pay label:last-child{
+    margin-bottom: 0;
+}
+
+.section__accout .yandex-container{
+    height: 555px;
+}
+
+.ymaps-2-1-79-map ymaps{
+    border-radius: 10px;
+}
+
+input#accout-pay1:checked ~ label.accout-pay1,
+input#accout-pay2:checked ~ label.accout-pay2,
+input#accout-pay3:checked ~ label.accout-pay3{
+    color: var(--black-color);
+}
+
+input#accout-pay1:checked ~ label.accout-pay1::before,
+input#accout-pay2:checked ~ label.accout-pay2::before,
+input#accout-pay3:checked ~ label.accout-pay3::before{
+    border: 1px solid var(--red-color);
+    background: url(../img/check2.svg) center center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+}

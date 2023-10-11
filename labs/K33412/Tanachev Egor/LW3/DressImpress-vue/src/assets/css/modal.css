@@ -1,0 +1,189 @@
+/* MODAL */
+
+body.modal{
+    overflow: hidden;
+}
+
+.modal.active{
+    z-index: 200;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content{
+    padding: 100px 40px 40px 40px;
+    position: relative;
+    overflow-y: auto;
+
+    z-index: 201;
+    position: fixed;
+    top: 50%;
+    transform: translate(500px, -50%);
+    right: 0;
+    display: block;
+    height: 100vh;
+    width: 500px;
+    background: var(--white-color);
+    transition: transform 0.5s ease;
+}
+
+.modal.active .modal-content{
+    transform: translate(0, -50%);
+}
+
+.modal-close{
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-close svg path{
+    stroke: var(--red-color);
+    transition: all 0.3s ease;
+}
+
+.modal-title{
+    font-size: 24px;
+    line-height: 140%;
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+.modal-description{
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--darkgrey-color);
+    margin: 10px 0 30px 0;
+}
+
+.modal__favorites-error{
+    color: var(--black-color);
+}
+
+.modal__favorites-error.hidden{
+    display: none;
+}
+
+.modal-form input[type="email"],
+.modal-form input[type="text"],
+.modal-form input[type="phone"],
+.modal-form button,
+.modal-form input[type="password"]{
+    display: block;
+    width: 100%;
+    height: 53px;
+    margin-bottom: 10px;
+    padding: 0 25px;
+    font-family: 'Lato', sans-serif;
+    border-radius: 10px;
+    border: 0;
+    background: var(--grey-color);
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.modal-form input[type="email"]::-webkit-input-placeholder,
+.modal-form input[type="email"]::-moz-placeholder,
+.modal-form input[type="email"]:-moz-placeholder,
+.modal-form input[type="email"]:-ms-input-placeholder,
+.modal-form input[type="text"]::-webkit-input-placeholder,
+.modal-form input[type="text"]::-moz-placeholder,
+.modal-form input[type="text"]:-moz-placeholder,
+.modal-form input[type="text"]:-ms-input-placeholder,
+.modal-form input[type="phone"]::-webkit-input-placeholder,
+.modal-form input[type="phone"]::-moz-placeholder,
+.modal-form input[type="phone"]:-moz-placeholder,
+.modal-form input[type="phone"]:-ms-input-placeholder,
+.modal-form input[type="password"]::-webkit-input-placeholder,
+.modal-form input[type="password"]::-moz-placeholder,
+.modal-form input[type="password"]:-moz-placeholder,
+.modal-form input[type="password"]:-ms-input-placeholder{
+    color: var(--darkgrey-color);
+}
+
+.modal-form button{
+    width: 240px;
+    margin-bottom: 0;
+    background: var(--red-color);
+    color: var(--always-white-color);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.modal-form-btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.modal-form-description{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--darkgrey-color);
+}
+
+.modal-form-description a{
+    color: var(--black-color);
+    text-decoration: underline;
+}
+
+.modal__favorites-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal__favorites-card{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.modal__favorites-img{
+    width: 175px;
+    height: 175px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.modal__favorites-title{
+    font-size: 16px;
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+.modal__favorites-price{
+    margin: 10px 0 87px 0;
+    font-size: 16px;
+    color: var(--red-color);
+
+}
+
+.modal__favorites-btn{
+    display: block;
+    width: 110px;
+    height: 36px;
+    background: var(--red-color);
+    color: var(--always-white-color);
+    border-radius: 8px;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+}

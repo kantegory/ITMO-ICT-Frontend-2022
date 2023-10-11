@@ -1,0 +1,23 @@
+/* FONTS */
+@import '@/assets/css/fonts.css';
+/* NORMALIZE */
+@import '@/assets/css/normalize.css';
+/* HEADER */
+@import '@/assets/css/header.css';
+/* FIRST SCREEN */
+@import '@/assets/css/first_screen.css';
+/* ACCOUNT */
+@import '@/assets/css/account.css';
+/* CATALOG */
+@import '@/assets/css/catalog.css';
+/* PRODUCT */
+@import '@/assets/css/product.css';
+/* FOOTER */
+@import '@/assets/css/footer.css';
+/* MODAL */
+@import '@/assets/css/modal.css';
+/* ADAPTIVE */
+@import '@/assets/css/adaptive.css';
+
+/* DARK MODE */
+@import '@/assets/css/dark.css';

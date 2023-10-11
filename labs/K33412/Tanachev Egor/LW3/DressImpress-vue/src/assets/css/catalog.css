@@ -1,0 +1,264 @@
+/* CATALOG */
+
+.section__catalog{
+    display: block;
+    margin-top: 154px;
+}
+
+.section__catalog-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section__catalog-name{
+    font-size: 24px;
+    color: var(--red-color);
+    font-weight: 600;
+}
+
+.section__catalog-value{
+    font-size: 22px;
+    color: var(--black-color);
+}
+
+.section__catalog-btn-more{
+    display: block;
+    width: 190px;
+    height: 46px;
+    border-radius: 15px;
+    background: var(--red-color);
+    font-size: 18px;
+    font-weight: 500;
+    border: 0;
+    margin: 50px auto 0 auto;
+    color: var(--always-white-color);
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.section__catalog-btn-more:hover{
+    background: var(--active-color);
+}
+
+.section__catalog-settings{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.section__catalog-size-btn,
+.section__catalog-sort-btn{
+    font-size: 16px;
+    color: var(--darkgrey-color);
+    padding: 10px 31px 10px 20px;
+    background: var(--grey-color);
+    border-radius: 20px;
+    position: relative;
+}
+
+.active .section__catalog-size-btn,
+.active .section__catalog-sort-btn{
+    border-radius: 20px 20px 0 0;
+}
+
+.section__catalog-size-btn::before,
+.section__catalog-sort-btn::before{
+    content: '';
+    display: block;
+    width: 6px;
+    height: 5px;
+    background: url(../img/polygon.svg) center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.section__catalog-size,
+.section__catalog-sort{
+    position: relative;
+}
+
+.section__catalog-size-bulet,
+.section__catalog-sort-bulet{
+    display: none;
+}
+
+.active .section__catalog-size-bulet,
+.active .section__catalog-sort-bulet{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--grey-color);
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    border-radius: 0 0 20px 20px;
+    padding: 0 0 17px 40px;
+}
+
+.section__catalog-size-bulet input,
+.section__catalog-sort-bulet input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.section__catalog-size-bulet label,
+.section__catalog-sort-bulet label{
+    font-size: 15px;
+    color: var(--darkgrey-color);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.section__catalog-size-bulet input:checked ~ label{
+    color: var(--black-color);
+}
+
+.section__catalog-size-bulet label::before{
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--darkgrey-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.section__catalog-sort-bulet label::before{
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--darkgrey-color);
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px;
+}
+
+.section__catalog-sort-bulet input#sort-bulet1:checked ~ label.sort-bulet1::before,
+.section__catalog-sort-bulet input#sort-bulet2:checked ~ label.sort-bulet2::before,
+.section__catalog-sort-bulet input#sort-bulet3:checked ~ label.sort-bulet3::before,
+.section__catalog-sort-bulet input#sort-bulet4:checked ~ label.sort-bulet4::before{
+    border: 1px solid var(--red-color);
+    background: url(../img/check2.svg) center center;
+    background-size: 6px;
+    background-repeat: no-repeat;
+}
+
+.section__catalog-sort-bulet input#sort-bulet1:checked ~ label.sort-bulet1,
+.section__catalog-sort-bulet input#sort-bulet2:checked ~ label.sort-bulet2,
+.section__catalog-sort-bulet input#sort-bulet3:checked ~ label.sort-bulet3,
+.section__catalog-sort-bulet input#sort-bulet4:checked ~ label.sort-bulet4{
+    color: var(--black-color);
+}
+
+.section__catalog-size-bulet input:checked ~ label::before{
+    border: 1px solid var(--red-color);
+    background: url(../img/check.svg) 0.5px center;
+    background-size: 8px;
+    background-repeat: no-repeat;
+}
+
+.section__catalog-cards{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    min-height: 490px;
+}
+
+.section__catalog-card{
+    display: block;
+    width: 256px;
+}
+
+.section__catalog-card-img{
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.section__catalog-card-title{
+    margin: 15px 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.section__catalog-card-price{
+    font-size: 18px;
+    color: var(--red-color);
+}
+
+.section__catalog-card-btn {
+    display: block;
+    width: 50%;
+    height: 40px;
+    margin-top: 10px;
+    background: var(--red-color);
+    border: 0;
+    border-radius: 8px;
+    color: var(--always-white-color);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.section__catalog-filter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.section__catalog-find{
+    position: relative;
+}
+
+.section__catalog-find input{
+    display: block;
+    width: 263px;
+    height: 36px;
+    background: var(--grey-color);
+    border-radius: 20px;
+    border: 0;
+    padding: 0 20px;
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.section__catalog-find input[type="search"]::-webkit-input-placeholder,
+.section__catalog-find input[type="search"]::-moz-placeholder,
+.section__catalog-find input[type="search"]:-moz-placeholder,
+.section__catalog-find input[type="search"]:-ms-input-placeholder{
+    color: red;
+}
+
+.section__catalog-find button{
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../img/find.svg) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+}
