@@ -1,0 +1,53 @@
+/* NORMALIZE */
+
+:root {
+    --red-color: #b22222;
+    --black-color: #222;
+    --darkgrey-color: #747474;
+    --total-black-color: #000;
+    --always-black-color: #222;
+    --grey-color: #f9f9f9;
+    --white-color: #fff;
+    --always-white-color: #fff;
+    --active-color: #f31d1d;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    box-sizing: border-box;
+    outline: none;
+}
+
+svg{
+    width: 100%;
+    height: 100%;
+    transition: all 3s ease;
+}
+
+svg:hover{
+    --red-color: #f31d1d;
+    --black-color: #000;
+    --grey-color: #f31d1d;
+    --white-color: #f31d1d;
+}
+
+@media (min-width: 1400px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1140px;
+    }
+}
+
+body{
+    background: var(--white-color);
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}

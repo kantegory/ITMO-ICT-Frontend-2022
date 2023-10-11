@@ -1,0 +1,114 @@
+/* PRODUCT */
+
+.section__product{
+    margin-top: 133px;
+}
+
+.section__product-img{
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.section__product-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 23px;
+    margin-bottom: 20px;
+}
+
+.section__product-title{
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.section__product-price{
+    font-size: 22px;
+    color: var(--red-color);
+}
+
+.section__product-description{
+    font-size: 17px;
+    line-height: 140%;
+    color: var(--black-color)
+}
+
+.section__product-size-title{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--black-color)
+}
+
+.section__product-size{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.section__product-size input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.section__product-size label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10px;
+    color: var(--darkgrey-color);
+    width: 50px;
+    height: 50px;
+    background: var(--grey-color);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.section__product-size #input-size_product1:checked ~ label.input-size_product1,
+.section__product-size #input-size_product2:checked ~ label.input-size_product2,
+.section__product-size #input-size_product3:checked ~ label.input-size_product3,
+.section__product-size #input-size_product4:checked ~ label.input-size_product4{
+    background: var(--red-color);
+    color: var(--always-white-color);
+    cursor: default;
+}
+
+.section__product-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 225px;
+    height: 56px;
+    color: var(--always-white-color);
+    background: var(--red-color);
+    border-radius: 10px;
+    margin-top: 40px;
+    transition: all 0.4s ease;
+    font-size: 18px;
+    cursor: pointer;
+    border: 0;
+}
+
+.section__product-btn:hover{
+    background: var(--active-color);
+}
+
+.section__catalog.product_page{
+    margin-top: 80px;
+}
+
+.section__catalog-title.product_page{
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--black-color);
+}
+
+.section__catalog-cards {
+    min-height: 363px;
+}

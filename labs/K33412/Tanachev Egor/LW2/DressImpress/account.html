@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DressImpress – Личный кабинет</title>
+    <meta name="description" content="Исследуйте разнообразие стилей мужской одежды в каталоге DressImpress. Наш ассортимент включает в себя классическую, современную, деловую и спортивную одежду для мужчин. Выбирайте из уникальных моделей, которые подчеркнут ваш индивидуальный стиль и обеспечат комфорт в любой ситуации. Узнайте о наших акциях и специальных предложениях.">
+    <!-- SEO -->
+    <meta property="og:title" content="DressImpress – Главная">
+    <meta property="og:description" content="DressImpress – ваш источник стильной мужской одежды. Наши модели сочетают в себе индивидуальность и качество. В нашем ассортименте вы найдете разнообразие стилей, включая классическое, современное и спортивное. Покупайте с нами и обновите свой гардероб с комфортом и уверенностью. Акции и специальные предложения доступны.">
+    <meta property="og:image" content="assets/img/seo/preview1.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#b22222">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)">
+    <!-- Bootstrap Grid -->
+    <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-dark.css" media="(prefers-color-scheme: dark)">
+    <style>
+        .header__mobile-menu {
+            transform: translate(-50%, calc(-50%));
+        }
+        @media (max-width: 575.98px) {
+            .header__mobile-menu {
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <!-- header top -->
+        <div class="header-top">
+            <div class="container">
+                <a href="index.html" class="header__logo" aria-label="header__logo">
+                    <svg aria-label="svg-header__logo">
+                        <use xlink:href="./assets/img/sprite.svg#logo-header"></use>
+                    </svg>
+                </a>
+                <div class="header__menu">
+                    <a href="index.html" class="header__menu-link">Главная</a>
+                    <a href="catalog.html" class="header__menu-link">Каталог</a>
+                    <a href="#" class="header__menu-link">Доставка</a>
+                    <a href="#" class="header__menu-link">Контакты</a>
+                </div>
+                <div class="header__management">
+                    <a href="#" class="header__management-account" aria-label="header__management-account" onclick="logout()">
+                        <svg>
+                            <use xlink:href="./assets/img/sprite.svg#logout"></use>
+                        </svg>                     
+                    </a>
+                    <a href="#" class="header__management-favorite" aria-label="header__management-favorite" onclick="fetchData();">
+                        <svg aria-label="svg-btn-favorite">
+                            <use xlink:href="./assets/img/sprite.svg#favorite"></use>
+                        </svg>                            
+                    </a>
+                    <a href="#" class="header__management-cart" aria-label="header__management-cart">
+                        <svg aria-label="svg-btn-cart">
+                            <use xlink:href="./assets/img/sprite.svg#cart"></use>
+                        </svg>                      
+                    </a>
+                    <a href="#" class="header__management-menu" aria-label="header__management-menu">
+                        <div class="header__management-menu-st1"></div>
+                        <div class="header__management-menu-st2"></div>
+                        <div class="header__management-menu-st3"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HEADER MOBILE -->
+    <div class="header__mobile">
+        <div class="header__mobile-menu">
+            <a href="index.html" class="header__menu-link">Главная</a>
+            <a href="catalog.html" class="header__menu-link">Каталог</a>
+            <a href="#" class="header__menu-link">Доставка</a>
+            <a href="#" class="header__menu-link">Контакты</a>
+        </div>
+    </div>
+
+    <!-- SECTION ACCOUNT -->
+    <section class="section__accout" id="section__accout">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <h3 class="section__accout-title">Личный кабинет</h3>
+                    <div class="section__accout-info1">
+                        <h4 class="section__accout-name"></h4>
+                        <p class="section__accout-phone"></p>
+                    </div>
+                    <div class="section__accout-info2">
+                        <p class="section__accout-bonus">108 бонусов</p>
+                        <p class="section__accout-mail"></p>
+                    </div>
+                    <div class="section__accout-adress">
+                        <h5 class="section__accout-adress-title">Адрес доставки:</h5>
+                        <input type="text" placeholder="Добавить адрес доставки">
+                    </div>
+                    <div class="section__accout-pay">
+                        <h5 class="section__accout-pay-title">Способ оплаты:</h5>
+                        <input type="radio" name="accout-pay" id="accout-pay1">
+                        <label for="accout-pay1" class="accout-pay1">Наличными</label>
+                        <input type="radio" name="accout-pay" id="accout-pay2" checked>
+                        <label for="accout-pay2" class="accout-pay2">Картой курьеру</label>
+                        <input type="radio" name="accout-pay" id="accout-pay3">
+                        <label for="accout-pay3" class="accout-pay3">Оплата онлайн</label>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac659ae6330ddf5ed51914f8b5d426a2f98358c952f8f8a6c17887b8f5b78c527&amp;width=100%25&amp;height=555&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 order-1 order-md-1">
+                    <a href="index.html" class="footer__logo" aria-label="footer__logo">
+                        <svg aria-label="svg-footer__logo">
+                            <use xlink:href="./assets/img/sprite.svg#logo-footer"></use>
+                        </svg>
+                    </a>
+                    <div class="footer__description footer__chart"> 
+                        Ежедневно<br>10:00 – 20:00
+                    </div>
+                    <div class="footer__description footer__copyright">
+                        Все права защищены<br>Copyright 2023
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 order-3 order-md-2">
+                    <div class="footer__menu-title">Меню</div>
+                    <div class="footer__menu-link-row">
+                        <div class="footer__menu-link-col">
+                            <a href="index.html" class="footer__menu-link">Главная</a>
+                            <a href="catalog.html" class="footer__menu-link">Каталог</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Доставка</a>
+                            <a href="#" class="footer__menu-link">Контакты</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-4 order-4 order-md-3">
+                    <div class="footer__menu-title">Каталог</div>
+                    <div class="footer__menu-link-row footer__menu-link-row_catalog">
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Худи</a>
+                            <a href="#" class="footer__menu-link">Рубашки</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Штаны</a>
+                            <a href="#" class="footer__menu-link">Пиджаки</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Обувь</a>
+                            <a href="#" class="footer__menu-link">Аксессуры</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-12 col-lg-2 order-2 order-md-4">
+                    <div class="footer__menu-title footer__menu-title_social">Соц. сети</div>
+                    <div class="footer__menu-social">
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-vk">
+                            <svg aria-label="svg-footer__menu-social-vk">
+                                <use xlink:href="./assets/img/sprite.svg#vk"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-instagram">
+                            <svg aria-label="svg-footer__menu-social-instagram">
+                                <use xlink:href="./assets/img/sprite.svg#instagram"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-telegram">
+                            <svg aria-label="svg-footer__menu-social-telegram">
+                                <use xlink:href="./assets/img/sprite.svg#telegram"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="footer__description footer__developer">
+                        Разработка:<br>Таначев Егор
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL FAVORITES -->
+    <div class="modal modal__favorites">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="modal__favorites-btn-close">
+                <svg>
+                    <use xlink:href="./assets/img/sprite.svg#close-btn"></use>
+                </svg>
+            </button>
+            <h2 class="modal-title">Избранные</h2>
+            <p class="modal-description">Здесь находятся товары, которые вам понравились. Вы можете заказать их у нас на сайте.</p>
+            <div class="modal__favorites-cards" id="favorites-cards">
+                <!-- Favorite cards -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const header__management_menu = document.querySelector('.header__management-menu');
+        const header__mobile = document.querySelector('.header__mobile');
+
+        header__management_menu.addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвращаем переход по ссылке
+
+            header__management_menu.classList.toggle('open');
+            header__mobile.classList.toggle('open');
+        });
+    </script>
+    <script>
+        // Получение пользователя из локального хранилища
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        // Добавление имени пользователя
+        const accountNameElement = document.querySelector('.section__accout-name');
+        accountNameElement.textContent = user.name;
+        // Добавление телефона пользователя
+        const accountPhoneElement = document.querySelector('.section__accout-phone');
+        accountPhoneElement.textContent = user.phone;
+        // Добавление почты пользователя
+        const accountMailElement = document.querySelector('.section__accout-mail');
+        accountMailElement.textContent = user.email;
+
+        // Выход из личного кабинета
+        function logout() {
+            localStorage.clear()
+            window.location.href = "./catalog.html"
+        }
+    </script>
+    <script src="assets/js/favorites.js"></script>
+</body>
+</html>

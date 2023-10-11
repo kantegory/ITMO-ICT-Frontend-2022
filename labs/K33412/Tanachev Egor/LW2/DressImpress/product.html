@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DressImpress – Худи оливкового цвета</title>
+    <meta name="description" content="Исследуйте разнообразие стилей мужской одежды в каталоге DressImpress. Наш ассортимент включает в себя классическую, современную, деловую и спортивную одежду для мужчин. Выбирайте из уникальных моделей, которые подчеркнут ваш индивидуальный стиль и обеспечат комфорт в любой ситуации. Узнайте о наших акциях и специальных предложениях.">
+    <!-- SEO -->
+    <meta property="og:title" content="DressImpress – Каталог">
+    <meta property="og:description" content="Исследуйте разнообразие стилей мужской одежды в каталоге DressImpress. Наш ассортимент включает в себя классическую, современную, деловую и спортивную одежду для мужчин. Выбирайте из уникальных моделей, которые подчеркнут ваш индивидуальный стиль и обеспечат комфорт в любой ситуации. Узнайте о наших акциях и специальных предложениях.">
+    <meta property="og:image" content="assets/img/seo/preview2.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#b22222">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)">
+    <!-- Bootstrap Grid -->
+    <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-dark.css" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <!-- header top -->
+        <div class="header-top">
+            <div class="container">
+                <a href="index.html" class="header__logo" aria-label="header__logo">
+                    <svg aria-label="svg-header__logo">
+                        <use xlink:href="./assets/img/sprite.svg#logo-header"></use>
+                    </svg>
+                </a>
+                <div class="header__menu">
+                    <a href="index.html" class="header__menu-link">Главная</a>
+                    <a href="catalog.html" class="header__menu-link">Каталог</a>
+                    <a href="#" class="header__menu-link">Доставка</a>
+                    <a href="#" class="header__menu-link">Контакты</a>
+                </div>
+                <div class="header__management">
+                    <a href="#" class="header__management-account" aria-label="header__management-account">
+                        <svg aria-label="svg-btn-account">
+                            <use xlink:href="./assets/img/sprite.svg#account"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="header__management-favorite" aria-label="header__management-favorite" onclick="fetchData();">
+                        <svg aria-label="svg-btn-favorite">
+                            <use xlink:href="./assets/img/sprite.svg#favorite"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="header__management-cart" aria-label="header__management-cart">
+                        <svg aria-label="svg-btn-cart">
+                            <use xlink:href="./assets/img/sprite.svg#cart"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="header__management-menu" aria-label="header__management-menu">
+                        <div class="header__management-menu-st1"></div>
+                        <div class="header__management-menu-st2"></div>
+                        <div class="header__management-menu-st3"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HEADER MOBILE -->
+    <div class="header__mobile">
+        <div class="header__mobile-menu">
+            <a href="index.html" class="header__menu-link">Главная</a>
+            <a href="catalog.html" class="header__menu-link">Каталог</a>
+            <a href="#" class="header__menu-link">Доставка</a>
+            <a href="#" class="header__menu-link">Контакты</a>
+        </div>
+    </div>
+
+    <!-- PRODUCT -->
+    <section class="section__product">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5 col-lg-6">
+                    <img class="section__product-img" src="assets/img/cards/card1.jpg" alt="Худи оливкового цвета">
+                </div>
+                <div class="col-12 col-md-7 col-lg-6">
+                    <div class="section__product-info">
+                        <h3 class="section__product-title">Худи оливкового цвета</h3>
+                        <p class="section__product-price">7.000 ₽</p>
+                    </div>
+                    <p class="section__product-description">
+                        Наша оливковая мужская худи сочетает в себе минималистичный дизайн и функциональность. Эта худи имеет классический крой, который идеально сидит на фигуре, подчеркивая мужественные черты. Выделите свой индивидуальный стиль с этой универсальной худи, которая легко сочетается с различными стилями и нарядами.
+                    </p>
+                    <h4 class="section__product-size-title">Размер:</h4>
+                    <div class="section__product-size">
+                        <input type="radio" name="input-size_product" id="input-size_product1">
+                        <label for="input-size_product1" class="input-size_product1">S</label>
+                        <input type="radio" name="input-size_product" id="input-size_product2" checked>
+                        <label for="input-size_product2" class="input-size_product2">M</label>
+                        <input type="radio" name="input-size_product" id="input-size_product3">
+                        <label for="input-size_product3" class="input-size_product3">L</label>
+                        <input type="radio" name="input-size_product" id="input-size_product4">
+                        <label for="input-size_product4" class="input-size_product4">XL</label>
+                    </div>
+                    <button class="section__product-btn">Добавить в корзину</button>
+                </div>
+                <div class="col-12">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="section__catalog product_page" id="section__catalog">
+        <div class="container">
+            <h4 class="section__catalog-title product_page">Похожие товары</h4>
+            <div class="section__catalog-cards" id="catalog">
+                <!-- Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 order-1 order-md-1">
+                    <a href="index.html" class="footer__logo"  aria-label="footer__logo">
+                        <svg aria-label="svg-footer__logo">
+                            <use xlink:href="./assets/img/sprite.svg#logo-footer"></use>
+                        </svg>
+                    </a>
+                    <div class="footer__description footer__chart"> 
+                        Ежедневно<br>10:00 – 20:00
+                    </div>
+                    <div class="footer__description footer__copyright">
+                        Все права защищены<br>Copyright 2023
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 order-3 order-md-2">
+                    <div class="footer__menu-title">Меню</div>
+                    <div class="footer__menu-link-row">
+                        <div class="footer__menu-link-col">
+                            <a href="index.html" class="footer__menu-link">Главная</a>
+                            <a href="catalog.html" class="footer__menu-link">Каталог</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Доставка</a>
+                            <a href="#" class="footer__menu-link">Контакты</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-4 order-4 order-md-3">
+                    <div class="footer__menu-title">Каталог</div>
+                    <div class="footer__menu-link-row footer__menu-link-row_catalog">
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Худи</a>
+                            <a href="#" class="footer__menu-link">Рубашки</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Штаны</a>
+                            <a href="#" class="footer__menu-link">Пиджаки</a>
+                        </div>
+                        <div class="footer__menu-link-col">
+                            <a href="#" class="footer__menu-link">Обувь</a>
+                            <a href="#" class="footer__menu-link">Аксессуры</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-12 col-lg-2 order-2 order-md-4">
+                    <div class="footer__menu-title footer__menu-title_social">Соц. сети</div>
+                    <div class="footer__menu-social">
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-vk">
+                            <svg aria-label="svg-footer__menu-social-vk">
+                                <use xlink:href="./assets/img/sprite.svg#vk"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-instagram">
+                            <svg aria-label="svg-footer__menu-social-instagram">
+                                <use xlink:href="./assets/img/sprite.svg#instagram"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__menu-social-link" aria-label="footer__menu-social-telegram">
+                            <svg aria-label="svg-footer__menu-social-telegram">
+                                <use xlink:href="./assets/img/sprite.svg#telegram"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="footer__description footer__developer">
+                        Разработка:<br>Таначев Егор
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL ACCOUNT -->
+    <div class="modal modal__account">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="modal__account-btn-close">
+                <svg>
+                    <use xlink:href="./assets/img/sprite.svg#close-btn"></use>
+                </svg>
+            </button>
+            <h2 class="modal-title">Вход</h2>
+            <p class="modal-description">Получите доступ к эксклюзивным преимуществам учетной записи DressImpress</p>
+            <form class="modal-form" onsubmit="login(event)" id="accountForm">
+                <input name="email" type="email" placeholder="Email">
+                <input name="password" type="password" placeholder="Пароль">
+                <div class="modal-form-btn">
+                    <button type="submit">Войти</button>
+                    <p class="modal-form-description">
+                        Нет учетной записи? <a href="#">Зарегистрироваться</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL REGISTRATION -->
+    <div class="modal modal__registration">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="modal__registration-btn-close">
+                <svg>
+                    <use xlink:href="./assets/img/sprite.svg#close-btn"></use>
+                </svg>
+            </button>
+            <h2 class="modal-title">Регистрация</h2>
+            <p class="modal-description">Получите доступ к эксклюзивным преимуществам учетной записи DressImpress</p>
+            <form class="modal-form" onsubmit="registration(event)">
+                <input name="name" type="text" placeholder="Имя">
+                <input name="email" type="email" placeholder="Email">
+                <input name="phone" type="phone" placeholder="Телефон">
+                <input name="password" type="text" placeholder="Пароль">
+                <div class="modal-form-btn">
+                    <button type="submit">Создать аккаунт</button>
+                    <p class="modal-form-description">
+                        Есть учетной записи? <a href="#">Выполнить вход</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FAVORITES -->
+    <div class="modal modal__favorites">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="modal__favorites-btn-close">
+                <svg>
+                    <use xlink:href="./assets/img/sprite.svg#close-btn"></use>
+                </svg>
+            </button>
+            <h2 class="modal-title">Избранные</h2>
+            <p class="modal-description">Здесь находятся товары, которые вам понравились. Вы можете заказать их у нас на сайте.</p>
+            <div class="modal__favorites-cards" id="favorites-cards">
+                <!-- Favorite cards -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/catalog2.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/favorites.js"></script>
+</body>
+</html>

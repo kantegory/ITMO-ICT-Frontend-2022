@@ -1,0 +1,27 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --red-color: #f31d1d;
+        --black-color: #fff;
+        --darkgrey-color: #f9f9f9;
+        --always-black-color: #000;
+        --total-black-color: #fff;
+        --grey-color: #333;
+        --white-color: #222;
+        --always-white-color: #fff;
+        --active-color: #f31d1d;
+    }
+    
+    svg{
+        --red-color: #f31d1d;
+        --black-color: #fff;
+    }
+    
+    svg:hover{
+        --red-color: #f31d1d;
+        --black-color: #fff;
+    }
+    
+    .footer__menu-social svg:hover{
+        --always-white-color: #f31d1d;
+    }
+}
