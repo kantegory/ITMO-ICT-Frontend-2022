@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Список учреждений доступных для просмотра</title>
+
+  <link rel="stylesheet" href="../../static/main.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../static/icon.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../../static/icon.png"/>
+
+</head>
+<body>
+
+<script type="text/javascript">
+</script>
+
+
+
+<div id="app">
+
+<nav id="navbar-main" class="navbar is-fixed-top">
+  <div class="navbar-brand">
+    <a class="navbar-item mobile-aside-button">
+      <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+    </a>
+
+  </div>
+  <div class="navbar-brand is-right">
+    <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
+      <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
+    </a>
+  </div>
+  <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item dropdown has-divider">
+        <div class="navbar-dropdown">
+        </div>
+      </div>
+      <div class="navbar-item has-divider has-user-avatar">
+        <a class="navbar-link">
+            {% if g.user %}
+                <div class="is-user-name">{{ g.user['username'] }}</div>
+            {% endif %}
+
+        </a>
+        <a>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <a href="{{ url_for('auth.logout') }}">
+                    <button class="button blue">Выйти из аккаунта</button>
+                </a>
+            </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="is-hero-bar">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <h1 class="title">
+      Список учреждений доступных для просмотра
+    </h1>
+  </div>
+</section>
+    {% for i in court_for_view %}
+    <div class="card mb-6">
+      <header class="card-header">
+        <p class="card-header-title">
+          <span class="icon"><i class="mdi mdi-finance"></i></span>
+            {{ i[1] }}
+        <a class="card-header-icon" id="updateChart1">
+        </a>
+      </header>
+
+      <div class="card-content" >
+          <a href="/courtstat{{ i[0] }}">
+            <button class="button blue"> Посмотреть дополнительную информацию >> </button>
+          </a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </section>
+<!-- Scripts below are for demo only -->
+<script type="text/javascript" src="../../static/main.js?v=1628755089081"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+<script type="text/javascript" src="../../static/chart.sample.js"></script>
+
+
+<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+</div>
+</body>
+</html>
