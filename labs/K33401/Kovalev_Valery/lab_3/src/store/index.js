@@ -1,18 +1,21 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import photoReducer from "./slices/PhotoSlice";
-import authReducer from "./slices/AuthSlice"
-import filterReducer from "./slices/filterSlice"
-import likeReducer from "./slices/likeSlice"
+import authReducer from "./slices/AuthSlice";
+import categoriesReducer from "./slices/CategoriesSlice";
+import searchReducer from "./slices/SearchSlice";
+import profileReducer from "./slices/ProfileSlice";
+import collectionModalReducer from "./slices/CollectionModalSlice";
+
+const { combineReducers, configureStore } = require("@reduxjs/toolkit");
 
 const rootReducer = combineReducers({
-    photo: photoReducer,
     auth: authReducer,
-    filter: filterReducer,
-    like: likeReducer
-})
+    categories: categoriesReducer,
+    search: searchReducer,
+    profile: profileReducer,
+    collectionModal: collectionModalReducer
+});
 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReducer
-    })
-}
+        reducer: rootReducer,
+    });
+};
